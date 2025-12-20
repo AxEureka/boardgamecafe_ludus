@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>オープニング</title>
+<link rel="stylesheet" href="door.css">
+</head>
+<body>
+
+<!-- タイトル -->
+<h1 class="door-title">地下室に入りますか？</h1>
+<h2 class="door-subtitle">
+  こちらのお部屋では、質問にお答えいただきます。<br>
+  <span>あなたにぴったりのゲームが見つかるかもしれません。</span><br>
+　<span>ゲーム以外も…いえ、なんでもありません。</span>
+</h2>
+
+<div class="door-container">
+  <!-- 左：戻るボタン -->
+  <div class="candle-container left">
+    <div class="candle">
+      <img src="images/candle.png" alt="ろうそく" class="candle-img">
+      <img src="images/fire.png" alt="炎" class="fire">
+    </div>
+    <div class="label-paper">前のページへ</div>
+  </div>
+
+  <!-- 右：診断を始めるボタン -->
+  <div class="candle-container right">
+    <div class="candle">
+      <img src="images/candle.png" alt="ろうそく" class="candle-img">
+      <img src="images/fire.png" alt="炎" class="fire">
+    </div>
+    <div class="label-paper">診断を始める</div>
+  </div>
+</div>
+
+<!-- 暗転用オーバーレイ -->
+<div id="fade-overlay"></div>
+
+<script>
+const fadeOverlay = document.getElementById('fade-overlay');
+
+function clickEffectAndGo(url, fire) {
+  // 炎を一瞬強く光らせる
+  fire.classList.add('click-lit');
+  
+  // 少し待って暗転
+  setTimeout(() => {
+    fadeOverlay.classList.add('active');
+    
+    setTimeout(() => {
+      if(url === 'back') {
+        window.history.back();
+      } else {
+        window.location.href = url;
+      }
+    }, 800); // 暗転時間
+  }, 800); // 炎強化時間
+}
+
+document.querySelectorAll('.candle-container').forEach(container => {
+  const fire = container.querySelector('.fire');
+  
+  // ホバーで炎点灯
+  container.addEventListener('mouseenter', () => fire.classList.add('lit'));
+  container.addEventListener('mouseleave', () => fire.classList.remove('lit'));
+
+  // クリック時：ろうそくでもラベルでも反応
+  container.addEventListener('click', () => {
+    const isLeft = container.classList.contains('left');
+    clickEffectAndGo(isLeft ? 'back' : 'quiz.html', fire);
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>遊び相手一覧</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    font-family: "Georgia", serif;
+    background: url('images/fairy_bg.jpg') no-repeat center top;
+    background-size: cover;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: rgba(48, 30, 8, 0.8);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+
+ header h1 {
+  font-size: 30px; /* 好きなサイズに調整 */
+  margin: 0;
+ }
+
+  main {
+    margin: 20px auto;
+    max-width: 2000px;
+    padding: 20px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* ← 横5列に変更！ */
+    grid-template-rows: repeat(3, auto);   /* ← 縦3行（任意） */
+    gap: 20px;
+    justify-items: center; /* 中央寄せ */
+  }
+  .fairy-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  aspect-ratio: 1 / 1; /* ← 正方形に固定！ */
+}
+
+.fairy-card img {
+  width: 100%;
+  height: 100%;          /* ← 枠いっぱいに収める */
+  object-fit: cover;     /* ← トリミングして中央表示 */
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+  .fairy-card:hover img {
+    transform: scale(1.1);
+  }
+  .fairy-card::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.3);
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: 10px;
+  }
+  .fairy-card:hover::after {
+    opacity: 1;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Ludici</h1>
+</header>
+<main>
+  <div class="grid" id="fairy-grid">
+    <!-- 妖精カードをここに挿入 -->
+  </div>
+</main>
+
+<footer style="text-align:center; padding:20px; background: rgba(48,30,8,0.8); font-size: 24px;">
+  <button onclick="history.back()" style="margin-right:10px; padding:20px 40px; border-radius:5px; cursor:pointer; font-size: 24px;">
+    前のページに戻る
+  </button>
+  <button onclick="window.location.href='index.html'" style="padding:20px 40px; border-radius:5px; cursor:pointer; font-size: 24px;">
+    トップに戻る
+  </button>
+</footer>
+
+
+<script>
+  fetch('data/fairy.json')
+    .then(response => response.json())
+    .then(fairies => {
+      const grid = document.getElementById('fairy-grid');
+
+      fairies.forEach(fairy => {
+        const card = document.createElement('div');
+        card.className = 'fairy-card';
+        card.onclick = () => {
+          // クリックで fairy.html に type パラメータを渡す
+          window.location.href = `fairy.html?type=${encodeURIComponent(fairy.type)}`;
+        };
+        card.innerHTML = `
+          <img src="${fairy.image}" alt="${fairy.name}" title="${fairy.name}">
+        `;
+        grid.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById('fairy-grid').innerHTML = '<p>妖精データの読み込みに失敗しました。</p>';
+    });
+
+</script>
+</body>
+</html>

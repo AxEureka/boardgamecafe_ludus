@@ -1,0 +1,235 @@
+/* ---------- 全体 ---------- */
+body {
+  font-family: "Georgia", serif;
+  background: url('images/quiz/quiz.png') no-repeat center top;
+  background-size: cover;   /* 元の比率を維持して画面に収まる */
+  background-position: center top;
+  background-repeat: no-repeat;
+  color: #f0e6d2;
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ---------- タイトル ---------- */
+h1 {
+  margin-top: 25px;
+  font-size: 1.0em;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px #fff;
+}
+
+h1 {
+  position: relative;
+  z-index: 4; /* ブラックアウトより低い */
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.0em;
+  color: #f8f0d8;
+  text-shadow:
+    0 0 3px #fff,
+    0 0 5px rgba(255,255,255,0.3), 
+    2px 2px 5px rgba(0,0,0,0.5);
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0%   { text-shadow: 0 0 3px #fff, 0 0 5px rgba(255,255,255,0.3), 2px 2px 5px rgba(0,0,0,0.5); }
+  50%  { text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.5), 2px 2px 5px rgba(0,0,0,0.5); }
+  100% { text-shadow: 0 0 3px #fff, 0 0 5px rgba(255,255,255,0.3), 2px 2px 5px rgba(0,0,0,0.5); }
+}
+
+
+
+/* ---------- クイズコンテナ ---------- */
+#quiz-container {
+  margin-top: 40px;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("images/quiz/shelf.png") no-repeat bottom center;
+  background-size: contain;
+  padding-bottom: 200px;
+}
+
+/* ---------- 質問 ---------- */
+.question {
+  font-size: 1.3em;
+  margin-bottom: 30px;
+  text-shadow: 0 0 6px rgba(255,255,255,0.6);
+}
+
+/* ---------- 瓶 ---------- */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 60px;
+}
+
+.bottle-wrapper {
+  position: relative;
+  display: inline-block;
+  top: -20px;
+  z-index: 2;
+}
+
+.bottle {
+  width: 220px;
+  height: 320px;
+  background: url("images/quiz/bottle.png") no-repeat center/contain;
+  cursor: pointer;
+  transition: transform 0.3s;
+  position: relative;
+  z-index: 2;
+}
+
+.bottle::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 20px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  filter: blur(6px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 1;
+}
+
+.bottle:hover {
+  transform: scale(1.1) translateY(-5px);
+  z-index: 4;
+}
+.bottle:hover::after {
+  opacity: 0.3;
+  transform: translateX(-50%) scale(0.8);
+  z-index: 4;
+}
+
+.label {
+  position: absolute;
+  top: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 250, 235, 0.9);
+  color: #3a1f00;
+  font-size: 26px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 1px solid #d1bfa3;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 6;
+}
+
+/* ---------- 鍋 ---------- */
+.cauldron {
+  position: fixed;
+  bottom:-100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 820px;
+  background: url("images/quiz/cauldron.png") no-repeat center/contain;
+  z-index: 10;
+}
+
+
+/* ---------- 滴 ---------- */
+.drop {
+  position: absolute;
+  width: 20px;
+  height: 36px;
+  border-radius: 50% 50% 60% 60%;
+  background: rgba(255,26,26,0.6); /* 半透明 */
+  z-index: 2;
+}
+/* ---------- 煙 ---------- */
+.smoke {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 1000px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  display: none;
+  z-index: 20;
+  filter: blur(60px);
+}
+
+/* ---------- ブラックアウト ---------- */
+#blackout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  display: none;
+  z-index: 2; /* ← 15から下げる（質問が見えるように） */
+}
+
+/* ---------- 光るシンボル ---------- */
+.final-symbol {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(5.0); /* 1.5倍に拡大 */
+  width: 3200px;   /* 元の幅のままでもOK */
+  opacity: 0;
+  z-index: 15;
+}
+
+
+/* タイプごとの光色 */
+.glow-strategy   { filter: drop-shadow(0 0 30px red); }
+.glow-psychology { filter: drop-shadow(0 0 30px dodgerblue); }
+.glow-ogiri      { filter: drop-shadow(0 0 30px violet); }
+.glow-experience { filter: drop-shadow(0 0 30px gold); }
+.glow-cooperation{ filter: drop-shadow(0 0 30px limegreen); }
+.glow-luck       { filter: drop-shadow(0 0 30px orange); }
+
+/* ---------- 鍋の炎ゆらめき ---------- */
+.cauldron::after {
+  content: "";
+  position: absolute;
+  bottom: 210px;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: url("images/quiz/cauldron.png") no-repeat center/contain;
+  transform: scaleY(var(--flame-scale, 1)) rotate(var(--flame-rotate, 0deg));
+  transform-origin: bottom center;
+  z-index: 0;
+  opacity: 0.9;
+  clip-path: inset(70% 0 0 0);
+  transition: transform 0.2s ease-out;
+}
+
+@keyframes flameFlicker {
+  0%   { transform: scaleY(1) skewX(0deg);   filter: brightness(1); }
+  25%  { transform: scaleY(1.05) skewX(1deg); filter: brightness(1.2); }
+  50%  { transform: scaleY(0.95) skewX(-1deg); filter: brightness(0.9); }
+  75%  { transform: scaleY(1.08) skewX(-0.5deg); filter: brightness(1.1); }
+  100% { transform: scaleY(1) skewX(0deg);   filter: brightness(1); }
+}
+

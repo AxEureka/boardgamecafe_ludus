@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>遊び相手詳細</title>
+<link rel="stylesheet" href="fairy.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <h1 id="fairy-title">妖精の詳細</h1>
+</header>
+
+<main>
+  <div id="fairy-detail" class="fairy-detail">
+    <!-- 妖精情報がここに表示されます -->
+  </div>
+
+  <div class="btn-container">
+    <button onclick="history.back()">前のページに戻る</button>
+    <a href="allfairy.html">他の遊び相手を見る</a>
+  </div>
+</main>
+
+<script>
+  // URLからtypeを取得
+  const urlParams = new URLSearchParams(window.location.search);
+  const type = urlParams.get('type');
+
+  let fairy = null;          // 妖精データ保持
+  let gameLinks = [];        // リンク化したゲーム一覧
+
+  // ------------------------------
+  // 1. fairy.json を読み込む
+  // ------------------------------
+  fetch('data/fairy.json')
+    .then(response => response.json())
+    .then(fairies => {
+      fairy = fairies.find(f => f.type === type);
+
+      if (!fairy) {
+        document.getElementById('fairy-detail').innerHTML = '<p>妖精が見つかりませんでした。</p>';
+        document.getElementById('fairy-title').textContent = '妖精が見つかりません';
+        return;
+      }
+
+      // 次に games.json を読む
+      return fetch('data/games.json');
+    })
+    .then(res => res.json())
+    .then(games => {
+      if (!fairy) return;
+
+      // ---------------------------------
+      // 2. favoriteGames をリンク化する
+      // ---------------------------------
+      gameLinks = fairy.favoriteGames.map(title => {
+        const gameFound = games.find(g => g.title === title);
+
+        if (gameFound) {
+          // detail.html に飛ばすリンク
+          return `<a href="detail.html?title=${encodeURIComponent(title)}">${title}</a>`;
+        }
+        return title;
+      });
+
+      // 画面描画
+      renderFairyDetail();
+      setBodyClass(type);
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById('fairy-detail').innerHTML = '<p>データの読み込みに失敗しました。</p>';
+      document.getElementById('fairy-title').textContent = '読み込みエラー';
+    });
+
+
+  // ---------------------------------
+  // 画面描画：ここを丸ごと差し替え
+  // ---------------------------------
+  function renderFairyDetail() {
+    const container = document.getElementById('fairy-detail');
+    const title = document.getElementById('fairy-title');
+
+    title.textContent = fairy.name;
+    title.classList.add('fairy-title');
+
+    container.innerHTML = `
+      <div class="fairy-content">
+        <div class="fairy-image">
+          <img src="${fairy.image}" alt="${fairy.name}">
+        </div>
+        <div class="fairy-info">
+          <div class="catchphrase">「${fairy.catchphrase}」</div>
+          <h2 class="types">${fairy.types}</h2>
+          <p class="description">${fairy.description}</p>
+
+          <div class="section">
+            <h3>好きなゲーム</h3>
+            <p>${gameLinks.join(', ')}</p>
+
+            <div class="section">
+              <h4>好きな食べ物</h4>
+              <p>${fairy.favoriteFoods.join(', ')}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+
+  // ---------------------------------
+  // 背景用クラス（あなたの元コードそのまま）
+  // ---------------------------------
+  function setBodyClass(typeLabel) {
+    const body = document.body;
+    body.className = '';
+    if(typeLabel === "バランスタイプ") {
+      body.classList.add("balance");
+    } else {
+      const typeMap = {
+        "戦心":"red-blue","戦大":"red-purple","戦経":"red-yellow","戦協":"red-green","戦運":"red-orange",
+        "心大":"blue-purple","心経":"blue-yellow","心協":"blue-green","心運":"blue-orange",
+        "大経":"purple-yellow","大協":"purple-green","大運":"purple-orange",
+        "経協":"yellow-green","経運":"yellow-orange","協運":"green-orange"
+      };
+      const cls = typeMap[typeLabel];
+      if(cls) body.classList.add("type-"+cls);
+    }
+  }
+</script>
+
+</body>
+</html>

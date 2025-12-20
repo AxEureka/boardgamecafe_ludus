@@ -1,0 +1,150 @@
+/* -------------------- 全体 -------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  background: url('images/lab_door.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Georgia", serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* タイトル */
+.door-title {
+  font-size: 4.8em;
+  color: #f8f0d8;
+  font-family: 'Dancing Script', cursive;
+}
+
+.door-subtitle {
+  font-size: 2.0em;
+  color: #f8f0d8;
+  opacity: 0.85;
+  margin-top: -5px;
+  font-family: 'Georgia', serif;
+}
+
+/* ろうそく配置 */
+.door-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 100px;
+}
+
+/* ろうそく全体 */
+.candle-container {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.candle-container:hover {
+  transform: translateY(-6px);
+}
+
+/* 白いラベル */
+.label-paper {
+  margin-top: 10px; /* ろうそくの下に配置 */
+  background: #fffdf5;
+  border: 1px solid rgba(200,180,120,0.6);
+  border-radius: 8px;
+  padding: 16px 30px;
+  font-weight: bold;
+  font-size: 30px;  /* 基本の文字サイズ */
+  color: #3a2a14;
+  box-shadow: 2px 3px 6px rgba(0,0,0,0.25);
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
+  display: inline-block;
+}
+
+/* ろうそく画像 */
+.candle-img {
+  width: 200px;
+  user-select: none;
+}
+
+/* 炎画像 */
+.candle {
+  position: relative; /* ←これを追加 */
+}
+
+.fire {
+  position: absolute;
+  left: 22%;
+  bottom: 70%; /* ろうそくの上に置く */
+  transform: translateX(-50%);
+  width: 140px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+/* クリック時の炎：ろうそくの上で燃え広がる */
+.fire.click-lit {
+  opacity: 1;
+  animation: flame-spread 0.5s forwards;
+  transform-origin: bottom center;
+}
+
+/* クリック時の炎アニメーション */
+@keyframes flame-spread {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-50%) translateY(-5px) scale(1.2) rotate(3deg);
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(-50%) translateY(-10px) scale(1.3) rotate(-3deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-15px) scale(1.4) rotate(2deg);
+    opacity: 0.95;
+  }
+}
+
+
+/* 燃え上がり＋ゆらめきアニメーション */
+/* -------------------- 炎の揺らぎ -------------------- */
+@keyframes flameFlicker {
+  0%   { transform: scaleY(1) scaleX(1); opacity: 0.8; }
+  10%  { transform: scaleY(1.05) scaleX(1.02); opacity: 1; }
+  25%  { transform: scaleY(0.95) scaleX(0.98); opacity: 0.85; }
+  40%  { transform: scaleY(1.08) scaleX(1.03); opacity: 1; }
+  60%  { transform: scaleY(0.97) scaleX(0.97); opacity: 0.9; }
+  80%  { transform: scaleY(1.02) scaleX(1.01); opacity: 0.95; }
+  100% { transform: scaleY(1) scaleX(1); opacity: 0.9; }
+}
+
+/* 通常のホバー点灯に揺らぎを追加 */
+.fire.lit {
+  opacity: 1;
+  animation: flameFlicker 1s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* 暗転オーバーレイ */
+#fade-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease; /* 暗転をゆっくりに */
+  z-index: 1000;
+}
+
+#fade-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}

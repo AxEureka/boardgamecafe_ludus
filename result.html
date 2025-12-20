@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ボドゲタイプ診断_結果</title>
+<link rel="stylesheet" href="result.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Socius tuus</h1>
+</header>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<style>
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5em;
+  color: #f8f0d8;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+</style>
+
+
+<div class="result" id="result">
+  <div class="result-header">
+    <!-- タイプ画像と魔法陣 -->
+    <div class="type-image-container">
+      <img id="circle-image" class="circle-under" src="" alt="魔法陣">
+      <a id="type-link" href="fairy.html">
+        <img id="type-image" src="" alt="タイプ画像">
+      </a>
+    </div>
+
+    <!-- レーダーチャート -->
+    <div class="chart-container">
+      <canvas id="radarChart"></canvas>
+    </div>
+
+    <!-- タイプ名・説明 -->
+    <div class="type-text">
+      <h2 id="type-name"></h2>
+      <p class="type-desc" id="type-desc"></p>
+    </div>
+  </div>
+
+
+  <!-- おすすめゲーム -->
+  <h2 id="recommended-games-title">Puto te hoc probare</h2>
+  <div class="game-cards" id="recommended-games"></div>
+
+  <!-- ボタン -->
+  <div class="btn-container">
+    <button class="top-btn" onclick="window.location.href='index.html'">トップに戻る</button>
+    <button class="top-btn" onclick="window.location.href='door.html'">もう一度診断する</button>
+  </div>
+</div>
+
+<script>
+const TYPES = ["戦略","心理","大喜利","経験","協力","運"];
+
+const TYPE_DISPLAY_NAME = {
+  "戦心":"卓上の支配者",
+  "戦大":"卓上の破壊者",
+  "戦経":"卓上の先導者",
+  "戦協":"卓上の指揮者",
+  "戦運":"卓上の実践者",
+  "心大":"卓上の観察者",
+  "心経":"卓上の思索者",
+  "心協":"卓上の伝達者",
+  "心運":"卓上の賭博者",
+  "大経":"卓上の創造者",
+  "大協":"卓上の奉仕者",
+  "大運":"卓上の勇者",
+  "経協":"卓上の案内者",
+  "経運":"卓上の予言者",
+  "協運":"卓上の祈禱者",
+  "バランスタイプ":"卓上の調停者"
+};
+
+const TYPE_DESCRIPTIONS = {
+   "戦心":"その場の状況とプレイヤーの動向を瞬時に把握し、狙った一手で勝敗を決める。卓の流れを掌握し、確実に勝利を掴みにいく。",
+   "戦大":"その戦略は思い付きとも見える大胆さと、相手を確実に仕留める綿密さを併せ持つ。計算し尽くされた豪胆さを武器に戦う。", 
+   "戦経":"何度も戦況を分析し、過去の経験を活かしてプレイスタイルを磨いていくタイプ。最適解を冷静に把握し、最上の一手を繰り出す。",
+   "戦協":"チームの最善手を瞬時に把握し、仲間を動かす力を持つ。卓越した交渉のセンスを武器に、戦況とプレイヤーを意のままに操る。", 
+   "戦運":"一見無謀ともとれる行動の裏には、緻密な戦略に裏打ちされた自信がある。リスクを恐れない思い切りの良さが1番の武器。", 
+   "心大":"卓の空気やプレイヤーの癖を把握し、思わぬ旋風を巻き起こす。静かに卓を見つめたかと思えば、最善のタイミングで場をかき乱すことを楽しむ。", 
+   "心経":"プレイ経験の蓄積からプレイヤーの癖を把握し、じわじわと相手を追い詰める。負け始めていることを相手に気付かせない繊細さ。",
+   "心協":"仲間の心を読む能力に長け、必要な役割をいち早く把握して勝利に貢献する。相手を喜ばせることも、焦らせることも朝飯前。", 
+   "心運":"偶然の裏にある必然の積み重ねを操り、他プレイヤーの行動を読む能力に長ける。最後は運を味方につけ、計算し尽くされた逆転の一手で勝利を狙う。", 
+   "大経":"卓とプレイヤーを盛り上げる方法を把握し、誰もが楽しめるプレイ環境を創り出す。何度もプレイしたくなる居心地の良さが一番の武器", 
+   "大協":"自身の勝利よりも場の熱を重視するタイプ。柔軟な思考とサービス精神で卓に変革と調和をもたらす。他プレイヤーの楽しみが一番の楽しみでもある。", 
+   "大運":"とにもかくにも、まずは行動。代償を恐れないプレイスタイルを武器に、他のプレイヤーに先んじて勝利を掴む。ビビっている暇なんてない。", 
+   "経協":"蓄積された経験から、チームのために自分が取るべき行動を率先して行う。味方にいれば心強く、敵にしたプレイヤーは苦戦を強いられるだろう。", 
+   "経運":"過去の経験をとことん分析し、不確実な事象すら読み切って手番で取るべき行動を決定する。一歩先を読んだプレイは、常に他プレイヤーを翻弄する。", 
+   "協運":"他のプレイヤーと協力し、その卓の最適解を求めるタイプ。チームの勝利のために頑張る一方、やるだけやったら後は運、と割り切れる思い切りの良さも魅力。",
+   "バランスタイプ":"卓と気分によってプレイスタイルを巧みに変える。参加した卓にはいつも新鮮な驚きと、初めての事態をもたらすだろう。"
+};
+
+const TYPE_COLOR = { 
+  "戦略":"#ff1a1a",  
+  "心理":"#1a99ff",  
+  "大喜利":"#cc33ff", 
+  "経験":"#ffff1a",  
+  "協力":"#33ff33",  
+  "運":"#ff9933"     
+};
+
+// ----------------- 診断結果取得 -----------------
+const userScoresRaw = sessionStorage.getItem("diagnosisScores");
+if(!userScoresRaw){
+    alert("診断結果が取得できませんでした。quiz.htmlからアクセスしてください。");
+    throw new Error("No diagnosisScores in sessionStorage");
+}
+const userScores = JSON.parse(userScoresRaw);
+
+// ----------------- タイプ判定 -----------------
+function getTypeLabel(userScores){
+  const sorted = Object.entries(userScores).sort((a,b)=>b[1]-a[1]);
+  const topScore = sorted[0][1];
+  const topTypes = sorted.filter(([t,s])=>s===topScore).map(([t])=>t);
+  if(topTypes.length>=3) return "バランスタイプ";
+
+  let type1 = topTypes[0];
+  let type2 = null;
+  if(topTypes.length===1){
+    const secondScore = sorted.find(([t,s])=>s<topScore)[1];
+    const secondTypes = sorted.filter(([t,s])=>s===secondScore).map(([t])=>t);
+    type2 = secondTypes[Math.floor(Math.random()*secondTypes.length)];
+  } else if(topTypes.length===2){
+    type2 = topTypes[1];
+  }
+
+  const COMB_KEY = {
+    "戦略心理":"戦心","心理戦略":"戦心","戦略大喜利":"戦大","大喜利戦略":"戦大",
+    "戦略経験":"戦経","経験戦略":"戦経","戦略協力":"戦協","協力戦略":"戦協",
+    "戦略運":"戦運","運戦略":"戦運","心理大喜利":"心大","大喜利心理":"心大",
+    "心理経験":"心経","経験心理":"心経","心理協力":"心協","協力心理":"心協","心理運":"心運",
+    "大喜利経験":"大経","経験大喜利":"大経","大喜利協力":"大協","協力大喜利":"大協",
+    "大喜利運":"大運","運大喜利":"大運","経験協力":"経協","協力経験":"経協","経験運":"経運","運経験":"経運",
+    "協力運":"協運","運協力":"協運"
+  };
+  const key = [type1,type2].sort().join("");
+  return COMB_KEY[key] || key;
+}
+
+const typeLabel = getTypeLabel(userScores);
+document.getElementById("type-name").textContent = TYPE_DISPLAY_NAME[typeLabel] || typeLabel;
+const desc = TYPE_DESCRIPTIONS[typeLabel] || "";
+// 15文字ごとに改行を挿入
+const formattedDesc = desc.replace(/(.{15})/g, "$1<br>");
+document.getElementById("type-desc").innerHTML = formattedDesc;
+
+// ----------------- レーダーチャート -----------------
+const ctx = document.getElementById("radarChart").getContext("2d");
+
+function getChartGradient(ctx, typeLabel){
+  const grad = ctx.createLinearGradient(0,0,0,300);
+  if(typeLabel==="バランスタイプ"){
+    grad.addColorStop(0,"rgba(180,180,180,0.5)");
+    grad.addColorStop(1,"rgba(180,180,180,0.1)");
+    return grad;
+  }
+  const TYPE_MAP = {
+    "戦心":["戦略","心理"],"戦大":["戦略","大喜利"],"戦経":["戦略","経験"],"戦協":["戦略","協力"],"戦運":["戦略","運"],
+    "心大":["心理","大喜利"],"心経":["心理","経験"],"心協":["心理","協力"],"心運":["心理","運"],
+    "大経":["大喜利","経験"],"大協":["大喜利","協力"],"大運":["大喜利","運"],
+    "経協":["経験","協力"],"経運":["経験","運"],"協運":["協力","運"]
+  };
+  const colors = TYPE_MAP[typeLabel] ? TYPE_MAP[typeLabel].map(t => TYPE_COLOR[t]) : [TYPE_COLOR[typeLabel]];
+  if(colors.length<2) colors.push(colors[0]);
+  grad.addColorStop(0, colors[0]+"80");
+  grad.addColorStop(1, colors[1]+"20");
+  return grad;
+}
+
+const gradient = getChartGradient(ctx, typeLabel);
+
+const chartContainer = document.querySelector(".chart-container");
+const topTypes = Object.entries(userScores).sort((a,b)=>b[1]-a[1])[0][0];
+let smokeColor = (Object.values(userScores).filter(v=>v===Math.max(...Object.values(userScores))).length>=3) 
+                  ? "#ffffff" 
+                  : TYPE_COLOR[topTypes];
+chartContainer.style.borderColor = smokeColor;
+
+// ----------------- circle画像 -----------------
+const COLOR_TO_CIRCLE = {
+  "#ff1a1a":"circler.png",
+  "#1a99ff":"circleb.png",
+  "#ffff1a":"circley.png",
+  "#33ff33":"circleg.png",
+  "#cc33ff":"circlep.png",
+  "#ff9933":"circleo.png",
+  "#ffffff":"circlew.png"
+};
+
+let circleFile = COLOR_TO_CIRCLE[smokeColor] || "circlew.png";
+document.getElementById("circle-image").src = `images/result/circle/${circleFile}`;
+
+// ----------------- レーダーチャート生成 -----------------
+new Chart(ctx, {
+  type: "radar",
+  data: {
+    labels: TYPES,
+    datasets: [{
+      data: TYPES.map(t => userScores[t]),
+      backgroundColor: gradient,
+      borderColor: gradient,
+      borderWidth: 2
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: {
+      r: {
+        beginAtZero: true,
+        grid: { color: 'rgba(0,0,0,0.4)' },
+        angleLines: { color: 'rgba(0,0,0,0.4)' },
+        ticks: { display: false },
+        pointLabels: { color: 'white', font: { size: 14 } },
+        backgroundColor: 'rgba(128,128,128,0.3)'
+      }
+    }
+  }
+});
+
+// ----------------- タイプ画像 -----------------
+document.getElementById("type-image").src = `images/result/fairy/${typeLabel}.png`;
+
+// fairy.htmlへタイプ名を渡す
+document.getElementById("type-link").href = `fairy.html?type=${encodeURIComponent(typeLabel)}`;
+
+// ----------------- おすすめゲーム -----------------
+async function showRecommendedGames(){
+  const recDiv = document.getElementById("recommended-games");
+  recDiv.innerHTML = "";
+  try {
+    const response = await fetch("data/games.json");
+    const games = await response.json();
+
+    const userVector = TYPES.map(t => userScores[t]);
+    const gamesWithDist = games.map(g => {
+      const dist = Math.sqrt(g.vector.reduce((sum, v, i) => sum + (v - userVector[i]) ** 2, 0));
+      return { ...g, dist };
+    });
+
+    gamesWithDist.sort((a, b) => a.dist - b.dist);
+    const topGames = gamesWithDist.slice(0, 3);
+
+    topGames.forEach(g => {
+      const imageSrc = Array.isArray(g.images) ? g.images[0] : g.image; // ←ここで対応
+      const safeImage = imageSrc || "images/no_image.png"; // 画像なし時のフォールバック
+      const title = g.title || "";
+      const desc = g.desc || "";
+
+      const card = document.createElement("div");
+      card.className = "game-card";
+      card.innerHTML = `
+        <a href="detail.html?title=${encodeURIComponent(title)}">
+          <img src="${safeImage}" alt="${title || 'ボードゲーム画像'}">
+          ${title ? `<p class="game-title">${title}</p>` : ""}
+          ${desc ? `<p class="game-desc">${desc}</p>` : ""}
+        </a>
+      `;
+      recDiv.appendChild(card);
+    });
+  } catch (err) {
+    recDiv.innerHTML = "<p>ゲームの取得に失敗しました。</p>";
+    console.error(err);
+  }
+}
+showRecommendedGames();
+</script>
+</body>
+</html>

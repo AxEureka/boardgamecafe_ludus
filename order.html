@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>喫茶Ludus_メニュー</title>
+<link rel="stylesheet" href="order.css">
+</head>
+
+<body>
+
+<h1 class="page-title">ご注文はお決まりですか？</h1>
+
+<div class="book-container">
+    <div class="book"></div>
+    <button class="nav-btn" id="prev-page">&#9664;</button>
+    <button class="nav-btn" id="next-page">&#9654;</button>
+</div>
+
+<!-- popup（1つだけ） -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <span class="close" id="popup-close">&times;</span>
+
+        <div class="popup-inner" style="position: relative;">
+
+            <!-- 画像 -->
+            <img src="" alt="" id="popup-img">
+
+            <!-- タイトル -->
+            <h2 id="popup-name"></h2>
+
+            <!-- 説明文 -->
+            <p id="popup-text"></p>
+
+            <!-- ←ここが今回追加した afterline -->
+            <p id="popup-afterline" class="popup-afterline"></p>
+
+            <!-- 注文ボタン -->
+            <button id="order-btn">注文する</button>
+
+            <!-- 吹き出し -->
+            <div class="popup-bubble" id="popup-bubble"></div>
+
+        </div>
+    </div>
+</div>
+
+<button id="back-to-top">トップに戻る</button>
+
+<script src="order.js"></script>
+</body>
+</html>

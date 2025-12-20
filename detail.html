@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボードゲーム詳細</title>
+  <link rel="stylesheet" href="detail.css">
+  <style>
+    .affiliate-notice {
+      font-size: 0.9em;
+      color: #a00;
+      margin: 6px 0 12px 0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div id="game-detail" class="book-spread">
+      <!-- ゲーム情報をJSで挿入 -->
+    </div>
+  </main>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const gameTitle = urlParams.get('title');
+
+    fetch('data/games.json')
+      .then(response => response.json())
+      .then(games => {
+        const game = games.find(g => g.title === gameTitle);
+
+        if (!game) {
+          document.getElementById('game-detail').innerHTML = '<p>ゲームが見つかりませんでした。</p>';
+          return;
+        }
+
+        const container = document.getElementById('game-detail');
+
+        const images = Array.isArray(game.images) ? game.images : [game.image];
+        const image1 = images[0] || null;
+        const image2 = images[1] || null;
+        const subImages = images.slice(2);
+
+        container.innerHTML = `
+          <!-- 左ページ -->
+          <div class="left-page">
+            <p class="affiliate-notice">※このページはアフィリエイトリンクを含みます。</p>
+            <h1>${game.title}</h1>
+                       <div class="image-pair">
+              <img class="main-image" src="${image1}" alt="${game.title}">
+              ${image2 ? `<img class="second-image" src="${image2}" alt="${game.title}（別画像）">` : ""}
+            </div>
+
+            <div class="left-info-bottom">
+              <div class="genre"><strong>ジャンル:</strong> ${Array.isArray(game.genre) ? game.genre.join(', ') : game.genre}</div>
+              <div class="theme"><strong>テーマ:</strong> ${Array.isArray(game.theme) ? game.theme.join(', ') : game.theme}</div>
+            </div>
+          </div>
+
+          <!-- 右ページ -->
+          <div class="right-page">
+
+            <div class="upper-section">
+              <div class="info-wrapper">
+                <div class="info-top">
+                  <div class="players"><strong>人数：</strong> ${Array.isArray(game.players) ? game.players.join('～') + '人' : game.players + '人'}</div>
+                  <div class="time"><strong>時間:</strong> ${Array.isArray(game.time) ? game.time.join('～') + '分' : game.time + '分'}</div>
+                  <div class="mood"><strong>ムード:</strong> ${Array.isArray(game.mood) ? game.mood.join(', ') : game.mood}</div>
+                </div>
+              </div>
+
+              <div class="sub-image-wrapper">
+                <img id="sub-image" class="sub-image" src="" alt="">
+                <div class="slider-buttons">
+                  <button id="slide-up">▲</button>
+                  <button id="slide-down">▼</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="vector-box">
+              <div class="vector-item strategy">戦略：${game.vector[0]}</div>
+              <div class="vector-item psychology">心理：${game.vector[1]}</div>
+              <div class="vector-item ogiri">大喜利：${game.vector[2]}</div>
+              <div class="vector-item experience">経験：${game.vector[3]}</div>
+              <div class="vector-item cooperation">協力：${game.vector[4]}</div>
+              <div class="vector-item luck">運：${game.vector[5]}</div>
+
+               <button id="info-btn" class="info-btn">i</button>
+            </div>
+
+            <div class="section rules">
+              <h2>3行ルール</h2>
+              <ul>
+                ${game.rules.map(rule => `<li>${rule}</li>`).join('')}
+              </ul>
+            </div>
+
+         <div class="footer-block">
+  <div class="footer-line">
+    <p class="affiliate-notice">※購入リンクはアフィリエイトを含みます。</p>
+    <div id="shop-links" class="shop-links"></div>
+  </div>
+
+  <div class="action-links">
+    <a href="javascript:history.back()" class="nav-link">前のページへ戻る</a>
+    <a href="index.html" class="nav-link">トップへ戻る</a>
+  </div>
+</div>
+
+          </div>
+        `;
+
+        const shopLinksContainer = document.getElementById("shop-links");
+        const labelMap = {
+          amazon: "Amazonで購入",
+          rakuten: "楽天で購入",
+          surugaya: "駿河屋で購入",
+          official: "ゲーム詳細はこちら"
+        };
+
+        const shopLinksHTML = Object.entries(game.links)
+          .filter(([key, url]) => url && url !== "...")
+          .map(([key, url]) => 
+            `<a class="amazon-text-link shop-link ${key}" href="${url}" target="_blank">${labelMap[key]}</a>` 
+          )
+          .join("");
+
+        shopLinksContainer.innerHTML = shopLinksHTML;
+
+        let currentIndex = 0;
+        if (subImages.length > 0) {
+          document.getElementById("sub-image").src = subImages[0];
+        }
+
+        document.getElementById("slide-up")?.addEventListener("click", () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            document.getElementById("sub-image").src = subImages[currentIndex];
+          }
+        });
+
+        document.getElementById("slide-down")?.addEventListener("click", () => {
+          if (currentIndex < subImages.length - 1) {
+            currentIndex++;
+            document.getElementById("sub-image").src = subImages[currentIndex];
+          }
+        });
+
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('game-detail').innerHTML = '<p>データの読み込みに失敗しました。</p>';
+      });
+
+
+document.addEventListener("click", (e) => {
+
+  // iボタンが押された時
+  if (e.target.id === "info-btn") {
+    fetch("data/guide.json")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("info-content").innerHTML =
+          data.map(item => `
+            <div class="info-line">
+              <span class="info-title">${item.title}：</span>
+              <span class="info-text">${item.text}</span>
+            </div>
+          `).join("");
+  
+
+        document.getElementById("info-modal").classList.remove("hidden");
+      });
+  }
+
+  // ×ボタンが押された時
+  if (e.target.id === "close-modal") {
+    document.getElementById("info-modal").classList.add("hidden");
+  }
+});
+
+  </script>
+
+    <div id="info-modal" class="info-modal hidden">
+  <div class="info-window">
+    <button id="close-modal" class="close-modal">×</button>
+    <div id="info-content"></div>
+  </div>
+</div>
+
+</body>
+</html>

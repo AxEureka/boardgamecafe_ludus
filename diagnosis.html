@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ボードゲーム診断</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body { font-family:"Yu Gothic","Arial",sans-serif; background-color:#f5f1e7; margin:0; padding:20px; }
+h1,h2 { text-align:center; color:#4b3f2f; }
+.question { margin:20px 0; font-size:1.2em; }
+.buttons { text-align:center; margin-top:15px; }
+.buttons button { margin:5px; padding:12px 20px; font-size:1.1em; border:none; border-radius:8px; cursor:pointer; background:#4b3f2f; color:white; transition:0.2s; }
+.buttons button:hover { background:#2c1f0f; }
+.result { display:none; margin-top:30px; text-align:center; }
+.game-cards { display:flex; justify-content:center; gap:15px; margin-top:20px; flex-wrap:wrap; }
+.game-card { background:white; padding:10px; border-radius:8px; box-shadow:2px 2px 8px rgba(0,0,0,0.2); max-width:200px; cursor:pointer; text-align:center; }
+.game-card img { max-width:100%; border-radius:6px; }
+.btn-container { display:flex; justify-content:center; gap:15px; margin-top:20px; }
+.top-btn { padding:10px 20px; background:#4b3f2f; color:white; border:none; border-radius:6px; cursor:pointer; }
+.top-btn:hover { background:#2c1f0f; }
+.result-header { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; align-items:center; }
+.chart-container { width:300px; height:300px; }
+.type-desc { max-width:400px; text-align:left; }
+</style>
+</head>
+<body>
+
+<h1>ボードゲーム診断</h1>
+<div id="quiz-container"></div>
+
+<div class="result" id="result">
+  <div class="result-header">
+    <div class="chart-container">
+      <canvas id="radarChart"></canvas>
+    </div>
+    <div>
+      <h2 id="type-name"></h2>
+      <p class="type-desc" id="type-desc"></p>
+    </div>
+  </div>
+
+  <h2>おすすめゲーム</h2>
+  <div class="game-cards" id="recommended-games"></div>
+
+  <div class="btn-container">
+    <button class="top-btn" id="retry-btn">もう一度診断する</button>
+    <button class="top-btn" onclick="window.location.href='index.html'">トップに戻る</button>
+  </div>
+</div>
+
+<script>
+// ----------------- 質問データ -----------------
+const QUESTIONS = [
+  "1) 計画を立てて物事を進めるのが好きですか？",
+  "2) 人の気持ちを読むのが得意だと思いますか？",
+  "3) 予定よりもその場のノリで行動することが好きですか？",
+  "4) 慣れている作業をじっくりやることが好きですか？",
+  "5) チームで協力して物事を進めることが得意ですか？",
+  "6) 運試しや偶然の結果を楽しむことがありますか？",
+  "7) 目標達成のために作戦を練るのが好きですか？",
+  "8) 人の行動を予測して行動することが得意ですか？",
+  "9) 人を笑わせようとしてしまうことがありますか？",
+  "10) 正確な理解よりも大まかな雰囲気を掴みたい方ですか？",
+  "11) 勝ち負けよりもその場の交流を楽しみたいですか？",
+  "12) 自分は運がいい方だと思いますか？"
+];
+const QUESTION_TYPE_MAP = ["戦略","心理","大喜利","経験","協力","運","戦略","心理","大喜利","経験","協力","運"];
+const TYPES = ["戦略","心理","大喜利","経験","協力","運"];
+const ANSWERS = [
+  {text:"いいえ", value:0},
+  {text:"どちらかというといいえ", value:0.5},
+  {text:"どちらでもない", value:1},
+  {text:"どちらかというとはい", value:1.5},
+  {text:"はい", value:2}
+];
+
+const TYPE_DESCRIPTIONS = {
+   "戦心":"他のプレイヤーを手のひらで転がす",
+   "戦大":"勝ちパターンを瞬時に把握", 
+   "戦経":"プレイすればするほど戦略が磨かれる",
+   "戦協":"チームの司令塔として活躍", 
+   "戦運":"やるだけやったら後は神のみぞ知る", 
+   "心大":"その場の空気を読んだアドリブが得意", 
+   "心経":"プレイヤーのくせを掴んで活躍",
+   "心協":"仲間を勝利に導く立役者", 
+   "心運":"偶然すらもコントロール", 
+   "大経":"発想力豊かに卓を引っ張る", 
+   "大協":"みんなを楽しませることが得意", 
+   "大運":"我が道を行くタイプ、ハマればラッキー", 
+   "経協":"みんながあなたについていく", 
+   "経運":"運を引き寄せるだけの準備が大事", 
+   "協運":"頑張った後はみんなでお祈り",
+   "バランスタイプ":"バランス良く卓を楽しむタイプ"
+};
+
+// ----------------- 初期設定 -----------------
+let userScores = {戦略:0,心理:0,大喜利:0,経験:0,協力:0,運:0};
+let currentQuestion = 0;
+
+// ----------------- 質問表示 -----------------
+function showQuestion(){
+  const container = document.getElementById("quiz-container");
+  container.innerHTML = "";
+  if(currentQuestion >= QUESTIONS.length){
+    showResult();
+    return;
+  }
+  const qDiv = document.createElement("div");
+  qDiv.className = "question";
+  qDiv.textContent = QUESTIONS[currentQuestion];
+  container.appendChild(qDiv);
+
+  const btnDiv = document.createElement("div");
+  btnDiv.className = "buttons";
+  ANSWERS.forEach(ans=>{
+    const btn = document.createElement("button");
+    btn.textContent = ans.text;
+    btn.onclick = ()=>selectAnswer(ans.value);
+    btnDiv.appendChild(btn);
+  });
+  container.appendChild(btnDiv);
+}
+
+// ----------------- 回答選択 -----------------
+function selectAnswer(value){
+  const type = QUESTION_TYPE_MAP[currentQuestion];
+  userScores[type] += value;
+  currentQuestion++;
+  showQuestion();
+}
+
+// ----------------- タイプ判定 -----------------
+function getTypeLabel(){
+  const sorted = Object.entries(userScores).sort((a,b)=>b[1]-a[1]);
+  const topScore = sorted[0][1];
+  const topTypes = sorted.filter(([t,s])=>s===topScore).map(([t])=>t);
+
+  if(topTypes.length>=3) return "バランスタイプ";
+
+  let type1 = topTypes[0];
+  let type2 = null;
+
+  if(topTypes.length===1){
+    const secondScore = sorted.find(([t,s])=>s<topScore)[1];
+    const secondTypes = sorted.filter(([t,s])=>s===secondScore).map(([t])=>t);
+    type2 = secondTypes[Math.floor(Math.random()*secondTypes.length)];
+  } else if(topTypes.length===2){
+    type1 = topTypes[0];
+    type2 = topTypes[1];
+  }
+
+  const COMB_KEY = {
+    "戦略心理":"戦心", "心理戦略":"戦心","戦略大喜利":"戦大","大喜利戦略":"戦大","戦略経験":"戦経","経験戦略":"戦経","戦略協力":"戦協",
+    "協力戦略":"戦協","戦略運":"戦運","運戦略":"戦運","心理大喜利":"心大","大喜利心理":"心大","心理経験":"心経","経験心理":"心経","心理協力":"心協",
+    "心理運":"心運","大喜利経験":"大経","大喜利協力":"大協","大喜利運":"大運",
+    "協力心理":"心協","経験協力":"経協","協力経験":"経協","経験運":"経運","運経験":"経運","協力運":"協運","運協力":"協運"
+  };
+  const key = [type1,type2].sort().join("");
+  return COMB_KEY[key] || key;
+}
+
+// ----------------- 結果表示 -----------------
+async function showResult(){
+  document.getElementById("quiz-container").style.display="none";
+  document.getElementById("result").style.display="block";
+
+  const typeLabel = getTypeLabel();
+  document.getElementById("type-name").textContent = typeLabel;
+  document.getElementById("type-desc").textContent = TYPE_DESCRIPTIONS[typeLabel] || "";
+
+
+// 結果をセッションに保存（詳細ページ→戻る用）
+sessionStorage.setItem("diagnosisResult", JSON.stringify({
+  scores: userScores,
+  typeLabel: typeLabel
+}));
+
+  // ----------------- レーダーチャート -----------------
+  const ctx = document.getElementById("radarChart").getContext("2d");
+
+  if(window.myRadarChart){
+    window.myRadarChart.destroy();
+  }
+
+  window.myRadarChart = new Chart(ctx,{
+    type:"radar",
+    data:{
+      labels:TYPES,
+      datasets:[{
+        label:"あなたのスコア",
+        data:TYPES.map(t=>userScores[t]),
+        backgroundColor:"rgba(75,192,192,0.2)",
+        borderColor:"rgba(75,192,192,1)",
+        borderWidth:2
+      }]
+    },
+    options:{
+      scales:{ r:{ beginAtZero:true, ticks:{display:false} } }
+    }
+  });
+
+  // ----------------- ゲーム推薦 -----------------
+  const recDiv = document.getElementById("recommended-games");
+  recDiv.innerHTML = "";
+
+  try{
+    const response = await fetch("data/games.json");
+    const games = await response.json();
+    const userVector = TYPES.map(t=>userScores[t]);
+    const gamesWithDist = games.map(g=>{
+      const dist = Math.sqrt(g.vector.reduce((sum,v,i)=>sum + (v-userVector[i])**2,0));
+      return {...g, dist};
+    });
+    gamesWithDist.sort((a,b)=>a.dist-b.dist);
+    const topGames = gamesWithDist.slice(0,3);
+
+    topGames.forEach(g=>{
+      const card = document.createElement("div");
+      card.className="game-card";
+      card.innerHTML=`
+        <a href="detail.html?title=${encodeURIComponent(g.title)}">
+          <img src="${g.image}" alt="${g.title}">
+          <p>${g.title}</p>
+          <p>${g.desc}</p>
+        </a>
+      `;
+      recDiv.appendChild(card);
+    });
+
+  } catch(err){
+    recDiv.innerHTML="<p>ゲームの取得に失敗しました</p>";
+    console.error(err);
+  }
+}
+
+// 診断結果ページでおすすめゲームカードをクリックしたとき
+document.querySelectorAll(".game-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const title = card.getAttribute("data-title");
+    // 現在の診断結果を保存（userScoresやタイプなど）
+    sessionStorage.setItem("diagnosisResult", JSON.stringify({
+      scores: userScores,
+      topTypes: [top1, top2],  // 結果タイプを保存
+      recommended: recommendedGames  // 表示していたおすすめリストも保存可能
+    }));
+    window.location.href = `detail.html?title=${encodeURIComponent(title)}`;
+  });
+});
+
+
+// ----------------- 再診断 -----------------
+document.getElementById("retry-btn").addEventListener("click", () => {
+  currentQuestion = 0;
+  userScores = {戦略:0,心理:0,大喜利:0,経験:0,協力:0,運:0};
+  document.getElementById("result").style.display = "none";
+  document.getElementById("quiz-container").style.display = "block";
+
+  // レーダーチャート破棄
+  if(window.myRadarChart){
+    window.myRadarChart.destroy();
+    window.myRadarChart = null;
+  }
+
+  // おすすめゲームも空に
+  document.getElementById("recommended-games").innerHTML = "";
+
+  showQuestion();
+});
+
+// ----------------- 初期表示 -----------------
+showQuestion();
+</script>
+
+</body>
+</html>

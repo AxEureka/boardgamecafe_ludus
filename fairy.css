@@ -1,0 +1,459 @@
+/* =========================
+   共通スタイル
+========================= */
+body {
+  font-family: "Georgia", serif;
+  color: #333;
+  font-size: 26px;
+  margin: 0;
+  padding: 0;
+  transition: background 1s ease;
+  min-height: 100vh;       /* 最低でも画面高さ */
+  overflow-y: auto;        /* 縦スクロールを有効に */
+}
+
+
+/* =========================
+   キャッチフレーズタイプ別カラー
+
+========================= */
+body.balance .catchphrase {
+  font-weight: bold;
+  color: #40c0ff; /* 文字色を氷の水色に */
+  -webkit-text-stroke: 1.5px #a0e0ff; /* 文字縁を少し明るめの水色に */
+  text-shadow: 
+    0 0 2px #a0e0ff,
+    0 0 4px rgba(160,224,255,0.6); /* 縁取りと透明感 */
+}
+
+/* 戦略(赤) + 心理(青) */
+body.type-red-blue .catchphrase {
+  background: linear-gradient(90deg, #ff1a1a, #1a99ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 戦略(赤) + 大喜利(紫) */
+body.type-red-purple .catchphrase {
+  background: linear-gradient(90deg, #ff1a1a, #cc33ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 戦略(赤) + 経験(黄) */
+body.type-red-yellow .catchphrase {
+  background: linear-gradient(90deg, #ff1a1a, #ffff1a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 戦略(赤) + 協力(緑) */
+body.type-red-green .catchphrase {
+  background: linear-gradient(90deg, #ff1a1a, #33ff33);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 戦略(赤) + 運(オレンジ) */
+body.type-red-orange .catchphrase {
+  background: linear-gradient(90deg, #ff1a1a, #ff9933);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 心理(青) + 大喜利(紫) */
+body.type-blue-purple .catchphrase {
+  background: linear-gradient(90deg, #1a99ff, #cc33ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 心理(青) + 経験(黄) */
+body.type-blue-yellow .catchphrase {
+  background: linear-gradient(90deg, #1a99ff, #ffff1a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 心理(青) + 協力(緑) */
+body.type-blue-green .catchphrase {
+  background: linear-gradient(90deg, #1a99ff, #33ff33);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 心理(青) + 運(オレンジ) */
+body.type-blue-orange .catchphrase {
+  background: linear-gradient(90deg, #1a99ff, #ff9933);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 大喜利(紫) + 経験(黄) */
+body.type-purple-yellow .catchphrase {
+  background: linear-gradient(90deg, #cc33ff, #ffff1a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 大喜利(紫) + 協力(緑) */
+body.type-purple-green .catchphrase {
+  background: linear-gradient(90deg, #cc33ff, #33ff33);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 大喜利(紫) + 運(オレンジ) */
+body.type-purple-orange .catchphrase {
+  background: linear-gradient(90deg, #cc33ff, #ff9933);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 経験(黄) + 協力(緑) */
+body.type-yellow-green .catchphrase {
+  background: linear-gradient(90deg, #ffff1a, #33ff33);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 経験(黄) + 運(オレンジ) */
+body.type-yellow-orange .catchphrase {
+  background: linear-gradient(90deg, #ffff1a, #ff9933);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 協力(緑) + 運(オレンジ) */
+body.type-green-orange .catchphrase {
+  background: linear-gradient(90deg, #33ff33, #ff9933);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+
+/* ヘッダー */
+header {
+  background: rgba(48, 30, 8, 0.8);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* メインコンテンツ */
+main {
+  background: rgba(255, 255, 255, 0.9);
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1800px;
+  border-radius: 10px;
+  min-height: 800px; 
+ }
+
+/* 妖精コンテンツ */
+.fairy-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.fairy-image img {
+  max-width: 600px;
+  min-height: 600px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(80, 40, 10, 0.3);
+}
+
+.fairy-info {
+  flex: 1;
+  min-width: 400px;
+  text-align: left;
+}
+
+.catchphrase {
+  font-size: 2.0em;
+  font-style: italic;
+  color: #b35a00;
+  margin-bottom: 10px;
+}
+
+.types {
+  font-size: 1.5em;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size:1.25em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.section h3,
+.section h4 {
+  font-size: 1.3em; /* 両方同じサイズに揃える */
+  margin-bottom: 10px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 4px;
+}
+.section p {
+  margin: 0;
+}
+
+.btn-container button,
+.btn-container a {
+  display: inline-flex;      /* ← 高さを合わせる秘密！ */
+  align-items: center;       /* ← 文字を中央に */
+  justify-content: center;   /* ← 横も中央に */
+  height: 60px;              /* ← 固定の高さを与える */
+  padding: 0 25px;           /* ← 横の余白だけにする */
+  font-size: 24px;
+  font-family: inherit;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: #ff9900;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-container button:hover,
+.btn-container a:hover {
+  background-color: #cc7a00;
+}
+
+.btn-container {
+  text-align: center;
+  margin-top: 40px; /* ← 上に余白を追加 */
+}
+
+
+/* =========================
+   背景タイプごと
+========================= */
+
+/* バランスタイプ */
+body.balance {
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.8), rgba(245,245,245,0.6)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 戦略(赤) + 心理(青) */
+body.type-red-blue {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,26,26,0.25), rgba(26,153,255,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 戦略(赤) + 大喜利(紫) */
+body.type-red-purple {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,26,26,0.25), rgba(204,51,255,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 戦略(赤) + 経験(黄) */
+body.type-red-yellow {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,26,26,0.25), rgba(255,255,26,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 戦略(赤) + 協力(緑) */
+body.type-red-green {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,26,26,0.25), rgba(51,255,51,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 戦略(赤) + 運(オレンジ) */
+body.type-red-orange {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,26,26,0.25), rgba(255,153,51,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 心理(青) + 大喜利(紫) */
+body.type-blue-purple {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(26,153,255,0.25), rgba(204,51,255,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 心理(青) + 経験(黄) */
+body.type-blue-yellow {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(26,153,255,0.25), rgba(255,255,26,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 心理(青) + 協力(緑) */
+body.type-blue-green {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(26,153,255,0.25), rgba(51,255,51,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 心理(青) + 運(オレンジ) */
+body.type-blue-orange {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(26,153,255,0.25), rgba(255,153,51,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 大喜利(紫) + 経験(黄) */
+body.type-purple-yellow {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(204,51,255,0.25), rgba(255,255,26,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 大喜利(紫) + 協力(緑) */
+body.type-purple-green {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(204,51,255,0.25), rgba(51,255,51,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 大喜利(紫) + 運(オレンジ) */
+body.type-purple-orange {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(204,51,255,0.25), rgba(255,153,51,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 経験(黄) + 協力(緑) */
+body.type-yellow-green {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,26,0.25), rgba(51,255,51,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 経験(黄) + 運(オレンジ) */
+body.type-yellow-orange {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,26,0.25), rgba(255,153,51,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* 協力(緑) + 運(オレンジ) */
+body.type-green-orange {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(51,255,51,0.25), rgba(255,153,51,0.25)),
+    url('images/fairy_bg.jpg') no-repeat center top;
+  background-size: cover;
+}
+
+/* タイトルだけ筆記体・魔法書風スタイル */
+.fairy-title {
+  font-family: 'Dancing Script', cursive; /* 筆記体フォント */
+  font-size: 2.5em;                         /* 少し控えめに */
+  font-weight: 400;                        /* 細めに設定 */
+  color: #ffffff;                          /* 白色に */
+  text-shadow: 
+       0 0 1px #ffffff,
+       0 0 3px #fff8e1,
+       0 0 6px rgba(255,255,255,0.5);
+}
+
+/* 魔法風アニメーション */
+@keyframes fairyGlow {
+  0% {
+    text-shadow: 0 0 1px #fff, 0 0 3px #fff8e1, 0 0 6px rgba(255,255,255,0.5);
+    transform: rotate(0deg);
+  }
+  25% {
+    text-shadow: 0 0 2px #fff, 0 0 5px #fff8e1, 0 0 10px rgba(255,255,255,0.5);
+    transform: rotate(-1deg);
+  }
+  50% {
+    text-shadow: 0 0 1px #fff, 0 0 3px #fff8e1, 0 0 6px rgba(255,255,255,0.5);
+    transform: rotate(0deg);
+  }
+  75% {
+    text-shadow: 0 0 2px #fff, 0 0 5px #fff8e1, 0 0 10px rgba(255,255,255,0.5);
+    transform: rotate(1deg);
+  }
+  100% {
+    text-shadow: 0 0 1px #fff, 0 0 3px #fff8e1, 0 0 6px rgba(255,255,255,0.5);
+    transform: rotate(0deg);
+  }
+}
+
+/* =====================
+   タイトル筆記体・魔法書風
+===================== */
+/* fairy-title の揺れアニメーションを削除して波紋だけに */
+.fairy-title {
+  position: relative;
+  display: inline-block;
+ }
+
+.fairy-title .ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transform: translate(-50%, -50%);
+  animation: rippleAnim 3s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes rippleAnim {
+  0% { width: 0; height: 0; opacity: 0.5; }
+  50% { width: 80px; height: 80px; opacity: 0.3; }
+  100% { width: 120px; height: 120px; opacity: 0; }
+}
+
+/* タイトル文字に光が流れるエフェクト */
+.fairy-title {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #ffffff, #fff8e1, #ffffff);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}

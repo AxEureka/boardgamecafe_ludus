@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ボードゲーム検索</title>
+<link rel="stylesheet" href="search.css">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <h2>なにして遊ぼうか？</h2>
+</header>
+
+<main>
+  <!-- 🔍 検索入力 -->
+  <div class="section search-row">
+    <input type="text" id="keyword" placeholder="ゲーム名で検索">
+    <button id="search-button" class="search-btn">検索</button>
+    <button id="catalog-button" class="search-btn">目録を見る</button>
+  </div>
+
+  <!-- 👥 人数 -->
+  <div class="section">
+    <label><strong>人数</strong></label>
+    <div class="checkbox-group" id="player-options">
+      <label><input type="checkbox" value="2">2人で</label>
+      <label><input type="checkbox" value="3-4">1テーブル(3～4人)</label>
+      <label><input type="checkbox" value="5-6">みんなで(5～6人)</label>
+      <label><input type="checkbox" value="7+">集まれ!(7人以上)</label>
+    </div>
+  </div>
+
+  <!-- ⏱ 時間 -->
+  <div class="section">
+    <label><strong>時間</strong></label>
+    <div class="checkbox-group" id="time-options">
+      <label><input type="checkbox" value="0-10">さくっと(～10分)</label>
+      <label><input type="checkbox" value="11-30">じっくり(～30分)</label>
+      <label><input type="checkbox" value="31-60">がっつり(～60分)</label>
+      <label><input type="checkbox" value="61+">たっぷり(60分～)</label>
+    </div>
+  </div>
+
+  <!-- 🎭 気分 -->
+  <div class="section">
+    <label><strong>気分</strong></label>
+    <div class="checkbox-group" id="mood-options">
+      <label><input type="checkbox" value="バチバチ">バチバチ</label>
+      <label><input type="checkbox" value="わいわい">わいわい</label>
+      <label><input type="checkbox" value="集中">集中</label>
+      <label><input type="checkbox" value="没入">没入</label>
+      <label><input type="checkbox" value="ドキドキ">ドキドキ</label>
+      <label><input type="checkbox" value="なるほど">なるほど</label>
+    </div>
+  </div>
+
+  <!-- 🧩 ジャンル -->
+  <div class="section">
+    <label><strong>ジャンル</strong></label>
+    <div class="checkbox-group" id="genre-options">
+      <label><input type="checkbox" value="ボード">ボード</label>
+      <label><input type="checkbox" value="カード">カード</label>
+      <label><input type="checkbox" value="ダイス">ダイス</label>
+      <label><input type="checkbox" value="小道具">小道具</label>
+      <label><input type="checkbox" value="デッキ構築">デッキ構築</label>
+      <label><input type="checkbox" value="陣取り">陣取り</label>
+      <label><input type="checkbox" value="トリックテイキング">トリックテイキング</label>
+      <label><input type="checkbox" value="脱落あり">脱落あり</label>
+      <label><input type="checkbox" value="役職">役職</label>
+      <label><input type="checkbox" value="隠匿">隠匿</label>
+      <label><input type="checkbox" value="心理戦">心理戦</label>
+      <label><input type="checkbox" value="会話">会話</label>
+      <label><input type="checkbox" value="大喜利">大喜利</label>
+      <label><input type="checkbox" value="チーム戦">チーム戦</label>
+      <label><input type="checkbox" value="運ゲー">運ゲー</label>
+      <label><input type="checkbox" value="アクション">アクション</label>
+      <label><input type="checkbox" value="パーティー">パーティー</label>
+    </div>
+  </div>
+
+  <!-- 🏷 テーマ -->
+  <div class="section">
+    <label><strong>テーマ</strong></label>
+    <div class="checkbox-group" id="theme-options">
+      <label><input type="checkbox" value="推理">推理</label>
+      <label><input type="checkbox" value="ホラー">ホラー</label>
+      <label><input type="checkbox" value="ファンタジー">ファンタジー</label>
+      <label><input type="checkbox" value="学園">学園</label>
+      <label><input type="checkbox" value="日常">日常</label>
+      <label><input type="checkbox" value="非日常">非日常</label>
+      <label><input type="checkbox" value="バトル">バトル</label>
+      <label><input type="checkbox" value="恋愛">恋愛</label>
+      <label><input type="checkbox" value="文学">文学</label>
+      <label><input type="checkbox" value="神話">神話</label>
+      <label><input type="checkbox" value="童話">童話</label>
+      <label><input type="checkbox" value="アート">アート</label>
+      <label><input type="checkbox" value="鑑賞">鑑賞</label>
+      <label><input type="checkbox" value="開拓">開拓</label>
+      <label><input type="checkbox" value="交渉">交渉</label>
+      <label><input type="checkbox" value="経済">経済</label>
+      <label><input type="checkbox" value="数字">数字</label>
+      <label><input type="checkbox" value="医療">医療</label>
+      <label><input type="checkbox" value="宇宙">宇宙</label>
+      <label><input type="checkbox" value="海">海</label>
+      <label><input type="checkbox" value="動物">動物</label>
+      <label><input type="checkbox" value="植物">植物</label>
+      <label><input type="checkbox" value="食べ物・飲み物">食べ物・飲み物</label>
+    </div>
+  </div>
+
+  <!-- 🏢 ブランド -->
+  <div class="section">
+    <label><strong>ブランド</strong></label>
+    <div class="checkbox-group" id="brand-options">
+      <label><input type="checkbox" value="アークライト">アークライト</label>
+      <label><input type="checkbox" value="オインクゲームズ">オインクゲームズ</label>
+      <label><input type="checkbox" value="Group SNE">Group SNE</label>
+      <label><input type="checkbox" value="幻冬舎">幻冬舎</label>
+      <label><input type="checkbox" value="すごろくや">すごろくや</label>
+      <label><input type="checkbox" value="ニューゲームズオーダー">ニューゲームズオーダー</label>
+      <label><input type="checkbox" value="ホビージャパン">ホビージャパン</label>
+      <label><input type="checkbox" value="メビウスゲームズ">メビウスゲームズ</label>
+      <label><input type="checkbox" value="その他">その他</label>
+    </div>
+  </div>
+
+  <div class="btn-container">
+    <button id="clear-button" class="top-btn">条件クリア</button>
+    <button id="top-button" class="top-btn">トップに戻る</button>
+  </div>
+
+</main>
+
+<!-- 🌙 オーバーレイ -->
+<div id="result-overlay" class="overlay hidden">
+  <div class="overlay-bg"></div>
+  <div class="overlay-content">
+    <button id="close-overlay" class="close-btn">✕</button>
+    <div id="search-results"></div>
+  </div>
+</div>
+
+<script>
+function escapeHtml(s){
+  return (s||"").replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+function createGameCard(game) {
+  const card = document.createElement("div");
+  card.className = "game-card";
+  const imageSrc = Array.isArray(game.images) ? game.images[0] : game.image || 'images/no_image.png';
+  card.innerHTML = `
+    <a href="detail.html?title=${encodeURIComponent(game.title)}">
+      <img src="${imageSrc}" alt="${game.title}">
+      <p class="game-title">${game.title}</p>
+      <p class="game-desc">${game.desc}</p>
+    </a>
+  `;
+  return card;
+}
+
+function getCheckedValues(id){
+  return Array.from(document.querySelectorAll(`#${id} input:checked`)).map(el=>el.value);
+}
+
+function matchesRange(valueRange, filters){
+  return filters.some(f=>{
+    if(f.endsWith("+")){
+      const min = parseInt(f);
+      return valueRange[1] >= min;
+    }
+    const [minStr,maxStr] = f.split("-");
+    const min = parseInt(minStr);
+    const max = maxStr ? parseInt(maxStr) : min;
+    return valueRange[0] <= max && valueRange[1] >= min;
+  });
+}
+
+function renderResults(games){
+  const overlay = document.getElementById("result-overlay");
+  const resultsDiv = document.getElementById("search-results");
+
+  if(games.length===0){
+    resultsDiv.innerHTML = "<p>条件に合うゲームはありません。</p>";
+  } else {
+    resultsDiv.innerHTML = "";
+    const grid = document.createElement("div");
+    grid.className = "game-cards";
+    games.forEach(game => grid.appendChild(createGameCard(game)));
+    resultsDiv.appendChild(grid);
+
+    const cards = resultsDiv.querySelectorAll(".game-card");
+    cards.forEach((card, i) => {
+      card.style.animationDelay = `${i * 0.1}s`;
+    });
+  }
+
+  overlay.classList.remove("hidden");
+  setTimeout(()=>overlay.classList.add("active"),10);
+}
+
+async function loadGames(){
+  const res = await fetch("data/games.json");
+  return await res.json();
+}
+
+async function searchGames(){
+  const games = await loadGames();
+  const keyword = document.getElementById("keyword").value.trim();
+  const players = getCheckedValues("player-options");
+  const times = getCheckedValues("time-options");
+  const moods = getCheckedValues("mood-options");
+  const genres = getCheckedValues("genre-options");
+  const themes = getCheckedValues("theme-options");
+  const brands = getCheckedValues("brand-options");
+
+  const filtered = games.filter(game=>{
+    return (!keyword || game.title.includes(keyword)) &&
+           (players.length===0 || (game.players && matchesRange(game.players, players))) &&
+           (times.length===0 || (game.time && matchesRange(game.time, times))) &&
+           (moods.length===0 || (game.mood||[]).some(m=>moods.includes(m))) &&
+           (genres.length===0 || (game.genre||[]).some(g=>genres.includes(g))) &&
+           (themes.length===0 || (game.theme||[]).some(t=>themes.includes(t))) &&
+           (brands.length===0 || (game.brand||[]).some(b=>brands.includes(b)));
+  });
+
+  renderResults(filtered);
+}
+
+// --- 追加: 目録ボタン ---
+document.getElementById("catalog-button").addEventListener("click", async () => {
+  const games = await loadGames();
+  const sortedGames = [...games];
+  const overlay = document.getElementById("result-overlay");
+  const resultsDiv = document.getElementById("search-results");
+
+  resultsDiv.innerHTML = "<h3>ゲーム目録</h3>";
+
+  const list = document.createElement("ul");
+  list.style.listStyle = "none";
+  list.style.padding = "0";
+
+  sortedGames.forEach(game=>{
+    const li = document.createElement("li");
+    li.style.margin = "6px 0";
+
+    const a = document.createElement("a");
+    a.href = `detail.html?title=${encodeURIComponent(game.title)}`;
+    a.textContent = game.title;
+    a.style.color = "ffffff";
+    a.style.textDecoration = "underline";
+
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+
+  resultsDiv.appendChild(list);
+  overlay.classList.remove("hidden");
+  setTimeout(()=>overlay.classList.add("active"),10);
+});
+
+// --- 既存イベント ---
+document.getElementById("search-button").addEventListener("click", searchGames);
+document.getElementById("clear-button").addEventListener("click", ()=>{
+  document.querySelectorAll("input[type=checkbox]").forEach(cb=>cb.checked=false);
+  document.getElementById("keyword").value="";
+});
+document.getElementById("top-button").addEventListener("click", ()=>{ window.location.href="index.html"; });
+document.getElementById("close-overlay").addEventListener("click", ()=>{
+  const overlay=document.getElementById("result-overlay");
+  overlay.classList.remove("active");
+  setTimeout(()=>overlay.classList.add("hidden"),800);
+});
+</script>
+</body>
+</html>

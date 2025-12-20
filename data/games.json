@@ -1,0 +1,2041 @@
+[
+ 
+  {
+    "title": "Coup",
+    "images": [
+    "images/games/Coup1.png",
+    "images/games/Coup2.png",
+    "images/games/Coup3.png"
+  ],
+    "desc": "家族を守る覚悟はいいか？",
+    "vector": [5, 5, 1, 4, 2, 3],
+    "rules": [
+      "あなたはファミリーの首領です。",
+      "手元には優秀な部下が2人。",
+      "交渉と嘘で、他の家族を滅ぼしましょう。"
+    ],
+    "players": [3, 6],
+    "time": [10, 15],
+    "mood": ["没入", "バチバチ"],
+    "genre": ["カード", "小道具", "隠匿","脱落あり", "心理戦"],
+    "theme": ["経済", "非日常","バトル"],
+    "brand": ["ニューゲームズオーダー"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
+  "surugaya": ""
+  }
+  },
+  {
+    "title": "DAIGAKU",
+    "images": [
+    "images/games/DAIGAKU1.png",
+    "images/games/DAIGAKU2.png",
+    "images/games/DAIGAKU3.png"
+  ],
+    "desc": "キャンパスライフは何色？",
+    "vector": [4, 2, 1, 4, 3, 3],
+    "rules": [
+      "おめでとうございます。キャンパスライフのスタートです。",
+      "どんな大学生活を送りますか？",
+      "時には思い通りにはいかないもの………。"
+    ],
+    "players": [3, 4],
+    "time": [45, 60],
+    "mood": ["わいわい", "没入"],
+    "genre": ["ボード", "カード", "小道具", "ミッション"],
+    "theme": ["学園", "日常","恋愛", "経済"],
+    "brand": ["その他"],
+    "links": {
+   "amazon": "",
+  "rakuten": "https://item.rakuten.co.jp/manmaru-fresta/20250905223401_211/",
+  "surugaya": ""
+  }
+  },
+  {
+    "title": "DORASURE",
+    "images": [
+    "images/games/DORASURE1.png",
+    "images/games/DORASURE2.png",
+    "images/games/DORASURE3.png"
+  ],
+    "desc": "仲間と一緒なら大丈夫！",
+    "vector": [5, 4, 2, 3, 3, 3],
+    "rules": [
+      "役職を決めます。",
+      "みんなで協力してクエストをクリアしましょう。",
+      "目指せ、ドラゴン討伐！"
+    ],
+    "players": [2, 5],
+    "time": [20, 30],
+    "mood": ["集中","没入"],
+    "genre": ["ボード","カード", "役職","チーム戦", "ミッション"],
+    "theme": ["非日常", "ファンタジー",""],
+    "brand": ["その他"],
+   "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/8017cab131eb65145bc2bae5e6c6f316/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607514242"
+  }
+  }, 
+  {
+    "title": "FLUXX",
+    "images": [
+    "images/games/FLUXX1.png",
+    "images/games/FLUXX2.png",
+    "images/games/FLUXX3.png"
+  ],
+    "desc": "狂気に負けず勝利を獲得できるか",
+    "vector": [2, 1, 3, 5, 2, 5],
+    "rules": [
+      "手札は2枚です。",
+      "1枚使って1枚引きながら、勝利条件を達成しましょう。",
+      "勝利条件はどんどん変わります。ついてこられるかな？"
+    ],
+    "players": [2, 6],
+    "time": [5, 30],
+    "mood": ["わいわい", "ドキドキ"],
+    "genre": ["カード", "運ゲー"],
+    "theme": ["脱落あり","ミッション","パーティー"],
+    "brand": ["ホビージャパン"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/9d7b599dd7dce350282a879e1fe37f2e/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607503632"
+  }
+  },
+  {
+    "title": "クトゥルフの呼び声FLUXX",
+    "images": [
+    "images/games/クトゥルフの呼び声FLUXX1.png",
+    "images/games/クトゥルフの呼び声FLUXX2.png",
+    "images/games/クトゥルフの呼び声FLUXX3.png"
+  ],
+    "desc": "狂気に負けず勝利を達成",
+    "vector": [2, 1, 2, 3, 2, 4],
+    "rules": [
+      "手札は2枚です。",
+      "1枚使って1枚引きながら、勝利条件を達成しましょう。",
+      "人間ごときが邪神に勝てるとお思いで？"
+    ],
+    "players": [2, 6],
+    "time": [10, 40],
+    "mood": ["わいわい", "ドキドキ"],
+    "genre": ["カード", "運ゲー"],
+    "theme": ["ホラー", "非日常", "神話", "脱落あり","ミッション"],
+    "brand": ["ホビージャパン"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/2f3d24d2405d0fce294b95c3027ab35b/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607500967"
+  }
+  },
+  {
+    "title": "ito",
+     "images": [
+    "images/games/ito1.png",
+    "images/games/ito2.png",
+    "images/games/ito3.png"
+  ],
+    "desc": "給食の人気37って？",
+    "vector": [3, 4, 4, 2, 5, 3],
+    "rules": [
+      "数字カードを配ります。",
+      "数字をお題で現します。",
+      "価値観をすり合わせます。"
+    ],
+    "players": [2, 10],
+    "time": [20, 30],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "協力", "会話", "チーム戦"],
+    "theme": ["食べ物・飲み物", "動物","日常","数字","ミッション"],
+    "brand": ["アークライト"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/b8f2daefa7d6f042f3457507191d1fa0/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607542982"
+  }
+  },
+  {
+    "title": "ito classic",
+     "images": [
+    "images/games/itoクラシック1.png",
+    "images/games/itoクラシック2.png",
+    "images/games/itoクラシック3.png"
+  ],
+    "desc": "意図を繋いで、糸を紡ぐ",
+    "vector": [3, 4, 4, 2, 5, 3],
+    "rules": [
+      "数字カードを配ります。",
+      "数字をお題で現します。",
+      "価値観をすり合わせます。"
+    ],
+    "players": [2, 10],
+    "time": [20, 30],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "協力", "会話", "チーム戦"],
+    "theme": ["食べ物・飲み物", "動物","日常","数字","ミッション"],
+    "brand": ["アークライト"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/b26b99225f554e32b1b0cd51de930bc6/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607651093"
+  }
+  },
+   {
+    "title": "アンコンシャス・マインド",
+    "images": [
+    "images/games/アンコンシャス・マインド1.png",
+    "images/games/アンコンシャス・マインド2.png",
+    "images/games/アンコンシャス・マインド3.png"
+  ],
+    "desc": "コーヒー片手に夢分析",
+    "vector": [4, 3, 1, 4, 2, 3],
+    "rules": [
+      "心理学者フロイトの一門として、精神分析学を発展を目指します。",
+      "患者を治療し、洞察を深め、ノートを作りましょう。",
+      "研究には浴びるほどのコーヒーも欠かせません。"
+    ],
+    "players": [1, 4],
+    "time": [30, 60],
+    "mood": ["集中", "没入"],
+    "genre": ["ボード", "小道具", "会話", "役職", "心理戦"],
+    "theme": ["アート", "医療", "非日常", "食べ物・飲み物"],
+    "brand": ["アークライト"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/dfd125750dbff0820396c1ff33db4fa0/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607659527"
+  }
+  },
+  {
+    "title": "命鯉",
+    "images": [
+    "images/games/命鯉1.png",
+    "images/games/命鯉2.png",
+    "images/games/命鯉3.png"
+  ],
+    "desc": "なぁボス、<br>話を聞いてくれ…",
+    "vector": [2, 4, 5, 3, 1, 3],
+    "rules": [
+      "あなたはやらかしてしまいました。",
+      "ボスに命乞いをしましょう。",
+      "ボスの心をうまく掴めば、助かるかもしれません。"
+    ],
+    "players": [2, 6],
+    "time": [10, 15],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "大喜利", "会話", "役職", "心理戦", "パーティー"],
+    "theme": ["動物", "非日常", "文学"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/a001a29c9d33ac5c6516b273cc0746a6/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607619315"
+  }
+  },
+  {
+    "title": "オジサンメッセージ",
+     "images": [
+    "images/games/オジサンメッセージ1.png",
+    "images/games/オジサンメッセージ2.png",
+    "images/games/オジサンメッセージ3.png"
+  ],
+    "desc": "ブロック不可避の<br>メッセージ",
+    "vector": [1, 4, 5, 2, 1, 3],
+    "rules": [
+      "心の中のオジサンを開放します。",
+      "相手にメッセージを送りましょう。",
+      "ブロック？照れちゃったカナ？"
+    ],
+    "players": [3, 5],
+    "time": [15, 30],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "大喜利", "パーティー"],
+    "theme": ["文学", "鑑賞", "恋愛"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/e3c4fe49d1539ca8eb66da1cbbc207aa/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607625090"
+  }
+  },
+{
+    "title": "オジサンメッセージ2",
+     "images": [
+    "images/games/オジサンメッセージ21.png",
+    "images/games/オジサンメッセージ22.png",
+    "images/games/オジサンメッセージ23.png"
+  ],
+    "desc": "おーい<br>もう寝ちゃったカナ",
+    "vector": [2, 4, 5, 2, 1, 2],
+    "rules": [
+      "心の中のオジサンをさらに開放し、メッセージを送りましょう。",
+      "ブロック？照れちゃったカナ？",
+      "通常版と混ぜて遊ぶことも可能です。"
+    ],
+    "players": [3, 5],
+    "time": [15, 30],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "大喜利", "パーティー"],
+    "theme": ["文学", "鑑賞", "恋愛"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/3cc8a9a7372a70820c7cc30763b89657/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607649492"
+  }
+  },
+{
+    "title": "オジサンメッセージメンヘラ",
+     "images": [
+    "images/games/オジサンメッセージメンヘラ1.png",
+    "images/games/オジサンメッセージメンヘラ2.png",
+    "images/games/オジサンメッセージメンヘラ3.png"
+  ],
+    "desc": "オジサン<br>もう限界ダヨ…？",
+    "vector": [1, 5, 5, 1, 1, 1],
+    "rules": [
+      "※遊ぶには通常版が必要です。",
+      "心の中のオジサンを最大限に開放し、相手にメッセージを送りましょう。",
+      "〇〇チャン、窓の外を見てほしいナ"
+    ],
+    "players": [3, 5],
+    "time": [15, 30],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "大喜利", "パーティー"],
+    "theme": ["文学", "鑑賞", "恋愛"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/e36ea288c4bf88a03f339c596882d061/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607638159"
+  }
+  },
+  {
+    "title": "お邪魔者",
+     "images": [
+    "images/games/お邪魔者1.png",
+    "images/games/お邪魔者2.png",
+    "images/games/お邪魔者3.png"
+  ],
+    "desc": "仕事を邪魔してる<br>奴がいないか？",
+    "vector": [4, 2, 1, 4, 2, 4],
+    "rules": [
+      "通路を掘り進めましょう。",
+      "邪魔者が誰か推理しましょう。",
+      "金鉱にたどり着けるのは誰だ？"
+    ],
+    "players": [3, 10],
+    "time": [30, 40],
+    "mood": ["ドキドキ", "バチバチ"],
+    "genre": ["カード", "隠匿", "役職","チーム戦"],
+    "theme": ["開拓", "非日常", "推理", "ファンタジー"],
+    "brand": ["メビウスゲームズ"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/98f3497d5e1880fde9825235be8e894a/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607507792"
+  }
+  },
+  {
+    "title": "海底探検",
+    "images": [
+    "images/games/海底探検1.png",
+    "images/games/海底探検2.png",
+    "images/games/海底探検3.png"
+  ],
+    "desc": "酸素の量には気を付けて",
+    "vector": [4, 4, 1, 2, 3, 4],
+    "rules": [
+      "海にどんどん潜っていきます。",
+      "お宝を持って潜水艦まで戻りましょう。",
+      "酸素は皆さんで共有です。"
+    ],
+    "players": [2, 6],
+    "time": [30, 40],
+    "mood": ["集中", "バチバチ"],
+    "genre": ["ボード", "ダイス", "カード", "心理戦", "運ゲー"],
+    "theme": ["交渉","海"],
+    "brand": ["オインクゲームズ"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/f2db1c4a593627999fad6fd59dfda8b1/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607659164"
+  }
+  },
+  {
+    "title": "カタン",
+    "images": [
+    "images/games/カタン1.png",
+    "images/games/カタン2.png",
+    "images/games/カタン3.png"
+  ],
+    "desc": "資源を集めて無人島開拓",
+    "vector": [5, 3, 1, 3, 2, 4],
+    "rules": [
+      "資源を集めて道や集落を建設します。",
+      "サイコロで資源を獲得します。",
+      "盗賊には気を付けて！"
+    ],
+    "players": [3, 4],
+    "time": [40, 60],
+    "mood": ["集中", "没入"],
+    "genre": ["ボード", "ダイス", "小道具", "カード", "陣取り"],
+    "theme": ["開拓", "経済", "海"],
+    "brand": ["アークライト"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/50dfa4e1869cfd856eeba6b5caf48f7d/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607517917"
+  }
+  },
+  {
+    "title": "カルカソンヌ",
+    "images": [
+    "images/games/カルカソンヌ1.png",
+    "images/games/カルカソンヌ2.png",
+    "images/games/カルカソンヌ3.png"
+  ],
+    "desc": "道をつくり、街を築け",
+    "vector": [5, 2, 1, 5, 2, 3],
+    "rules": [
+      "地形タイルを配置します。",
+      "コマを配置したタイルのどこかに置きます。",
+      "完成と得点のバランスが鍵"
+    ],
+    "players": [2, 5],
+    "time": [30, 45],
+    "mood": ["集中", "没入"],
+    "genre": ["ボード", "小道具", "陣取り"],
+    "theme": ["開拓", "経済", "都市建設"],
+    "brand": ["メビウスゲームズ"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/4864bf6ae78c61cbd775c418be57356b/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607625495"
+  }
+  },
+  {
+    "title": "キャットアンドチョコレート日常偏",
+    "images": [
+    "images/games/キャットアンドチョコレート1.png",
+    "images/games/キャットアンドチョコレート2.png",
+    "images/games/キャットアンドチョコレート3.png"
+  ],
+    "desc": "猫とチョコで<br>ピンチを乗り切れ！！",
+    "vector": [3, 5, 1, 3, 1, 3],
+    "rules": [
+      "お題と手札を確認します。",
+      "自分の手札を使ってピンチを切り抜けましょう。",
+      "どんな道具も使い様"
+    ],
+    "players": [2, 6],
+    "time": [15, 20],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "大喜利", "会話", "パーティー"],
+    "theme": ["日常","鑑賞", "動物", "食べ物・飲み物"],
+    "brand": ["幻冬舎"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/b6d5b57792def897112bdd5de16635af/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607504921"
+  }
+  },
+  {
+    "title": "キングドミノ",
+    "images": [
+    "images/games/キングドミノ1.png",
+    "images/games/キングドミノ2.png",
+    "images/games/キングドミノ3.png"
+  ],
+    "desc": "5つの地形で<br>理想の国家建設",
+    "vector": [4, 2, 3, 4, 1, 3],
+    "rules": [
+      "先手のプレイヤーから地形を選びます。",
+      "同じ地形を並べて、理想の国家を建設しましょう。",
+      "王冠の数が多いと高ポイント"
+    ],
+    "players": [2, 4],
+    "time": [15, 20],
+    "mood": ["バチバチ","なるほど"],
+    "genre": ["カード","小道具", "大喜利"],
+    "theme": ["ファンタジー", "都市建設", "鑑賞","アート"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/70d1e5ae227ee2cdd87857a88ed98f4a/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607524052"
+  }
+  },
+  {
+    "title": "クジラオルカ",
+    "images": [
+    "images/games/クジラオルカ1.png",
+    "images/games/クジラオルカ2.png",
+    "images/games/クジラオルカ3.png"
+  ],
+    "desc": "観光の目玉は<br>ホエールウォッチング",
+    "vector": [4, 3, 1, 3, 2, 4],
+    "rules": [
+      "他の観光船を頼りに、クジラを探しましょう。",
+      "うまく見つければお客さんは大喜び",
+      "……あれ、クジラじゃなくてオルカ？"
+    ],
+    "players": [2, 5],
+    "time": [30, 40],
+    "mood": ["バチバチ", "わいわい"],
+    "genre": ["カード", "小道具", "運ゲー"],
+    "theme": ["動物", "推理", "海"],
+    "brand": ["オインクゲームズ"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/47fd7e91d480c506ff81b8b9fd1c297e/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607641367"
+  }
+  },
+  {
+    "title": "恋文",
+     "images": [
+    "images/games/恋文1.png",
+    "images/games/恋文2.png",
+    "images/games/恋文3.png"
+  ],
+    "desc": "届け！この恋文！",
+    "vector": [3, 5, 1, 4, 1, 3],
+    "rules": [
+      "城下町の人に、恋文を届けてもらいましょう。",
+      "2枚の手札から、好きな方に助けてもらいましょう。",
+      "一瞬で勝敗が付くことも。"
+    ],
+    "players": [2, 4],
+    "time": [5, 10],
+    "mood": ["ドキドキ", "バチバチ"],
+    "genre": ["カード", "心理戦", "脱落あり","運ゲー"],
+    "theme": ["恋愛", "推理", "ファンタジー"],
+    "brand": ["幻冬舎"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/8fd4912cad1afe332ee4374c483fdb5a/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607535919"
+  }
+  },
+  {
+    "title": "ごきぶりポーカー",
+     "images": [
+    "images/games/ごきぶりポーカー1.png",
+    "images/games/ごきぶりポーカー2.png",
+    "images/games/ごきぶりポーカー3.png"
+  ],
+    "desc": "嫌われ者の押し付け合い",
+    "vector": [5, 5, 2, 3, 2, 4],
+    "rules": [
+      "嫌われ者の生き物を相手に押し付けましょう。",
+      "黙って受け取るか、嘘を指摘しましょう。",
+      "同じ生き物が4枚揃うと負けです。"
+    ],
+    "players": [2, 6],
+    "time": [20, 30],
+    "mood": ["ドキドキ", "バチバチ"],
+    "genre": ["カード", "隠匿", "脱落あり","会話"],
+    "theme": ["推理", "動物"],
+    "brand": ["メビウスゲームズ"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/d7efc88958b679f2762822605788464e/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607507841"
+  }
+  },
+  {
+    "title": "コヨーテ",
+     "images": [
+    "images/games/コヨーテ1.png",
+    "images/games/コヨーテ2.png",
+    "images/games/コヨーテ3.png"
+  ],
+    "desc": "コヨーテ、何頭いる？",
+    "vector": [4, 4, 1, 3, 2, 4],
+    "rules": [
+      "自分の手札は見れません。",
+      "他の人のカードをヒントに、コヨーテの数を予想しましょう。",
+      "大幅増加、減少カードにご用心"
+    ],
+    "players": [2, 10],
+    "time": [15, 30],
+    "mood": ["わいわい", "ドキドキ"],
+    "genre": ["カード", "会話", "心理戦"],
+    "theme": ["動物", "推理", "数字"],
+    "brand": ["ニューゲームズオーダー"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/6440f189a585bb8237a29bcad796c77c/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607501712"
+  }
+  },
+  {
+    "title": "ザ・クルー 第9惑星の探索",
+    "images": [
+    "images/games/ザ・クルー惑星1.png",
+    "images/games/ザ・クルー惑星2.png",
+    "images/games/ザ・クルー惑星3.png"
+  ],
+    "desc": "言葉禁止の意思疎通",
+    "vector": [3, 4, 2, 4, 5, 3],
+    "rules": [
+      "仲間と会話はできません。",
+      "協力してミッションをクリアしてください。",
+      "2人の時はJARVISを頼りに"
+    ],
+    "players": [2, 5],
+    "time": [20, 30],
+    "mood": ["集中", "没入"],
+    "genre": ["カード", "小道具", "チーム戦", "トリックテイキング"],
+    "theme": ["推理","ミッション", "非日常", "宇宙", "数字"],
+    "brand": ["アークライト"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/9868cf75c384c0565c3581d50f966fa3/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607599898"
+  }
+  },
+  {
+    "title": "佐藤です。好きなおにぎりの具は梅です。",
+    "images": [
+    "images/games/佐藤です。好きなおにぎりの具は梅です。1.png",
+    "images/games/佐藤です。好きなおにぎりの具は梅です。2.png",
+    "images/games/佐藤です。好きなおにぎりの具は梅です。3.png"
+  ],
+    "desc": "初対面でも、友達とでも",
+    "vector": [3, 2, 3, 1, 1, 2],
+    "rules": [
+      "お題に沿って自己紹介をします。",
+      "続いてクイズターンです。",
+      "私の好きなおにぎりの具はなんだったでしょう？"
+    ],
+    "players": [2, 8],
+    "time": [15, 20],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "会話", "パーティー"],
+    "theme": ["食べ物・飲み物", "日常"],
+    "brand": ["幻冬舎"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/97da3f6f5d29c3a8a0ea182569af8ff4/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607643393"
+  }
+  },
+  {
+    "title": "ザ・マインド",
+     "images": [
+    "images/games/ザ・マインド1.png",
+    "images/games/ザ・マインド2.png",
+    "images/games/ザ・マインド3.png"
+  ],
+    "desc": "言葉の向こう側へ……",
+    "vector": [2, 5, 1, 3, 5, 4],
+    "rules": [
+      "言葉もジェスチャーも使えません。",
+      "小さな数字から場に出しましょう。",
+      "どこまでクリアできるかな？"
+    ],
+    "players": [2, 4],
+    "time": [5, 10],
+    "mood": ["集中", "没入"],
+    "genre": ["カード", "チーム戦", "心理戦"],
+    "theme": ["推理", "数字","ミッション"],
+    "brand": ["アークライト"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/63b5773565e840842e4e6535d5899086/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607535955"
+  }
+  },
+  {
+    "title": "3ターンだけ君が好き",
+     "images": [
+    "images/games/3ターンだけ君が好き1.png",
+    "images/games/3ターンだけ君が好き2.png",
+    "images/games/3ターンだけ君が好き3.png"
+  ],
+    "desc": "3ターンだけの片思い",
+    "vector": [2, 4, 4, 4, 3, 3],
+    "rules": [
+      "誰かに片思いします。",
+      "片思い相手の印象を伝え、気付いてもらいましょう。",
+      "気持ちが伝われば心変わりしてくれるかも？"
+    ],
+    "players": [4, 8],
+    "time": [15, 20],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "大喜利", "心理戦", "パーティー"],
+    "theme": ["推理", "恋愛","隠匿"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://item.rakuten.co.jp/grams-shop/iftrivbcenwf77yi24npe743tu/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607615279"
+  }
+  },
+  {
+    "title": "サンレンタン",
+     "images": [
+    "images/games/サンレンタン1.png",
+    "images/games/サンレンタン2.png",
+    "images/games/サンレンタン3.png"
+  ],
+    "desc": "勝手な価値観ダービー<br>開幕！",
+    "vector": [3, 4, 3, 2, 2, 4],
+    "rules": [
+      "親は価値観トップ3を決めます。",
+      "他の人は親の価値観を予想します。",
+      "いざ出走！目指せ3連単"
+    ],
+    "players": [2, 6],
+    "time": [10, 15],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "会話", "小道具", "パーティー"],
+    "theme": ["動物", "日常"],
+    "brand": ["幻冬舎"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/7e4cd2132f4ab6ba3ef989345556da00/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607658684"
+  }
+  },
+  {
+    "title": "正気の沙汰じゃない犯行予告",
+     "images": [
+    "images/games/正気の沙汰じゃない犯行予告1.png",
+    "images/games/正気の沙汰じゃない犯行予告2.png",
+    "images/games/正気の沙汰じゃない犯行予告3.png"
+  ],
+    "desc": "いったい何が目的だ…？",
+    "vector": [2, 4, 5, 1, 1, 4],
+    "rules": [
+      "手持ちのカードを確認します。",
+      "犯行予告を送りつけましょう。",
+      "正気の沙汰じゃねぇ、とビビらせれば勝ちです。"
+    ],
+    "players": [3, 6],
+    "time": [15, 20],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "大喜利"],
+    "theme": ["鑑賞", "文学", "推理"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/65c2160c783019d296f63791abd54bcb/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607641946"
+  }
+  },
+  {
+    "title": "シンソク・キネマ",
+     "images": [
+    "images/games/シンソク・キネマ1.png",
+    "images/games/シンソク・キネマ2.png",
+    "images/games/シンソク・キネマ3.png"
+  ],
+    "desc": "巨匠の称号は誰の手に…！",
+    "vector": [2, 4, 5, 2, 2, 5],
+    "rules": [
+      "お題と手札を確認します。",
+      "前面と背景を合わせて、名作映画のポスターを作りましょう。",
+      "作品に込められたメッセージを読みとれるかな？"
+    ],
+    "players": [2, 6],
+    "time": [10, 15],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "チーム戦", "大喜利","パーティー"],
+    "theme": ["推理", "ホラー", "アート", "文学", "鑑賞"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/885af0ed685b41173c4e18d0cb6de7d0/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607655375"
+  }
+  },
+  {
+    "title": "知り合いかも",
+    "images": [
+    "images/games/知り合いかも1.png",
+    "images/games/知り合いかも2.png",
+    "images/games/知り合いかも3.png"
+  ],
+    "desc": "偏見まみれの<br>プロフィール",
+    "vector": [1, 3, 3, 5, 2, 3],
+    "rules": [
+      "手札を配ります。",
+      "それっぽいプロフィールを作成しましょう。",
+      "目指せ、フォロワー100万人！？"
+    ],
+    "players": [2, 6],
+    "time": [5, 10],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "小道具", "大喜利", "会話"],
+    "theme": ["日常", "鑑賞", "アート", "動物"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/18c03b89100742b9d09f8517ed142dbe/",
+  "surugaya": ""
+  }
+  },
+  {
+    "title": "シンデレラが多すぎる",
+     "images": [
+    "images/games/シンデレラが多すぎる1.png",
+    "images/games/シンデレラが多すぎる2.png",
+    "images/games/シンデレラが多すぎる3.png"
+  ],
+    "desc": "シンデレラは……<br>たしか女性だ！",
+    "vector": [4, 3, 1, 3, 2, 3],
+    "rules": [
+      "カードを出して手札を競います。",
+      "数字やテーマに沿った戦略を練ります。",
+      "最後まで勝利点を集めましょう。"
+    ],
+    "players": [2, 4],
+    "time": [5, 10],
+    "mood": ["わいわい", "バチバチ"],
+    "genre": ["カード", "小道具"],
+    "theme": ["ファンタジー", "恋愛", "童話","数字"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/e2aea4a507146d17f7f11ae95852fc0e/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607503668"
+  }
+  },
+  {
+    "title": "人狼カード",
+     "images": [
+    "images/games/人狼カード1.png",
+    "images/games/人狼カード2.png",
+    "images/games/人狼カード3.png"
+  ],
+    "desc": "市民にまぎれた<br>人狼を探せ！",
+    "vector": [5, 5, 3, 4, 3, 4],
+    "rules": [
+      "役職を決めます。",
+      "市民にまぎれた人狼を処刑しましょう。",
+      "人狼はバレないように村を襲いましょう。"
+    ],
+    "players": [4, 15],
+    "time": [10, 50],
+    "mood": ["ドキドキ", "没入"],
+    "genre": ["カード", "会話", "隠匿", "役職", "心理戦", "脱落あり","チーム戦"],
+    "theme": ["動物", "推理"],
+    "brand": ["幻冬舎"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/22f85e021bfba9c26a476130412c8c1f/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607504971"
+  }
+  },
+  {
+    "title": "人狼ドッチ",
+     "images": [
+    "images/games/人狼ドッチ1.png",
+    "images/games/人狼ドッチ2.png",
+    "images/games/人狼ドッチ3.png"
+  ],
+    "desc": "役職、ドッチにする？",
+    "vector": [3, 4, 3, 2, 3, 3],
+    "rules": [
+      "役職を選びます。",
+      "市民にまぎれた人狼を処刑しましょう。",
+      "役職、あってますか？"
+    ],
+    "players": [3, 8],
+    "time": [5, 10],
+    "mood": ["わいわい", "ドキドキ"],
+    "genre": ["カード", "会話", "隠匿", "役職", "心理戦"],
+    "theme": ["動物", "推理"],
+    "brand": ["幻冬舎"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/46aca4889693f11b48e904780840e4f2/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607536068"
+  }
+  },
+  {
+    "title": "スカル",
+     "images": [
+    "images/games/スカル1.png",
+    "images/games/スカル2.png",
+    "images/games/スカル3.png"
+  ],
+    "desc": "度胸があるなら<br>めくってみな",
+    "vector": [4, 5, 1, 4, 1, 3],
+    "rules": [
+      "花かドクロのプレートを伏せます",
+      "プレートをめくるか、勝負を降りるか宣言します。",
+      "撤退もまた戦略ですよ…？"
+    ],
+    "players": [3, 6],
+    "time": [30, 40],
+    "mood": ["バチバチ", "ドキドキ"],
+    "genre": ["カード", "会話", "隠匿", "脱落あり","心理戦"],
+    "theme": ["ホラー","アート","植物"],
+    "brand": ["ホビージャパン"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/93010b4f63128fccdcd52f2ef4c1e73f/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607536068"
+  }
+  },
+  {
+    "title": "そういうお前はどうなんだ？",
+     "images": [
+    "images/games/そういうお前はどうなんだ？1.png",
+    "images/games/そういうお前はどうなんだ？2.png",
+    "images/games/そういうお前はどうなんだ？3.png"
+  ],
+    "desc": "洋館で起こった殺人事件、<br>犯人をでっちあげる話し合い",
+    "vector": [4, 2, 5, 4, 1, 4],
+    "rules": [
+      "とある洋館で起こった殺人事件、犯人はこの中にいる…？",
+      "自分が犯人ではない、と言い逃れてください。",
+      "他の人の持ち物を指摘し、うまくなすりつけましょう。"
+    ],
+    "players": [3, 6],
+    "time": [15, 20],
+    "mood": ["わいわい", "没入"],
+    "genre": ["カード", "会話", "役職", "運ゲー", "パーティー"],
+    "theme": ["日常", "非日常", "バトル"],
+    "brand": ["Group SNE"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/2553453c0cea3bb4d3956fb3090c39d5/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607623920"
+  }
+  },
+  {
+    "title": "そういうお前はどうなんだ？因習村編",
+     "images": [
+    "images/games/そういうお前はどうなんだ？因習村編1.png",
+    "images/games/そういうお前はどうなんだ？因習村編2.png",
+    "images/games/そういうお前はどうなんだ？因習村編3.png"
+  ],
+    "desc": "ある村の祭りで起きた事件<br>祟り？呪い？それとも…",
+    "vector": [2, 4, 5, 3, 1, 4],
+    "rules": [
+      "祭りの最中に起きた奇怪な事件。自分が犯人ではないと言い逃れてください。",
+      "お狐様、わらべ歌、赤い伝承…、この村の秘密をでっちあげろ……！",
+      "※通常版と混ぜて遊ぶことはできません。"
+    ],
+    "players": [3, 6],
+    "time": [15, 20],
+    "mood": ["わいわい", "没入"],
+    "genre": ["カード", "会話", "役職", "運ゲー", "パーティー"],
+    "theme": ["ホラー", "日常", "非日常", "バトル"],
+    "brand": ["Group SNE"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/3c0555ecf74f2e03c9cf3dc20896b1bf/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607666407"
+  }
+  },
+  {
+    "title": "そういうお前はどうなんだ？学園七不思議編",
+     "images": [
+    "images/games/そういうお前はどうなんだ？学園七不思議編1.png",
+    "images/games/そういうお前はどうなんだ？学園七不思議編2.png",
+    "images/games/そういうお前はどうなんだ？学園七不思議編3.png"
+  ],
+    "desc": "七不思議の真相、<br>お前で決定",
+    "vector": [3, 3, 5, 3, 1, 4],
+    "rules": [
+      "学園最のまっ只中に事件発生！自分が犯人ではないと言い逃れてください。",
+      "あなたのカバンから見える、赤いそれは、何……？",
+      "※通常版と混ぜて遊ぶことはできません。"
+    ],
+    "players": [3, 6],
+    "time": [15, 20],
+    "mood": ["わいわい", "没入"],
+    "genre": ["カード", "会話", "役職", "運ゲー", "パーティー"],
+    "theme": ["ホラー", "日常", "非日常", "バトル"],
+    "brand": ["Group SNE"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/788c587619017fe43b554d2b189f42e9/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607647659"
+  }
+  },
+  {
+    "title": "大富豪大貧民ヱヴァンゲリヲン新劇場版.",
+    "images": [
+    "images/games/大富豪大貧民エヴァンゲリオン1.png",
+    "images/games/大富豪大貧民エヴァンゲリオン2.png",
+    "images/games/大富豪大貧民エヴァンゲリオン3.png"
+  ],
+    "desc": "地域ルールが<br>効果になっちゃった！",
+    "vector": [5, 2, 1, 5, 2, 4],
+    "rules": [
+      "大富豪に特化したトランプです。",
+      "カードの効果を活かして大富豪を目指しましょう",
+      "アビリティカードでルール変更も"
+    ],
+    "players": [3, 6],
+    "time": [20, 30],
+    "mood": ["わいわい", "集中"],
+    "genre": ["カード", "運ゲー"],
+    "theme": ["非日常"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/d6736ba0ea90cd20698c723abde4fd20/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607551807"
+  }
+  },
+  {
+    "title": "タイムボム",
+    "images": [
+    "images/games/タイムボム1.png",
+    "images/games/タイムボム2.png",
+    "images/games/タイムボム3.png"
+  ],
+    "desc": "タイムポリス出動！<br>爆弾を解除せよ！",
+    "vector": [4, 5, 1, 4, 3, 4],
+    "rules": [
+      "タイムポリスとボマー団に分かれます。",
+      "仲間からの情報をヒントに爆弾を解除しましょう。",
+      "爆破を企むボマー団に気を付けて！"
+    ],
+    "players": [2, 8],
+    "time": [1, 30],
+    "mood": ["没入", "ドキドキ"],
+    "genre": ["カード", "小道具", "心理戦", "隠匿", "役職", "会話", "チーム戦"],
+    "theme": ["推理", "非日常", "ミッション"],
+    "brand": ["アークライト"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/1b8ec7db3f6900c5f3d717a3564ea077/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607505410"
+  }
+  },
+  {
+    "title": "たった今考えたプロポーズの言葉を君に捧ぐよ。",
+     "images": [
+    "images/games/たった今考えたプロポーズの言葉を君に捧ぐよ。1.png",
+    "images/games/たった今考えたプロポーズの言葉を君に捧ぐよ。2.png",
+    "images/games/たった今考えたプロポーズの言葉を君に捧ぐよ。3.png",
+    "images/games/たった今考えたプロポーズの言葉を君に捧ぐよ。4.png",
+    "images/games/たった今考えたプロポーズの言葉を君に捧ぐよ。5.png",
+    "images/games/たった今考えたプロポーズの言葉を君に捧ぐよ。6.png",
+    "images/games/たった今考えたプロポーズの言葉を君に捧ぐよ。7.png"
+  ],
+    "desc": "今の気持ち、<br>受け取ってくれ！",
+    "vector": [2, 4, 5, 3, 1, 3],
+    "rules": [
+      "プロポーズの言葉を作ります。",
+      "使えるのはたった今の手持ちのカードだけ。",
+      "相手に届く言葉を紡ぎましょう。"
+    ],
+    "players": [3, 6],
+    "time": [15, 30],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "大喜利", "小道具"],
+    "theme": ["恋愛", "日常", "鑑賞","文学"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/b786931c729fdfcb704ff7ddb9823e5f/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607506210"
+  }
+  },
+  {
+    "title": "ダンジョンオブマンダム",
+     "images": [
+    "images/games/ダンジョンオブマンダム1.png",
+    "images/games/ダンジョンオブマンダム2.png",
+    "images/games/ダンジョンオブマンダム3.png"
+  ],
+    "desc": "勇敢と蛮行は紙一重",
+    "vector": [4, 5, 2, 3, 2, 4],
+    "rules": [
+      "洞窟にモンスターを配置します。",
+      "或いは、装備を捨てます。",
+      "さあダンジョンに挑みますか？それとも逃げますか？"
+    ],
+    "players": [2, 4],
+    "time": [5, 10],
+    "mood": ["バチバチ", "集中"],
+    "genre": ["カード", "隠匿"],
+    "theme": ["バトル", "ファンタジー","非日常","数字"],
+    "brand": ["オインクゲームズ"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/21f6a042ff1c2721520dab7e4ebdd6bd/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607501068%3Fbranch_number%3D1000"
+  }
+  },
+  {
+    "title": "探偵たちと怪盗",
+     "images": [
+    "images/games/探偵たちと怪盗1.png",
+    "images/games/探偵たちと怪盗2.png",
+    "images/games/探偵たちと怪盗3.png"
+  ],
+    "desc": "犯行の形跡を見破れる？",
+    "vector": [3, 4, 1, 4, 1, 4],
+    "rules": [
+      "怪盗役は、場のカードを1枚裏返して高笑いします。",
+      "探偵たちは裏返されたカードを推理しましょう。",
+      "何も盗まれていない可能性も？"
+    ],
+    "players": [2, 7],
+    "time": [5, 10],
+    "mood": ["わいわい", "集中"],
+    "genre": ["カード", "心理戦", "役職"],
+    "theme": ["推理", "文学"],
+    "brand": ["その他"]	,
+    "links": {
+  "amazon": "",
+  "rakuten": "https://item.rakuten.co.jp/auroravision/7tudjkz7it4tavmckuivxxcfri/",
+  "surugaya": ""
+  }
+  },
+ {
+    "title": "チャオチャオ",
+     "images": [
+    "images/games/チャオチャオ1.png",
+    "images/games/チャオチャオ2.png",
+    "images/games/チャオチャオ3.png"
+  ],
+    "desc": "橋を渡り切ればオッケー",
+    "vector": [4, 5, 3, 2, 2, 5],
+    "rules": [
+      "サイコロを振って、出た目の数だけ橋を渡ります。",
+      "出た目を見るのは、自分1人だけです。",
+      "嘘を見破られたら、「チャオチャオ(バイバイ)」"
+    ],
+    "players": [2, 4],
+    "time": [20, 30],
+    "mood": ["バチバチ", "わいわい"],
+    "genre": ["ボード","小道具", "隠匿"],
+    "theme": ["バトル","非日常","数字"],
+    "brand": ["メビウスゲームズ"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/62c7de096abf345a3b61c222d22dc8b9/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607511074"
+  }
+  },
+  {
+    "title": "ディクシット",
+     "images": [
+    "images/games/ディクシット1.png",
+    "images/games/ディクシット2.png",
+    "images/games/ディクシット3.png"
+  ],
+    "desc": "この絵、なんてタイトル？",
+    "vector": [2, 3, 4, 1, 1, 2],
+    "rules": [
+      "手札の絵を見てお題を出します。",
+      "他プレイヤーはお題に合うカードを出します。",
+      "どのカードがお題かを予想して投票します。"
+    ],
+    "players": [3, 12],
+    "time": [20, 30],
+    "mood": ["わいわい","なるほど"],
+    "genre": ["ボード", "大喜利"],
+    "theme": ["ファンタジー", "鑑賞","アート"],
+    "brand": ["ホビージャパン"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/810cf39c87b5a392b36ec4305169af6b/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607623005"
+  }
+  },
+  {
+    "title": "テストプレイなんてしてないよ",
+     "images": [
+    "images/games/テストプレイなんてしてないよ1.png",
+    "images/games/テストプレイなんてしてないよ2.png",
+    "images/games/テストプレイなんてしてないよ3.png"
+  ],
+    "desc": "ルール何それおいしいの？",
+    "vector": [2, 2, 2, 4, 1, 4],
+    "rules": [
+      "手札は2枚です。",
+      "1枚使って、1枚引きます。",
+      "理不尽に負けることがあります。"
+    ],
+    "players": [2, 10],
+    "time": [1, 5],
+    "mood": ["わいわい", "ドキドキ"],
+    "genre": ["カード", "運ゲー","脱落あり", "会話", "アクション","パーティー"],
+    "theme": ["日常", "非日常", "食べ物・飲み物"],
+    "brand": ["Group SNE"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/905541445bd3df233012b536c93697f0/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607505742"
+  }
+  },
+  {
+    "title": "テストプレイなんてしてないよ マダミスなんてしてないよ",
+     "images": [
+    "images/games/テストプレイなんてしてないよ マダミスなんてしてないよ1.png",
+    "images/games/テストプレイなんてしてないよ マダミスなんてしてないよ2.png",
+    "images/games/テストプレイなんてしてないよ マダミスなんてしてないよ3.png"
+  ],
+    "desc": "犯人投票とかよくないよ！",
+    "vector": [3, 3, 2, 5, 1, 5],
+    "rules": [
+      "手札は2枚から1枚使って、1枚引きます。",
+      "マダミスルール時は、役職を決めましょう。",
+      "※マーダーミステリーではありません。通常版と混ぜて遊ぶことも可能です。"
+    ],
+    "players": [2, 10],
+    "time": [1, 5],
+    "mood": ["わいわい", "ドキドキ"],
+    "genre": ["カード", "運ゲー", "会話", "アクション","パーティー"],
+    "theme": ["推理", "非日常", "食べ物・飲み物"],
+    "brand": ["Group SNE"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/4cebf68e6333f5eeb9729df1ceddffdd/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607661985"
+  }
+  },
+  {
+    "title": "デッド・オブ・ウィンター",
+    "images": [
+    "images/games/デッド・オブ・ウィンター1.png",
+    "images/games/デッド・オブ・ウィンター2.png",
+    "images/games/デッド・オブ・ウィンター3.png"
+  ],
+    "desc": "ゾンビと冬から生き延びろ…！",
+    "vector": [5, 3, 1, 5, 5, 3],
+    "rules": [
+      "役職を決めます。",
+      "ゾンビの侵入を防ぎ、倒し、生き延びましょう。",
+      "誰かと協力して生き延びるか、それとも……"
+    ],
+    "players": [2, 5],
+    "time": [90, 180],
+    "mood": ["集中", "没入"],
+    "genre": ["ボード", "ダイス", "小道具", "脱落あり","チーム戦", "ミッション", "役職", "隠匿"],
+    "theme": ["ホラー", "ファンタジー", "非日常"],
+    "brand": ["メビウスゲームズ"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://item.rakuten.co.jp/2doriem/dhb01794h2ua/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607517832"
+  }
+  },
+  {
+    "title": "どっちぼーい",
+     "images": [
+    "images/games/どっちぼーい1.png",
+    "images/games/どっちぼーい2.png",
+    "images/games/どっちぼーい3.png",
+    "images/games/どっちぼーい4.png",
+    "images/games/どっちぼーい5.png",
+    "images/games/どっちぼーい6.png"
+  ],
+    "desc": "私のこと知ってるなら、<br>賭けられるよね？",
+    "vector": [2, 3, 2, 4, 1, 4],
+    "rules": [
+      "レースを行うフィールドをつくります。",
+      "親の答えを予想し、賭け金をベット",
+      "意外な一面を知ることになるかも…？"
+    ],
+    "players": [3, 6],
+    "time": [30, 60],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "小道具", "パーティー"],
+    "theme": ["推理", "日常","数字"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/a76ca5485eb7d5935c9e003abc121784/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607615208"
+  }
+  },
+  {
+    "title": "ドデリド",
+    "images": [
+    "images/games/ドデリド1.png",
+    "images/games/ドデリド2.png",
+    "images/games/ドデリド3.png"
+  ],
+    "desc": "共通点は……<br>判断が遅い！",
+    "vector": [2, 2, 1, 5, 1, 4],
+    "rules": [
+      "自分の山札から場にカードを出します。",
+      "場のカードの最も多い共通点言いましょう。複数ならドデリドをコール。",
+      "のんびりカメさん、いじわるワニさんには気を付けて。"
+    ],
+    "players": [2, 6],
+    "time": [10, 20],
+    "mood": ["バチバチ", "集中"],
+    "genre": ["カード", "アクション"],
+    "theme": ["動物","数字"],
+    "brand": ["メビウスゲームズ"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/693ae699214508d941733f8363441574/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607522704%3Ftenpo_cd%3D400511"
+  }
+  },
+  {
+    "title": "トマトマト",
+    "images": [
+    "images/games/トマトマト1.png",
+    "images/games/トマトマト2.png",
+    "images/games/トマトマト3.png"
+  ],
+    "desc": "トマト、マト、マ、ト…",
+    "vector": [1, 2, 2, 5, 1, 4],
+    "rules": [
+      "カードをめくって並べます。",
+      "並べた順に読み上げます。",
+      "つっかえたらアウトです。"
+    ],
+    "players": [3, 6],
+    "time": [15, 20],
+    "mood": ["ドキドキ", "わいわい"],
+    "genre": ["カード", "ダイス", "運ゲー", "アクション", "パーティー"],
+    "theme": ["食べ物・飲み物", "植物"],
+    "brand": ["オインクゲームズ"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/ba345be782e08a2cbd73fff3ebcb9201/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607506723"
+  }
+  },
+  {
+    "title": "ドミニオン",
+     "images": [
+    "images/games/ドミニオン1.png",
+    "images/games/ドミニオン2.png",
+    "images/games/ドミニオン3.png"
+  ],
+    "desc": "国家の支配者となれ",
+    "vector": [5, 2, 1, 5, 1, 3],
+    "rules": [
+      "カードを選んでデッキを作ります。",
+      "自分の都市を建設します。",
+      "秘儀・錬金術"
+    ],
+    "players":[2, 4],
+    "time": [30, 60],
+    "mood": ["集中", "没入"],
+    "genre": ["ボード", "デッキ構築", "カード"],
+    "theme": ["開拓", "経済", "都市建設"],
+    "brand": ["ホビージャパン"]	,
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/fb23f5b69c4c540af5cc6e53c02a49ed/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607505484"
+  }
+  },
+  {
+    "title": "ナナ",
+     "images": [
+    "images/games/ナナ1.png",
+    "images/games/ナナ2.png",
+    "images/games/ナナ3.png"
+  ],
+    "desc": "手札と場を覚えて<br>神経衰弱",
+    "vector": [5, 1, 2, 4, 2, 3],
+    "rules": [
+      "手札と場にカードをセットします。",
+      "見れるカードは最大、または最小の数のみです。",
+      "7を揃えれば一発逆転！"
+    ],
+    "players": [2, 5],
+    "time": [15, 20],
+    "mood": ["バチバチ", "集中"],
+    "genre": ["カード", "運ゲー"],
+    "theme": ["数字", "動物"],
+    "brand": ["すごろくや"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/fa8878e03852fdff639e379a3f2cbeec/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607652456"
+  }
+  },
+  {
+    "title": "ナンジャモンジャ",
+     "images": [
+    "images/games/ナンジャモンジャ1.png",
+    "images/games/ナンジャモンジャ2.png",
+    "images/games/ナンジャモンジャ3.png"
+  ],
+    "desc": "なまえをつけて、<br>よんであげて",
+    "vector": [2, 2, 4, 1, 2, 4],
+    "rules": [
+      "名前を付けます。",
+      "付けた名前を呼んであげましょう。",
+      "…この子の名前、なんだっけ？"
+    ],
+    "players": [2, 6],
+    "time": [10, 15],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "アクション"],
+    "theme": ["ファンタジー", "鑑賞"],
+    "brand": ["すごろくや"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/fbebeac3bd26e7aecb2b010f7a5e57c2/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607643693"
+  }
+  },
+  {
+    "title": "ニムト",
+     "images": [
+    "images/games/ニムト1.png",
+    "images/games/ニムト2.png",
+    "images/games/ニムト3.png"
+  ],
+    "desc": "心理を読んで牛を回避",
+    "vector": [5, 3, 1, 4, 2, 4],
+    "rules": [
+      "資源を集めて道や集落を建設します。",
+      "サイコロで資源を獲得します。",
+      "盗賊には気を付けて！"
+    ],
+    "players": [2, 10],
+    "time": [20, 30],
+    "mood": ["集中", "バチバチ"],
+    "genre": ["カード", "心理戦"],
+    "theme": ["動物", "バトル", "数字"],
+    "brand": ["メビウスゲームズ"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/e2274871c5e22818c096b0f99421021a/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607507808"
+  }
+  },
+  {
+    "title": "はぁって言うゲーム",
+     "images": [
+    "images/games/はぁって言うゲーム1.png",
+    "images/games/はぁって言うゲーム2.png",
+    "images/games/はぁって言うゲーム3.png",
+    "images/games/はぁって言うゲーム4.png",
+    "images/games/はぁって言うゲーム5.png"
+  ],
+    "desc": "はぁって言う、それだけ",
+    "vector": [2, 4, 3, 3, 2, 4],
+    "rules": [
+      "親はお題を確認します。",
+      "お題にそって、はぁって言います。",
+      "どの、はぁ、か予想しましょう。"
+    ],
+    "players": [3, 8],
+    "time": [10, 15],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "アクション", "大喜利", "パーティー"],
+    "theme": ["日常"],
+    "brand": ["幻冬舎"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/6206e8bbe27d27049b31c3d74a657672/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607536631"
+  }
+  },
+  {
+    "title": "はぁって言うゲームmini",
+     "images": [
+    "images/games/はぁって言うゲームmini21.png",
+    "images/games/はぁって言うゲームmini22.png",
+    "images/games/はぁって言うゲームmini23.png",
+    "images/games/はぁって言うゲームmini24.png"
+     ],
+    "desc": "ガチャガチャでも<br>はぁって言っちゃお",
+    "vector": [1, 4, 5, 4, 2, 3],
+    "rules": [
+      "親はお題を確認します。",
+      "お題にそって、はぁって言います。",
+      "どの、はぁ、か予想しましょう。"
+    ],
+    "players": [3, 6],
+    "time": [5, 10],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "アクション", "大喜利", "パーティー"],
+    "theme": ["日常"],
+    "brand": ["幻冬舎"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607666335"
+  }
+  },
+  {
+    "title": "ハゲタカのえじき",
+    "images": [
+    "images/games/ハゲタカのえじき1.png",
+    "images/games/ハゲタカのえじき2.png",
+    "images/games/ハゲタカのえじき3.png"
+  ],
+    "desc": "地道に狙う？一発逆転？",
+    "vector": [3, 5, 1, 3, 1, 3], 
+    "rules": [
+      "1から15の数字を持っています。",
+      "場のハゲタカカードを集めます。",
+      "誰とも被らない数字を出し続けましょう。"
+    ],
+    "players": [2, 6],
+    "time": [15, 20],
+    "genre": ["カード", "心理戦"],
+    "theme": ["動物", "数字", "バトル"],
+    "brand": ["メビウスゲームズ"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/d144c65c2f590db80b9e4c732ad54047/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607507807"
+  }
+  },
+{
+    "title": "ハコオンナ第6版",
+    "images": [
+    "images/games/ハコオンナ1.png",
+    "images/games/ハコオンナ2.png",
+    "images/games/ハコオンナ3.png"
+  ],
+    "desc": "ワタシヲミツケテ………",
+    "vector": [5, 3, 1, 5, 4, 3],
+    "rules": [
+      "ハコオンナを見つけない、逆かくれんぼのスタートです。",
+      "探索者たちは脱出するか、討伐するか、はたまた供養してあげましょう。",
+      "物音を立てたら、あの子がやってくる……"
+    ],
+    "players": [3, 6],
+    "time": [45, 180],
+    "mood": ["没入", "ドキドキ"],
+    "genre": ["ボード","カード","小道具","役職","チーム戦","アクション","運ゲー"],
+    "theme": ["ホラー", "推理", "非日常"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/156a1f4136023e5df35355d9701fd22b/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607632764%3Ftenpo_cd%3D400539"
+  }
+  },
+  {
+    "title": "花札",
+    "images": [
+    "images/games/花札1.png",
+    "images/games/花札2.png",
+    "images/games/花札3.png"
+  ],
+    "desc": "こいこい、だけじゃ<br>ないんです",
+    "vector": [4, 3, 1, 5, 1, 4],
+    "rules": [
+      "手札を配ります。",
+      "場に同じ柄のカードがあれば、取れます。",
+      "高い役を目指すもよし、早めに上がるもよし"
+    ],
+    "players": [2, 5],
+    "time": [10, 20],
+    "mood": ["バチバチ", "わいわい"],
+    "genre": ["カード"],
+    "theme": ["動物", "植物", "アート"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/3f7a2524393f9d755a03f0ec83a22ebf/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607632764%3Ftenpo_cd%3D400539"
+  }
+  },
+  {
+    "title": "パンデミック",
+     "images": [
+    "images/games/パンデミック1.png",
+    "images/games/パンデミック2.png",
+    "images/games/パンデミック3.png"
+  ],
+    "desc": "世界の感染症を封じ込めろ!",
+    "vector": [4, 2, 1, 5, 5, 2],
+    "rules": [
+      "他の役職と協力して感染を防ぎます。",
+      "手番でカードを使って移動や治療を行います。",
+      "全ての疾病を治療することを目指しましょう。"
+    ],
+    "players": [2, 5],
+    "time": [45, 60],
+    "mood": ["集中", "没入"],
+    "genre": ["ボード","カード", "チーム戦","役職"],
+    "theme": ["医療", "ミッション"],
+    "brand": ["アークライト"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/bd6610637ee49905ef82372912876add/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607510899"
+  }
+  },
+  {
+    "title": "犯人は踊る",
+     "images": [
+    "images/games/犯人は踊る1.png",
+    "images/games/犯人は踊る2.png",
+    "images/games/犯人は踊る3.png"
+  ],
+    "desc": "踊り続けて<br>犯人は今どこ？",
+    "vector": [3, 4, 2, 2, 2, 4],
+    "rules": [
+      "隣の人から手札を引きます。",
+      "犯人を捜します。",
+      "時には犬にも頼りましょう。"
+    ],
+    "players": [2, 8],
+    "time": [5, 10],
+    "mood": ["ドキドキ", "わいわい"],
+    "genre": ["カード", "隠匿", "パーティー"],
+    "theme": ["推理", "動物"],
+    "brand": ["すごろくや"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/1074e50b35b063ee21a75952c8654687/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607501402"
+  }
+  },
+  {
+    "title": "不謹慎王Ⅱ",
+     "images": [
+    "images/games/不謹慎王Ⅱ1.png",
+    "images/games/不謹慎王Ⅱ2.png",
+    "images/games/不謹慎王Ⅱ3.png"
+  ],
+    "desc": "こんな時代こそ、不謹慎に",
+    "vector": [1, 2, 5, 2, 3, 1],
+    "rules": [
+      "相談者からの相談を確認します。",
+      "不謹慎な回答で助けてあげましょう。",
+      "※プレイ前にメンバー、周囲をよく確認しましょう。"
+    ],
+    "players": [3, 6],
+    "time": [20, 30],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "大喜利", "パーティー"],
+    "theme": ["鑑賞", "日常"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/f3d3ffe88ce400e28839dd133de429f6/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607615662"
+  }
+  },
+  {
+    "title": "ふくろと金貨",
+    "images": [
+    "images/games/ふくろと金貨1.png",
+    "images/games/ふくろと金貨2.png",
+    "images/games/ふくろと金貨3.png"
+  ],
+    "desc": "なんか、<br>オマエの分多くない？",
+    "vector": [3, 3, 1, 4, 1, 3],
+    "rules": [
+      "金貨を分け合います。",
+      "自分より多そうな人がいたら、その分もらいましょう。",
+      "奪いすぎると自分が狙われますよ？"
+    ],
+    "players": [3, 6],
+    "time": [30, 40],
+    "mood": ["わいわい", "ドキドキ"],
+    "genre": ["小道具", "運ゲー"],
+    "theme": ["バトル", "経済"],
+    "brand": ["オインクゲームズ"],
+   "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/a07fbd5bc80e4bb4ebfe13ff602d7701/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607531442"
+  }
+  },
+  {
+    "title": "ブレイドロンド",
+    "images": [
+    "images/games/ブレイドロンド1.png",
+    "images/games/ブレイドロンド2.png",
+    "images/games/ブレイドロンド3.png"
+  ],
+    "desc": "剣たちと共に、敵を斬れ！",
+    "vector": [5, 2, 1, 5, 1, 3],
+    "rules": [
+      "ソーディアとして使用する剣を選び、デッキをつくります。",
+      "物理攻撃、魔法攻撃、召喚等、戦略はあなた次第",
+      "いざ、決闘開始！"
+    ],
+    "players": [1, 2],
+    "time": [10, 20],
+    "mood": ["集中", "没入"],
+    "genre": [ "カード","ボード", "ダイス", "小道具", "デッキ構築"],
+    "theme": ["ファンタジー", "バトル", "非日常"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/2303b6a2ea934e507f09ab96c0205d27/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607506108"
+  }
+  },
+  {
+    "title": "ブロックス",
+     "images": [
+    "images/games/ブロックス1.png",
+    "images/games/ブロックス2.png",
+    "images/games/ブロックス3.png"
+  ],
+    "desc": "辺はダメ、角だけ合わせて",
+    "vector": [4, 2, 1, 5, 2, 1],
+    "rules": [
+      "自分の色を決めます。",
+      "角だけが隣り合うようにピースを置きましょう。",
+      "全部置くことができるかな？"
+    ],
+    "players": [2, 4],
+    "time": [20, 30],
+    "mood": ["集中", "わいわい"],
+    "genre": ["ボード", "小道具", "陣取り"],
+    "theme": ["数字"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/f920629b089e8542902fcc6acda09988/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607629706"
+  }
+  },
+  {
+    "title": "ヘルパゴス",
+     "images": [
+    "images/games/ヘルパゴス1.png",
+    "images/games/ヘルパゴス2.png",
+    "images/games/ヘルパゴス3.png",
+    "images/games/ヘルパゴス4.png"
+  ],
+    "desc": "絶対に、一緒に<br>生きて帰ろうね",
+    "vector": [4, 3, 2, 5, 3, 3],
+    "rules": [
+      "あなたたちは無人島に漂着してしまいました。",
+      "水と食料を集め、いかだを作り、島から脱出しましょう。",
+      "あれ、こんなところに、銃が………？"
+    ],
+    "players": [3, 12],
+    "time": [20, 30],
+    "mood": ["バチバチ", "わいわい"],
+    "genre": ["ボード", "小道具", "カード", "脱落あり","会話", "チーム戦", "隠匿"],
+    "theme": ["非日常", "交渉", "動物","食べ物・飲み物","海"],
+    "brand": ["すごろくや"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/8ed58d1a46abe3982508b2e1ea733b24/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607660090"
+  }
+  },
+  {
+    "title": "宝石の煌き",
+    "images": [
+    "images/games/宝石の煌き1.png",
+    "images/games/宝石の煌き2.png",
+    "images/games/宝石の煌き3.png"
+  ],
+    "desc": "より美しい宝石を<br>売りつけろ！",
+    "vector": [5, 1, 1, 5, 1, 4],
+    "rules": [
+      "宝石を集め、商人の地位を築きましょう",
+      "資産を集め、鉱山や職人を確保し、より美しい宝石を手に入れましょう。",
+      "貴族の訪問は商売のチャンス"
+    ],
+    "players": [2, 4],
+    "time": [30, 40],
+    "mood": ["バチバチ","集中"],
+    "genre": ["カード","小道具"],
+    "theme": ["ファンタジー", "都市建設", "経済","開拓"],
+    "brand": ["ホビージャパン"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/3715ad87aba194fa1497628e4555f837/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607656387"
+  }
+  },
+  {
+    "title": "みんなで本をもちよって",
+    "images": [
+    "images/games/みんなで本をもちよって1.png",
+    "images/games/みんなで本をもちよって2.png",
+    "images/games/みんなで本をもちよって3.png"
+  ],
+    "desc": "答えは<br>お気に入りの本の中",
+    "vector": [2, 4, 5, 2, 3, 3],
+    "rules": [
+      "みんなで本をもちよります。",
+      "お題を確認します。",
+      "お題の答えを本の中から探しましょう。"
+    ],
+    "players": [2, 8],
+    "time": [20, 30],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "会話", "小道具", "パーティー"],
+    "theme": ["文学", "鑑賞"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/9083d44ce61d07e7b430dbfcb93b1bda/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607548129"
+  }
+  },
+  {
+    "title": "みんなでメイキングBL",
+     "images": [
+    "images/games/みんなでメイキングBL1.png",
+    "images/games/みんなでメイキングBL2.png",
+    "images/games/みんなでメイキングBL3.png"
+  ],
+    "desc": "モブ顔女神様の言う通り",
+    "vector": [1, 4, 5, 5, 4, 3],
+    "rules": [
+      "登場人物の設定を決めます。",
+      "みんなで物語を作ります。",
+      "どんなエンドを迎えるのでしょう"
+    ],
+    "players": [2, 5],
+    "time": [10, 15],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "チーム戦", "大喜利"],
+    "theme": ["学園", "鑑賞", "文学", "日常","恋愛"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/a22818e488e1332ac31f678fb7b50967/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607546910"
+  }
+  },
+  {
+    "title": "みんなでメイキングクトゥルフ",
+    "images": [
+     "images/games/みんなでメイキングクトゥルフ1.png",
+    "images/games/みんなでメイキングクトゥルフ2.png",
+    "images/games/みんなでメイキングクトゥルフ3.png"
+  ],
+    "desc": "モブ顔の邪神、顕現す",
+    "vector": [1, 3, 5, 5, 4, 2],
+    "rules": [
+      "あなたはモブ顔の邪神様です。。",
+      "みんなで名状しがたい狂気の物語を紡ぎます。",
+      "狂気に満ちたエンドか、狂気に打ち勝つのか…"
+    ],
+    "players": [2, 5],
+    "time": [10, 15],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "チーム戦", "大喜利"],
+    "theme": ["ホラー", "鑑賞","神話", "文学", "非日常"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://item.rakuten.co.jp/yellowsubmarine/4573491870057/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607619471"
+  }
+  },
+  {
+    "title": "モノポリー",
+    "images": [
+    "images/games/モノポリー1.png",
+    "images/games/モノポリー2.png",
+    "images/games/モノポリー3.png"
+  ],
+    "desc": "知略と交渉で目指せ独占",
+    "vector": [4, 2, 3, 1, 4, 3],
+    "rules": [
+      "都市や会社を買い集めましょう。",
+      "通行料や使用料を他のプレイヤーから徴収します。",
+      "他のプレイヤーを破産させ、独占を目指しましょう。"
+    ],
+    "players":[2, 8],
+    "time": [60, 80],
+    "mood": ["集中", "没入"],
+    "genre": ["ボード", "カード", "ダイス", "小道具", "脱落あり","陣取り"],
+    "theme": ["都市建設", "経済"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/0dc10e1dfaddcf2f2e2a7986e439f04b/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607628007"
+  }
+  },
+  {
+    "title": "目撃者たちの夜",
+     "images": [
+    "images/games/目撃者たちの夜1.png",
+    "images/games/目撃者たちの夜2.png",
+    "images/games/目撃者たちの夜3.png"
+  ],
+    "desc": "俺は見た！間違いない！",
+    "vector": [5, 5, 2, 4, 3, 3],
+    "rules": [
+      "屋敷に殺人鬼がいるようです。",
+      "全員の目撃情報を頼りに、場所を特定してください。",
+      "目撃情報って、あてにならないんですよ…"
+    ],
+    "players": [3, 6],
+    "time": [10, 15],
+    "mood": ["ドキドキ", "没入"],
+    "genre": ["カード", "隠匿", "会話", "心理戦", "役職"],
+    "theme": ["推理", "非日常"],
+    "brand": ["すごろくや"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/98575d802d85d58bd405cf5e482c485d/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607544171"
+  }
+  },
+  {
+    "title": "レベル・プリンセス",
+     "images": [
+    "images/games/レベル・プリンセス1.png",
+    "images/games/レベル・プリンセス2.png",
+    "images/games/レベル・プリンセス3.png"
+  ],
+    "desc": "王子様はお呼びでないの",
+    "vector": [3, 2, 1, 3, 2, 4],
+    "rules": [
+      "手札を順に場に出します。",
+      "その場を支配した人がカードをゲットします。",
+      "カエルの王子様は招いちゃダメ！"
+    ],
+    "players": [3, 6],
+    "time": [30, 40],
+    "mood": ["集中", "バチバチ"],
+    "genre": ["カード", "トリックテイキング"],
+    "theme": ["ファンタジー", "バトル", "童話"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/296f648c5bc43da8cfc7960dab48a7ba/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607651157"
+  }
+  },
+  {
+    "title": "ワー！ワーウルフ",
+     "images": [
+    "images/games/ワー！ワーウルフ1.png",
+    "images/games/ワー！ワーウルフ2.png",
+    "images/games/ワー！ワーウルフ3.png"
+  ],
+    "desc": "人狼ゲームに地理要素をプラス",
+    "vector": [5, 4, 2, 3, 3, 3],
+    "rules": [
+      "家パネルを並べて村をつくります。",
+      "丸太をうまく使って、人狼の襲撃をかわしましょう",
+      "スプリガンや吸血鬼にも気を付けて！"
+    ],
+    "players": [5, 16],
+    "time": [15, 40],
+    "mood": ["ドキドキ","わいわい"],
+    "genre": ["ボード","カード", "脱落あり","役職", "隠匿", "心理戦"],
+    "theme": ["推理", "非日常", "ファンタジー","動物"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
+  "surugaya": "https://www.suruga-ya.jp/product/detail/607520516?tenpo_cd=400446"
+  }
+  },
+  {
+    "title": "笑ってはいけない音読",
+     "images": [
+    "images/games/笑ってはいけない音読1.png",
+    "images/games/笑ってはいけない音読2.png",
+    "images/games/笑ってはいけない音読3.png"
+  ],
+    "desc": "静粛に。授業中ですよ。",
+    "vector": [3, 2, 4, 3, 1, 3],
+    "rules": [
+      "テーマが表示されます。",
+      "指定個所を音読します。",
+      "笑ってはいけません。"
+    ],
+    "players": [2, 4],
+    "time": [15, 20],
+    "mood": ["わいわい", "没入"],
+    "genre": ["大喜利", "カード", "小道具", "アクション"],
+    "theme": ["童話", "文学"],
+    "brand": ["幻冬舎"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/85d0ede04c43db48109ca3ac79443b0f/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607659446"
+  }
+  },
+  {
+    "title": "ワンナイト人狼",
+     "images": [
+    "images/games/ワンナイト人狼1.png",
+    "images/games/ワンナイト人狼2.png",
+    "images/games/ワンナイト人狼3.png"
+  ],
+    "desc": "人狼は……いないかも？",
+    "vector": [4, 5, 3, 3, 4, 5],
+    "rules": [
+      "役職を決めます。",
+      "市民にまぎれた人狼を処刑しましょう。",
+      "人狼は、本当にいるのでしょうか？"
+    ],
+    "players": [3, 7],
+    "time": [10, 15],
+    "mood": ["わいわい", "没入"],
+    "genre": ["カード", "会話", "隠匿", "役職",  "心理戦", "運ゲー"],
+    "theme": ["動物", "推理"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://item.rakuten.co.jp/boardgame-sugorokuya/ot0069rkt/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607500916%3Ftenpo_cd%3D400458"
+  }
+  },
+  {
+    "title": "ワンナイト人狼狂気ver.",
+     "images": [
+    "images/games/ワンナイト人狼狂気ver.1.png",
+    "images/games/ワンナイト人狼狂気ver.2.png",
+    "images/games/ワンナイト人狼狂気ver.3.png"
+  ],
+    "desc": "邪神を目覚めさせるな…",
+    "vector": [3, 4, 3, 5, 4, 5],
+    "rules": [
+      "役職を決めます。",
+      "市民にまぎれた邪神を封印しましょう。",
+      "狂気カードは人を選んで使用しましょう"
+    ],
+    "players": [3, 7],
+    "time": [10, 15],
+    "mood": ["わいわい", "没入"],
+    "genre": ["カード", "会話", "隠匿", "役職",  "心理戦", "運ゲー"],
+    "theme": ["ホラー", "推理","神話"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/f7b937235e5073d513cf30e034aa1fe3/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607536386%3Ftenpo_cd%3D400512"
+  }
+  },
+  {
+    "title": "ワンナイト人狼モンスターver.",
+     "images": [
+    "images/games/ワンナイト人狼モンスターver.1.png",
+    "images/games/ワンナイト人狼モンスターver.2.png",
+    "images/games/ワンナイト人狼モンスターver.3.png"
+  ],
+    "desc": "進化した大狼<br>対抗手段はモンスター？",
+    "vector": [3, 4, 2, 4, 3, 3],
+    "rules": [
+      "進化した大狼にはモンスターで対抗するしかありません。",
+      "人間を超えた力を持つモンスターたちを味方につけましょう。",
+      "モンスターが素直に助けてくれれば、ですが…。"
+    ],
+    "players": [3, 7],
+    "time": [10, 15],
+    "mood": ["わいわい", "没入"],
+    "genre": ["カード", "会話", "隠匿", "役職",  "心理戦", "運ゲー"],
+    "theme": ["ホラー", "推理", "動物"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/8da85093822775441dde048565dc11c0/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607502672"
+  }
+  }
+]

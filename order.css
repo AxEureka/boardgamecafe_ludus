@@ -1,0 +1,327 @@
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* 背景画像 */
+    background-image: url('images/order/woodtable.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.page-title {
+    font-size: 50px;
+    margin: 30px 0 50px 0; /* 上:30px 下:50px */
+    color: #ffffff;
+    text-align: center;
+}
+
+
+.book-container {
+  position: relative;
+  width: 90vw;
+  max-width: 2500px;
+  height: 1200px;
+  perspective: 2000px;
+}
+
+.book {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: #fff8e1;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  z-index: 1;
+}
+
+.page.left {
+  left: 0;
+  transform-origin: right center;
+  z-index: 2;
+}
+
+.page.right {
+  left: 50%;
+  transform-origin: left center;
+  z-index: 3;
+}
+
+.page.flipped-right {
+  transform: rotateY(-180deg);
+  /* z-index は JS で設定する */
+}
+
+.page.flipped-left {
+  transform: rotateY(180deg);
+  /* z-index は JS で設定する */
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-item div {
+  width: 100%;
+  height: 500px;
+  border: none;              /* 枠線を消す */
+  border-radius: 10px;
+  background-color: #ffffff; /* 白に塗る */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+}
+
+.menu-item div:hover {
+  transform: scale(1.03); /* 少し拡大 */
+  box-shadow: 0 0 20px rgba(255, 180, 77, 0.6); /* 光った感じ */
+  filter: brightness(1.1); /* 明るくする */
+}
+
+.menu-item h3 {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 30px; 
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background: #ffb74d;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+#prev-page { left: -50px; }   /* 左ページ内の少し外側 */
+#next-page { right: -90px; }  /* 右ページ内の少し外側 */
+
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 14px 20px;
+  font-size: 24px;
+  background: #ffb74d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 100;
+}
+
+#back-to-top:hover { background: #ffa726; }
+
+.popup {
+  display: none;
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 上に画像・テキスト、下にボタン */
+    align-items: center;            /* 横方向は中央揃え */
+    width: 800px;
+    height: 750px;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    background: #fff8e1;
+}
+
+#order-btn {
+    position: absolute;
+    bottom: -80px; /* 下中央に固定 */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 18px 30px;
+    font-size: 26px;
+    background-color: #ffb74d;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 500;
+}
+
+.popup-content img {
+  width: 800px;
+  height: 500px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+#popup-name {
+    font-size: 30px;   /* メニュー名を大きく */
+    margin-bottom: 0px;
+    color: #3a2a14;
+}
+
+#popup-text {
+    font-size: 26px;
+    line-height: 1.5;
+    color: #3a2a14;
+    margin-top: 2px;   /* ← この値で微調整 */
+}
+
+
+#order-btn:hover {
+    background-color: #ffa726;
+}
+
+.popup-bubble {
+    position: absolute;
+    top: 300px;       /* 画像の上あたり */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;     /* ← ここで幅を指定 */
+    background: #fff;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-size: 35px;
+    text-align: center;
+    z-index: 300;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.popup-bubble.show {
+    opacity: 1;
+}
+
+@keyframes slowBounceJump {
+  0%   { transform: translateX(0) translateY(0) rotateZ(0deg); }
+  8%   { transform: translateX(-20px) translateY(-15px) rotateZ(-5deg); }  /* 左1回目 */
+  16%  { transform: translateX(-20px) translateY(-15px) rotateZ(-5deg); }  /* 左2回目 */
+  24%  { transform: translateX(20px) translateY(-15px) rotateZ(5deg); }    /* 右1回目 */
+  32%  { transform: translateX(20px) translateY(-15px) rotateZ(5deg); }    /* 右2回目 */
+  40%  { transform: translateX(-20px) translateY(-15px) rotateZ(-5deg); }  /* 左1回目 */
+  48%  { transform: translateX(-20px) translateY(-15px) rotateZ(-5deg); }  /* 左2回目 */
+  56%  { transform: translateX(20px) translateY(-15px) rotateZ(5deg); }      /* 収束に向けて小さく */
+  100% { transform: translateX(20px) translateY(-15px) rotateZ(5deg); }           /* 元の位置 */
+}
+
+.popup-icon-bounce {
+  animation: slowBounceJump 7s ease-in-out infinite; /* 8秒で1ループ */
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 36px;
+  cursor: pointer;
+  color: #333;
+}
+
+
+/* ポップアップ内用のゲームカード */
+#recommend-game-container .game-card {
+  background:
+    linear-gradient(135deg, #fdf5e6, #f5e6c4 25%, #fdf5e6 50%, #f5e6c4 75%, #fdf5e6),
+    url('images/parchment_texture.jpg') center/cover no-repeat;
+  background-blend-mode: multiply;
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(200,180,140,0.5); /* 枠そのまま */
+  box-shadow: 4px 6px 12px rgba(0,0,0,0.3);
+  width: 400px;
+  height: 500px;
+  aspect-ratio: 10 / 11;
+  cursor: pointer;
+  text-align: center;
+  font-size: 28px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden; /* 余白のはみ出しを隠す */
+}
+
+#recommend-game-container .game-card img {
+  width: 100%;          /* 横幅に合わせる */
+  height: auto;         /* 高さは自動で縦横比維持 */
+  max-height: 100%;      /* カードの中で最大サイズに調整 */
+  object-fit: contain;  /* 切らずに収める */
+  border-radius: 12px;
+  margin: 0 auto 8px;
+  display: block;
+}
+
+#recommend-game-container .game-card:hover {
+  box-shadow: 0 0 20px 8px rgba(173,216,230,0.7);
+  transform: translateY(-3px) rotate(0deg) scale(1.05);
+}
+
+#recommend-game-container .game-card img {
+  width: 300px;
+  height: auto; /* ポップアップに収まるように縮小 */
+  object-fit: contain;
+  border-radius: 12px;
+  margin: 0 auto 8px;
+}
+
+#recommend-game-container .game-card .game-title { display: none; }
+#recommend-game-container .game-card .game-desk  { margin-top: 5px; }
+
+
+
+/* 吹き出しのフェード＆少し上に浮くアニメ */
+@keyframes floatFade {
+  0%   { opacity: 0; transform: translateY(0); }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; transform: translateY(-20px); }
+  100% { opacity: 0; transform: translateY(-40px); }
+}
+
+.popup-float-bubble {
+  animation: floatFade 1.5s ease forwards; /* 2秒でフェード＋浮く */
+}
+
+
+.popup-afterline {
+    font-size: 26px;       /* afterLine の大きさ */
+    margin-top: 20px;       /* 「どうぞ召し上がれ」からの距離 */
+    color: #5a3d1e;        /* お好みで色を変えられる */
+    font-weight: normal;
+    line-height: 1.6;
+}
+
+

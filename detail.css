@@ -1,0 +1,483 @@
+/* -------------------- 全体 -------------------- */
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  background: url('images/book.png') repeat center center fixed;
+  background-size: cover;
+  color: #3a2a14;
+  margin: 0;
+  padding: 0;
+  line-height: 1.8;
+  font-size: 20px;   
+}
+
+main {
+  padding: 20px 0px;
+}
+
+/* -------------------- 見開き本レイアウト -------------------- */
+.book-spread {
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 80px;
+  max-width: 1600px;
+  margin: 0 auto;
+  /* transform: scale(1.85); */
+  zoom: 1.85;   /* ← クリック判定も拡大される */
+}
+
+
+.left-page {
+  flex: 1 1 50%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 40px; /* ← 左側に余白を追加して中央寄せ寄りに */
+}
+
+.left-page, .right-page {
+  position: relative;
+}
+
+.left-page::after, .right-page::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(80,60,30,0.15), transparent);
+  pointer-events: none;
+}
+
+.left-page::after { right: 0; }
+.right-page::after { left: 0; transform: scaleX(-1); }
+
+.left-page {
+  flex: 1 1 50%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.right-page {
+  flex: 1 1 50%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ← stretch → flex-start */
+  margin-top: 60px;
+}
+
+/* -------------------- 左ページ（画像1・画像2）調整 -------------------- */
+/* 左ページタイトル上の余白を減らす */
+.left-page h1 {
+  font-size: 2.0em;
+  margin: 0 0 12px 0;  /* 上の余白を0、下の余白を少しに */
+  color: #2c1a09;
+  text-shadow: 1.5px 1.5px 0 #fff8e1, 0 0 6px rgba(200,170,120,0.6);
+  border-bottom: 2px solid rgba(150,100,50,0.3);
+  padding-bottom: 8px;
+  font-variant: small-caps;
+}
+
+/* 左ページの画像ペアを上寄せ */
+.left-page .image-pair {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  width: 100%;
+  max-height: 30vh;       /* ページに収まる高さ */
+  align-items: flex-start; /* 上に揃える */
+  margin-top: 0;           /* 上の余白をなくす */
+}
+
+.left-page .image-pair .main-image,
+.left-page .image-pair .second-image {
+  flex: 1 1 auto;         /* 幅は自動調整 */
+  max-width: 48%;         /* 左右比率 */
+  max-height: 100%;       /* 親の max-height に収まる */
+  width: auto;
+  height: auto;
+  object-fit: contain;    /* 切らずに縮小、比率維持 */
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.left-page .image-pair .main-image { transform: rotate(-3deg); }
+.left-page .image-pair .second-image { transform: rotate(3deg); }
+
+.left-page .image-pair .main-image:hover,
+.left-page .image-pair .second-image:hover {
+  transform: rotate(var(--rotate, 0deg)) scale(1.5);
+  z-index: 5;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* -------------------- 右ページ上半分（人数・時間・ムード + 画像3） -------------------- */
+.upper-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.info-wrapper {
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-top div {
+  font-size: 0.95em;
+  line-height: 1.5;
+  padding: 8px 12px;
+  background: rgba(255, 255, 240, 0.85);
+  border-radius: 5px;
+  border: 1px solid rgba(120, 90, 40, 0.3);
+  text-shadow: 0.5px 0.5px 0 #fff8e1;
+}
+
+.sub-image-wrapper {
+  flex: 1 1 50%;
+  max-height: 200px;   /* 高さを固定 */
+  width: 100%;         /* 横幅いっぱい */
+  background: rgba(255,255,255,0.85);
+  padding: 6px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-image-wrapper img.sub-image {
+  width: 100%;            /* 横幅いっぱい */
+  height: auto;           /* 高さは自動（aspect-ratioが優先） */
+  object-fit: cover;
+  border-radius: 10px;
+  aspect-ratio: 5 / 4;    /* ← 横:縦 = 4:3 */
+}
+
+.sub-image-wrapper img.sub-image:hover {
+  transform: scale(1.5);
+  z-index: 5;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* -------------------- 左ページ下半分（ジャンル・テーマ） -------------------- */
+.info-bottom {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: nowrap;
+}
+
+.info-bottom div {
+  flex: 1 1 auto;
+  font-size: 1em;
+  padding: 6px 10px;
+  background: rgba(255, 255, 240, 0.75);
+  border-radius: 5px;
+  border: 1px solid rgba(120, 90, 40, 0.3);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-shadow: 0.5px 0.5px 0 #fff8e1;
+  position: relative;
+  z-index: 1;
+}
+
+.sub-image-wrapper {
+  position: relative;
+  width: 400px;  /* 今のサイズに合わせて調整可 */
+  height: 380px;
+}
+
+#sub-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid #c2b9a6;
+  border-radius: 8px;
+}
+
+.slider-buttons {
+  position: absolute;
+  right: -50px;    /* ← 画像の右“外”に出す */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slider-buttons button {
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  background: #fff5dd;
+  border: 1px solid #aa9366;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.slider-buttons button:hover {
+  background: #ffe8b5;
+  transform: scale(1.1);
+}
+
+/* -------------------- ルール -------------------- */
+/* --- ルール枠そのものの余白調整 --- */
+.section.rules {
+  background: rgba(255, 255, 240, 0.85);
+  padding: 2px 10px;
+  margin-top: 8px;
+  border-radius: 6px;
+  flex-grow: 0;
+
+  width: 100%;       /* 右ページ内で横いっぱい */
+  max-width: 600px;  /* 好きな最大幅に調整 */
+  min-width: 300px;  /* 最小幅も指定可能 */
+}
+/* --- 見出しの下の余白のみ固定 --- */
+.section.rules h2 {
+  margin: 0 0 6px 0;
+  padding: 0 0 4px 0;
+}
+
+.section.rules h2 {
+  font-size: 1.2em;
+  margin: 0 0 6px 0;
+  padding: 0 0 4px 0;
+}
+
+
+/* --- UL 全体の余白を完全リセット --- */
+.section.rules ul {
+  margin: 0;
+  padding: 0 0 0 20px; /* 左の ✦ の位置だけ保持 */
+  list-style-type: "✦ ";
+}
+
+/* --- LI の行間を強制的に固定（ここが重要！） --- */
+.section.rules li {
+  margin: 0;
+  padding: 4px 0;
+  line-height: 1.35;   /* ←フォントの癖を無効化して高さを固定 */
+}
+
+/* --- 区切り線の調整 --- */
+.section.rules li + li {
+  border-top: 1px dashed rgba(120, 90, 40, 0.3);
+}
+
+
+/* -------------------- リンクボタン -------------------- */
+.action-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 0;
+  position: relative;
+  z-index: 11;  /* ← ボタンを上に */
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 8px 12px;
+  background: rgba(255, 255, 240, 0.6);
+  color: #3a2a14;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  border: 1px solid rgba(120, 90, 40, 0.3);
+  font-size: 0.8em;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover:not(.amazon-text-link) {
+  background: rgba(255, 255, 240, 0.85);
+  transform: scale(1.03);
+}
+
+.amazon-text-link {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+
+  color: #3a2a14;
+  text-decoration: underline;
+  font-weight: normal;
+  font-size: 0.9em;
+}
+
+.amazon-text-link:hover {
+  background: none !important;
+  border: none !important;
+  opacity: 0.7;
+  text-decoration: none;
+  transform: none !important;
+}
+ 
+#shop-links {
+  display: flex;
+  gap: 12px; /* リンク同士の間隔 */
+  flex-wrap: wrap; /* 画面幅が狭くなったとき改行したい場合 */
+}
+
+
+
+/* -------------------- 左ページジャンル・テーマ -------------------- */
+.left-info-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: auto;        /* 下端固定は維持 */
+  transform: translateY(30px);  /* 下から40px上にずらす */
+}
+
+.left-info-bottom div {
+  font-size: 0.95em;
+  padding: 6px 10px;
+  background: rgba(255, 255, 240, 0.85);
+  border-radius: 5px;
+  border: 1px solid rgba(120, 90, 40, 0.3);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-shadow: 0.5px 0.5px 0 #fff8e1;
+}
+
+/* -------------------- vector横並び -------------------- */
+.vector-box {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-top: 12px;
+  margin-bottom: 12px; /* ルールの上に少し余白 */
+  padding: 8px 12px;
+  background: rgba(255,255,240,0.9);
+  border-radius: 8px;
+  border: 1px solid rgba(120,90,40,0.3);
+  font-size: 1.00em;
+  flex-wrap: wrap;
+}
+
+.vector-item {
+  display: flex;
+  align-items: center;
+}
+
+.vector-item.strategy { color: red; }
+.vector-item.psychology { color: blue; }
+.vector-item.ogiri { color: purple; }
+.vector-item.experience { color: gold; }
+.vector-item.cooperation { color: green; }
+.vector-item.luck { color: orange; }
+
+.footer-block {
+  margin-top: auto;      /* ←ここがポイント！常に一番下へ落ちる */
+  padding-top: 20px;
+  width: 100%;
+}
+
+.affiliate-notice {
+  font-size: 0.75em;
+  color: #a00;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+
+.footer-line {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* テキストとリンクの間のスペース */
+  flex-wrap: wrap;
+}
+
+#shop-links a {
+  margin-right: 8px;
+  font-size: 0.9em;
+  text-decoration: underline;
+  color: #0044cc;
+}
+
+.vector-box {
+  position: relative;   /* これが超重要 */
+}
+
+/* iボタンを枠の外へ */
+.info-btn {
+  position: absolute;
+  right: -34px;   /* ← 枠の外に飛ばす */
+  top: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: #444;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* モーダル背景 */
+.info-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.info-modal.hidden {
+  display: none;
+}
+
+/* モーダル本体 */
+.info-window {
+  background: #fff;
+  width: 30%;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+}
+
+/* ×ボタン */
+.close-modal {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+
+#info-content {
+  font-size: 1.8rem;   /* 文字サイズUP */
+  line-height: 1.8;    /* 読みやすく */
+}
+
+
+#info-content h3 {
+  font-size: 2.00rem;
+  margin-top: 12px;
+
+  white-space: nowrap;        /* 改行させない */
+  overflow: hidden;           /* はみ出しを隠す */
+  text-overflow: ellipsis;    /* … を付ける */
+}
+

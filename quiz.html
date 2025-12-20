@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ボドゲタイプ診断</title>
+<link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+<h1>Concoctionem incipiamus.</h1>
+
+<div id="quiz-container"></div>
+
+<div class="cauldron">
+  <div class="cauldron-top"></div>
+</div>
+
+<div class="smoke"></div>
+<div id="blackout"></div>
+
+<script>
+
+function randomFlicker() {
+  const cauldron = document.querySelector('.cauldron');
+  if (!cauldron) return;
+
+  const flame = cauldron.querySelector('::after');
+  // 疑似要素は直接操作できないので、代わりにCSS変数を使う
+  const flicker = Math.random() * 0.15 + 0.9; // 0.9〜1.05倍
+  const rotation = (Math.random() - 0.5) * 2; // -1〜+1度
+  cauldron.style.setProperty('--flame-scale', flicker);
+  cauldron.style.setProperty('--flame-rotate', rotation + 'deg');
+}
+
+// 定期的にゆらぐ（100〜400msごとにランダムで更新）
+setInterval(randomFlicker, 100 + Math.random() * 300);
+
+
+// ----------------- データ -----------------
+const QUESTIONS = [
+  "1) 計画を立てて物事を進めるのが好きですか？",
+  "2) 人の気持ちを読むのが得意だと思いますか？",
+  "3) 予定よりもその場のノリで行動することが好きですか？",
+  "4) 慣れている作業をじっくりやることが好きですか？",
+  "5) チームで協力して物事を進めることが得意ですか？",
+  "6) 運試しや偶然の結果を楽しみますか？",
+  "7) 目標達成のために作戦を練るのが好きですか？",
+  "8) 人の行動を予測して行動することが得意ですか？",
+  "9) 人を笑わせようと冗談を言うことがありますか？",
+  "10) 正確な理解よりも大まかな雰囲気を掴みたい方ですか？",
+  "11) 勝ち負けよりもその場の交流を楽しみたいですか？",
+  "12) 自分は運がいい方だと思いますか？"
+];
+
+const QUESTION_TYPE_MAP = ["戦略","心理","大喜利","経験","協力","運","戦略","心理","大喜利","経験","協力","運"];
+
+const ANSWERS = [
+  {text:"ちがう", value:0},
+  {text:"そうでもない", value:0.5},
+  {text:"どちらでもない", value:1},
+  {text:"そうかも", value:1.5},
+  {text:"そのとおり", value:2}
+];
+
+const TYPE_COLOR = {
+  "戦略":"#ff1a1a",
+  "心理":"#1a99ff",
+  "大喜利":"#cc33ff",
+  "経験":"#ffff1a",
+  "協力":"#33ff33",
+  "運":"#ff9933"
+};
+
+const FINAL_QUESTION = "アナﾀ…ノ……望ﾑ…ﾓﾉハ？";
+const FINAL_CHOICES = [
+  { text: "思い通りの現実", type: "戦略" },
+  { text: "スリルと興奮", type: "心理" },
+  { text: "無限の楽しみ", type: "大喜利" },
+  { text: "場の支配", type: "経験" },
+  { text: "仲間からの救済", type: "協力" },
+  { text: "自分を試すこと", type: "運" }
+];
+const FINAL_VALUE = 1.15;
+
+const TYPE_IMAGE = {
+  "戦略": "images/quiz/strategy.png",
+  "心理": "images/quiz/psychology.png",
+  "大喜利": "images/quiz/ogiri.png",
+  "経験": "images/quiz/experience.png",
+  "協力": "images/quiz/cooperation.png",
+  "運": "images/quiz/luck.png"
+};
+
+// ----------------- 状態 -----------------
+let userScores = {戦略:0,心理:0,大喜利:0,経験:0,協力:0,運:0};
+let currentQuestion = 0;
+let isAnimating = false;
+
+// ----------------- 質問表示 -----------------
+function showQuestion(){
+  const container = document.getElementById("quiz-container");
+  container.innerHTML = "";
+
+  if(currentQuestion >= QUESTIONS.length){
+    showFinalQuestion();
+    return;
+  }
+
+  const qDiv = document.createElement("div");
+  qDiv.className = "question";
+  qDiv.textContent = QUESTIONS[currentQuestion];
+  container.appendChild(qDiv);
+
+  const btnDiv = document.createElement("div");
+  btnDiv.className = "buttons";
+
+  ANSWERS.forEach(ans=>{
+    const wrapper = document.createElement("div");
+    wrapper.className = "bottle-wrapper";
+    wrapper.style.position = "relative";
+
+    const bottle = document.createElement("div");
+    bottle.className = "bottle";
+    bottle.onclick = ()=>handleBottle(bottle, ans.value);
+
+    const label = document.createElement("span");
+    label.className = "label";
+    label.textContent = ans.text;
+
+    wrapper.appendChild(bottle);
+    wrapper.appendChild(label);
+    btnDiv.appendChild(wrapper);
+  });
+
+  container.appendChild(btnDiv);
+}
+
+// ----------------- ボトルアニメ -----------------
+async function handleBottle(bottle, value) {
+  if (isAnimating) return;
+  isAnimating = true;
+
+  const type = QUESTION_TYPE_MAP[currentQuestion];
+  userScores[type] += value;
+
+  const rect = bottle.getBoundingClientRect();
+  const cauldron = document.querySelector(".cauldron");
+  const cauldronRect = cauldron.getBoundingClientRect();
+
+  const clone = bottle.cloneNode(true);
+  document.body.appendChild(clone);
+  clone.style.position = "absolute";
+  clone.style.left = rect.left + "px";
+  clone.style.top = rect.top + "px";
+  clone.style.zIndex = 10;
+  bottle.style.visibility = "hidden";
+
+  const targetX = cauldronRect.left + cauldronRect.width/2 - rect.width/2;
+  const targetY = cauldronRect.top - rect.height*0.3 -30;
+  let rotateDeg = value >= 1 ? -140 : 140;
+
+  await clone.animate([
+    { transform: "translate(0,0) rotate(0deg)" },
+    { transform: `translate(${targetX-rect.left}px, ${targetY-rect.top}px) rotate(${rotateDeg}deg)` }
+  ], { duration:700, easing:"ease-in-out", fill:"forwards" }).finished;
+
+  const cloneRect = clone.getBoundingClientRect();
+  dropLiquid(type, value, cloneRect);
+
+  await new Promise(r=>setTimeout(r,1200));
+  clone.remove();
+  bottle.style.visibility = "visible";
+  currentQuestion++;
+  isAnimating = false;
+  showQuestion();
+}
+
+// ----------------- しずく -----------------
+function dropLiquid(type, value, bottleRect){
+  let drops = value === 2 ? 8 : value === 1.5 ? 6 : value === 1 ? 5 : value === 0.5 ? 3 : 2;
+
+  for(let i = 0; i < drops; i++){
+    setTimeout(() => {
+
+      const drop = document.createElement("div");
+      drop.className = "drop";
+      
+      // 透明感のある液体っぽいグラデーション
+      drop.style.background = `radial-gradient(circle, ${TYPE_COLOR[type]}cc 0%, ${TYPE_COLOR[type]}33 70%)`;
+      drop.style.borderRadius = "50%";
+      drop.style.width = `${20 + Math.random()*10}px`;
+      drop.style.height = drop.style.width;
+      drop.style.position = "absolute";
+      drop.style.zIndex = 2;
+
+      // 横ブレ
+      let baseOffsetX =
+        value === 2   ? -24 + Math.random()*5 :
+        value === 1.5 ? -12 + Math.random()*5 :
+        value === 1   ?  -10 + Math.random()*5 :
+        value === 0.5 ?  20 + Math.random()*5 :
+                         18 + Math.random()*5;
+
+      if(value === 1 || value === 1.5 || value === 1){
+        baseOffsetX -= 10; // 左寄せ
+      }
+
+      // スタート位置
+      const mouthX = bottleRect.left + bottleRect.width/2 + baseOffsetX - 10;
+      const mouthY = bottleRect.top + 140 + Math.random()*20;
+
+      drop.style.left = mouthX + "px";
+      drop.style.top = mouthY + "px";
+
+      document.body.appendChild(drop);
+
+      // 流れるように落下
+      let swayX = (Math.random()-0.5)*30; // 左右に少し揺れる
+      drop.animate([
+        { transform: "translate(0,0) scale(0.3)", opacity:1 },
+        { transform: `translate(${baseOffsetX*1.5 + swayX}px, ${Math.random()*80+80}px) scale(1.1)`, opacity:0.7 },
+        { transform: `translate(${baseOffsetX*2 + swayX*1.2}px, ${Math.random()*300+200}px) scale(0)`, opacity:0 }
+      ], { duration: 1200 + Math.random()*600, easing: "ease-out", fill: "forwards" })
+      .onfinish = () => drop.remove();
+
+    }, i * 100); // ドロップ間隔短めで流れ感
+  }
+}
+// ----------------- 最終質問 -----------------
+function showFinalQuestion() {
+  const blackout = document.getElementById("blackout");
+  blackout.style.display = "block";
+  blackout.animate([{opacity: 0},{opacity: 1},{opacity: 0.6}], {duration: 1200, fill: "forwards"});
+
+  setTimeout(() => {
+    const container = document.getElementById("quiz-container");
+    container.innerHTML = "";
+    container.style.background = "none";
+    container.style.padding = "60px 20px";
+
+    const qDiv = document.createElement("div");
+    qDiv.className = "question";
+    qDiv.style.color = "#fff";
+    qDiv.style.fontSize = "1.6em";
+    qDiv.style.marginBottom = "40px";
+    qDiv.textContent = FINAL_QUESTION;
+    container.appendChild(qDiv);
+
+    const btnDiv = document.createElement("div");
+    btnDiv.style.display = "flex";
+    btnDiv.style.flexWrap = "wrap";
+    btnDiv.style.justifyContent = "center";
+    btnDiv.style.gap = "20px";
+
+    FINAL_CHOICES.forEach(choice => {
+      const btn = document.createElement("div");
+      btn.textContent = choice.text;
+      btn.style.padding = "15px 25px";
+      btn.style.background = "#444";
+      btn.style.color = "#fff";
+      btn.style.borderRadius = "10px";
+      btn.style.cursor = "pointer";
+      btn.style.fontSize = "1.1em";
+      btn.style.boxShadow = "0 0 10px rgba(255,255,255,0.5)";
+      btn.onmouseover = ()=>btn.style.transform="scale(1.1)";
+      btn.onmouseleave = ()=>btn.style.transform="scale(1)";
+      btn.onclick = ()=>handleFinalChoice(choice);
+      btnDiv.appendChild(btn);
+    });
+    container.appendChild(btnDiv);
+  }, 1200);
+}
+
+async function handleFinalChoice(choice) {
+  userScores[choice.type] += FINAL_VALUE;
+  const container = document.getElementById("quiz-container");
+  container.innerHTML = "";
+
+  const sym = document.createElement("img");
+  sym.src = TYPE_IMAGE[choice.type];
+  sym.style.position = "fixed";
+  sym.style.top = "50%";
+  sym.style.left = "50%";
+  sym.style.transform = "translate(-50%, -50%) scale(0.8)";
+  sym.style.width = "300px";
+  sym.style.height = "300px";
+  sym.style.zIndex = 6;
+  sym.className = getGlowClass(choice.type);
+  document.body.appendChild(sym);
+
+  await sym.animate([
+    { opacity: 0, transform: "translate(-50%, -50%) scale(0.8)" },
+    { opacity: 1, transform: "translate(-50%, -50%) scale(1.3)" },
+    { opacity: 1, transform: "translate(-50%, -50%) scale(1.0)" }
+  ], { duration: 1500, easing: "ease-in-out", fill: "forwards" }).finished;
+
+  const cauldron = document.querySelector(".cauldron");
+  const cauldronRect = cauldron.getBoundingClientRect();
+  const targetX = cauldronRect.left + cauldronRect.width / 2 - 120;
+  const targetY = cauldronRect.top + cauldronRect.height/2 - 140;
+
+  await sym.animate([
+    { top: "10%", transform: "translate(-50%, 0) scale(1)" },
+    { top: `${targetY}px`, left: `${targetX}px`, transform: "translate(0,0) scale(0.5)" }
+  ], { duration: 3000, easing: "ease-in-out", fill: "forwards" }).finished;
+
+  sym.remove();
+  showSmokeAndGoResult();
+}
+
+// ----------------- 光エフェクト -----------------
+function getGlowClass(type){
+  switch(type){
+    case "戦略": return "glow-strategy";
+    case "心理": return "glow-psychology";
+    case "大喜利": return "glow-ogiri";
+    case "経験": return "glow-experience";
+    case "協力": return "glow-cooperation";
+    case "運": return "glow-luck";
+    default: return "";
+  }
+}
+
+// ----------------- 煙と結果画面 -----------------
+function showSmokeAndGoResult(){
+  const smoke = document.querySelector(".smoke");
+  const maxScore = Math.max(...Object.values(userScores));
+  const topTypes = Object.entries(userScores).filter(([k,v])=>v===maxScore).map(([k,v])=>k);
+  let color = topTypes.length>=3 ? "#ffffff" : TYPE_COLOR[topTypes[0]];
+
+  smoke.style.background = color;
+  smoke.style.display="block";
+ smoke.animate([
+  {opacity:0, transform:"translateX(-50%) translateY(0) scale(0.5)"},
+  {opacity:1, transform:"translateX(-50%) translateY(-300px) scale(5)"}
+], {duration:1500, easing:"ease-out", fill:"forwards"})
+  .finished.then(()=>{
+    sessionStorage.setItem("diagnosisScores",JSON.stringify(userScores));
+    window.location.href="result.html";
+  });
+}
+
+// 初期表示
+showQuestion();
+</script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+/* ============================================================
+   基本レイアウト
+   ============================================================ */
+body {
+  font-family: "Georgia", serif;
+  background: url('images/result/result.jpg') no-repeat center top;
+  background-size: cover;
+  color: #f0e6d2;
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  position: relative;
+}
+
+header {
+  background: rgba(48, 30, 8, 0.8);
+  color: #f0e6d2;
+  padding: 1em;
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* レーダーチャートとタイプ画像を並べるBレイアウト */
+.result-header {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* ============================================================
+   ★ Bレイアウト用：タイプ画像＋魔法陣（競合なし完全版）
+   ============================================================ */
+
+/* コンテナ（レーダーチャートの左に置かれる） */
+.type-image-container {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  flex-shrink: 0;
+  margin-right: 20px;
+  z-index: 5;
+}
+
+/* 魔法陣（背面） */
+.circle-under {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  width: 480px;
+  height: 480px;
+  transform: translate(-50%, -50%);
+  opacity: 0.9;
+  z-index: 1;
+  animation: rotateYCircle 20s linear infinite;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* タイプ画像（前面） */
+#type-image {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 600px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  cursor: pointer;
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* ホバー光演出 */
+#type-image:hover {
+  filter: drop-shadow(0 0 20px rgba(255, 240, 200, 0.8))
+          drop-shadow(0 0 40px rgba(255, 255, 180, 0.5));
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* 魔法陣の回転 */
+@keyframes rotateYCircle {
+  0% { transform: translate(-50%, -50%) rotateY(0deg); }
+  100% { transform: translate(-50%, -50%) rotateY(360deg); }
+}
+
+/* ============================================================
+   レーダーチャート
+   ============================================================ */
+.chart-container {
+  width: 450px;
+  height: 450px;
+  background-color: rgba(128,128,128,0.3);
+  border: 2px solid;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ============================================================
+   タイプ名・説明文
+   ============================================================ */
+
+/* タイトル(筆記体) */
+#recommended-games-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8em;
+  color: #fff;
+  margin-top: 30px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+/* タイプ名 */
+.type-text h2 {
+  color: #fff;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5em;
+  font-weight: 400;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  margin-bottom: 8px;
+}
+
+/* 説明文 */
+.type-desc {
+  color: #fff;
+  font-family: 'Georgia', serif;
+  font-size: 1.15em;
+  line-height: 1.4em;
+  text-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+
+#type-desc {
+  text-align: left;
+}
+
+/* ============================================================
+   ゲームカード
+   ============================================================ */
+
+.game-cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.game-card {
+  background:
+    linear-gradient(135deg, #fdf5e6, #f5e6c4 25%, #fdf5e6 50%, #f5e6c4 75%, #fdf5e6),
+    url('images/parchment_texture.jpg') center/cover no-repeat;
+  background-blend-mode: multiply;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(200,180,140,0.5);
+  box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
+  width: 350px;
+  aspect-ratio: 10 / 11;
+  cursor: pointer;
+  text-align: center;
+  font-size: 30px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: visible;
+}
+
+.game-card img {
+  width: 100%;
+  height: 80%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 0 auto 10px auto;
+}
+
+.game-card .game-title {
+  display: none;
+}
+
+.game-card .game-desc {
+  margin-top: 5px;
+}
+
+.game-card:hover {
+  box-shadow: 0 0 25px 10px rgba(173,216,230,0.7);
+  transform: translateY(-5px) scale(1.05);
+}
+
+.game-card a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.game-desc {
+  font-size: 0.85em;
+  color: #7b3f00;
+  line-height: 1.3em;
+  overflow: visible;
+}
+
+/* ============================================================
+   ボタン
+   ============================================================ */
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.top-btn {
+  padding: 10px 20px;
+  background: rgba(80, 50, 20, 0.9);
+  color: #f0e6d2;
+  font-size: 30px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.top-btn:hover {
+  background: rgba(50, 30, 10, 0.9);
+}
+
+/* ============================================================
+   魔法陣っぽい背景（bodyの下層）
+   ============================================================ */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(120, 200, 255, 0.25) 0%, transparent 70%);
+  filter: blur(40px);
+  animation: spin 30s linear infinite;
+  opacity: 0.5;
+}
+
+body::after {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 240, 150, 0.25) 0%, transparent 70%);
+  filter: blur(30px);
+  animation: spinReverse 40s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes spinReverse {
+  from { transform: translate(-50%, -50%) rotate(360deg); }
+  to { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+/* コンテンツは前面へ */
+header, .result-header, .game-cards, .btn-container {
+  position: relative;
+  z-index: 10;
+}

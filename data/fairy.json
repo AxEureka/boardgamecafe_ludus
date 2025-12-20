@@ -1,0 +1,162 @@
+[
+  {
+    "type": "戦心",
+    "name": "Dominator Tabulae",
+    "image": "images/result/fairy/戦心.png",
+    "types": "卓上の支配者(戦略×心理)",
+    "description": "たまごの湯で加減、特に黄身の状態にはうるさく完璧な茹で上がりを見極める。仲間の好みを把握するのも得意。",
+    "favoriteGames": ["ごきぶりポーカー"],
+    "favoriteFoods": ["半熟ゆでたまご"],
+    "catchphrase": "環境は心を変えるけど、心もまた環境を変える"
+  },
+  {
+    "type": "戦大",
+    "name": "Destructor Tabulae",
+    "image": "images/result/fairy/戦大.png",
+    "types": "卓上の破壊者(戦略×大喜利)",
+    "description": "面白そうなことはとにかく実践！結果よりも今を重視して動くため、しばしばハプニングに繋がることも。他の仲間を楽しませることも大好きで、ゲームの箱やメニューに小さなサプライズをしかけていることも。",
+    "favoriteGames": ["笑ってはいけない音読"],
+    "favoriteFoods": ["醤油ラーメン"],
+    "catchphrase": "壊れてるんじゃない、壊してるの！"
+  },
+  {
+    "type": "戦経",
+    "name": "Ductor Tabulae",
+    "image": "images/result/fairy/戦経.png",
+    "types": "卓上の先導者(戦略×経験)",
+    "description": "基本は無口でおとなしいが、気になったことは調べ尽くさないと気が済まない頑固な一面も。好奇心旺盛でよく地下室やゲーム棚を探索している。マスターの失くし物を見つけてくれることも多い。",
+    "favoriteGames": ["宝石の煌き"],
+    "favoriteFoods": ["さつまいも"],
+    "catchphrase": "あの日の記憶があるから、今戦えるの"
+  },
+  {
+    "type": "戦協",
+    "name": "Imperator Tabulae",
+    "image": "images/result/fairy/戦協.png",
+    "types": "卓上の指揮者(戦略×協力)",
+    "description": "お菓子作りや手芸など、なんでも手作りするのが好き。マスターにコースターを作ってプレゼントしたが、人間には小さすぎる大きさだった。マスターはエプロンの裾にワッペンとして付けて大切にしている。",
+    "favoriteGames": ["ヘルパゴス"],
+    "favoriteFoods": ["シャーベット"],
+    "catchphrase": "あなたが喜んでくれるの、1番嬉しい"
+  },
+  {
+    "type": "戦運",
+    "name": "Actor Tabulae",
+    "image": "images/result/fairy/戦運.png",
+    "types": "卓上の実践者(戦略×運)",
+    "description": "勇気と情熱を持つ妖精。",
+    "favoriteGames": ["海底探検"],
+    "favoriteFoods": ["カレーライス"],
+    "catchphrase": "やれることを全力で！結果はついてくるから！"
+  },
+  {
+    "type": "心大",
+    "name": "Observator Tabulae",
+    "image": "images/result/fairy/心大.png",
+    "types": "卓上の観察者(心理×大喜利)",
+    "description": "ゲームでは親役としてジャッジする方が好き。",
+    "favoriteGames": ["たった今考えたプロポーズの言葉を君に捧ぐよ。"],
+    "favoriteFoods": ["カレーライス"],
+    "catchphrase": "おもしろければいいんじゃないの？"
+  },
+  {
+    "type": "心経",
+    "name": "Cogitator Tabulae",
+    "image": "images/result/fairy/心経.png",
+    "types": "卓上の思索者(心理×経験)",
+    "description": "勇気と情熱を持つ妖精。",
+    "favoriteGames": ["ふくろと金貨"],
+    "favoriteFoods": ["キッシュ"],
+    "catchphrase": "流れは読めても、心までは制御できない"
+  },
+  {
+    "type": "心協",
+    "name": "Nuntius Tabulae",
+    "image": "images/result/fairy/心協.png",
+    "types": "卓上の伝達者(心理×協力)",
+    "description": "勇気と情熱を持つ妖精。",
+    "favoriteGames": ["ito"],
+    "favoriteFoods": ["タルトタタン"],
+    "catchphrase": "共感は時に、束縛になる…"
+  },
+  {
+    "type": "心運",
+    "name": "Alea Tabulae",
+    "image": "images/result/fairy/心運.png",
+    "types": "卓上の賭博者(心理×運)",
+    "description": "相手の挙動を見抜き、大胆な勝負を楽しむ生粋のギャンブラー。機械相手や画面越しのゲームは不得意らしい。辛い物が苦手だが、1切れだけからしマヨネーズを入れたカツサンドを作ってもらってスリルを楽しんでいる。",
+    "favoriteGames": ["スカル"],
+    "favoriteFoods": ["カツサンド(縁起がいいから)"],
+    "catchphrase": "心が震える運を見せてよ！"
+  },
+  {
+    "type": "大経",
+    "name": "Creator Tabulae",
+    "image": "images/result/fairy/大経.png",
+    "types": "卓上の創造者(大喜利×経験)",
+    "description": "記憶力が良く、会話の内容や出来事をよく覚えている。",
+    "favoriteGames": ["みんなで本をもちよって"],
+    "favoriteFoods": ["茄子の揚げびたし"],
+    "catchphrase": "知ってるわ。コレが好きなんでしょ？"
+  },
+  {
+    "type": "大協",
+    "name": "Minister Tabulae",
+    "image": "images/result/fairy/大協.png",
+    "types": "卓上の奉仕者(大喜利×協力)",
+    "description":  "常に涼しい笑みを浮かべているが、ピンチの時には仮面を被ってしまうのでその本心は謎である。食事に興味はなかったが、喫茶店でココアを振る舞われてからはハマった模様。ココアを飲む時もたまに仮面を被っている。",
+    "favoriteGames": ["みんなでメイキングBL"],
+    "favoriteFoods": ["栄養が摂れればいい(ホットココア)"],
+    "catchphrase": "笑ってください。僕が嬉しくなるから"
+  },
+  {
+    "type": "大運",
+    "name": "Fortis Tabulae",
+    "image": "images/result/fairy/大運.png",
+    "types": "卓上の勇者(大喜利×運)",
+    "description": "勇気と情熱を持つ妖精。",
+    "favoriteGames": ["キャットアンドチョコレート"],
+    "favoriteFoods": ["金平糖"],
+    "catchphrase": "理屈って簡単に超えられるのよ？"
+  },
+  {
+    "type": "経協",
+    "name": "Dux Tabulae",
+    "image": "images/result/fairy/経協.png",
+    "types": "卓上の案内者(経験×協力)",
+    "description": "勇気と情熱を持つ妖精。",
+    "favoriteGames": ["ザ・クルー"],
+    "favoriteFoods": ["納豆ごはん(ひきわりより粒派)"],
+    "catchphrase": "全ての経験は、仲間を助けるため！"
+  },
+  {
+    "type": "経運",
+    "name": "Vates Tabulae",
+    "image": "images/result/fairy/経運.png",
+    "types": "卓上の予言者(経験×運)",
+    "description": "勇気と情熱を持つ妖精。",
+    "favoriteGames": ["コヨーテ"],
+    "favoriteFoods": ["チーズナン"],
+    "catchphrase": "確率は事実であり、信仰でもある"
+  },
+  {
+    "type": "協運",
+    "name": "Orator Tabulae",
+    "image": "images/result/fairy/協運.png",
+    "types": "卓上の祈祷者(協力×運)",
+    "description": "他者を信じている、というよりは裏切られても仕方ない、と割り切った節がある。笑顔が見られるのは貴重。",
+    "favoriteGames": ["タイムボム"],
+    "favoriteFoods": ["素麺(具なし)"],
+    "catchphrase": "信じたこと、それ自体が奇跡"
+  },
+  {
+    "type": "バランスタイプ",
+    "name": "Arbiter Tabulae",
+    "image": "images/result/fairy/バランスタイプ.png",
+    "types": "卓上の調停者(バランス)",
+    "description": "一番最初にお店に迷い込んできた子。他者と関わるのが苦手だが、マスターと遊んでからは少しずつ他の子たちともコミュニケーションを取れるようになってきている。マスターを慕う反面、他の子やお客さんに嫉妬してしまうことも。",
+    "favoriteGames": ["ワンナイト人狼", "ドミニオン"],
+    "favoriteFoods": ["マスターのくれるもの全部"],
+    "catchphrase": "わたしと…遊んでくれるの……？"
+  }
+]
