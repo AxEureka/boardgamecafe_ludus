@@ -2,7 +2,8 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>ボドゲ喫茶Ludus_ボドゲ紹介、おすすめ</title>
   <link rel="stylesheet" href="style.css">
 
@@ -10,48 +11,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
   <style>
-  /* ★ 基準フォントサイズ固定（最重要） */
-  html, body {
-    font-size: 16px;
-  }
+    h1, h2 {
+      font-family: 'Dancing Script', cursive;
+      color: #f8f0d8;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; }
 
-  h1, h2 {
-    font-family: 'Dancing Script', cursive;
-    color: #f8f0d8;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-  }
-  h1 { font-size: 2.5em; }
-  h2 { font-size: 1.8em; }
-
-  /* ===== マスターの慌て吹き出し ===== */
-  .master-message {
-    position: fixed;
-    top: 500px;
-    right: 980px;
-    background: #fff8e6;
-    border: 2px solid #d0b37f;
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 40px;
-    color: #4b2e15;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.5s ease;
-    z-index: 10000;
-  }
-
-  .master-message.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
-
-
+    /* ===== マスターの慌て吹き出し ===== */
+    .master-message {
+      position: fixed;
+      top: 500px;
+      right: 980px;
+      background: #fff8e6;
+      border: 2px solid #d0b37f;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 40px;
+      color: #4b2e15;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.5s ease;
+      z-index: 10000;
+    }
+    .master-message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 
-<body class="top-page">
+<body>
+
+<!-- ★追加：画面全体を包む -->
+<div id="stage-wrapper">
+<div id="stage" class="top-page">
 
   <!-- ===== ヘッダー ===== -->
   <header>
@@ -114,7 +111,7 @@
     </div>
   </div>
 
-  <!-- ===== chair用モーダル（ここに置く） ===== -->
+  <!-- ===== chair用モーダル ===== -->
   <div id="chair-modal" class="diary-modal">
     <div class="diary-content">
       <h3>このお店について</h3>
@@ -123,6 +120,8 @@
     </div>
   </div>
 
+</div>
+</div>
   <!-- ===== スクリプト ===== -->
   <script>
     /* -------------------- おすすめカード表示 -------------------- */
