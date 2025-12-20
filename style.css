@@ -215,7 +215,9 @@ h1 {
 }
 
 /* ===== 全体スケール微調整（最終調整用） ===== */
+
 body {
   transform: scale(0.80);
   transform-origin: top center;
+  margin-bottom: 200px;
 }
