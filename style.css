@@ -111,7 +111,8 @@ h1 {
   border: 1px solid rgba(200,180,140,0.5);
   box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
   width: 540px;
-  height: 720px;
+  height: auto;
+  aspect-ratio: 10 / 11; /* 200:220の比率 ≒ 10:11 */
   cursor: pointer;
   text-align: center;
    font-size: 40px;  /* 基本の文字サイズ */
