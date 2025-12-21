@@ -110,7 +110,7 @@ h1 {
   border-radius: 12px;
   border: 1px solid rgba(200,180,140,0.5);
   box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-  width: 540px;
+  width: 600px;
   height: auto;
   aspect-ratio: 10 / 11; /* 200:220の比率 ≒ 10:11 */
   cursor: pointer;
@@ -134,7 +134,7 @@ h1 {
 .game-card img {
   width: 100%;
   height: auto;
-  max-height: 3600px; /* 必要に応じて */
+  max-height: 500px; /* 必要に応じて */
   object-fit: contain;
   border-radius: 15px;
   margin: 0 auto 10px;
