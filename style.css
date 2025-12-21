@@ -15,22 +15,26 @@ body {
 }
 
 /* ===============================
-   ステージ（倍率固定の要）
+   ステージ（絶対基準）
 ================================ */
 
 #stage-wrapper {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
 }
 
 #stage {
-  width: 1440px;          /* ← ローカル基準 */
+  width: 1440px;   /* ← ローカル基準 */
   height: 900px;
   position: relative;
   transform-origin: top center;
 }
 
-/* ===== 小さい画面では縮小 ===== */
+/* ★ 小さい画面だけ縮小（比率固定） */
 @media (max-width: 1440px) {
   #stage {
     transform: scale(calc(100vw / 1440));
@@ -101,7 +105,7 @@ h1 {
 }
 
 /* ===============================
-   ホットスポット
+   ホットスポット（基準1440×900）
 ================================ */
 
 .hotspot {
