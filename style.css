@@ -286,14 +286,14 @@ h1 {
 /* -------------------- 吹き出し -------------------- */
 #master-bubble {
   position: absolute;
-  bottom: 1000px; /* 元は低めなら200pxなど。数値を上げると上に表示 */
+  bottom: 1500px; /* 元は低めなら200pxなど。数値を上げると上に表示 */
   left: 59%;
   transform: translateX(-50%);
-  max-width: 700px;
+  max-width: 1000px;
   padding: 8px 12px;
   background: rgba(255, 255, 255, 0.9);
   color: #3a2a14;
-  font-size: 45px;
+  font-size: 50px;
   border-radius: 12px;
   box-shadow: 2px 3px 8px rgba(0,0,0,0.3);
   font-family: 'Dancing Script', cursive;
