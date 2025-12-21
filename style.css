@@ -498,3 +498,27 @@ body {
   transform: scale(1.1);
 }
 
+
+header,
+main,
+.today-section,
+.game-cards,
+.game-card,
+.hotspot {
+  position: relative;
+  z-index: 10;
+}
+
+
+#stage {
+  z-index: 0;
+}
+
+.main-light {
+  z-index: 1;
+}
+
+
+.hotspot {
+  pointer-events: auto;
+}
