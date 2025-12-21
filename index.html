@@ -3,332 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボドゲ喫茶 Ludus</title>
 
-  <title>ボドゲ喫茶Ludus_ボドゲ紹介、おすすめ</title>
   <link rel="stylesheet" href="style.css">
 
   <!-- フォント -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-
-  <style>
-    h1, h2 {
-      font-family: 'Dancing Script', cursive;
-      color: #f8f0d8;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-    }
-    h1 { font-size: 2.5em; }
-    h2 { font-size: 1.8em; }
-
-    /* ===== マスターの慌て吹き出し ===== */
-    .master-message {
-      position: fixed;
-      top: 500px;
-      right: 980px;
-      background: #fff8e6;
-      border: 2px solid #d0b37f;
-      border-radius: 10px;
-      padding: 10px 16px;
-      font-family: 'Dancing Script', cursive;
-      font-size: 40px;
-      color: #4b2e15;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.5s ease;
-      z-index: 10000;
-    }
-    .master-message.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
 </head>
 
-<body>
+<body class="top-page">
 
-<!-- ★追加：画面全体を包む -->
 <div id="stage-wrapper">
-<div id="stage" class="top-page">
+  <div id="stage">
 
-  <!-- ===== ヘッダー ===== -->
-  <header>
-    <h1>"ボドゲ喫茶 Ludus へようこそ"</h1>
-  </header>
+    <!-- ===== ヘッダー ===== -->
+    <header>
+      <h1>ボドゲ喫茶 Ludus へようこそ</h1>
+    </header>
 
-  <!-- ===== メインコンテンツ ===== -->
-  <main>
-    <section class="today-section">
-      <h2>本日のおすすめ</h2>
-      <div id="today-games" class="game-cards"></div>
-    </section>
-  </main>
+    <!-- ===== メイン ===== -->
+    <main>
+      <section class="today-section">
+        <h2>本日のおすすめ</h2>
+        <div id="today-games" class="game-cards"></div>
+      </section>
+    </main>
 
-  <!-- ===== ホットスポット ===== -->
-  <div id="hs-bookshelf" class="clickable hotspot bookshelf">
-    <div class="label-paper top">検索する</div>
-  </div>
-
-  <div id="hs-painting" class="clickable hotspot painting">
-    <div class="label-paper bottom">診断する</div>
-  </div>
-
-  <div id="hs-cup" class="clickable hotspot cup">
-    <div class="label-paper bottom">注文する</div>
-  </div>
-
-  <div id="hs-chair" class="clickable hotspot chair">
-    <div class="label-paper bottom">このお店って？</div>
-  </div>
-
-  <div id="hs-baum" class="clickable hotspot baum"></div>
-  <div id="hs-master" class="clickable hotspot master"></div>
-
-  <!-- ===== マスター吹き出し ===== -->
-  <div id="master-bubble" class="speech-bubble" aria-hidden="true"></div>
-
-  <ul id="master-lines" style="display:none;">
-    <li>いらっしゃいませ。<br>ゆっくりしていってくださいね。</li>
-    <li>棚からもゲームをお探しになれますよ。</li>
-    <li>いつか、オリジナルのゲームを<br>開発できたらいいですね。</li>
-    <li>こらこら、熱いから離れていてね。</li>
-    <li>わかったわかった、後で遊ぼうね。</li>
-    <li>お砂糖を取ってくれるかい？<br>ありがとう。</li>
-    <li>光が飛んでいた？<br>ふふ、遊びたいのかもしれませんね。</li>
-    <li>なにか召し上がりますか？<br>メニューは手前のテーブルにあります。</li>
-    <li>どうぞ、お手に取ってみてください。</li>
-    <li>こちら、一戦やってみますか？<br>お相手しますよ。</li>
-    <li>4月の第1土曜日は<br>国際ボードゲームの日なんですよ。</li>
-    <li>今日のブレンドは、自信作なんです。</li>
-    <li>花の絵に訊くと、<br>おすすめを教えてくれますよ。</li>
-  </ul>
-
-  <!-- 📔 日記モーダル -->
-  <div id="diary-modal" class="diary-modal">
-    <div class="diary-content">
-      <h3>マスターの日記</h3>
-      <p id="diary-text"></p>
-      <button id="close-diary">閉じる</button>
+    <!-- ===== ホットスポット ===== -->
+    <div id="hs-bookshelf" class="hotspot bookshelf">
+      <div class="label-paper top">検索する</div>
     </div>
-  </div>
 
-  <!-- ===== chair用モーダル ===== -->
-  <div id="chair-modal" class="diary-modal">
-    <div class="diary-content">
-      <h3>このお店について</h3>
-      <p id="chair-text"></p>
-      <button id="close-chair">閉じる</button>
+    <div id="hs-painting" class="hotspot painting">
+      <div class="label-paper bottom">診断する</div>
     </div>
+
+    <div id="hs-cup" class="hotspot cup">
+      <div class="label-paper bottom">注文する</div>
+    </div>
+
+    <div id="hs-chair" class="hotspot chair">
+      <div class="label-paper bottom">このお店って？</div>
+    </div>
+
+    <div id="hs-baum" class="hotspot baum"></div>
+    <div id="hs-master" class="hotspot master"></div>
+
+    <!-- 吹き出し -->
+    <div id="master-bubble" class="speech-bubble"></div>
+
   </div>
-
 </div>
-</div>
-  <!-- ===== スクリプト ===== -->
-  <script>
-    /* -------------------- おすすめカード表示 -------------------- */
-    async function showTodayGames() {
-      const res = await fetch('data/games.json');
-      const games = await res.json();
-      const shuffled = games.sort(() => Math.random() - 0.5).slice(0, 3);
-      const container = document.getElementById('today-games');
-      container.innerHTML = '';
-      shuffled.forEach(game => {
-        const imageSrc = Array.isArray(game.images) ? game.images[0] : game.image;
-        const card = document.createElement('div');
-        card.className = 'game-card';
-        card.innerHTML = `
-          <a href="detail.html?title=${encodeURIComponent(game.title)}">
-            <img src="${imageSrc}" alt="${game.title}">
-            <p class="game-title">${game.title}</p>
-            <p class="game-desc">${game.desc}</p>
-          </a>
-        `;
-        container.appendChild(card);
-      });
-    }
 
-    /* -------------------- 妖精出現 -------------------- */
-    const fairyColors = ['red','blue','purple','yellow','green','orange','white'];
-    const fairyTypes = {
-      red: ["戦心","戦大","戦経","戦協","戦運"],
-      blue: ["戦心","心大","心経","心協","心運"],
-      purple: ["戦大","心大","大経","大協","大運"],
-      yellow: ["戦経","心経","大経","経協","経運"],
-      green: ["戦協","心協","大協","経協","協運"],
-      orange: ["戦運","心運","大運","経運","協運"],
-      white: ["バランスタイプ"]
-    };
+<script>
+/* ===== 今日のおすすめ ===== */
+async function showTodayGames() {
+  const res = await fetch('data/games.json');
+  const games = await res.json();
+  const shuffled = games.sort(() => Math.random() - 0.5).slice(0, 3);
+  const container = document.getElementById('today-games');
+  container.innerHTML = '';
 
-    function spawnFairy() {
-      const fairy = document.createElement('div');
-      fairy.classList.add('fairy');
-      const size = 10 + Math.random() * 10;
-      fairy.style.width = size + 'px';
-      fairy.style.height = size + 'px';
-      const color = fairyColors[Math.floor(Math.random() * fairyColors.length)];
-      fairy.style.background = color;
-      fairy.style.boxShadow = `0 0 10px 5px ${color}`;
-      const container = document.getElementById('today-games');
-      const rect = container.getBoundingClientRect();
-      let startX, startY;
-      do {
-        startX = Math.random() * window.innerWidth;
-        startY = Math.random() * window.innerHeight;
-      } while (startX >= rect.left && startX <= rect.right && startY >= rect.top && startY <= rect.bottom);
-      fairy.style.left = startX + 'px';
-      fairy.style.top = startY + 'px';
-      fairy.style.opacity = 1;
-      document.body.appendChild(fairy);
-      let endX, endY;
-      do {
-        endX = Math.random() * window.innerWidth;
-        endY = Math.random() * window.innerHeight;
-      } while (endX >= rect.left && endX <= rect.right && endY >= rect.top && endY <= rect.bottom);
-      setTimeout(() => {
-        fairy.style.transform = `translate(${endX - startX}px, ${endY - startY}px)`;
-        fairy.style.opacity = 0;
-      }, 50);
-      fairy.addEventListener('click', () => {
-        const types = fairyTypes[color];
-        const type = types[Math.floor(Math.random() * types.length)];
-        window.location.href = `fairy.html?type=${encodeURIComponent(type)}`;
-      });
-      setTimeout(() => fairy.remove(), 5000);
-    }
+  shuffled.forEach(game => {
+    const img = Array.isArray(game.images) ? game.images[0] : game.image;
+    const card = document.createElement('div');
+    card.className = 'game-card';
+    card.innerHTML = `
+      <a href="detail.html?title=${encodeURIComponent(game.title)}">
+        <img src="${img}" alt="${game.title}">
+        <p>${game.desc}</p>
+      </a>
+    `;
+    container.appendChild(card);
+  });
+}
 
-    function startFairies() {
-      function scheduleNext() {
-        const interval = 20000 + Math.random() * 50000;
-        setTimeout(() => { spawnFairy(); scheduleNext(); }, interval);
-      }
-      scheduleNext();
-    }
+document.addEventListener('DOMContentLoaded', showTodayGames);
+</script>
 
-    /* -------------------- イベント制御 -------------------- */
-    document.addEventListener('DOMContentLoaded', () => {
-      showTodayGames();
-      startFairies();
-
-      const hsBookshelf = document.getElementById('hs-bookshelf');
-      const hsPainting  = document.getElementById('hs-painting');
-      const hsCup       = document.getElementById('hs-cup');
-      const hsChair     = document.getElementById('hs-chair');
-      const hsBaum      = document.getElementById('hs-baum');
-      const hsMaster    = document.getElementById('hs-master');
-      const bubble      = document.getElementById('master-bubble');
-      const linesEl     = document.getElementById('master-lines');
-
-      hsBookshelf?.addEventListener('click', () => window.location.href = 'search.html');
-      hsPainting?.addEventListener('click', () => window.location.href = 'door.html');
-      hsCup?.addEventListener('click', () => window.location.href = 'order.html');
-
-      // ===== chair用モーダル表示 =====
-      hsChair?.addEventListener('click', async (e) => {
-  e.stopPropagation();
-
-  // ★ cafe.json を読み込む
-  const res = await fetch('data/cafe.json?v=2');
-  const cafeData = await res.json();
-
-  // ★ json 内の文章をそのまま表示
-  const chairText = document.getElementById('chair-text');
-  chairText.innerHTML = cafeData.text;  // ← ここに合わせてね（後述）
-
-  // モーダル表示処理（変更なし）
-  const chairModal = document.getElementById('chair-modal');
-  chairModal.style.display = 'flex';
-  const content = chairModal.querySelector('.diary-content');
-  content.style.animation = 'openBook 0.6s forwards';
-});
-
-// ===== chairモーダルの閉じる処理 =====
-document.addEventListener('click', (e) => {
-  const chairModal = document.getElementById('chair-modal');
-  const content = chairModal.querySelector('.diary-content');
-
-  // ボタンが押されたとき
-  if (e.target.id === 'close-chair') {
-    content.style.animation = 'fadeOut 0.3s forwards';
-    setTimeout(() => {
-      chairModal.style.display = 'none';
-    }, 300);
-  }
-});
-
-
-      /* ---- 日記モーダル ---- */
-      const diaryModal = document.getElementById('diary-modal');
-      const diaryText = document.getElementById('diary-text');
-      const closeDiary = document.getElementById('close-diary');
-      const diaryTexts = [
-        "5月26日<br>重ためのボードゲームはルールが難しいけれど、付属品や世界観の細やかさは見てて飽きない。あの子は真剣な顔でルールブックを呼んでいる。口元に笑みを浮かべて、早く遊びたいみたい。",
-        "5月29日<br>静かな雨の日。地下室から出てきたあの子が古い指輪を見つけてきた。ずっと前に遊んだ時に落として、そのままになっていたらしい。薔薇の箱にしまっておく。これでまた遊べるね。",
-        "10月10日<br>ゲーム棚を整理していたら懐かしいゲームを見つけた。あの子と初めて遊んだボードゲーム。少しずれたセンスが独特で面白かったなぁ。今ならこの絵に、なんてタイトルを付けるだろう。",
-        "11月15日<br>あの子がこっそりコーヒー豆をかじっていた。お菓子だと思ったらしい。苦いのが苦手らしく涙目になっていたけれど、アフォガードは気に入ったみたい。また作ってあげよう。",
-        "1月14日<br>閉店後にみんなで映画のポスターや小説を作ったり、相談への回答を考えたり。とにかくいっぱい笑ったことは覚えている。自分の常識が通じないこともあったり。いろんな考え方を聞くのはやっぱり楽しいな。",
-        "2月2日<br>特に冷え込む日。新しいブレンドを試してみた。基本はまろやかに、酸味は抑えて、苦さは最後に軽く。味や香りに敏感なあの子が何も言わず目を細めていた。これは自信をもってお客様にも出せそうだ。",
-        "2月28日<br>信じられないことが起こった。あの子もびっくりして逃げようとしたけれど、なんとか落ち着いてもらえた。ナポリタンを食べて、デッキ構築ゲームで遊んで、とりあえず楽しんでもらえたみたいだけど、これからどうなるんだろう…？"
-      ];
-
-      closeDiary.addEventListener('click', () => {
-        const content = diaryModal.querySelector('.diary-content');
-        content.style.animation = 'fadeOut 0.3s forwards';
-        setTimeout(() => { diaryModal.style.display = 'none'; }, 300);
-      });
-
-      /* ---- バウムクリック回数 ---- */
-      let clickCount = 0;
-      hsBaum.addEventListener('click', e => {
-        e.stopPropagation();
-        clickCount++;
-        if (clickCount === 3) {
-          showMasterMessage("そこは……あまり見ないでください！");
-          clickCount = 0;
-          return;
-        }
-        const randomEntry = diaryTexts[Math.floor(Math.random() * diaryTexts.length)];
-        diaryText.innerHTML = randomEntry;
-        diaryModal.style.display = 'flex';
-        const content = diaryModal.querySelector('.diary-content');
-        content.style.animation = 'openBook 0.6s forwards';
-      });
-
-      /* ---- マスター吹き出し ---- */
-      const masterLines = Array.from(linesEl.querySelectorAll('li')).map(li => li.innerHTML.trim()).filter(Boolean);
-      const pickLine = () => masterLines[Math.floor(Math.random() * masterLines.length)];
-      let hideTimer = null;
-      const showBubble = (html, duration = 3000) => {
-        bubble.innerHTML = html;
-        bubble.classList.add('show');
-        bubble.setAttribute('aria-hidden', 'false');
-        clearTimeout(hideTimer);
-        hideTimer = setTimeout(() => {
-          bubble.classList.remove('show');
-          bubble.setAttribute('aria-hidden', 'true');
-        }, duration);
-      };
-      hsMaster?.addEventListener('click', e => {
-        e.stopPropagation();
-        showBubble(pickLine(), 3000);
-      });
-      document.addEventListener('click', () => {
-        bubble.classList.remove('show');
-        bubble.setAttribute('aria-hidden', 'true');
-        clearTimeout(hideTimer);
-      });
-    });
-
-    /* ---- 吹き出し風メッセージ ---- */
-    function showMasterMessage(text) {
-      const msg = document.createElement('div');
-      msg.className = 'master-message';
-      msg.textContent = text;
-      document.body.appendChild(msg);
-      setTimeout(() => msg.classList.add('show'), 10);
-      setTimeout(() => {
-        msg.classList.remove('show');
-        setTimeout(() => msg.remove(), 500);
-      }, 2500);
-    }
-  </script>
 </body>
 </html>

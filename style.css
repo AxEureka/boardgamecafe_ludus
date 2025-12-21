@@ -1,223 +1,187 @@
-/* ============================================================
-   Café Ludus TOPページ style.css
-   ============================================================ */
-
-/* -------------------- 共通 -------------------- */
-.diary-content {
-  width: 80vw;
-  max-width: 600px;
-  padding: 40px 60px;
-  background: #fff8e6;
-  border: 2px solid #c6a96e;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  text-align: left;
-  font-family: 'Dancing Script', cursive;
-  color: #5a4632;
-  transform: scale(0.8) rotateX(10deg);
-  opacity: 0;
-  animation: openBook 0.6s ease forwards;
-}
-
-.diary-content h3 {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 12px;
-}
-
-.diary-content p {
-  font-size: 30px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.diary-content button {
-  display: block;
-  margin: 0 auto;
-  background: #c8a97e;
-  color: #fff;
-  border: none;
-  padding: 8px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.diary-content button:hover {
-  background: #b28c62;
-}
-
-@keyframes openBook {
-  0% { transform: scale(0.8) rotateX(15deg); opacity: 0; }
-  100% { transform: scale(1) rotateX(0deg); opacity: 1; }
-}
-
-/* -------------------- body / html -------------------- */
-body {
-  font-family: "Georgia", serif;
-  background: url('images/cafe.jpg') no-repeat center top;
-  background-size: cover;
-  background-attachment: fixed;
-  color: #333;
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  position: relative;
-}
+/* ===============================
+   基本設定
+================================ */
 
 html, body {
-  width: 100%;
-  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #000;
 }
 
-/* -------------------- ヘッダー -------------------- */
+body {
+  font-family: "Georgia", serif;
+  background: url("images/cafe.jpg") no-repeat center top;
+  background-size: cover;
+}
+
+/* ===============================
+   ステージ（倍率固定の要）
+================================ */
+
+#stage-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#stage {
+  width: 1440px;          /* ← ローカル基準 */
+  height: 900px;
+  position: relative;
+  transform-origin: top center;
+}
+
+/* ===== 小さい画面では縮小 ===== */
+@media (max-width: 1440px) {
+  #stage {
+    transform: scale(calc(100vw / 1440));
+  }
+}
+
+/* ===============================
+   ヘッダー
+================================ */
+
 header {
-  background: rgba(68, 44, 0, 0.8);
-  color: #fff;
-  padding: 1em;
-  text-shadow: 1px 1px 2px #000;
+  background: rgba(68,44,0,0.8);
+  padding: 15px;
+  text-align: center;
 }
 
 h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3em;
+  font-family: 'Dancing Script', cursive;
+  font-size: 48px;
   color: #f8f0d8;
-  letter-spacing: 0.05em;
-  line-height: 1.2;
-  animation: glow 2s ease-in-out infinite alternate;
+  text-shadow: 2px 2px 5px #000;
 }
 
-@keyframes glow {
-  0%,100% { text-shadow: 0 0 3px #fff, 0 0 5px rgba(255,255,255,0.3), 2px 2px 5px rgba(0,0,0,0.5); }
-  50% { text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.6), 2px 2px 5px rgba(0,0,0,0.5); }
-}
+/* ===============================
+   今日のおすすめ
+================================ */
 
-/* -------------------- 今日のおすすめ -------------------- */
 .today-section {
-  margin-top: 80px;
+  margin-top: 180px;
   text-align: center;
 }
 
 .today-section h2 {
-  font-family: 'Schoolbell', cursive;
-  font-size: 1.8em;
-  font-weight: normal;
-  color: #f7f5ef;
+  display: inline-block;
+  padding: 8px 20px;
   background: rgba(30,45,30,0.85);
-  padding: 6px 18px;
+  color: #fff;
   border-radius: 8px;
+  font-size: 32px;
   margin-bottom: 30px;
-  position: relative;
-  top: 45px;
 }
 
 .game-cards {
   display: flex;
   justify-content: center;
   gap: 25px;
-  flex-wrap: wrap;
-  margin-top: 40px;
 }
 
 .game-card {
-  width: 400px;
-  aspect-ratio: 10 / 11;
-  padding: 10px;
-  font-size: 30px;
+  width: 380px;
+  padding: 12px;
+  background: #fff8e6;
   border-radius: 12px;
-  background:
-    linear-gradient(135deg, #fdf5e6, #f5e6c4 25%, #fdf5e6 50%, #f5e6c4 75%, #fdf5e6),
-    url('images/parchment_texture.jpg') center/cover no-repeat;
-  background-blend-mode: multiply;
   box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
+  font-size: 28px;
+  transform: rotate(-2deg);
 }
 
-.game-card:nth-child(odd)  { transform: rotate(-2deg); }
-.game-card:nth-child(even) { transform: rotate(2deg); }
-
-.game-card:hover {
-  transform: translateY(-5px) rotate(0deg) scale(1.05);
-  box-shadow: 0 0 25px 10px rgba(173,216,230,0.7);
+.game-card:nth-child(even) {
+  transform: rotate(2deg);
 }
 
 .game-card img {
   width: 100%;
-  max-height: 300px;
+  max-height: 260px;
   object-fit: contain;
-  border-radius: 15px;
   margin-bottom: 10px;
 }
 
-/* -------------------- 吹き出し -------------------- */
-#master-bubble {
+/* ===============================
+   ホットスポット
+================================ */
+
+.hotspot {
   position: absolute;
-  bottom: 850px;
-  left: 59%;
-  transform: translateX(-50%);
-  max-width: 700px;
-  padding: 8px 12px;
-  font-size: 35px;
-  background: rgba(255,255,255,0.9);
-  border-radius: 12px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-#master-bubble.show {
-  opacity: 1;
-}
-
-/* -------------------- モーダル -------------------- */
-.diary-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.diary-modal.show {
-  display: flex;
-}
-
-/* -------------------- チョーク光 -------------------- */
-@keyframes chalkGlow {
-  0%,100% {
-    text-shadow: 0 0 1px #fff, 0 0 2px rgba(255,255,255,0.7);
-  }
-  50% {
-    text-shadow: 0 0 2px #fff;
-  }
-}
-
-/* -------------------- 椅子モーダル -------------------- */
-.chair-modal {
-  width: 1000px;
-  height: 550px;
-  background: #fff8e1;
-  border-radius: 15px;
-  padding: 30px;
-  position: relative;
-  box-shadow: 0 4px 25px rgba(0,0,0,0.3);
-}
-
-.close-x {
-  position: absolute;
-  top: 6px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 28px;
   cursor: pointer;
 }
 
-/* ===== 全体スケール微調整（最終調整用） ===== */
+.hotspot.bookshelf {
+  top: 25%;
+  left: 1%;
+  width: 20%;
+  height: 40%;
+}
 
-body {
-  transform: scale(0.80);
-  transform-origin: top center;
-  margin-bottom: 200px;
+.hotspot.painting {
+  top: 27%;
+  right: 10%;
+  width: 10%;
+  height: 20%;
+}
+
+.hotspot.cup {
+  top: 78%;
+  right: 6%;
+  width: 6%;
+  height: 10%;
+}
+
+.hotspot.chair {
+  top: 80%;
+  left: 3%;
+  width: 18%;
+  height: 15%;
+}
+
+.hotspot.baum {
+  top: 40%;
+  left: 25%;
+  width: 6%;
+  height: 10%;
+}
+
+.hotspot.master {
+  bottom: 45%;
+  right: 20%;
+  width: 12%;
+  height: 15%;
+}
+
+/* ===============================
+   ラベル
+================================ */
+
+.label-paper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fffdf5;
+  border-radius: 8px;
+  padding: 4px 16px;
+  font-size: 26px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.label-paper.top { top: -28px; }
+.label-paper.bottom { bottom: -30px; }
+
+/* ===============================
+   吹き出し
+================================ */
+
+#master-bubble {
+  position: absolute;
+  bottom: 780px;
+  left: 60%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.9);
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 32px;
+  opacity: 0;
 }
