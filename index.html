@@ -46,89 +46,82 @@
 
 <body>
 
-<!-- ★ 画面全体ラッパー（スケール制御用） -->
+<!-- ★追加：画面全体を包む -->
 <div id="stage-wrapper">
+<div id="stage" class="top-page">
 
-  <!-- ★ 基準ステージ：1536×1024 -->
-  <div id="stage" class="top-page">
+  <!-- ===== ヘッダー ===== -->
+  <header>
+    <h1>"ボドゲ喫茶 Ludus へようこそ"</h1>
+  </header>
 
-    <!-- ===== ヘッダー ===== -->
-    <header>
-      <h1>"ボドゲ喫茶 Ludus へようこそ"</h1>
-    </header>
+  <!-- ===== メインコンテンツ ===== -->
+  <main>
+    <section class="today-section">
+      <h2>本日のおすすめ</h2>
+      <div id="today-games" class="game-cards"></div>
+    </section>
+  </main>
 
-    <!-- ===== メインコンテンツ ===== -->
-    <main>
-      <section class="today-section">
-        <h2>本日のおすすめ</h2>
-        <div id="today-games" class="game-cards"></div>
-      </section>
-    </main>
-
-    <!-- ===== ホットスポット ===== -->
-    <div id="hs-bookshelf" class="clickable hotspot bookshelf">
-      <div class="label-paper top">検索する</div>
-    </div>
-
-    <div id="hs-painting" class="clickable hotspot painting">
-      <div class="label-paper bottom">診断する</div>
-    </div>
-
-    <div id="hs-cup" class="clickable hotspot cup">
-      <div class="label-paper bottom">注文する</div>
-    </div>
-
-    <div id="hs-chair" class="clickable hotspot chair">
-      <div class="label-paper bottom">このお店って？</div>
-    </div>
-
-    <div id="hs-baum" class="clickable hotspot baum"></div>
-    <div id="hs-master" class="clickable hotspot master"></div>
-
-    <!-- ===== マスター吹き出し ===== -->
-    <div id="master-bubble" class="speech-bubble" aria-hidden="true"></div>
-
-    <ul id="master-lines" style="display:none;">
-      <li>いらっしゃいませ。<br>ゆっくりしていってくださいね。</li>
-      <li>棚からもゲームをお探しになれますよ。</li>
-      <li>いつか、オリジナルのゲームを<br>開発できたらいいですね。</li>
-      <li>こらこら、熱いから離れていてね。</li>
-      <li>わかったわかった、後で遊ぼうね。</li>
-      <li>お砂糖を取ってくれるかい？<br>ありがとう。</li>
-      <li>光が飛んでいた？<br>ふふ、遊びたいのかもしれませんね。</li>
-      <li>なにか召し上がりますか？<br>メニューは手前のテーブルにあります。</li>
-      <li>どうぞ、お手に取ってみてください。</li>
-      <li>こちら、一戦やってみますか？<br>お相手しますよ。</li>
-      <li>4月の第1土曜日は<br>国際ボードゲームの日なんですよ。</li>
-      <li>今日のブレンドは、自信作なんです。</li>
-      <li>花の絵に訊くと、<br>おすすめを教えてくれますよ。</li>
-    </ul>
-
-    <!-- 📔 日記モーダル -->
-    <div id="diary-modal" class="diary-modal">
-      <div class="diary-content">
-        <h3>マスターの日記</h3>
-        <p id="diary-text"></p>
-        <button id="close-diary">閉じる</button>
-      </div>
-    </div>
-
-    <!-- ===== chair用モーダル ===== -->
-    <div id="chair-modal" class="diary-modal">
-      <div class="diary-content">
-        <h3>このお店について</h3>
-        <p id="chair-text"></p>
-        <button id="close-chair">閉じる</button>
-      </div>
-    </div>
-
+  <!-- ===== ホットスポット ===== -->
+  <div id="hs-bookshelf" class="clickable hotspot bookshelf">
+    <div class="label-paper top">検索する</div>
   </div>
+
+  <div id="hs-painting" class="clickable hotspot painting">
+    <div class="label-paper bottom">診断する</div>
+  </div>
+
+  <div id="hs-cup" class="clickable hotspot cup">
+    <div class="label-paper bottom">注文する</div>
+  </div>
+
+  <div id="hs-chair" class="clickable hotspot chair">
+    <div class="label-paper bottom">このお店って？</div>
+  </div>
+
+  <div id="hs-baum" class="clickable hotspot baum"></div>
+  <div id="hs-master" class="clickable hotspot master"></div>
+
+  <!-- ===== マスター吹き出し ===== -->
+  <div id="master-bubble" class="speech-bubble" aria-hidden="true"></div>
+
+  <ul id="master-lines" style="display:none;">
+    <li>いらっしゃいませ。<br>ゆっくりしていってくださいね。</li>
+    <li>棚からもゲームをお探しになれますよ。</li>
+    <li>いつか、オリジナルのゲームを<br>開発できたらいいですね。</li>
+    <li>こらこら、熱いから離れていてね。</li>
+    <li>わかったわかった、後で遊ぼうね。</li>
+    <li>お砂糖を取ってくれるかい？<br>ありがとう。</li>
+    <li>光が飛んでいた？<br>ふふ、遊びたいのかもしれませんね。</li>
+    <li>なにか召し上がりますか？<br>メニューは手前のテーブルにあります。</li>
+    <li>どうぞ、お手に取ってみてください。</li>
+    <li>こちら、一戦やってみますか？<br>お相手しますよ。</li>
+    <li>4月の第1土曜日は<br>国際ボードゲームの日なんですよ。</li>
+    <li>今日のブレンドは、自信作なんです。</li>
+    <li>花の絵に訊くと、<br>おすすめを教えてくれますよ。</li>
+  </ul>
+
+  <!-- 📔 日記モーダル -->
+  <div id="diary-modal" class="diary-modal">
+    <div class="diary-content">
+      <h3>マスターの日記</h3>
+      <p id="diary-text"></p>
+      <button id="close-diary">閉じる</button>
+    </div>
+  </div>
+
+  <!-- ===== chair用モーダル ===== -->
+  <div id="chair-modal" class="diary-modal">
+    <div class="diary-content">
+      <h3>このお店について</h3>
+      <p id="chair-text"></p>
+      <button id="close-chair">閉じる</button>
+    </div>
+  </div>
+
 </div>
-
-<!-- ===== スクリプト（★完全に元のまま） ===== -->
-<script>
-/* ★ ここから下は一切変更していません */
-
+</div>
   <!-- ===== スクリプト ===== -->
   <script>
     /* -------------------- おすすめカード表示 -------------------- */
