@@ -28,7 +28,7 @@ body {
   background: url('images/cafe.jpg') no-repeat center top;
   background-size: cover;
   color: #333;
-  font-size: 50px;  /* 基本の文字サイズ */
+  font-size: 25px;  /* 基本の文字サイズ */
   margin: 0;
   padding: 0;
   text-align: center;
