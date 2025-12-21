@@ -511,8 +511,13 @@ main,
 
 
 #stage {
+  width: 1536px;
+  height: 1024px;
+  background: url("images/cafe@2x.jpg") no-repeat center center;
+  background-size: contain;
   z-index: 0;
 }
+
 
 .main-light {
   z-index: 1;
