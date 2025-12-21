@@ -83,7 +83,7 @@ h1 {
 /* -------------------- 今日のおすすめカード -------------------- */
 /* 今日のおすすめセクションの位置調整 */
 .today-section {
-  margin-top: 300px !important; /* 数値を調整（例：100〜200pxくらい） */
+  margin-top: 380px !important; /* 数値を調整（例：100〜200pxくらい） */
 }
 
 
@@ -286,7 +286,7 @@ h1 {
 /* -------------------- 吹き出し -------------------- */
 #master-bubble {
   position: absolute;
-  bottom: 1500px; /* 元は低めなら200pxなど。数値を上げると上に表示 */
+  bottom: 2000px; /* 元は低めなら200pxなど。数値を上げると上に表示 */
   left: 59%;
   transform: translateX(-50%);
   max-width: 1000px;
