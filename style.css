@@ -28,7 +28,7 @@ body {
   background: url('images/cafe.jpg') no-repeat center top;
   background-size: cover;
   color: #333;
-  font-size: 40px;  /* 基本の文字サイズ */
+  font-size: 80px;  /* 基本の文字サイズ */
   margin: 0;
   padding: 0;
   text-align: center;
@@ -63,7 +63,7 @@ header {
 
 h1 {
   font-family: 'Great Vibes', cursive !important;
-  font-size: 3em !important;
+  font-size: 5em !important;
   color: #f8f0d8;
   text-shadow:
     0 0 3px #fff,
@@ -110,12 +110,12 @@ h1 {
   border-radius: 12px;
   border: 1px solid rgba(200,180,140,0.5);
   box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-  width: 460px;
+  width: 520px;
   height: auto;
   aspect-ratio: 10 / 11; /* 200:220の比率 ≒ 10:11 */
   cursor: pointer;
   text-align: center;
-   font-size: 34px;  /* 基本の文字サイズ */
+   font-size: 40px;  /* 基本の文字サイズ */
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
