@@ -375,7 +375,7 @@ body {
   border: 2px solid #c6a96e;
   border-radius: 12px;
   padding: 50px 75px;
-  width: 80vw;
+  width: 160vw;
   max-width: 600px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   text-align: left;
@@ -388,12 +388,12 @@ body {
 
 .diary-content h3 {
   text-align: center;
-  font-size: 32px;
+  font-size: 38px;
   margin-bottom: 12px;
 }
 
 .diary-content p {
-  font-size: 34px;
+  font-size: 40px;
   line-height: 1.6;
   margin-bottom: 20px;
 }
