@@ -16,13 +16,13 @@ body {
 
 /* タイトル */
 .door-title {
-  font-size: 4.8em;
+  font-size: 5.2em;
   color: #f8f0d8;
   font-family: 'Dancing Script', cursive;
 }
 
 .door-subtitle {
-  font-size: 2.0em;
+  font-size: 2.5em;
   color: #f8f0d8;
   opacity: 0.85;
   margin-top: -5px;
@@ -59,7 +59,7 @@ body {
   border-radius: 8px;
   padding: 16px 30px;
   font-weight: bold;
-  font-size: 30px;  /* 基本の文字サイズ */
+  font-size: 36px;  /* 基本の文字サイズ */
   color: #3a2a14;
   box-shadow: 2px 3px 6px rgba(0,0,0,0.25);
   text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
