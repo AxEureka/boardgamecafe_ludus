@@ -1,37 +1,18 @@
-/* ===============================
-   基本設定
-================================ */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #000;
-  font-family: "Georgia", serif;
+/* ============================================================
+   Café Ludus TOPページ style.css
+   背景は1枚のcafe.jpgを使い、
+   本棚・絵画・マスター位置をホットスポットで指定
+   ============================================================ */
+
+/* -------------------- 共通 -------------------- */
+.diary-content {
+  width: 80vw;         /* 画面幅の80% */
+  max-width: 600px;    /* 大きくなりすぎない */
+  padding: 40px 30px;  /* 内側余白を広く */
+  transform: scale(1); /* 縮小なし */
+  opacity: 0;
+  border-radius: 12px;
 }
-
-/* ===============================
-   ステージ制御
-================================ */
-#stage-wrapper {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* ← center をやめる */
-}
-
-
-#stage {
-  width: 3072px;
-  height: 2048px;
-  position: relative;
-  background: url("images/cafe.jpg") no-repeat center center;
-  background-size: contain; /* ← 切らない */
-  transform-origin: top center; /* ← center center をやめる */
-}
-
 
 .diary-content.show {
   animation: openBook 0.6s forwards;
@@ -53,6 +34,15 @@ body {
   text-align: center;
   position: relative;
  }
+
+/* ===== ページ全体のサイズを全ページ固定（NG） ===== */
+html, body {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 
 /* 光のグラデーション（背景全体にふんわり） */
 .main-light {
@@ -331,6 +321,39 @@ h1 {
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
 }
 
+/* -------------------- レスポンシブ -------------------- */
+@media (max-width: 800px) {
+  .hotspot.bookshelf { left: 6%; top: 30%; width: 14%; height: 48%; }
+  .hotspot.painting  { right: 14%; top: 28%; width: 12%; height: 26%; }
+  .hotspot.master    { right: 20%; top: 50%; width: 16%; height: 30%; }
+  .speech-bubble { right: 30%; bottom: 34%; max-width: 200px; font-size: 0.95em; }
+}
+
+/* ===== トップページ専用：画面全体固定 ===== */
+body.top-page, html.top-page {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* TOPページだけスクロール不可 */
+}
+
+body.top-page main {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ===== 背景サイズ固定 ===== */
+body {
+  background-size: 100% 100%;  /* 背景を画面に完全フィット */
+  background-attachment: fixed;
+}
+
+/* ===== 今日のおすすめを少し上に詰める ===== */
+.today-section {
+  margin-top: 150px;  /* 220px → 150pxなど、収まる位置に調整 */
+}
+
 /* -------------------- Diary Modal -------------------- */
 /* ===== 日記モーダル（統一版） ===== */
 .diary-modal {
@@ -475,132 +498,3 @@ h1 {
   transform: scale(1.1);
 }
 
-
-
-/* ===============================
-   自動スケール
-================================ */
-@media (max-aspect-ratio: 3/2) {
-  #stage {
-    transform: scale(calc(100vw / 3072));
-  }
-}
-@media (min-aspect-ratio: 3/2) {
-  #stage {
-    transform: scale(calc(100vh / 2048));
-  }
-}
-
-/* ===============================
-   光
-================================ */
-.main-light {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 20%, rgba(255,255,200,0.25), transparent 70%);
-  pointer-events: none;
-}
-
-/* ===============================
-   ホットスポット（px基準）
-================================ */
-.hotspot {
-  position: absolute;
-  cursor: pointer;
-}
-
-/* 本棚 */
-.hotspot.bookshelf {
-  left: 20px;
-  top: 260px;
-  width: 300px;
-  height: 420px;
-}
-
-/* 絵画 */
-.hotspot.painting {
-  right: 180px;
-  top: 280px;
-  width: 160px;
-  height: 220px;
-}
-
-/* カップ */
-.hotspot.cup {
-  right: 140px;
-  bottom: 120px;
-  width: 90px;
-  height: 120px;
-}
-
-/* 椅子 */
-.hotspot.chair {
-  left: 60px;
-  bottom: 90px;
-  width: 320px;
-  height: 180px;
-}
-
-/* マスター */
-.hotspot.master {
-  right: 300px;
-  top: 420px;
-  width: 220px;
-  height: 240px;
-}
-
-/* ===============================
-   ラベル
-================================ */
-.label-paper {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #fffdf5;
-  border: 1px solid rgba(200,180,120,0.6);
-  border-radius: 8px;
-  padding: 6px 18px;
-  font-size: 30px;
-  font-weight: bold;
-  color: #3a2a14;
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-.label-paper.top { top: -40px; }
-.label-paper.bottom { bottom: -42px; }
-
-/* ===============================
-   今日のおすすめ
-================================ */
-.today-section {
-  position: absolute;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-}
-
-.today-section h2 {
-  font-size: 32px;
-  color: #fff;
-  margin-bottom: 20px;
-}
-
-.game-cards {
-  display: flex;
-  gap: 30px;
-}
-
-.game-card {
-  width: 360px;
-  padding: 15px;
-  background: #fff8e6;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-}
-
-.game-card img {
-  width: 100%;
-  height: auto;
-}
