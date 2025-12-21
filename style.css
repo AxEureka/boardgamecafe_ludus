@@ -23,8 +23,8 @@ html, body {
 }
 
 #stage {
-  width: 1536px;
-  height: 1024px;
+  width: 4608px;
+  height: 3072px;
   position: relative;
   background: url("images/cafe.jpg") no-repeat center center;
   background-size: contain; /* ← 切らない */
@@ -36,12 +36,12 @@ html, body {
 ================================ */
 @media (max-aspect-ratio: 3/2) {
   #stage {
-    transform: scale(calc(100vw / 1536));
+    transform: scale(calc(100vw / 4608));
   }
 }
 @media (min-aspect-ratio: 3/2) {
   #stage {
-    transform: scale(calc(100vh / 1024));
+    transform: scale(calc(100vh / 3072));
   }
 }
 
