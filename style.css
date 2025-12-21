@@ -83,7 +83,7 @@ h1 {
 /* -------------------- 今日のおすすめカード -------------------- */
 /* 今日のおすすめセクションの位置調整 */
 .today-section {
-  margin-top: 320px !important; /* 数値を調整（例：100〜200pxくらい） */
+  margin-top: 380px !important; /* 数値を調整（例：100〜200pxくらい） */
 }
 
 
@@ -96,7 +96,7 @@ h1 {
 .game-cards {
   display: flex !important;
   justify-content: center !important;
-  gap: 25px !important;
+  gap: 35px !important;
   flex-wrap: wrap !important;
   margin-top: 40px !important;
 }
@@ -110,12 +110,12 @@ h1 {
   border-radius: 12px;
   border: 1px solid rgba(200,180,140,0.5);
   box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-  width: 400px;
+  width: 460px;
   height: auto;
   aspect-ratio: 10 / 11; /* 200:220の比率 ≒ 10:11 */
   cursor: pointer;
   text-align: center;
-   font-size: 30px;  /* 基本の文字サイズ */
+   font-size: 34px;  /* 基本の文字サイズ */
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
@@ -134,7 +134,7 @@ h1 {
 .game-card img {
   width: 100%;
   height: auto;
-  max-height: 300px; /* 必要に応じて */
+  max-height: 360px; /* 必要に応じて */
   object-fit: contain;
   border-radius: 15px;
   margin: 0 auto 10px;
