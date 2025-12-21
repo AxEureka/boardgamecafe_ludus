@@ -286,7 +286,7 @@ h1 {
 /* -------------------- 吹き出し -------------------- */
 #master-bubble {
   position: absolute;
-  bottom: 1000px; /* 元は低めなら200pxなど。数値を上げると上に表示 */
+  bottom: 1300px; /* 元は低めなら200pxなど。数値を上げると上に表示 */
   left: 59%;
   transform: translateX(-50%);
   max-width: 1000px;
