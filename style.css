@@ -19,8 +19,9 @@ html, body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* ← center をやめる */
 }
+
 
 #stage {
   width: 3072px;
@@ -28,7 +29,7 @@ html, body {
   position: relative;
   background: url("images/cafe.jpg") no-repeat center center;
   background-size: contain; /* ← 切らない */
-  transform-origin: center center;
+  transform-origin: top center; /* ← center center をやめる */
 }
 
 /* ===============================
