@@ -63,7 +63,7 @@ header {
 
 h1 {
   font-family: 'Great Vibes', cursive !important;
-  font-size: 3em !important;
+  font-size: 5em !important;
   color: #f8f0d8;
   text-shadow:
     0 0 3px #fff,
@@ -83,7 +83,7 @@ h1 {
 /* -------------------- 今日のおすすめカード -------------------- */
 /* 今日のおすすめセクションの位置調整 */
 .today-section {
-  margin-top: 380px !important; /* 数値を調整（例：100〜200pxくらい） */
+  margin-top: 800px !important; /* 数値を調整（例：100〜200pxくらい） */
 }
 
 
