@@ -28,16 +28,16 @@ body {
 }
 
 #stage {
-  width: 800px;   /* ← ローカル基準 */
-  height: 500px;
+  width: 400px;   /* ← ローカル基準 */
+  height: 250px;
   position: relative;
   transform-origin: top center;
 }
 
 /* ★ 小さい画面だけ縮小（比率固定） */
-@media (max-width: 800px) {
+@media (max-width: 400px) {
   #stage {
-    transform: scale(calc(100vw / 800));
+    transform: scale(calc(100vw / 400));
   }
 }
 
