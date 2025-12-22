@@ -434,3 +434,36 @@ input[type="checkbox"] {
     text-decoration: underline;
 }
 
+/* ===== ステージ制御 ===== */
+#stage-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#stage {
+  width: 1536px;
+  height: 1024px;
+  position: relative;
+
+  background: url('images/search/library.jpg') no-repeat center top;
+  background-size: cover;
+
+  transform-origin: top center;
+}
+
+@media (max-aspect-ratio: 3/2) {
+  #stage {
+    transform: scale(calc(100vw / 1536));
+  }
+}
+
+@media (min-aspect-ratio: 3/2) {
+  #stage {
+    transform: scale(calc(100vh / 1024));
+  }
+}
+
+
