@@ -187,7 +187,7 @@ function dropLiquid(type, value, bottleRect){
       // 透明感のある液体っぽいグラデーション
       drop.style.background = `radial-gradient(circle, ${TYPE_COLOR[type]}cc 0%, ${TYPE_COLOR[type]}33 70%)`;
       drop.style.borderRadius = "50%";
-      drop.style.width = `${20 + Math.random()*10}px`;
+      drop.style.width = `${60 + Math.random()*30}px`;
       drop.style.height = drop.style.width;
       drop.style.position = "absolute";
       drop.style.zIndex = 2;
@@ -206,7 +206,7 @@ function dropLiquid(type, value, bottleRect){
 
       // スタート位置
       const mouthX = bottleRect.left + bottleRect.width/2 + baseOffsetX - 10;
-      const mouthY = bottleRect.top + 140 + Math.random()*20;
+      const mouthY = bottleRect.top + 180 + Math.random()*20;
 
       drop.style.left = mouthX + "px";
       drop.style.top = mouthY + "px";
