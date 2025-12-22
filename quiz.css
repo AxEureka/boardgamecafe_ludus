@@ -217,7 +217,7 @@ h1 {
 .cauldron::after {
   content: "";
   position: absolute;
-  bottom: 180px;
+  bottom: 140px;
   left: 0;
   width: 100%;
   height: 50%;
