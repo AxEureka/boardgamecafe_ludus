@@ -121,12 +121,12 @@ h1 {
 
 .label {
   position: absolute;
-  top: 300px;
+  top: 350px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(255, 250, 235, 0.9);
   color: #3a1f00;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: bold;
   padding: 5px 10px;
   border: 1px solid #d1bfa3;
@@ -212,7 +212,7 @@ h1 {
 .cauldron::after {
   content: "";
   position: absolute;
-  bottom: 210px;
+  bottom: 240px;
   left: 0;
   width: 100%;
   height: 50%;
