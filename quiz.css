@@ -156,8 +156,12 @@ h1 {
   width: 60px;
   height: 108px;
   border-radius: 50% 50% 60% 60%;
-  background: rgba(255,26,26,0.6); /* 半透明 */
+  background: rgba(255,26,26,0.6);
   z-index: 2;
+
+  /* 中心を軸に拡大 */
+  transform: scale(3);        /* 3倍に拡大 */
+  transform-origin: center;   /* 中心を基準に拡大 */
 }
 /* ---------- 煙 ---------- */
 .smoke {
