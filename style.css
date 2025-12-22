@@ -526,3 +526,26 @@ main,
 .hotspot {
   pointer-events: auto;
 }
+
+/* ===============================
+   スマホ用 最低限の補正
+================================ */
+@media (max-width: 768px) {
+
+  /* ステージ全体を縮小して画面内に収める */
+  #stage {
+    transform: scale(calc(100vw / 1536));
+    transform-origin: top center;
+  }
+
+  /* 今日のおすすめ：位置を下げすぎない */
+  .today-section {
+    margin-top: 140px !important;
+  }
+
+  /* カードを少し小さくしてはみ出し防止 */
+  .game-card {
+    width: 300px;
+    font-size: 22px;
+  }
+}
