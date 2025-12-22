@@ -74,7 +74,7 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 100px;
+  margin-bottom: 150px;
 }
 
 .bottle-wrapper {
@@ -126,7 +126,7 @@ h1 {
   transform: translateX(-50%);
   background: rgba(255, 250, 235, 0.9);
   color: #3a1f00;
-  font-size: 26px;
+  font-size: 32px;
   font-weight: bold;
   padding: 5px 10px;
   border: 1px solid #d1bfa3;
@@ -143,8 +143,8 @@ h1 {
   bottom:-100px;
   left: 50%;
   transform: translateX(-50%);
-  width: 400px;
-  height: 820px;
+  width: 880px;
+  height: 1000px;
   background: url("images/quiz/cauldron.png") no-repeat center/contain;
   z-index: 10;
 }
@@ -153,8 +153,8 @@ h1 {
 /* ---------- 滴 ---------- */
 .drop {
   position: absolute;
-  width: 20px;
-  height: 36px;
+  width: 30px;
+  height: 54px;
   border-radius: 50% 50% 60% 60%;
   background: rgba(255,26,26,0.6); /* 半透明 */
   z-index: 2;
