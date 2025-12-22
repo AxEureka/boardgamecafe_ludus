@@ -85,8 +85,8 @@ h1 {
 }
 
 .bottle {
-  width: 300px;
-  height: 400px;
+  width: 360px;
+  height: 480px;
   background: url("images/quiz/bottle.png") no-repeat center/contain;
   cursor: pointer;
   transition: transform 0.3s;
@@ -144,7 +144,7 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   width: 880px;
-  height: 1000px;
+  height: 900px;
   background: url("images/quiz/cauldron.png") no-repeat center/contain;
   z-index: 10;
 }
@@ -153,8 +153,8 @@ h1 {
 /* ---------- 滴 ---------- */
 .drop {
   position: absolute;
-  width: 30px;
-  height: 54px;
+  width: 60px;
+  height: 108px;
   border-radius: 50% 50% 60% 60%;
   background: rgba(255,26,26,0.6); /* 半透明 */
   z-index: 2;
@@ -193,8 +193,8 @@ h1 {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(5.0); /* 1.5倍に拡大 */
-  width: 3200px;   /* 元の幅のままでもOK */
+  transform: translate(-50%, -50%) scale(7.0); /* 1.5倍に拡大 */
+  width: 4000px;   /* 元の幅のままでもOK */
   opacity: 0;
   z-index: 15;
 }
