@@ -17,7 +17,7 @@ body {
 /* ---------- タイトル ---------- */
 h1 {
   margin-top: 25px;
-  font-size: 1.0em;
+  font-size: 2.0em;
   letter-spacing: 0.1em;
   text-shadow: 0 0 10px #fff;
 }
@@ -29,7 +29,7 @@ h1 {
 
 h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 2.0em;
+  font-size: 3.0em;
   color: #f8f0d8;
   text-shadow:
     0 0 3px #fff,
@@ -63,7 +63,7 @@ h1 {
 
 /* ---------- 質問 ---------- */
 .question {
-  font-size: 1.3em;
+  font-size: 1.8em;
   margin-bottom: 30px;
   text-shadow: 0 0 6px rgba(255,255,255,0.6);
 }
@@ -74,7 +74,7 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 .bottle-wrapper {
@@ -85,8 +85,8 @@ h1 {
 }
 
 .bottle {
-  width: 220px;
-  height: 320px;
+  width: 250px;
+  height: 380px;
   background: url("images/quiz/bottle.png") no-repeat center/contain;
   cursor: pointer;
   transition: transform 0.3s;
