@@ -205,8 +205,9 @@ function dropLiquid(type, value, bottleRect){
       }
 
       // スタート位置
-      const mouthX = bottleRect.left + bottleRect.width/2 + baseOffsetX - 10;
-      const mouthY = bottleRect.top + 180 + Math.random()*20;
+      const mouthX = bottleRect.left + bottleRect.width/2 + baseOffsetX - 30; // 左寄せ
+      const mouthY = bottleRect.top + 200 + Math.random()*20;                  // 少し下からスタート
+
 
       drop.style.left = mouthX + "px";
       drop.style.top = mouthY + "px";
@@ -217,8 +218,8 @@ function dropLiquid(type, value, bottleRect){
       let swayX = (Math.random()-0.5)*30; // 左右に少し揺れる
       drop.animate([
         { transform: "translate(0,0) scale(0.3)", opacity:1 },
-        { transform: `translate(${baseOffsetX*1.5 + swayX}px, ${Math.random()*80+80}px) scale(1.1)`, opacity:0.7 },
-        { transform: `translate(${baseOffsetX*2 + swayX*1.2}px, ${Math.random()*300+200}px) scale(0)`, opacity:0 }
+        { transform: `translate(${baseOffsetX*1.5 + swayX}px, ${Math.random()*100+100}px) scale(1.1)`, opacity:0.7 },
+        { transform: `translate(${baseOffsetX*2 + swayX*1.2}px, ${Math.random()*400+300}px) scale(0)`, opacity:0 }
       ], { duration: 1200 + Math.random()*600, easing: "ease-out", fill: "forwards" })
       .onfinish = () => drop.remove();
 
