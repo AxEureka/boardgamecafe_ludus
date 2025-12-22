@@ -446,7 +446,7 @@ input[type="checkbox"] {
 #stage {
   width: 1536px;
   height: 1024px;
-  position: relative;
+  
 
   background: url('images/search/library.jpg') no-repeat center top;
   background-size: cover;
