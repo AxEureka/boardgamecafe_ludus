@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>ボードゲーム診断 ボードゲーム紹介 ボードゲーム検索 ボドゲ喫茶Ludus</title>
+  <meta name="description" content="プレイスタイルを分析、ボードゲーム診断！おすすめボードゲーム紹介、目的や気分に応じたボードゲーム検索など。ボドゲ好きなマスターと仲間たちのお店へようこそ">
   <link rel="stylesheet" href="style.css">
-
-  <!-- フォント -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-
   <style>
     h1, h2 {
       font-family: 'Dancing Script', cursive;
@@ -19,10 +16,19 @@
     h1 { font-size: 2.5em; }
     h2 { font-size: 1.8em; }
 
+    /* ヘッダー下の小さな説明文 */
+    .top-description {
+      font-size: 14px;
+      color: #f8f0d8;
+      text-align: center;
+      margin: 5px 0 20px 0;
+      line-height: 1.4;
+    }
+
     /* ===== マスターの慌て吹き出し ===== */
     .master-message {
       position: fixed;
-      bottom: 1300px; /* 元は低めなら200pxなど。数値を上げると上に表示 */
+      bottom: 1300px;
       left: 52%;
       background: #fff8e6;
       border: 2px solid #d0b37f;
@@ -46,82 +52,187 @@
 
 <body>
 
-<!-- ★追加：画面全体を包む -->
-<div id="stage-wrapper">
-<div id="stage" class="top-page">
+  <!-- ===== ヘッダー ===== -->
+  <header>
+    <h1>ボドゲ喫茶 Ludus へようこそ</h1>
+    <p class="top-description">
+      「ボードゲーム診断」、「ボードゲーム検索」からあなたが好きそうなボードゲームを提案します。色々覗いてみてください。
+    </p>
+  </header>
+
+  <!-- ★追加：画面全体を包む -->
+  <div id="stage-wrapper">
+    <div id="stage" class="top-page">
+      <!-- メインコンテンツやホットスポットなど… -->
+    </div>
+  </div>
+
+  <!-- スクリプトはここに -->
+  <script>
+    // JS 内容は今までのまま
+  </script>
+</body>
+</html>
+💡 ポイント：
+
+<header> は <head> の外、<body> 内
+
+説明文 <p> は <header> 内に置く
+
+CSS で .top-description を定義してスタイル調整
+
+これでヘッダー下に小さな説明文が表示されます。
+
+希望なら、あなたの長いコードにこの修正を組み込んだ 完成版 HTML を作ってお渡しできます。作りますか？
+
+
+
+
+
+
+
+あなた:
+お願いします。
+
+
+ChatGPT:
+もちろんです！
+では、あなたの長い HTML コードを整理して、ヘッダー下に小さな説明文が正しく表示されるようにした完成版を作ります。JSや既存の構造はそのまま維持しています。
+
+html
+コードをコピーする
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボードゲーム診断 ボードゲーム紹介 ボードゲーム検索 ボドゲ喫茶Ludus</title>
+  <meta name="description" content="プレイスタイルを分析、ボードゲーム診断！おすすめボードゲーム紹介、目的や気分に応じたボードゲーム検索など。ボドゲ好きなマスターと仲間たちのお店へようこそ">
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <style>
+    h1, h2 {
+      font-family: 'Dancing Script', cursive;
+      color: #f8f0d8;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; }
+
+    /* ヘッダー下の小さな説明文 */
+    .top-description {
+      font-size: 14px;
+      color: #f8f0d8;
+      text-align: center;
+      margin: 5px 0 20px 0;
+      line-height: 1.4;
+    }
+
+    /* ===== マスターの慌て吹き出し ===== */
+    .master-message {
+      position: fixed;
+      bottom: 1300px;
+      left: 52%;
+      background: #fff8e6;
+      border: 2px solid #d0b37f;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 50px;
+      color: #4b2e15;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.5s ease;
+      z-index: 10000;
+    }
+    .master-message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
 
   <!-- ===== ヘッダー ===== -->
   <header>
-    <h1>"ボドゲ喫茶 Ludus へようこそ"</h1>
+    <h1>ボドゲ喫茶 Ludus へようこそ</h1>
+    <p class="top-description">
+      「ボードゲーム診断」、「ボードゲーム検索」からあなたが好きそうなボードゲームを提案します。色々覗いてみてください。
+    </p>
   </header>
 
-  <!-- ===== メインコンテンツ ===== -->
-  <main>
-    <section class="today-section">
-      <h2>本日のおすすめ</h2>
-      <div id="today-games" class="game-cards"></div>
-    </section>
-  </main>
+  <!-- ★追加：画面全体を包む -->
+  <div id="stage-wrapper">
+    <div id="stage" class="top-page">
 
-  <!-- ===== ホットスポット ===== -->
-  <div id="hs-bookshelf" class="clickable hotspot bookshelf">
-    <div class="label-paper top">検索する</div>
-  </div>
+      <!-- ===== メインコンテンツ ===== -->
+      <main>
+        <section class="today-section">
+          <h2>本日のおすすめ</h2>
+          <div id="today-games" class="game-cards"></div>
+        </section>
+      </main>
 
-  <div id="hs-painting" class="clickable hotspot painting">
-    <div class="label-paper bottom">診断する</div>
-  </div>
+      <!-- ===== ホットスポット ===== -->
+      <div id="hs-bookshelf" class="clickable hotspot bookshelf">
+        <div class="label-paper top">検索する</div>
+      </div>
+      <div id="hs-painting" class="clickable hotspot painting">
+        <div class="label-paper bottom">診断する</div>
+      </div>
+      <div id="hs-cup" class="clickable hotspot cup">
+        <div class="label-paper bottom">注文する</div>
+      </div>
+      <div id="hs-chair" class="clickable hotspot chair">
+        <div class="label-paper bottom">このお店って？</div>
+      </div>
+      <div id="hs-baum" class="clickable hotspot baum"></div>
+      <div id="hs-master" class="clickable hotspot master"></div>
 
-  <div id="hs-cup" class="clickable hotspot cup">
-    <div class="label-paper bottom">注文する</div>
-  </div>
+      <!-- ===== マスター吹き出し ===== -->
+      <div id="master-bubble" class="speech-bubble" aria-hidden="true"></div>
 
-  <div id="hs-chair" class="clickable hotspot chair">
-    <div class="label-paper bottom">このお店って？</div>
-  </div>
+      <ul id="master-lines" style="display:none;">
+        <li>いらっしゃいませ。<br>ゆっくりしていってくださいね。</li>
+        <li>棚からもゲームをお探しになれますよ。</li>
+        <li>いつか、オリジナルのゲームを<br>開発できたらいいですね。</li>
+        <li>こらこら、熱いから離れていてね。</li>
+        <li>わかったわかった、後で遊ぼうね。</li>
+        <li>お砂糖を取ってくれるかい？<br>ありがとう。</li>
+        <li>光が飛んでいた？<br>ふふ、遊びたいのかもしれませんね。</li>
+        <li>なにか召し上がりますか？<br>メニューは手前のテーブルにあります。</li>
+        <li>どうぞ、お手に取ってみてください。</li>
+        <li>こちら、一戦やってみますか？<br>お相手しますよ。</li>
+        <li>4月の第1土曜日は<br>国際ボードゲームの日なんですよ。</li>
+        <li>今日のブレンドは、自信作なんです。</li>
+        <li>花の絵に訊くと、<br>おすすめを教えてくれますよ。</li>
+      </ul>
 
-  <div id="hs-baum" class="clickable hotspot baum"></div>
-  <div id="hs-master" class="clickable hotspot master"></div>
+      <!-- 📔 日記モーダル -->
+      <div id="diary-modal" class="diary-modal">
+        <div class="diary-content">
+          <h3>マスターの日記</h3>
+          <p id="diary-text"></p>
+          <button id="close-diary">閉じる</button>
+        </div>
+      </div>
 
-  <!-- ===== マスター吹き出し ===== -->
-  <div id="master-bubble" class="speech-bubble" aria-hidden="true"></div>
+      <!-- ===== chair用モーダル ===== -->
+      <div id="chair-modal" class="diary-modal">
+        <div class="diary-content">
+          <h3>このお店について</h3>
+          <p id="chair-text"></p>
+          <button id="close-chair">閉じる</button>
+        </div>
+      </div>
 
-  <ul id="master-lines" style="display:none;">
-    <li>いらっしゃいませ。<br>ゆっくりしていってくださいね。</li>
-    <li>棚からもゲームをお探しになれますよ。</li>
-    <li>いつか、オリジナルのゲームを<br>開発できたらいいですね。</li>
-    <li>こらこら、熱いから離れていてね。</li>
-    <li>わかったわかった、後で遊ぼうね。</li>
-    <li>お砂糖を取ってくれるかい？<br>ありがとう。</li>
-    <li>光が飛んでいた？<br>ふふ、遊びたいのかもしれませんね。</li>
-    <li>なにか召し上がりますか？<br>メニューは手前のテーブルにあります。</li>
-    <li>どうぞ、お手に取ってみてください。</li>
-    <li>こちら、一戦やってみますか？<br>お相手しますよ。</li>
-    <li>4月の第1土曜日は<br>国際ボードゲームの日なんですよ。</li>
-    <li>今日のブレンドは、自信作なんです。</li>
-    <li>花の絵に訊くと、<br>おすすめを教えてくれますよ。</li>
-  </ul>
-
-  <!-- 📔 日記モーダル -->
-  <div id="diary-modal" class="diary-modal">
-    <div class="diary-content">
-      <h3>マスターの日記</h3>
-      <p id="diary-text"></p>
-      <button id="close-diary">閉じる</button>
     </div>
   </div>
 
-  <!-- ===== chair用モーダル ===== -->
-  <div id="chair-modal" class="diary-modal">
-    <div class="diary-content">
-      <h3>このお店について</h3>
-      <p id="chair-text"></p>
-      <button id="close-chair">閉じる</button>
-    </div>
-  </div>
-
-</div>
-</div>
   <!-- ===== スクリプト ===== -->
   <script>
     /* -------------------- おすすめカード表示 -------------------- */
