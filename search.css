@@ -447,9 +447,9 @@ input[type="checkbox"] {
   width: 1536px;
   height: 1024px;
   
-
-  background: url('images/search/library.jpg') no-repeat center top;
+  background: url("images/search/library.jpg'") no-repeat center center;
   background-size: cover;
+
 
   transform-origin: top center;
 }
