@@ -155,7 +155,7 @@ async function handleBottle(bottle, value) {
   bottle.style.visibility = "hidden";
 
   const targetX = cauldronRect.left + cauldronRect.width/2 - rect.width/2;
-  const targetY = cauldronRect.top - rect.height*0.5 -60;
+  const targetY = cauldronRect.top - rect.height*0.7 -120;
   let rotateDeg = value >= 1 ? -140 : 140;
 
   await clone.animate([

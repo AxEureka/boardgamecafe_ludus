@@ -163,6 +163,7 @@ h1 {
   transform: scale(3);        /* 3倍に拡大 */
   transform-origin: center;   /* 中心を基準に拡大 */
 }
+
 /* ---------- 煙 ---------- */
 .smoke {
   position: fixed;
@@ -216,7 +217,7 @@ h1 {
 .cauldron::after {
   content: "";
   position: absolute;
-  bottom: 240px;
+  bottom: 180px;
   left: 0;
   width: 100%;
   height: 50%;
