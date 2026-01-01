@@ -1,18 +1,21 @@
 /* -------------------- 共通 -------------------- */
 body {
   font-family: "Georgia", serif;
-  background: url('images/search/library.jpg') no-repeat center top;
-  background-size: cover;
   color: #f0e6d2;
-  font-size: 45px;  /* 基本の文字サイズ */
+  font-size: 48px;
   margin: 0;
   padding: 0;
   text-align: center;
   position: relative;
+  background: none; /* ← ここ重要 */
 }
 
-body {
-  background-attachment: fixed;
+header,
+main,
+.btn-container,
+.game-cards {
+  position: relative;
+  z-index: 10;
 }
 
 
@@ -433,29 +436,25 @@ input[type="checkbox"] {
     color: white;
     text-decoration: underline;
 }
-/* ===== ステージ制御 ===== */
+/* ===== ステージ（背景専用） ===== */
 #stage-wrapper {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  inset: 0;
   overflow: hidden;
+  z-index: 0;
 }
 
 #stage {
   width: 1536px;
   height: 1024px;
-  background: url("images/search/library.jpg") no-repeat center center;
+  background: url("images/search/library.jpg") no-repeat center top;
   background-size: cover;
 
-  transform-origin: center center;
+  transform-origin: top center;
   transform: scale(
-    min(
+    max(
       calc(100vw / 1536),
       calc(100vh / 1024)
     )
   );
 }
-
-
