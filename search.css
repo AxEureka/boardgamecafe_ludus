@@ -433,7 +433,6 @@ input[type="checkbox"] {
     color: white;
     text-decoration: underline;
 }
-
 /* ===== ステージ制御 ===== */
 #stage-wrapper {
   width: 100vw;
@@ -441,29 +440,22 @@ input[type="checkbox"] {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 #stage {
   width: 1536px;
   height: 1024px;
-  
-  background: url("images/search/library.jpg'") no-repeat center center;
+  background: url("images/search/library.jpg") no-repeat center center;
   background-size: cover;
 
-
-  transform-origin: top center;
-}
-
-@media (max-aspect-ratio: 3/2) {
-  #stage {
-    transform: scale(calc(100vw / 1536));
-  }
-}
-
-@media (min-aspect-ratio: 3/2) {
-  #stage {
-    transform: scale(calc(100vh / 1024));
-  }
+  transform-origin: center center;
+  transform: scale(
+    min(
+      calc(100vw / 1536),
+      calc(100vh / 1024)
+    )
+  );
 }
 
 
