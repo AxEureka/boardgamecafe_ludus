@@ -1,10 +1,15 @@
 /* ============================================================
    共通・リセット
 ============================================================ */
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -420,18 +425,28 @@ body::after {
     gap: 16px;
   }
 
-  #keyword,
-  .search-btn,
-  .top-btn {
-    width: 100%;
-    height: 60px;
-    font-size: 1.05em;
-  }
+ #keyword {
+  width: 600px;        /* ← 少し広く */
+  max-width: 70vw;     /* ← 大画面でも余裕 */
+  height: 72px;        /* ← 高さアップ */
+  padding: 0 22px;
+
+  font-size: 1.75em;   /* ← 文字も1段階アップ */
+  border-radius: 14px;
+  border: 2px solid rgba(255,240,180,0.7);
+  background: rgba(255,255,255,0.9);
+  box-sizing: border-box;
+}
+
 
   .btn-container {
-    flex-direction: column;
-    gap: 15px;
-  }
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 60px; /* ← 追加：ここで余白を広げる */
+}
+
 }
 
 
