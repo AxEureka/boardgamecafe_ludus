@@ -354,27 +354,47 @@ body::after {
 }
 
 .overlay-content {
+  position: relative; /* ← close-btn の基準にする */
+  
   width: 90%;
   max-width: 1500px;
   max-height: 80vh;
-  padding: 30px;
-  overflow-y: auto;
+  padding: 40px 30px 30px; /* 上だけ少し余白を増やす */
 
+  overflow-y: auto;
   background: rgba(25,25,25,0.85);
   border-radius: 15px;
   color: #fff;
 }
 
+/* ✕ボタン */
 .close-btn {
-  position: sticky;
-  top: 15px;
-  margin-left: auto;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 
-  background: none;
-  border: none;
+  width: 48px;
+  height: 48px;
+
+  font-size: 32px;      /* ← 大きく */
+  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+
   color: #fff;
-  font-size: 24px;
   cursor: pointer;
+  transition: 0.25s;
+}
+
+.close-btn:hover {
+  background: rgba(255,255,255,0.15);
+  transform: scale(1.1);
 }
 
 /* ============================================================
