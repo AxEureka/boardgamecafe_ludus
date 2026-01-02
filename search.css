@@ -32,13 +32,9 @@ main,
 header {
   background: rgba(48, 30, 8, 0.85);
   padding: 1.2em;
+  text-align: center;
   text-shadow: 1px 1px 3px #000;
 }
-
-header {
-  text-align: center;
-}
-
 
 header h2 {
   font-family: 'Pacifico', cursive;
@@ -51,13 +47,25 @@ header h2 {
 }
 
 @keyframes glow {
-  0%   { text-shadow: 0 0 3px #fff, 0 0 5px rgba(255,255,255,0.3), 2px 2px 5px rgba(0,0,0,0.5); }
-  50%  { text-shadow: 0 0 6px #fff, 0 0 12px rgba(255,255,255,0.5), 2px 2px 5px rgba(0,0,0,0.5); }
-  100% { text-shadow: 0 0 3px #fff, 0 0 5px rgba(255,255,255,0.3), 2px 2px 5px rgba(0,0,0,0.5); }
+  0% {
+    text-shadow: 0 0 3px #fff,
+                 0 0 5px rgba(255,255,255,0.3),
+                 2px 2px 5px rgba(0,0,0,0.5);
+  }
+  50% {
+    text-shadow: 0 0 6px #fff,
+                 0 0 12px rgba(255,255,255,0.5),
+                 2px 2px 5px rgba(0,0,0,0.5);
+  }
+  100% {
+    text-shadow: 0 0 3px #fff,
+                 0 0 5px rgba(255,255,255,0.3),
+                 2px 2px 5px rgba(0,0,0,0.5);
+  }
 }
 
 /* ============================================================
-   メイン領域（画面いっぱい）
+   メイン領域
 ============================================================ */
 main {
   width: 100%;
@@ -86,11 +94,24 @@ main {
   margin-top: 8px;
 }
 
+/* 検索窓 */
 input[type="text"] {
   display: block;
   margin: 0 auto;
+
+  width: 420px;
+  max-width: 60vw;
+  height: 64px;
+  padding: 0 18px;
+
+  font-size: 1.2em;
+  border-radius: 12px;
+  border: 2px solid rgba(255,240,180,0.7);
+  background: rgba(255,255,255,0.9);
+  box-sizing: border-box;
 }
 
+/* チェックボックス */
 input[type="checkbox"] {
   transform: scale(1.8);
   margin-right: 8px;
@@ -100,23 +121,41 @@ input[type="checkbox"] {
    ボタン
 ============================================================ */
 .btn-container {
+  display: flex;
   justify-content: center;
+  gap: 30px;
+  margin-top: 25px;
 }
 
 .search-btn,
 .top-btn {
-  cursor: pointer;
+  height: 64px;
+  min-width: 180px;
+
+  padding: 0 28px;
   font-weight: bold;
+  font-size: 1.1em;
+
+  border-radius: 12px;
+  box-sizing: border-box;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
   transition: 0.3s;
 }
 
+/* 検索ボタン */
 .search-btn {
-  padding: 12px 28px;
-  font-size: 1.1em;
   color: #f8f0d8;
-  border-radius: 12px;
   border: 2px solid rgba(255,240,180,0.7);
-  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.2),
+    rgba(255,255,255,0)
+  );
   box-shadow: 0 0 15px rgba(255,240,180,0.5);
   position: relative;
   overflow: hidden;
@@ -126,27 +165,29 @@ input[type="checkbox"] {
   content: "";
   position: absolute;
   inset: -50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,0.5) 0%,
+    transparent 70%
+  );
   opacity: 0.3;
   animation: magicPulse 3s linear infinite;
 }
 
 @keyframes magicPulse {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 .search-btn:hover {
   transform: translateY(-3px) scale(1.05);
 }
 
+/* 目録・戻るボタン */
 .top-btn {
-  padding: 25px 55px;
-  font-size: 25px;
   background: rgba(80, 50, 20, 0.9);
   color: #f0e6d2;
   border: none;
-  border-radius: 6px;
 }
 
 .top-btn:hover {
@@ -169,18 +210,21 @@ input[type="checkbox"] {
   width: 320px;
   height: 360px;
   padding: 15px;
+
   font-size: 35px;
   text-align: center;
   border-radius: 12px;
+
   background:
     linear-gradient(135deg, #fdf5e6, #f5e6c4),
     url("images/parchment_texture.jpg") center/cover no-repeat;
   background-blend-mode: multiply;
+
   box-shadow: 0 0 15px 5px rgba(173,216,230,0.5);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.game-card:nth-child(odd) { transform: rotate(-2deg); }
+.game-card:nth-child(odd)  { transform: rotate(-2deg); }
 .game-card:nth-child(even) { transform: rotate(2deg); }
 
 .game-card:hover {
@@ -221,7 +265,11 @@ body::after {
 body::before {
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(120,200,255,0.2), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(120,200,255,0.2),
+    transparent 70%
+  );
   filter: blur(60px);
   animation: spin 40s linear infinite;
 }
@@ -229,7 +277,11 @@ body::before {
 body::after {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(255,240,150,0.2), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255,240,150,0.2),
+    transparent 70%
+  );
   filter: blur(40px);
   animation: spinReverse 50s linear infinite;
 }
@@ -251,8 +303,10 @@ body::after {
   display: flex;
   justify-content: center;
   align-items: center;
+
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(5px);
+
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.8s;
@@ -270,6 +324,7 @@ body::after {
   max-height: 80vh;
   padding: 30px;
   overflow-y: auto;
+
   background: rgba(25,25,25,0.85);
   border-radius: 15px;
   color: #fff;
@@ -279,6 +334,7 @@ body::after {
   position: sticky;
   top: 15px;
   margin-left: auto;
+
   background: none;
   border: none;
   color: #fff;
