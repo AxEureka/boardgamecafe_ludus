@@ -414,8 +414,9 @@ body::after {
   }
 }
 
+
 @media (max-width: 600px) {
-  .checkbox-group label {
-    width: 100%;
+  .checkbox-group {
+    flex-direction: column;
   }
 }
