@@ -35,6 +35,11 @@ header {
   text-shadow: 1px 1px 3px #000;
 }
 
+header {
+  text-align: center;
+}
+
+
 header h2 {
   font-family: 'Pacifico', cursive;
   font-size: 4.4rem;
@@ -82,12 +87,8 @@ main {
 }
 
 input[type="text"] {
-  width: 300px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: none;
-  background: rgba(255,255,255,0.8);
-  font-size: 1em;
+  display: block;
+  margin: 0 auto;
 }
 
 input[type="checkbox"] {
@@ -99,10 +100,7 @@ input[type="checkbox"] {
    ボタン
 ============================================================ */
 .btn-container {
-  display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-top: 25px;
 }
 
 .search-btn,
