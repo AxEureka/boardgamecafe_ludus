@@ -40,7 +40,7 @@ header h2 {
   font-family: 'Pacifico', cursive;
   font-size: 4.4rem;
   color: #f8f0d8;
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
   letter-spacing: 0.05em;
   line-height: 1.2;
   animation: glow 2s ease-in-out infinite alternate;
@@ -78,7 +78,7 @@ main {
    検索UI
 ============================================================ */
 .section {
-  margin: 15px 0;
+  margin: 20px 0;
   color: #fff;
 }
 
@@ -87,18 +87,17 @@ main {
   color: #f8eec6;
 }
 
-.checkbox-group {
+/* --- 検索行 --- */
+.search-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 30px 0 40px;
 }
 
 /* 検索窓 */
-input[type="text"] {
-  display: block;
-  margin: 0 auto;
-
+#keyword {
   width: 420px;
   max-width: 60vw;
   height: 64px;
@@ -111,10 +110,47 @@ input[type="text"] {
   box-sizing: border-box;
 }
 
-/* チェックボックス */
-input[type="checkbox"] {
-  transform: scale(1.8);
-  margin-right: 8px;
+/* ============================================================
+   チェックボックス
+============================================================ */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* ラベルをカード風に */
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 16px;
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,240,180,0.3);
+
+  cursor: pointer;
+  transition: 0.25s;
+  font-size: 0.9em;
+}
+
+.checkbox-group label:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.checkbox-group input[type="checkbox"] {
+  transform: scale(1.5);
+  margin: 0;
+  cursor: pointer;
+}
+
+/* チェック時の強調 */
+.checkbox-group label:has(input:checked) {
+  background: rgba(255,240,180,0.25);
+  border-color: rgba(255,240,180,0.6);
 }
 
 /* ============================================================
@@ -124,18 +160,17 @@ input[type="checkbox"] {
   display: flex;
   justify-content: center;
   gap: 30px;
-  margin-top: 25px;
+  margin-top: 30px;
 }
 
 .search-btn,
 .top-btn {
   height: 64px;
   min-width: 180px;
-
   padding: 0 28px;
+
   font-weight: bold;
   font-size: 1.1em;
-
   border-radius: 12px;
   box-sizing: border-box;
 
@@ -147,7 +182,7 @@ input[type="checkbox"] {
   transition: 0.3s;
 }
 
-/* 検索ボタン */
+/* 検索・目録ボタン */
 .search-btn {
   color: #f8f0d8;
   border: 2px solid rgba(255,240,180,0.7);
@@ -183,7 +218,7 @@ input[type="checkbox"] {
   transform: translateY(-3px) scale(1.05);
 }
 
-/* 目録・戻るボタン */
+/* 戻る系ボタン */
 .top-btn {
   background: rgba(80, 50, 20, 0.9);
   color: #f0e6d2;
@@ -340,4 +375,47 @@ body::after {
   color: #fff;
   font-size: 24px;
   cursor: pointer;
+}
+
+/* ============================================================
+   レスポンシブ対応
+============================================================ */
+@media (max-width: 900px) {
+
+  body {
+    font-size: 24px;
+  }
+
+  header h2 {
+    font-size: 3rem;
+  }
+
+  main {
+    padding: 25px 20px;
+  }
+
+  .search-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  #keyword,
+  .search-btn,
+  .top-btn {
+    width: 100%;
+    height: 60px;
+    font-size: 1.05em;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .checkbox-group label {
+    width: 100%;
+  }
 }
