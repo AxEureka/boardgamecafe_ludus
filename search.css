@@ -10,7 +10,7 @@ html, body {
 body {
   font-family: "Georgia", serif;
   color: #f0e6d2;
-  font-size: 32px;
+  font-size: 38px;
 
   background: url("images/search/library.jpg") no-repeat center top;
   background-size: cover;
@@ -103,7 +103,7 @@ main {
   height: 64px;
   padding: 0 18px;
 
-  font-size: 1.2em;
+  font-size: 1.6em;
   border-radius: 12px;
   border: 2px solid rgba(255,240,180,0.7);
   background: rgba(255,255,255,0.9);
@@ -134,7 +134,7 @@ main {
 
   cursor: pointer;
   transition: 0.25s;
-  font-size: 0.9em;
+  font-size: 1.2em;
 }
 
 .checkbox-group label:hover {
@@ -242,8 +242,8 @@ main {
 }
 
 .game-card {
-  width: 320px;
-  height: 360px;
+  width: 400px;
+  height: 4500px;
   padding: 15px;
 
   font-size: 35px;
