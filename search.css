@@ -83,7 +83,7 @@ main {
 }
 
 .section strong {
-  font-size: 1.1em;
+  font-size: 1.5em;
   color: #f8eec6;
 }
 
@@ -98,7 +98,7 @@ main {
 
 /* 検索窓 */
 #keyword {
-  width: 420px;
+  width: 500px;
   max-width: 60vw;
   height: 64px;
   padding: 0 18px;
@@ -242,11 +242,11 @@ main {
 }
 
 .game-card {
-  width: 400px;
-  height: 4500px;
+  width: 320px;
+  height: 360px;
   padding: 15px;
 
-  font-size: 35px;
+  font-size: 40px;
   text-align: center;
   border-radius: 12px;
 
