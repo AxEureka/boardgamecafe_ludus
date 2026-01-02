@@ -1,15 +1,23 @@
-/* -------------------- 共通 -------------------- */
+/* ============================================================
+   共通・リセット
+============================================================ */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
 body {
   font-family: "Georgia", serif;
   color: #f0e6d2;
-  font-size: 48px;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  position: relative;
-  background: none; /* ← ここ重要 */
+  font-size: 32px;
+
+  background: url("images/search/library.jpg") no-repeat center top;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
+/* 前景レイヤー */
 header,
 main,
 .btn-container,
@@ -18,20 +26,20 @@ main,
   z-index: 10;
 }
 
-
+/* ============================================================
+   ヘッダー
+============================================================ */
 header {
   background: rgba(48, 30, 8, 0.85);
-  color: #f0e6d2;
   padding: 1.2em;
   text-shadow: 1px 1px 3px #000;
 }
 
 header h2 {
   font-family: 'Pacifico', cursive;
-  font-size: 4.4rem;       /* サイズ調整 */
-  color: #f8f0d8;          /* 看板っぽい茶色など */
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* 少し立体感 */
-  margin: 0 0 20px 0;       /* 下に余白 */
+  font-size: 4.4rem;
+  color: #f8f0d8;
+  margin: 0 0 20px 0;
   letter-spacing: 0.05em;
   line-height: 1.2;
   animation: glow 2s ease-in-out infinite alternate;
@@ -43,62 +51,21 @@ header h2 {
   100% { text-shadow: 0 0 3px #fff, 0 0 5px rgba(255,255,255,0.3), 2px 2px 5px rgba(0,0,0,0.5); }
 }
 
-
+/* ============================================================
+   メイン領域（画面いっぱい）
+============================================================ */
 main {
-  max-width: 1800px;
-  margin: 0 auto;
-  background: rgba(0,0,0,0.4);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  width: 100%;
+  margin: 0;
+  padding: 40px;
+  background: rgba(0,0,0,0.45);
 }
 
-.search-btn {
-  padding: 12px 28px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-  color: #f8f0d8;
-  border: 2px solid rgba(255,240,180,0.7);
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1.1em;
-  text-shadow: 0 0 8px rgba(255,240,180,0.8);
-  box-shadow: 0 0 15px rgba(255,240,180,0.5);
-  position: relative;
-  overflow: hidden;
-  transition: 0.3s ease;
-}
-
-.search-btn::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
-  opacity: 0.3;
-  transform: rotate(45deg);
-  pointer-events: none;
-  animation: magicPulse 3s linear infinite;
-}
-
-@keyframes magicPulse {
-  0% { transform: rotate(0deg) scale(1); opacity: 0.2; }
-  50% { transform: rotate(180deg) scale(1.1); opacity: 0.5; }
-  100% { transform: rotate(360deg) scale(1); opacity: 0.2; }
-}
-
-.search-btn:hover {
-  background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
-  box-shadow: 0 0 30px rgba(255,240,180,0.9), 0 0 50px rgba(173,216,230,0.7);
-  transform: translateY(-3px) scale(1.05);
-}
-
-/* セクションとラベル */
+/* ============================================================
+   検索UI
+============================================================ */
 .section {
   margin: 15px 0;
-  text-align: left;
   color: #fff;
 }
 
@@ -119,12 +86,18 @@ input[type="text"] {
   padding: 6px 10px;
   border-radius: 6px;
   border: none;
-  outline: none;
   background: rgba(255,255,255,0.8);
   font-size: 1em;
 }
 
-/* ボタン */
+input[type="checkbox"] {
+  transform: scale(1.8);
+  margin-right: 8px;
+}
+
+/* ============================================================
+   ボタン
+============================================================ */
 .btn-container {
   display: flex;
   justify-content: center;
@@ -132,17 +105,50 @@ input[type="text"] {
   margin-top: 25px;
 }
 
+.search-btn,
+.top-btn {
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.search-btn {
+  padding: 12px 28px;
+  font-size: 1.1em;
+  color: #f8f0d8;
+  border-radius: 12px;
+  border: 2px solid rgba(255,240,180,0.7);
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+  box-shadow: 0 0 15px rgba(255,240,180,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.search-btn::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
+  opacity: 0.3;
+  animation: magicPulse 3s linear infinite;
+}
+
+@keyframes magicPulse {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.search-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
 .top-btn {
   padding: 25px 55px;
   font-size: 25px;
   background: rgba(80, 50, 20, 0.9);
   color: #f0e6d2;
-  
   border: none;
   border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
 }
 
 .top-btn:hover {
@@ -150,28 +156,29 @@ input[type="text"] {
   transform: translateY(-2px);
 }
 
-/* 検索結果カード */
+/* ============================================================
+   ゲームカード
+============================================================ */
 .game-cards {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 35px;
   flex-wrap: wrap;
   margin-top: 30px;
 }
 
 .game-card {
-  background: 
-    linear-gradient(135deg, #fdf5e6, #f5e6c4 25%, #fdf5e6 50%, #f5e6c4 75%, #fdf5e6),
-    url('images/parchment_texture.jpg') center/cover no-repeat;
-  background-blend-mode: multiply;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(200,180,140,0.5);
-  box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-  width: 320px;   /* 横幅固定 */
-  height: 360px;  /* 縦幅固定 */
-  text-align: center;
+  width: 320px;
+  height: 360px;
+  padding: 15px;
   font-size: 35px;
+  text-align: center;
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, #fdf5e6, #f5e6c4),
+    url("images/parchment_texture.jpg") center/cover no-repeat;
+  background-blend-mode: multiply;
+  box-shadow: 0 0 15px 5px rgba(173,216,230,0.5);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -179,38 +186,35 @@ input[type="text"] {
 .game-card:nth-child(even) { transform: rotate(2deg); }
 
 .game-card:hover {
-  transform: translateY(-5px) rotate(0deg);
-  box-shadow: 4px 6px 20px rgba(0,0,0,0.6);
+  transform: translateY(-5px) rotate(0deg) scale(1.05);
+  box-shadow: 0 0 25px 10px rgba(173,216,230,0.7);
 }
 
-/* カード画像のサイズ調整 */
 .game-card img {
   width: 100%;
-  height: 70%;           /* カードの縦幅の60％を画像に割り当て */
-  object-fit: cover;     /* contain → cover に変更 */
+  max-height: 200px;
+  object-fit: contain;
   border-radius: 8px;
   margin-bottom: 10px;
 }
 
-.game-title {
-  font-weight: bold;
-  margin: 10px 0 5px 0;
-}
+.game-title { display: none; }
 
 .game-desc {
+  margin-top: 5px;
   font-size: 0.8em;
   color: #7b3f00;
-  overflow: hidden;  /* はみ出す文章は切る */
 }
 
-/* ===== 魔法的な光エフェクト ===== */
+/* ============================================================
+   背景エフェクト
+============================================================ */
 body::before,
 body::after {
   content: "";
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  margin: auto;
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -219,242 +223,67 @@ body::after {
 body::before {
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(120, 200, 255, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(120,200,255,0.2), transparent 70%);
   filter: blur(60px);
   animation: spin 40s linear infinite;
-  opacity: 0.4;
 }
 
 body::after {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(255, 240, 150, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,240,150,0.2), transparent 70%);
   filter: blur(40px);
   animation: spinReverse 50s linear infinite;
-  opacity: 0.4;
 }
 
 @keyframes spin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes spinReverse {
-  from { transform: translate(-50%, -50%) rotate(360deg); }
-  to { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: rotate(-360deg); }
 }
 
-header, main, .btn-container, .game-cards {
-  position: relative;
-  z-index: 10;
-}
-
-/* --- 魔法の光るカードエフェクト --- */
-.result-card {
-  background: rgba(48, 30, 8, 0.8);
-  border: 1px solid #b89f72;
-  border-radius: 12px;
-  padding: 20px;
-  margin: 20px auto;
-  width: 80%;
-  color: #f0e6d2;
-  transition: all 0.4s ease;
-  box-shadow: 0 0 10px rgba(255, 230, 180, 0.1);
-}
-
-.result-card:hover {
-  box-shadow: 0 0 25px rgba(255, 230, 180, 0.7);
-  transform: translateY(-3px) scale(1.02);
-}
-
-/* ======== 検索結果オーバーレイ ======== */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* 半透明の黒 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-}
-
-.hidden {
-  display: none;
-}
-
-/* ======== 検索結果オーバーレイ ======== */
+/* ============================================================
+   検索結果オーバーレイ
+============================================================ */
 #result-overlay {
   position: fixed;
   inset: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
   backdrop-filter: blur(5px);
-  background: rgba(0, 0, 0, 0.6);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.8s ease;
+  transition: opacity 0.8s;
   z-index: 1000;
 }
+
 #result-overlay.active {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* ✨ 光の粒 */
-#result-overlay::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%) repeat;
-  animation: shimmer 10s infinite linear;
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
-@keyframes shimmer {
-  0% { background-position: 0 0; }
-  100% { background-position: 1000px 1000px; }
-}
-
-/* === オーバーレイ内部 === */
 .overlay-content {
-  position: relative;
-  background: rgba(25, 25, 25, 0.85);
-  border: 2px solid #aaa;
-  border-radius: 15px;
-  padding: 30px;
-  max-width: 1500px;
   width: 90%;
+  max-width: 1500px;
   max-height: 80vh;
+  padding: 30px;
   overflow-y: auto;
-  box-shadow: 0 0 40px rgba(255,255,255,0.1);
+  background: rgba(25,25,25,0.85);
+  border-radius: 15px;
+  color: #fff;
 }
 
-/* ✕ボタン */
-/* ✕ボタン（ウインドウ内でスクロールしても消えない） */
 .close-btn {
   position: sticky;
   top: 15px;
-  right: 15px;
-
-  margin-left: auto;    /* 右寄せに必要 */
-  display: block;
-
+  margin-left: auto;
   background: none;
   border: none;
   color: #fff;
   font-size: 24px;
   cursor: pointer;
-  z-index: 10;
-}
-
-.close-btn:hover {
-  transform: scale(1.2);
-}
-
-/* カード登場アニメーション */
-#search-results .game-card {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 0.8s ease forwards;
-}
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.overlay-content::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.05), transparent);
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-.game-cards {
-  display: flex;
-  justify-content: center;
-  gap: 35px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-
-.game-card {
-  box-shadow: 0 0 15px 5px rgba(173,216,230,0.5); /* 青白く光る枠 */
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.game-card:hover {
-  box-shadow: 0 0 25px 10px rgba(173,216,230,0.7);
-  transform: translateY(-5px) rotate(0deg) scale(1.05);
-}
-
-.game-card img {
-  width: 100%;         /* カード幅いっぱい */
-  height: auto;        /* 縦横比を維持 */
-  max-height: 200px;   /* カード内の最大高さ */
-  object-fit: contain;  /* contain に変更 */
-  border-radius: 8px;
-  margin: 0 auto 10px auto;
-}
-
-.game-card {
-  /* overflow: hidden; を削除 */
-  overflow: visible;
-
-  /* 上寄せじゃなくて中央寄せにしたい場合 */
-  justify-content: flex-start; /* → flex-start のままでもOK */
-  padding: 15px; /* 内側の余白を少し広げると見やすい */
-}
-
-/* ゲームカードのタイトル非表示 */
-.game-card .game-title {
-  display: none;
-}
-
-/* 画像と説明だけが残るので、descの余白を少し調整 */
-.game-card .game-desc {
-  margin-top: 5px; /* タイトルがない分の余白調整 */
-}
-
-input[type="checkbox"] {
-  transform: scale(1.8);  /* 1.5倍に拡大 */
-  margin-right: 8px;      /* ラベルとの間隔を調整 */
-}
-
-/* search.css に追加 */
-#result-overlay .overlay-content {
-    color: white; /* 文字色を白に */
-}
-
-/* リンクも白くしたい場合 */
-#result-overlay .overlay-content a {
-    color: white;
-    text-decoration: underline;
-}
-/* ===== ステージ（背景専用） ===== */
-#stage-wrapper {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  z-index: 0;
-}
-
-#stage {
-  width: 1536px;
-  height: 1024px;
-  background: url("images/search/library.jpg") no-repeat center top;
-  background-size: cover;
-
-  transform-origin: top center;
-  transform: scale(
-    max(
-      calc(100vw / 1536),
-      calc(100vh / 1024)
-    )
-  );
 }
