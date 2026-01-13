@@ -1882,6 +1882,32 @@
   "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607544171"
   }
   },
+   {
+    "title": "勇者ヌルポコ ファンタジー命名カードゲーム",
+     "images": [
+    "images/games/勇者ヌルポコ1.png",
+    "images/games/勇者ヌルポコ2.png",
+    "images/games/勇者ヌルポコ3.png"
+  ],
+    "desc": "魔物と化した暗黒剣士、その名は……",
+    "vector": [2, 3, 5, 4, 3, 3],
+    "rules": [
+      "手札の文字を並べ替え、お題っぽい名前を作りましょう。",
+      "他のプレイヤーはそれが何の名前なのか予想しましょう。",
+      "NGお題を選ばせたらネーミングセンスが問われます。"
+    ],
+    "players": [3,10],
+    "time": [15, 30],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "小道具", "会話", "大喜利", "チーム戦", "パーティー"],
+    "theme": ["ファンタジー", "非日常", "文学", "鑑賞"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "https://product.rakuten.co.jp/product/-/33ce8520391b701c85c3c3487e6c67b7/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607617647"
+  }
+  },
   {
     "title": "レベル・プリンセス",
      "images": [
