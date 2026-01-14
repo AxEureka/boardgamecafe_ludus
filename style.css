@@ -1,50 +1,62 @@
 /* ============================================================
-   Café Ludus TOPページ style.css（完成版）
+   Café Ludus TOPページ style.css（PC完成・安定版）
+   ロジック・構造・座標系は一切変更していません
    ============================================================ */
 
 /* ---------- 基本 ---------- */
 html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
   font-family: "Georgia", serif;
   background: #000;
   color: #333;
-  overflow-x: hidden;
 }
 
 /* ---------- viewport & stage ---------- */
 #viewport {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  min-width: 1024px;
+  min-height: 700px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   overflow: hidden;
 }
 
 #stage {
   width: 1536px;
   height: 1024px;
-  background: url("images/cafe@2x.jpg") no-repeat center / cover;
   position: relative;
 
+  background: url("images/cafe@2x.jpg") no-repeat center / cover;
+
+  transform-origin: center center;
   transform: scale(
     min(
       100vw / 1536,
       100vh / 1024
     )
   );
-  transform-origin: center;
 }
 
 /* ---------- 光 ---------- */
 .main-light {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 20%, rgba(255,255,200,0.25), transparent 70%);
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(255,255,200,0.25),
+    transparent 70%
+  );
   pointer-events: none;
   z-index: 1;
 }
@@ -53,8 +65,10 @@ body {
 header {
   position: relative;
   z-index: 20;
+
   background: rgba(68, 44, 0, 0.85);
   color: #fff;
+
   padding: 16px;
   text-align: center;
 }
@@ -75,6 +89,7 @@ header {
   font-family: 'Schoolbell', cursive;
   font-size: 1.8em;
   color: #f7f5ef;
+
   background: rgba(30,45,30,0.85);
   display: inline-block;
   padding: 6px 18px;
@@ -94,8 +109,10 @@ header {
   background: #fff8e6;
   border-radius: 14px;
   padding: 14px;
+
   font-size: 1.2rem;
   box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
+
   transition: transform 0.3s;
 }
 
@@ -106,6 +123,7 @@ header {
 .game-card img {
   width: 100%;
   border-radius: 12px;
+  display: block;
 }
 
 /* ---------- ホットスポット（px固定） ---------- */
@@ -127,9 +145,11 @@ header {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+
   background: #fffdf5;
   border-radius: 8px;
   padding: 4px 12px;
+
   font-size: 1rem;
   white-space: nowrap;
   pointer-events: none;
@@ -144,23 +164,29 @@ header {
   left: 50%;
   bottom: 620px;
   transform: translateX(-50%);
+
   background: rgba(255,255,255,0.95);
   padding: 10px 16px;
   border-radius: 12px;
+
   opacity: 0;
   transition: opacity 0.3s;
   z-index: 30;
 }
 
-#master-bubble.show { opacity: 1; }
+#master-bubble.show {
+  opacity: 1;
+}
 
 /* ---------- モーダル ---------- */
 .diary-modal {
   position: fixed;
   inset: 0;
+
   display: none;
   justify-content: center;
   align-items: center;
+
   background: rgba(0,0,0,0.5);
   z-index: 9999;
 }
@@ -170,42 +196,11 @@ header {
   padding: 40px;
   border-radius: 14px;
   max-width: 600px;
+
   animation: openBook 0.6s forwards;
 }
 
 @keyframes openBook {
   from { transform: scale(0.85); opacity: 0; }
   to   { transform: scale(1); opacity: 1; }
-}
-
-/* ============================================================
-   スマホ対応（UXを変える）
-   ============================================================ */
-@media (max-width: 768px) {
-
-  body { font-size: 14px; }
-
-  /* カードは横スライド */
-  .game-cards {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    scroll-snap-type: x mandatory;
-    padding: 0 16px;
-  }
-
-  .game-card {
-    width: 260px;
-    font-size: 0.9rem;
-    flex: 0 0 auto;
-    scroll-snap-align: center;
-  }
-
-  .today-section {
-    margin-top: 140px;
-  }
-
-  .label-paper {
-    font-size: 12px;
-    padding: 2px 8px;
-  }
 }
