@@ -85,7 +85,7 @@
     "images/games/FLUXX2.png",
     "images/games/FLUXX3.png"
   ],
-    "desc": "狂気に負けず勝利を獲得できるか",
+    "desc": "勝利条件についてこられる？",
     "vector": [2, 1, 3, 5, 2, 5],
     "rules": [
       "手札は2枚です。",
@@ -414,6 +414,32 @@
   "amazon": "https://amzn.to/4qlDpxs",
   "rakuten": "https://product.rakuten.co.jp/product/-/4864bf6ae78c61cbd775c418be57356b/",
   "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607625495"
+  }
+  },
+  {
+    "title": "君のゆるいタロット占いが私を癒してくれるから",
+    "images": [
+    "images/games/君のゆるいタロット占いが私を癒してくれるから1.png",
+    "images/games/君のゆるいタロット占いが私を癒してくれるから2.png",
+    "images/games/君のゆるいタロット占いが私を癒してくれるから3.png"
+  ],
+    "desc": "お悩みゆるーく解決しちゃおう",
+    "vector": [1, 4, 5, 2, 2, 4],
+    "rules": [
+      "相談者はお悩みを相談します。",
+      "占者はカードをめくり、そのお告げを読みとって占い結果を伝えましょう。",
+      "こじつけでもなんでも、相談者が喜べばみんなハッピーだよね"
+    ],
+    "players": [1, 6],
+    "time": [5, 10],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "小道具", "会話", "大喜利"],
+    "theme": ["日常", "アート", "鑑賞", "動物"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "https://amzn.to/4jBr06e",
+  "rakuten": "https://product.rakuten.co.jp/product/-/843afe38de7bec4666a7c3a1a11330c9/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607622286"
   }
   },
   {
