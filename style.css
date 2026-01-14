@@ -204,3 +204,25 @@ main {
   z-index: 9999;
   transition: transform 5s linear, opacity 5s linear;
 }
+
+/* =========================
+   スマホ専用：全体が必ず収まるようにする
+========================= */
+@media (max-width: 768px) {
+
+  #viewport {
+    align-items: flex-start;
+  }
+
+  #stage {
+    margin-top: 40px;
+
+    /* スマホでは「必ず全体が入る」スケール */
+    transform: scale(
+      min(
+        100vw / 1536,
+        100vh / 1024
+      )
+    );
+  }
+}
