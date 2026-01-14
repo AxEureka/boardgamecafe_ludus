@@ -37,7 +37,7 @@ body {
   height: 1024px;
   position: relative;
 
-  background: url("images/cafe@2x.jpg") no-repeat center / cover;
+  background: url("images/cafe.jpg") no-repeat center / cover;
 
   transform-origin: center center;
   transform: scale(
