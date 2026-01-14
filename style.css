@@ -34,7 +34,7 @@ header {
   position: relative;
 
   /* 背景をここに集約 */
-  background: url("images/cafe@2x.jpg") no-repeat center center;
+  background: url("images/cafe.jpg") no-repeat center center;
   background-size: cover;
 }
 
