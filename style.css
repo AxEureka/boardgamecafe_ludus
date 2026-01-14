@@ -1,5 +1,5 @@
 /* ============================================================
-   Café Ludus TOPページ style.css（②確定・PC用）
+   Café Ludus TOPページ style.css（PC確定版）
    ============================================================ */
 
 /* ---------- 基本 ---------- */
@@ -17,33 +17,30 @@ body {
   overflow-x: hidden;
 }
 
-/* ---------- viewport（背景担当） ---------- */
+/* ---------- viewport（背景専用） ---------- */
 #viewport {
   width: 100%;
   min-height: 100vh;
-
   position: relative;
 
-  /* ★ 背景はここに集約 */
   background: url("./images/cafe.jpg") no-repeat center center;
   background-size: cover;
 }
 
-/* ---------- stage（座標専用・拡縮しない） ---------- */
+/* ---------- stage（絶対に縮小しない） ---------- */
 #stage {
   position: relative;
 
   width: 1536px;
   height: 1024px;
 
-  margin: 0 auto; /* 画面中央に置く */
+  margin: 0 auto;   /* 横中央 */
 }
 
 /* ---------- ヘッダー ---------- */
 header {
   position: relative;
   z-index: 20;
-
   background: rgba(68, 44, 0, 0.85);
   color: #fff;
   padding: 16px;
@@ -66,14 +63,13 @@ header {
   font-family: 'Schoolbell', cursive;
   font-size: 1.8em;
   color: #f7f5ef;
-
   background: rgba(30,45,30,0.85);
   display: inline-block;
   padding: 6px 18px;
   border-radius: 8px;
 }
 
-/* ---------- カード（変更なし） ---------- */
+/* ---------- カード ---------- */
 .game-cards {
   display: flex;
   justify-content: center;
@@ -96,7 +92,7 @@ header {
   border-radius: 12px;
 }
 
-/* ---------- ホットスポット（px固定そのまま） ---------- */
+/* ---------- ホットスポット（完全復元） ---------- */
 .hotspot {
   position: absolute;
   cursor: pointer;
@@ -110,7 +106,7 @@ header {
 .hotspot.baum      { left: 380px; top: 420px; width: 120px; height: 160px; }
 .hotspot.master    { right: 320px; top: 460px; width: 180px; height: 240px; }
 
-/* ---------- ラベル ---------- */
+/* ---------- ラベル（元サイズ） ---------- */
 .label-paper {
   position: absolute;
   left: 50%;
