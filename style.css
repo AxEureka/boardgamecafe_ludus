@@ -8,6 +8,8 @@
 html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
   background: #1a120b;
   color: #f8f0d8;
   font-family: "游明朝", "Yu Mincho", serif;
@@ -19,46 +21,43 @@ html, body {
 header {
   text-align: center;
   padding: 20px 10px 10px;
+  position: relative;
+  z-index: 10;
 }
 
 /* =========================
-   ビューポート & ステージ
+   ビューポート（背景担当）
 ========================= */
 #viewport {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+
+  /* 背景をここに集約 */
+  background: url("images/cafe@2x.jpg") no-repeat center center;
+  background-size: cover;
 }
 
+/* =========================
+   ステージ（役割縮小）
+   ※ 位置基準だけに使う
+========================= */
 #stage {
-  width: 1536px;
-  height: 1024px;
   position: relative;
-  background: url("images/cafe@2x.jpg") no-repeat center/cover;
-
-  transform: scale(
-    min(
-      100vw / 1536,
-      100vh / 1024
-    )
-  );
-  transform-origin: center;
+  width: 100%;
+  height: 100%;
 }
 
 /* =========================
    メインコンテンツ
 ========================= */
 main {
-  position: absolute;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  margin: 120px auto 0;
   width: 100%;
   max-width: 1200px;
   pointer-events: none;
+  z-index: 5;
 }
 
 .today-section {
@@ -113,7 +112,7 @@ main {
   cursor: pointer;
 }
 
-/* 位置は px 固定（例） */
+/* ※ とりあえず既存px指定はそのまま使える */
 .hotspot.bookshelf { left: 40px; top: 260px; width: 300px; height: 420px; }
 .hotspot.painting  { left: 560px; top: 160px; width: 260px; height: 260px; }
 .hotspot.cup       { left: 900px; top: 520px; width: 160px; height: 160px; }
@@ -138,8 +137,9 @@ main {
 ========================= */
 .speech-bubble {
   position: absolute;
-  left: 720px;
+  left: 50%;
   top: 300px;
+  transform: translateX(-50%);
   background: #fff8e6;
   border: 2px solid #d0b37f;
   padding: 12px 16px;
@@ -192,7 +192,7 @@ main {
 @media (max-width: 768px) {
 
   main {
-    top: 80px;
+    margin-top: 80px;
   }
 
   .game-cards {
