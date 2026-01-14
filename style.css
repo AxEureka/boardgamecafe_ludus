@@ -1,239 +1,83 @@
 /* ============================================================
-   Café Ludus TOPページ style.css【PC確定版】
-   背景1枚 + ホットスポット方式
-   ============================================================ */
+   Café Ludus TOPページ style.css
+   背景：1枚の cafe.jpg
+   本棚・絵画・マスターはホットスポットで指定
+============================================================ */
 
-/* -------------------- 基本リセット -------------------- */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+/* ============================================================
+   共通
+============================================================ */
+html,
+body {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* -------------------- 全体 -------------------- */
 body {
   font-family: "Georgia", serif;
-  background: url("images/cafe.jpg") no-repeat center top;
-  background-size: cover;          /* 画面いっぱい */
-  background-attachment: fixed;
+  font-size: 50px;
   color: #333;
-  font-size: 16px;                 /* ← 絶対に巨大化させない */
+  text-align: center;
   position: relative;
-  overflow-x: hidden;
+
+  background: url("images/cafe.jpg") no-repeat center top;
+  background-size: 100% 100%;
+  background-attachment: fixed;
 }
 
 /* 光のグラデーション */
 .main-light {
-  position: fixed;
+  position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 20%, rgba(255,255,200,0.25), transparent 70%);
-  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(255, 255, 200, 0.25),
+    transparent 70%
+  );
   z-index: 1;
+  pointer-events: none;
 }
 
-/* -------------------- ヘッダー -------------------- */
+/* ============================================================
+   ヘッダー
+============================================================ */
 header {
   background: rgba(68, 44, 0, 0.8);
   color: #fff;
-  padding: 20px;
-  text-align: center;
-  z-index: 10;
-  position: relative;
+  padding: 1em;
+  text-shadow: 1px 1px 2px #000;
 }
 
 h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 48px;
+  font-family: "Great Vibes", cursive !important;
+  font-size: 2.5em !important;
   color: #f8f0d8;
-  text-shadow:
-    0 0 3px #fff,
-    2px 2px 5px rgba(0,0,0,0.5);
+  letter-spacing: 0.05em;
+  line-height: 1.2 !important;
+  animation: glow 2s ease-in-out infinite alternate !important;
 }
 
-/* -------------------- 舞台（背景＋ホットスポット） -------------------- */
-main {
-  position: relative;
-  width: 100%;
-  height: 100vh;        /* 画面1枚分を舞台にする */
-  z-index: 5;
+@keyframes glow {
+  0%,
+  100% {
+    text-shadow: 0 0 3px #fff, 0 0 5px rgba(255, 255, 255, 0.3),
+      2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 6px #fff, 0 0 12px rgba(255, 255, 255, 0.6),
+      2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
 }
 
-/* ホットスポット共通 */
-.hotspot {
-  position: absolute;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.hotspot:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255,230,180,0.6);
-  border-radius: 10px;
-}
-
-/* -------------------- ホットスポット配置 -------------------- */
-
-/* 本棚 */
-.hotspot.bookshelf {
-  top: 25%;
-  left: 2%;
-  width: 20%;
-  height: 40%;
-}
-
-/* 絵画（右奥） */
-.hotspot.painting {
-  top: 27%;
-  right: 10%;
-  width: 10%;
-  height: 20%;
-}
-
-/* カップ */
-.hotspot.cup {
-  top: 78%;
-  right: 6%;
-  width: 6%;
-  height: 10%;
-}
-
-/* イス */
-.hotspot.chair {
-  top: 80%;
-  left: 3%;
-  width: 18%;
-  height: 15%;
-}
-
-/* 木の絵 */
-.hotspot.baum {
-  top: 40%;
-  left: 25%;
-  width: 6%;
-  height: 10%;
-}
-
-/* マスター */
-.hotspot.master {
-  top: 48%;
-  right: 22%;
-  width: 12%;
-  height: 18%;
-}
-
-/* -------------------- ラベル（紙） -------------------- */
-.label-paper {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #fffdf5;
-  border: 1px solid rgba(200,180,120,0.6);
-  border-radius: 8px;
-  padding: 6px 18px;
-  font-size: 36px;     /* ← 縮まらない */
-  font-weight: bold;
-  color: #3a2a14;
-  white-space: nowrap;
-  box-shadow: 2px 3px 6px rgba(0,0,0,0.25);
-  pointer-events: none;
-  opacity: 0.95;
-  z-index: 10;
-}
-
-.label-paper.top {
-  top: -42px;
-}
-
-.label-paper.bottom {
-  bottom: -42px;
-}
-
-/* -------------------- マスター吹き出し -------------------- */
-#master-bubble {
-  position: absolute;
-  top: 30%;
-  left: 60%;
-  transform: translateX(-50%);
-  max-width: 800px;
-  padding: 16px 24px;
-  background: rgba(255,255,255,0.9);
-  color: #3a2a14;
-  font-size: 42px;
-  border-radius: 14px;
-  box-shadow: 2px 3px 8px rgba(0,0,0,0.3);
-  font-family: 'Dancing Script', cursive;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 20;
-}
-
-#master-bubble.show {
-  opacity: 1;
-}
-
-/* -------------------- 今日のおすすめ -------------------- */
-.today-section {
-  margin-top: 120px;
-  text-align: center;
-  position: relative;
-  z-index: 10;
-}
-
-.today-section h2 {
-  font-family: 'Schoolbell', cursive;
-  font-size: 36px;
-  color: #f7f5ef;
-  background: rgba(30,45,30,0.85);
-  display: inline-block;
-  padding: 10px 24px;
-  border-radius: 10px;
-  box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
-}
-
-/* -------------------- カード -------------------- */
-.game-cards {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin-top: 50px;
-}
-
-.game-card {
-  width: 600px;
-  height: 700px;
-  background:
-    linear-gradient(135deg, #fdf5e6, #f5e6c4),
-    url("images/parchment_texture.jpg") center/cover no-repeat;
-  border-radius: 14px;
-  box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-  padding: 14px;
-  font-size: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.game-card:hover {
-  transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 0 25px rgba(173,216,230,0.7);
-}
-
-.game-card img {
-  width: 100%;
-  max-height: 450px;
-  object-fit: contain;
-  border-radius: 14px;
-}
-
-/* -------------------- モーダル（日記など） -------------------- */
+/* ============================================================
+   Diary Modal
+============================================================ */
 .diary-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: none;
   justify-content: center;
   align-items: center;
@@ -242,15 +86,205 @@ main {
 
 .diary-modal.show {
   display: flex;
+  animation: fadeIn 0.4s ease forwards;
 }
 
 .diary-content {
+  width: 80vw;
+  max-width: 600px;
+  padding: 50px 75px;
   background: #fff8e6;
   border: 2px solid #c6a96e;
-  border-radius: 14px;
-  padding: 50px 70px;
-  max-width: 600px;
-  font-family: 'Dancing Script', cursive;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+  font-family: "Dancing Script", cursive;
+  color: #5a4632;
+  text-align: left;
+
+  transform: scale(0.8) rotateX(10deg);
+  opacity: 0;
+  animation: openBook 0.6s ease forwards;
+}
+
+.diary-content h3 {
+  text-align: center;
   font-size: 38px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  margin-bottom: 12px;
+}
+
+.diary-content p {
+  font-size: 40px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.diary-content button {
+  display: block;
+  margin: 0 auto;
+  background: #c8a97e;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.diary-content button:hover {
+  background: #b28c62;
+}
+
+@keyframes openBook {
+  0% {
+    transform: scale(0.8) rotateX(15deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   今日のおすすめ
+============================================================ */
+.today-section {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.today-section h2 {
+  font-family: "Schoolbell", cursive;
+  font-size: 1.8em;
+  font-weight: normal;
+  color: #f7f5ef;
+  background: rgba(30, 45, 30, 0.85);
+
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4),
+    0 3px 4px rgba(0, 0, 0, 0.3);
+
+  position: relative;
+  top: 45px;
+  transform: rotate(-1deg);
+}
+
+.game-cards {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.game-card {
+  width: 600px;
+  height: 700px;
+  padding: 10px;
+
+  background: linear-gradient(
+      135deg,
+      #fdf5e6,
+      #f5e6c4 25%,
+      #fdf5e6 50%,
+      #f5e6c4 75%,
+      #fdf5e6
+    ),
+    url("images/parchment_texture.jpg") center / cover no-repeat;
+  background-blend-mode: multiply;
+
+  border-radius: 12px;
+  box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.4);
+  font-size: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.game-card:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.game-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px 10px rgba(173, 216, 230, 0.7);
+}
+
+.game-card img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+  border-radius: 15px;
+}
+
+/* ============================================================
+   ホットスポット
+============================================================ */
+.hotspot {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 10;
+}
+
+.hotspot:hover {
+  box-shadow: 0 0 20px 10px rgba(255, 230, 180, 0.5);
+  transform: scale(1.05);
+  border-radius: 10px;
+}
+
+/* ラベル */
+.label-paper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fffdf5;
+  border: 1px solid rgba(200, 180, 120, 0.6);
+  border-radius: 8px;
+  padding: 4px 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #3a2a14;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.label-paper.top {
+  top: -28px;
+}
+
+.label-paper.bottom {
+  bottom: -30px;
+}
+
+/* ============================================================
+   スマホ対応
+============================================================ */
+@media (max-width: 768px) {
+  .game-card {
+    width: 300px;
+    font-size: 22px;
+  }
+
+  .today-section {
+    margin-top: 140px;
+  }
 }
