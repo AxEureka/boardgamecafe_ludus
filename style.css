@@ -1,8 +1,9 @@
 /* ============================================================
-   Café Ludus TOPページ style.css（PC確定版）
+   Café Ludus TOPページ style.css【PC確定版】
+   背景1枚 + ホットスポット方式
    ============================================================ */
 
-/* ---------- 基本 ---------- */
+/* -------------------- 基本リセット -------------------- */
 html, body {
   margin: 0;
   padding: 0;
@@ -10,132 +11,246 @@ html, body {
   height: 100%;
 }
 
+/* -------------------- 全体 -------------------- */
 body {
   font-family: "Georgia", serif;
-  background: #000;
+  background: url("images/cafe.jpg") no-repeat center top;
+  background-size: cover;          /* 画面いっぱい */
+  background-attachment: fixed;
   color: #333;
+  font-size: 16px;                 /* ← 絶対に巨大化させない */
+  position: relative;
   overflow-x: hidden;
 }
 
-/* ---------- viewport（背景専用） ---------- */
-#viewport {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-
-  background: url("./images/cafe.jpg") no-repeat center center;
-  background-size: cover;
+/* 光のグラデーション */
+.main-light {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(255,255,200,0.25), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
 }
 
-/* ---------- stage（絶対に縮小しない） ---------- */
-#stage {
-  position: relative;
-
-  width: 1536px;
-  height: 1024px;
-
-  margin: 0 auto;   /* 横中央 */
-}
-
-/* ---------- ヘッダー ---------- */
+/* -------------------- ヘッダー -------------------- */
 header {
-  position: relative;
-  z-index: 20;
-  background: rgba(68, 44, 0, 0.85);
+  background: rgba(68, 44, 0, 0.8);
   color: #fff;
-  padding: 16px;
+  padding: 20px;
   text-align: center;
+  z-index: 10;
+  position: relative;
 }
 
-.top-description {
-  font-size: 1rem;
-  margin-top: 6px;
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
   color: #f8f0d8;
+  text-shadow:
+    0 0 3px #fff,
+    2px 2px 5px rgba(0,0,0,0.5);
 }
 
-/* ---------- 今日のおすすめ ---------- */
-.today-section {
-  margin-top: 480px;
-  text-align: center;
-}
-
-.today-section h2 {
-  font-family: 'Schoolbell', cursive;
-  font-size: 1.8em;
-  color: #f7f5ef;
-  background: rgba(30,45,30,0.85);
-  display: inline-block;
-  padding: 6px 18px;
-  border-radius: 8px;
-}
-
-/* ---------- カード ---------- */
-.game-cards {
-  display: flex;
-  justify-content: center;
-  gap: 36px;
-  margin-top: 40px;
-}
-
-.game-card {
-  width: 520px;
-  background: #fff8e6;
-  border-radius: 14px;
-  padding: 14px;
-  font-size: 1.2rem;
-  box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-}
-
-.game-card img {
+/* -------------------- 舞台（背景＋ホットスポット） -------------------- */
+main {
+  position: relative;
   width: 100%;
-  display: block;
-  border-radius: 12px;
+  height: 100vh;        /* 画面1枚分を舞台にする */
+  z-index: 5;
 }
 
-/* ---------- ホットスポット（完全復元） ---------- */
+/* ホットスポット共通 */
 .hotspot {
   position: absolute;
   cursor: pointer;
-  z-index: 10;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.hotspot.bookshelf { left: 40px; top: 260px; width: 300px; height: 420px; }
-.hotspot.painting  { right: 160px; top: 280px; width: 180px; height: 220px; }
-.hotspot.cup       { right: 100px; bottom: 120px; width: 120px; height: 120px; }
-.hotspot.chair     { left: 80px; bottom: 100px; width: 280px; height: 160px; }
-.hotspot.baum      { left: 380px; top: 420px; width: 120px; height: 160px; }
-.hotspot.master    { right: 320px; top: 460px; width: 180px; height: 240px; }
+.hotspot:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255,230,180,0.6);
+  border-radius: 10px;
+}
 
-/* ---------- ラベル（元サイズ） ---------- */
+/* -------------------- ホットスポット配置 -------------------- */
+
+/* 本棚 */
+.hotspot.bookshelf {
+  top: 25%;
+  left: 2%;
+  width: 20%;
+  height: 40%;
+}
+
+/* 絵画（右奥） */
+.hotspot.painting {
+  top: 27%;
+  right: 10%;
+  width: 10%;
+  height: 20%;
+}
+
+/* カップ */
+.hotspot.cup {
+  top: 78%;
+  right: 6%;
+  width: 6%;
+  height: 10%;
+}
+
+/* イス */
+.hotspot.chair {
+  top: 80%;
+  left: 3%;
+  width: 18%;
+  height: 15%;
+}
+
+/* 木の絵 */
+.hotspot.baum {
+  top: 40%;
+  left: 25%;
+  width: 6%;
+  height: 10%;
+}
+
+/* マスター */
+.hotspot.master {
+  top: 48%;
+  right: 22%;
+  width: 12%;
+  height: 18%;
+}
+
+/* -------------------- ラベル（紙） -------------------- */
 .label-paper {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   background: #fffdf5;
+  border: 1px solid rgba(200,180,120,0.6);
   border-radius: 8px;
-  padding: 4px 12px;
-  font-size: 1rem;
+  padding: 6px 18px;
+  font-size: 36px;     /* ← 縮まらない */
+  font-weight: bold;
+  color: #3a2a14;
   white-space: nowrap;
+  box-shadow: 2px 3px 6px rgba(0,0,0,0.25);
   pointer-events: none;
+  opacity: 0.95;
+  z-index: 10;
 }
 
-.label-paper.top { top: -30px; }
-.label-paper.bottom { bottom: -30px; }
+.label-paper.top {
+  top: -42px;
+}
 
-/* ---------- 吹き出し ---------- */
+.label-paper.bottom {
+  bottom: -42px;
+}
+
+/* -------------------- マスター吹き出し -------------------- */
 #master-bubble {
   position: absolute;
-  left: 50%;
-  bottom: 620px;
+  top: 30%;
+  left: 60%;
   transform: translateX(-50%);
-  background: rgba(255,255,255,0.95);
-  padding: 10px 16px;
-  border-radius: 12px;
+  max-width: 800px;
+  padding: 16px 24px;
+  background: rgba(255,255,255,0.9);
+  color: #3a2a14;
+  font-size: 42px;
+  border-radius: 14px;
+  box-shadow: 2px 3px 8px rgba(0,0,0,0.3);
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
   opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 30;
+  transition: opacity 0.3s ease;
+  z-index: 20;
 }
 
 #master-bubble.show {
   opacity: 1;
+}
+
+/* -------------------- 今日のおすすめ -------------------- */
+.today-section {
+  margin-top: 120px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.today-section h2 {
+  font-family: 'Schoolbell', cursive;
+  font-size: 36px;
+  color: #f7f5ef;
+  background: rgba(30,45,30,0.85);
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
+}
+
+/* -------------------- カード -------------------- */
+.game-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.game-card {
+  width: 600px;
+  height: 700px;
+  background:
+    linear-gradient(135deg, #fdf5e6, #f5e6c4),
+    url("images/parchment_texture.jpg") center/cover no-repeat;
+  border-radius: 14px;
+  box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
+  padding: 14px;
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 0 25px rgba(173,216,230,0.7);
+}
+
+.game-card img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+/* -------------------- モーダル（日記など） -------------------- */
+.diary-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.diary-modal.show {
+  display: flex;
+}
+
+.diary-content {
+  background: #fff8e6;
+  border: 2px solid #c6a96e;
+  border-radius: 14px;
+  padding: 50px 70px;
+  max-width: 600px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 38px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
