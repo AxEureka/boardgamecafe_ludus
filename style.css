@@ -1,11 +1,6 @@
-/* ============================================================
-   Café Ludus TOPページ style.css（Refactored）
-   - 背景1枚
-   - 16:9 ステージ基準
-   - ホットスポット百分率配置
-   ============================================================ */
-
-/* -------------------- 基本リセット -------------------- */
+/* =========================
+   基本
+========================= */
 html, body {
   margin: 0;
   padding: 0;
@@ -15,22 +10,37 @@ html, body {
 
 body {
   font-family: "Georgia", serif;
-  color: #333;
+  background: #000;
   text-align: center;
+  overflow-x: hidden;
 }
 
-/* -------------------- 背景 -------------------- */
-body.top-page {
-  background: url("images/cafe.jpg") no-repeat center top;
-  background-size: cover;
-  background-attachment: fixed;
-  overflow: hidden;
+/* =========================
+   ヘッダー
+========================= */
+header {
+  background: rgba(68,44,0,0.85);
+  color: #fff;
+  padding: 1em;
+  text-shadow: 1px 1px 2px #000;
 }
 
-/* -------------------- ステージ -------------------- */
+h1, h2 {
+  font-family: 'Dancing Script', cursive;
+  color: #f8f0d8;
+}
+
+.top-description {
+  font-size: clamp(18px, 3vw, 36px);
+  margin: 10px 0;
+}
+
+/* =========================
+   ステージ
+========================= */
 #stage-wrapper {
   width: min(96vw, 960px);
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2; /* 1536×1024 */
   margin: 0 auto;
   position: relative;
 }
@@ -39,10 +49,11 @@ body.top-page {
   position: relative;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  background: url("images/cafe.jpg") no-repeat center center;
+  background-size: contain;
 }
 
-/* 光のグラデーション */
+/* 光 */
 .main-light {
   position: absolute;
   inset: 0;
@@ -51,133 +62,63 @@ body.top-page {
   z-index: 1;
 }
 
-/* -------------------- ヘッダー -------------------- */
-header {
-  position: relative;
-  z-index: 10;
-  background: rgba(68, 44, 0, 0.8);
-  color: #fff;
-  padding: 1em;
-  text-shadow: 1px 1px 2px #000;
-}
-
-h1 {
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(32px, 4vw, 48px);
-  color: #f8f0d8;
-  letter-spacing: 0.05em;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  0%,100% {
-    text-shadow: 0 0 4px #fff, 2px 2px 6px rgba(0,0,0,0.5);
-  }
-  50% {
-    text-shadow: 0 0 10px #fff, 2px 2px 6px rgba(0,0,0,0.5);
-  }
-}
-
-/* -------------------- 今日のおすすめ -------------------- */
+/* =========================
+   今日のおすすめ
+========================= */
 .today-section {
   position: relative;
-  z-index: 10;
-  margin-top: clamp(80px, 12vh, 160px);
+  z-index: 5;
+  margin-top: 8%;
 }
 
-.today-section h2 {
-  font-family: "Schoolbell", cursive;
-  font-size: 1.8em;
-  font-weight: normal;
-  color: #f7f5ef;
-  background: rgba(30,45,30,0.85);
-  display: inline-block;
-  padding: 6px 18px;
-  border-radius: 8px;
-  transform: rotate(-1deg);
-  box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
-}
-
-/* -------------------- ゲームカード -------------------- */
 .game-cards {
   display: flex;
   justify-content: center;
   gap: 32px;
   flex-wrap: wrap;
-  margin-top: 40px;
-  position: relative;
-  z-index: 10;
+  margin-top: 30px;
 }
 
-.game-card {
-  width: 420px;
-  aspect-ratio: 10 / 11;
-  background:
-    linear-gradient(135deg, #fdf5e6, #f5e6c4),
-    url("images/parchment_texture.jpg") center / cover no-repeat;
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-  font-size: 28px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.game-card:nth-child(odd) { transform: rotate(-2deg); }
-.game-card:nth-child(even){ transform: rotate(2deg); }
-
-.game-card:hover {
-  transform: translateY(-6px) rotate(0deg) scale(1.05);
-  box-shadow: 0 0 25px rgba(173,216,230,0.7);
-}
-
-.game-card img {
-  width: 100%;
-  max-height: 60%;
-  object-fit: contain;
-  border-radius: 12px;
-}
-
-/* -------------------- ホットスポット -------------------- */
+/* =========================
+   ホットスポット
+========================= */
 .hotspot {
   position: absolute;
-  cursor: pointer;
   z-index: 10;
-  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
-.hotspot:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255,230,180,0.6);
-  border-radius: 10px;
-}
+.hotspot.bookshelf { top: 22%; left: 2%; width: 22%; height: 45%; }
+.hotspot.painting  { top: 24%; right: 11%; width: 11%; height: 22%; }
+.hotspot.master    { top: 42%; right: 23%; width: 14%; height: 18%; }
+.hotspot.baum      { top: 46%; left: 26%; width: 6%; height: 11%; }
+.hotspot.cup       { top: 78%; right: 7%; width: 6%; height: 10%; }
+.hotspot.chair     { top: 80%; left: 3%; width: 20%; height: 15%; }
 
-/* 位置（背景基準・％） */
-.hotspot.bookshelf { top: 25%; left: 1%; width: 20%; height: 40%; }
-.hotspot.painting  { top: 27%; right: 10%; width: 10%; height: 20%; }
-.hotspot.cup       { top: 78%; right: 6%; width: 6%; height: 10%; }
-.hotspot.chair     { top: 80%; left: 3%; width: 18%; height: 15%; }
-.hotspot.baum      { top: 40%; left: 25%; width: 6%; height: 10%; }
-.hotspot.master    { bottom: 50%; right: 20%; width: 12%; height: 15%; }
-
-/* ラベル */
+/* =========================
+   ラベル
+========================= */
 .label-paper {
   position: absolute;
   left: 50%;
+  top: -10%;
   transform: translateX(-50%);
   background: #fffdf5;
   border-radius: 8px;
   padding: 4px 14px;
   font-size: clamp(16px, 2vw, 28px);
   font-weight: bold;
-  pointer-events: none;
   box-shadow: 2px 3px 6px rgba(0,0,0,0.25);
+  pointer-events: none;
 }
 
-/* -------------------- 吹き出し -------------------- */
+/* =========================
+   マスター吹き出し
+========================= */
 #master-bubble {
   position: absolute;
   left: 60%;
-  bottom: 75%;
+  top: 30%;
   transform: translateX(-50%);
   max-width: 40%;
   padding: 10px 14px;
@@ -186,7 +127,6 @@ h1 {
   font-family: "Dancing Script", cursive;
   font-size: clamp(18px, 2.2vw, 32px);
   opacity: 0;
-  pointer-events: none;
   transition: opacity 0.3s;
   z-index: 20;
 }
@@ -195,7 +135,9 @@ h1 {
   opacity: 1;
 }
 
-/* -------------------- モーダル -------------------- */
+/* =========================
+   モーダル
+========================= */
 .diary-modal {
   position: fixed;
   inset: 0;
@@ -206,7 +148,8 @@ h1 {
   z-index: 9999;
 }
 
-.diary-modal.show {
+.diary-modal.show,
+.diary-modal[style*="flex"] {
   display: flex;
 }
 
@@ -217,27 +160,42 @@ h1 {
   border-radius: 12px;
   padding: 40px;
   overflow-y: auto;
-  animation: openBook 0.6s ease forwards;
 }
 
-@keyframes openBook {
-  from { transform: scale(0.9); opacity: 0; }
-  to   { transform: scale(1);   opacity: 1; }
-}
-
-/* -------------------- スマホ補正 -------------------- */
+/* =========================
+   スマホ
+========================= */
 @media (max-width: 768px) {
-  .game-card {
-    width: 90%;
-    font-size: 20px;
-  }
-
-  .today-section {
-    margin-top: 100px;
+  #stage-wrapper {
+    width: 100vw;
   }
 
   #master-bubble {
     left: 50%;
     max-width: 80%;
   }
+}
+
+/* ===== マスター慌て吹き出し（stage基準） ===== */
+.master-message {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  background: #fff8e6;
+  border: 2px solid #d0b37f;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(20px, 3vw, 40px);
+  color: #4b2e15;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 50;
+}
+
+.master-message.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }

@@ -8,48 +8,6 @@
 
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-
-  <style>
-    h1, h2 {
-      font-family: 'Dancing Script', cursive;
-      color: #f8f0d8;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-    }
-    h1 { font-size: 2.5em; }
-    h2 { font-size: 1.8em; }
-
-    /* ヘッダー下の小さな説明文 */
-    .top-description {
-      font-size: 45px;
-      color: #f8f0d8;
-      text-align: center;
-      margin: 5px 0 20px 0;
-      line-height: 1.4;
-    }
-
-    /* ===== マスターの慌て吹き出し ===== */
-    .master-message {
-      position: fixed;
-      bottom: 1300px;
-      left: 52%;
-      background: #fff8e6;
-      border: 2px solid #d0b37f;
-      border-radius: 10px;
-      padding: 10px 16px;
-      font-family: 'Dancing Script', cursive;
-      font-size: 50px;
-      color: #4b2e15;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.5s ease;
-      z-index: 10000;
-    }
-    .master-message.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
 </head>
 
 <body class="top-page">
@@ -62,9 +20,11 @@
     </p>
   </header>
 
-  <!-- ===== 画面全体 ===== -->
-  <div id="viewport">
+  <!-- ===== ステージ ===== -->
+  <div id="stage-wrapper">
     <div id="stage">
+
+      <div class="main-light"></div>
 
       <!-- ===== メイン ===== -->
       <main>
@@ -76,22 +36,26 @@
 
       <!-- ===== ホットスポット ===== -->
       <div id="hs-bookshelf" class="clickable hotspot bookshelf">
-        <div class="label-paper top">検索する</div>
+        <div class="label-paper">検索する</div>
       </div>
+
       <div id="hs-painting" class="clickable hotspot painting">
-        <div class="label-paper bottom">診断する</div>
+        <div class="label-paper">診断する</div>
       </div>
+
       <div id="hs-cup" class="clickable hotspot cup">
-        <div class="label-paper bottom">注文する</div>
+        <div class="label-paper">注文する</div>
       </div>
+
       <div id="hs-chair" class="clickable hotspot chair">
-        <div class="label-paper bottom">このお店って？</div>
+        <div class="label-paper">このお店って？</div>
       </div>
+
       <div id="hs-baum" class="clickable hotspot baum"></div>
       <div id="hs-master" class="clickable hotspot master"></div>
 
       <!-- ===== マスター吹き出し ===== -->
-      <div id="master-bubble" class="speech-bubble" aria-hidden="true"></div>
+      <div id="master-bubble" aria-hidden="true"></div>
 
       <ul id="master-lines" style="display:none;">
         <li>いらっしゃいませ。<br>ゆっくりしていってくださいね。</li>
