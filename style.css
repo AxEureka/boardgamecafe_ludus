@@ -12,6 +12,7 @@ body {
   background: #000;
   color: #333;
   text-align: center;
+  overflow-x: hidden;
 }
 
 /* ===============================
@@ -19,21 +20,21 @@ body {
 ================================ */
 #stage {
   position: relative;
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
+  z-index: 1;
 }
 
 /* ===============================
-   背景レイヤー（最重要）
+   背景レイヤー（固定・基準1536×1024）
 ================================ */
 #bg-wrap {
-  position: relative;
+  position: fixed;
+  inset: 0;
   height: 100svh;
   aspect-ratio: 1536 / 1024;
-  margin: 0 auto;
+  margin: auto;
+  z-index: 0;
+  pointer-events: none;
 }
-
 
 #bg-image {
   position: absolute;
@@ -43,18 +44,7 @@ body {
   object-fit: contain;
 }
 
-
-/* 光 */
-.main-light {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 50% 20%,
-    rgba(255,255,200,0.25),
-    transparent 70%
-  );
-}
-
+/* 減光 */
 #bg-wrap::after {
   content: "";
   position: absolute;
@@ -68,6 +58,7 @@ body {
   z-index: 1;
 }
 
+/* 光 */
 .main-light {
   position: absolute;
   inset: 0;
@@ -85,43 +76,50 @@ body {
 ================================ */
 .hotspot {
   position: absolute;
-  pointer-events: auto;
+  z-index: 30;
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .label-paper {
   position: absolute;
   top: -1.8em;
-  font-size: clamp(18px, 2vw, 28px);
   left: 0;
+  font-size: clamp(18px, 2vw, 28px);
   background: #fffdf5;
   padding: 6px 18px;
   border-radius: 10px;
+  white-space: nowrap;
 }
 
+/* 座標（1536×1024基準 → %変換済） */
+.bookshelf { left: 1.3%; top: 25.4%; width: 19.5%; height: 41%; }
+.painting  { right: 11.7%; top: 27.3%; width: 13%; height: 21.5%; }
+.cup       { right: 7.8%; bottom: 9.8%; width: 7.8%; height: 15.6%; }
+.chair     { left: 5.2%; bottom: 7.8%; width: 20.8%; height: 19.5%; }
+.baum      { left: 24.7%; top: 41%; width: 7.8%; height: 15.6%; }
+.master    { right: 19.5%; top: 41%; width: 13%; height: 25.4%; }
 
-/* 座標（1536×1024基準） */
-.bookshelf {left: 1.3%; top: 25.4%; width: 19.5%; height: 41%; }
-.painting { right: 11.7%; top: 27.3%; width: 13%; height: 21.5%; }
-.cup { right: 7.8%; bottom: 9.8%; width: 7.8%; height: 15.6%; }
-.chair { left: 5.2%; bottom: 7.8%; width: 20.8%; height: 19.5%; }
-.baum { left: 24.7%; top: 41%; width: 7.8%; height: 15.6%; }
-.master { right: 19.5%; top: 41%; width: 13%; height: 25.4%; }
-
-/* 吹き出し */
+/* ===============================
+   マスター吹き出し
+================================ */
 #master-bubble {
-  position: absolute;
-  left: 900px;
-  top: 280px;
+  position: fixed;
+  left: 60%;
+  top: 25%;
+  transform: translateX(-50%);
   font-size: 42px;
   background: rgba(255,255,255,0.9);
   padding: 14px 24px;
   border-radius: 14px;
   opacity: 0;
   transition: opacity 0.3s;
+  z-index: 40;
 }
 
-#master-bubble.show { opacity: 1; }
+#master-bubble.show {
+  opacity: 1;
+}
 
 /* ===============================
    UIレイヤー
@@ -130,7 +128,7 @@ header,
 .today-section,
 .game-cards {
   position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 
 header {
@@ -193,9 +191,7 @@ h1 {
 
   overflow: hidden;
   transform-origin: center center;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .game-card:nth-child(odd)  { transform: rotate(-2deg); }
@@ -204,17 +200,38 @@ h1 {
 .game-card:hover {
   transform: translateY(-6px) rotate(0) scale(1.05);
 }
+
+/* 内部リンク */
+.game-card a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.game-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
 /* ===============================
    モーダル
 ================================ */
-.diary-modal {
+.diary-modal,
+#chair-modal {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.5);
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 100;
 }
 
 .diary-content {
@@ -241,67 +258,3 @@ h1 {
     transform: none !important;
   }
 }
-
-/* === カード安定化パッチ === */
-.game-card {
-  overflow: hidden;
-  transform-origin: center center;
-}
-
-.game-card a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-}
-
-.game-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: contain;
-  display: block;
-  flex-shrink: 0;
-}
-
-/* ===== 背景 ===== */
-.cafe-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;          /* 背景は最下層 */
-}
-
-/* ===== メインUI ===== */
-.main-ui {
-  position: relative;
-  z-index: 10;
-}
-
-/* ===== カードエリア ===== */
-#today-games {
-  position: relative;
-  z-index: 20;
-}
-
-/* ===== ホットスポット ===== */
-.hotspot {
-  position: absolute;
-  z-index: 30;
-}
-
-/* ===== 吹き出し・メッセージ ===== */
-#master-bubble,
-.master-message {
-  position: fixed;
-  z-index: 40;
-}
-
-/* ===== モーダル ===== */
-.diary-modal,
-#chair-modal {
-  position: fixed;
-  z-index: 100;
-}
-
