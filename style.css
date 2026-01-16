@@ -229,9 +229,3 @@ h1 {
     max-width: 80%;
   }
 }
-
-@media (min-aspect-ratio: 16 / 9) {
-  #stage {
-    background-size: 110% auto;
-  }
-}
