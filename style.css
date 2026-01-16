@@ -30,7 +30,7 @@ body {
 #bg-layer {
   position: absolute;
   inset: 0;
-  background: url("images/cafe.jpg") center top / contain no-repeat;
+  background: url("images/cafe.jpg") center top / cover no-repeat;
   pointer-events: none;
 }
 
