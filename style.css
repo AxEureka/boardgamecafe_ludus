@@ -11,34 +11,34 @@ body {
   font-family: "Georgia", serif;
   color: #333;
   text-align: center;
-
-  /* 背景を常に画面いっぱいに */
-  background: url("images/cafe.jpg") center top / cover no-repeat fixed;
-}
-
-/* 周辺減光（雰囲気用） */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 60%,
-    rgba(0,0,0,0.25) 100%
-  );
-  pointer-events: none;
-  z-index: 0;   /* ← これを追加 */
+  background: #000; /* 背景は stage に任せる */
 }
 
 /* ===============================
-   ステージ（拡大・縮小しない）
+   ステージ（背景の本体）
 ================================ */
 #stage {
   position: relative;
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  z-index: 1;   /* ← これを追加 */
+
+  /* 背景は必ず全体表示 */
+  background: url("images/cafe.jpg") center top / contain no-repeat;
+}
+
+/* 周辺減光 */
+#stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(0,0,0,0.35) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* 光演出 */
@@ -51,12 +51,15 @@ body::after {
     transparent 70%
   );
   pointer-events: none;
+  z-index: 1;
 }
 
 /* ===============================
    ヘッダー
 ================================ */
 header {
+  position: relative;
+  z-index: 2;
   padding: 30px;
   background: rgba(68,44,0,0.75);
   color: #fff;
@@ -72,7 +75,9 @@ h1 {
    今日のおすすめ
 ================================ */
 .today-section {
-  margin-top: 160px; /* ← 下げたい時はここだけ触る */
+  position: relative;
+  z-index: 2;
+  margin-top: 160px;
 }
 
 .today-section h2 {
@@ -94,14 +99,16 @@ h1 {
   align-items: flex-start;
   gap: 48px;
   margin-top: 80px;
-  flex-wrap: wrap; /* 狭い画面では折り返す */
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 }
 
 /* ===============================
    カード
 ================================ */
 .game-card {
-  width: 460px;             /* ← 横を少し広く */
+  width: 460px;
   aspect-ratio: 10 / 11;
   padding: 18px;
 
@@ -148,7 +155,6 @@ h1 {
   margin-bottom: 12px;
 }
 
-/* タイトル非表示（必要ならON） */
 .game-card .game-title {
   display: none;
 }
@@ -159,15 +165,13 @@ h1 {
 .hotspot {
   position: absolute;
   cursor: pointer;
-  z-index: 10;
+  z-index: 3;
 }
 
 .label-paper {
-  position: relative;
-  z-index: 11;
+  position: absolute;
+  z-index: 4;
 }
-
-
 
 .bookshelf { left: 20px;  top: 260px; width: 300px; height: 420px; }
 .painting  { right: 180px; top: 280px; width: 200px; height: 220px; }
@@ -189,6 +193,7 @@ h1 {
   border-radius: 14px;
   opacity: 0;
   transition: opacity 0.3s;
+  z-index: 5;
 }
 
 #master-bubble.show {
@@ -205,6 +210,7 @@ h1 {
   display: none;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 
 .diary-content {
@@ -214,4 +220,25 @@ h1 {
   border-radius: 18px;
   padding: 50px;
   font-size: 40px;
+}
+
+/* ===============================
+   スマホ対応
+================================ */
+@media (max-width: 768px) {
+  .game-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-card {
+    width: 90vw;
+    transform: none !important;
+  }
+
+  .hotspot,
+  .label-paper,
+  #master-bubble {
+    display: none;
+  }
 }
