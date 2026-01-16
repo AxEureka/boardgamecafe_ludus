@@ -12,67 +12,67 @@
 
 <body class="top-page">
 
-  <!-- ===== 背景スケーラー ===== -->
-  <div id="viewport">
-    <div id="stage">
+<div id="stage">
 
-      <div class="main-light"></div>
+  <!-- ===== 背景＆ホットスポット専用レイヤー ===== -->
+  <div id="bg-layer">
 
-      <!-- ===== ヘッダー ===== -->
-      <header>
-        <h1>ボドゲ喫茶 Ludus へようこそ</h1>
-        <p class="top-description">
-          「ボードゲーム診断」や「ボードゲーム検索」から、あなたが好きそうなボードゲームを提案します。
-        </p>
-      </header>
+    <div id="hs-bookshelf" class="clickable hotspot bookshelf">
+      <div class="label-paper">検索する</div>
+    </div>
 
-      <!-- ===== メイン ===== -->
-      <main>
-        <section class="today-section">
-          <h2>本日のおすすめ</h2>
-          <div id="today-games" class="game-cards"></div>
-        </section>
-      </main>
+    <div id="hs-painting" class="clickable hotspot painting">
+      <div class="label-paper">診断する</div>
+    </div>
 
-      <!-- ===== ホットスポット ===== -->
-      <div id="hs-bookshelf" class="clickable hotspot bookshelf">
-        <div class="label-paper">検索する</div>
-      </div>
+    <div id="hs-cup" class="clickable hotspot cup">
+      <div class="label-paper">注文する</div>
+    </div>
 
-      <div id="hs-painting" class="clickable hotspot painting">
-        <div class="label-paper">診断する</div>
-      </div>
+    <div id="hs-chair" class="clickable hotspot chair">
+      <div class="label-paper">このお店って？</div>
+    </div>
 
-      <div id="hs-cup" class="clickable hotspot cup">
-        <div class="label-paper">注文する</div>
-      </div>
+    <div id="hs-baum" class="clickable hotspot baum"></div>
+    <div id="hs-master" class="clickable hotspot master"></div>
 
-      <div id="hs-chair" class="clickable hotspot chair">
-        <div class="label-paper">このお店って？</div>
-      </div>
+    <div id="master-bubble"></div>
+    <div class="main-light"></div>
+  </div>
 
-      <div id="hs-baum" class="clickable hotspot baum"></div>
-      <div id="hs-master" class="clickable hotspot master"></div>
+  <!-- ===== UIレイヤー ===== -->
+  <header>
+    <h1>ボドゲ喫茶 Ludus へようこそ</h1>
+    <p class="top-description">
+      「ボードゲーム診断」や「ボードゲーム検索」から、あなたが好きそうなボードゲームを提案します。
+    </p>
+  </header>
 
-      <!-- 吹き出し -->
-      <div id="master-bubble"></div>
+  <main>
+    <section class="today-section">
+      <h2>本日のおすすめ</h2>
+      <div id="today-games" class="game-cards"></div>
+    </section>
+  </main>
 
-      <!-- モーダル類（JSそのまま） -->
-      <div id="diary-modal" class="diary-modal">
-        <div class="diary-content">
-          <h3>マスターの日記</h3>
-          <p id="diary-text"></p>
-          <button id="close-diary">閉じる</button>
-        </div>
-      </div>
+</div>
 
-      <div id="chair-modal" class="diary-modal">
-        <div class="diary-content">
-          <h3>このお店について</h3>
-          <p id="chair-text"></p>
-          <button id="close-chair">閉じる</button>
-        </div>
-      </div>
+<!-- ===== モーダル（JSそのまま） ===== -->
+<div id="diary-modal" class="diary-modal">
+  <div class="diary-content">
+    <h3>マスターの日記</h3>
+    <p id="diary-text"></p>
+    <button id="close-diary">閉じる</button>
+  </div>
+</div>
+
+<div id="chair-modal" class="diary-modal">
+  <div class="diary-content">
+    <h3>このお店について</h3>
+    <p id="chair-text"></p>
+    <button id="close-chair">閉じる</button>
+  </div>
+</div>
 
   <!-- ===== スクリプト ===== -->
   <script>

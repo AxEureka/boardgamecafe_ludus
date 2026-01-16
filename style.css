@@ -1,34 +1,41 @@
 /* ===============================
-   基本リセット
+   基本
 ================================ */
 html, body {
+  margin: 0;
   width: 100%;
   height: 100%;
-  margin: 0;
 }
 
 body {
   font-family: "Georgia", serif;
+  background: #000;
   color: #333;
   text-align: center;
-  background: #000; /* 背景は stage に任せる */
 }
 
 /* ===============================
-   ステージ（背景の本体）
+   ステージ
 ================================ */
 #stage {
   position: relative;
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-
-  /* 背景は必ず全体表示 */
-  background: url("images/cafe.jpg") center top / contain no-repeat;
 }
 
-/* 周辺減光 */
-#stage::after {
+/* ===============================
+   背景レイヤー（最重要）
+================================ */
+#bg-layer {
+  position: absolute;
+  inset: 0;
+  background: url("images/cafe.jpg") center top / contain no-repeat;
+  pointer-events: none;
+}
+
+/* 減光 */
+#bg-layer::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -37,11 +44,9 @@ body {
     transparent 60%,
     rgba(0,0,0,0.35) 100%
   );
-  pointer-events: none;
-  z-index: 0;
 }
 
-/* 光演出 */
+/* 光 */
 .main-light {
   position: absolute;
   inset: 0;
@@ -50,16 +55,61 @@ body {
     rgba(255,255,200,0.25),
     transparent 70%
   );
-  pointer-events: none;
-  z-index: 1;
 }
 
 /* ===============================
-   ヘッダー
+   ホットスポット
 ================================ */
-header {
+.hotspot {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.label-paper {
+  position: absolute;
+  top: -36px;
+  left: 0;
+  background: #fffdf5;
+  padding: 6px 18px;
+  border-radius: 10px;
+  font-size: 32px;
+}
+
+/* 座標（1536×1024基準） */
+.bookshelf { left: 20px; top: 260px; width: 300px; height: 420px; }
+.painting  { right: 180px; top: 280px; width: 200px; height: 220px; }
+.cup       { right: 120px; bottom: 100px; width: 120px; height: 160px; }
+.chair     { left: 80px; bottom: 80px; width: 320px; height: 200px; }
+.baum      { left: 380px; top: 420px; width: 120px; height: 160px; }
+.master    { right: 300px; top: 420px; width: 200px; height: 260px; }
+
+/* 吹き出し */
+#master-bubble {
+  position: absolute;
+  left: 900px;
+  top: 280px;
+  font-size: 42px;
+  background: rgba(255,255,255,0.9);
+  padding: 14px 24px;
+  border-radius: 14px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#master-bubble.show { opacity: 1; }
+
+/* ===============================
+   UIレイヤー
+================================ */
+header,
+.today-section,
+.game-cards {
   position: relative;
   z-index: 2;
+}
+
+header {
   padding: 30px;
   background: rgba(68,44,0,0.75);
   color: #fff;
@@ -71,12 +121,7 @@ h1 {
   margin: 0;
 }
 
-/* ===============================
-   今日のおすすめ
-================================ */
 .today-section {
-  position: relative;
-  z-index: 2;
   margin-top: 160px;
 }
 
@@ -86,118 +131,39 @@ h1 {
   background: rgba(30,45,30,0.85);
   color: #f7f5ef;
   padding: 12px 36px;
-  display: inline-block;
   border-radius: 12px;
-}
-
-/* ===============================
-   カードエリア
-================================ */
-.game-cards {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 48px;
-  margin-top: 80px;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 2;
 }
 
 /* ===============================
    カード
 ================================ */
+.game-cards {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 80px;
+  flex-wrap: wrap;
+}
+
 .game-card {
   width: 460px;
   aspect-ratio: 10 / 11;
   padding: 18px;
-
   background:
-    linear-gradient(
-      135deg,
-      #fdf5e6,
-      #f5e6c4 25%,
-      #fdf5e6 50%,
-      #f5e6c4 75%,
-      #fdf5e6
-    ),
+    linear-gradient(135deg,#fdf5e6,#f5e6c4 25%,#fdf5e6 50%,#f5e6c4 75%,#fdf5e6),
     url("images/parchment_texture.jpg") center / cover no-repeat;
   background-blend-mode: multiply;
-
   border-radius: 14px;
-  border: 1px solid rgba(200,180,140,0.5);
   box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-
   font-size: 34px;
-  cursor: pointer;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: 0.3s;
 }
 
 .game-card:nth-child(odd)  { transform: rotate(-2deg); }
 .game-card:nth-child(even) { transform: rotate(2deg); }
 
 .game-card:hover {
-  transform: translateY(-6px) rotate(0deg) scale(1.05);
-  box-shadow: 0 0 25px 10px rgba(173,216,230,0.6);
-}
-
-/* カード画像 */
-.game-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: contain;
-  border-radius: 14px;
-  margin-bottom: 12px;
-}
-
-.game-card .game-title {
-  display: none;
-}
-
-/* ===============================
-   ホットスポット
-================================ */
-.hotspot {
-  position: absolute;
-  cursor: pointer;
-  z-index: 3;
-}
-
-.label-paper {
-  position: absolute;
-  z-index: 4;
-}
-
-.bookshelf { left: 20px;  top: 260px; width: 300px; height: 420px; }
-.painting  { right: 180px; top: 280px; width: 200px; height: 220px; }
-.cup       { right: 120px; bottom: 100px; width: 120px; height: 160px; }
-.chair     { left: 80px; bottom: 80px; width: 320px; height: 200px; }
-.baum      { left: 380px; top: 420px; width: 120px; height: 160px; }
-.master    { right: 300px; top: 420px; width: 200px; height: 260px; }
-
-/* ===============================
-   吹き出し
-================================ */
-#master-bubble {
-  position: absolute;
-  left: 900px;
-  top: 280px;
-  font-size: 42px;
-  background: rgba(255,255,255,0.9);
-  padding: 14px 24px;
-  border-radius: 14px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 5;
-}
-
-#master-bubble.show {
-  opacity: 1;
+  transform: translateY(-6px) rotate(0) scale(1.05);
 }
 
 /* ===============================
@@ -223,22 +189,17 @@ h1 {
 }
 
 /* ===============================
-   スマホ対応
+   スマホ
 ================================ */
 @media (max-width: 768px) {
-  .game-cards {
-    flex-direction: column;
-    align-items: center;
+  .hotspot,
+  .label-paper,
+  #master-bubble {
+    display: none;
   }
 
   .game-card {
     width: 90vw;
     transform: none !important;
-  }
-
-  .hotspot,
-  .label-paper,
-  #master-bubble {
-    display: none;
   }
 }
