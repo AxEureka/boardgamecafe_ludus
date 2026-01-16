@@ -28,7 +28,7 @@ body {
   background: url('images/cafe.jpg') no-repeat center top;
   background-size: cover;
   color: #333;
-  font-size: 25px;  /* 基本の文字サイズ */
+  font-size: 40px;  /* 基本の文字サイズ */
   margin: 0;
   padding: 0;
   text-align: center;
@@ -83,7 +83,7 @@ h1 {
 /* -------------------- 今日のおすすめカード -------------------- */
 /* 今日のおすすめセクションの位置調整 */
 .today-section {
-  margin-top: 320px; /* 数値を調整（例：100〜200pxくらい） */
+  margin-top: 1500px; /* 数値を調整（例：100〜200pxくらい） */
 }
 
 
@@ -115,7 +115,7 @@ h1 {
   aspect-ratio: 10 / 11; /* 200:220の比率 ≒ 10:11 */
   cursor: pointer;
   text-align: center;
-   font-size: 30px;  /* 基本の文字サイズ */
+   font-size: 35px;  /* 基本の文字サイズ */
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
