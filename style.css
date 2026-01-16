@@ -83,7 +83,7 @@ h1 {
 /* -------------------- 今日のおすすめカード -------------------- */
 /* 今日のおすすめセクションの位置調整 */
 .today-section {
-  margin-top: 3000px; /* 数値を調整（例：100〜200pxくらい） */
+  margin-top: 4500px; /* 数値を調整（例：100〜200pxくらい） */
 }
 
 
@@ -96,7 +96,7 @@ h1 {
 .game-cards {
   display: flex !important;
   justify-content: center !important;
-  gap: 25px !important;
+  gap: 30px !important;
   flex-wrap: wrap !important;
   margin-top: 40px !important;
 }
@@ -375,13 +375,16 @@ body {
   background: #fff8e6;
   border: 2px solid #c6a96e;
   border-radius: 12px;
-  padding: 40px 60px;
-  width: 80vw;
-  max-width: 1000px;
+  padding: 50px 60px;
+  width: 70vw;              /* 横を少し抑える */
+  max-width: 900px;
+  height: 75vh;             /* ← 縦長化の核 */
+  max-height: 80vh;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   text-align: left;
   font-family: 'Dancing Script', cursive;
   color: #5a4632;
+  overflow-y: auto;         /* 内容が多い時はスクロール */
   transform: scale(0.8) rotateX(10deg);
   opacity: 0;
   animation: openBook 0.6s ease forwards;
@@ -400,21 +403,44 @@ body {
 }
 
 .diary-content button {
-  display: block;
-  margin: 0 auto;
-  background: #c8a97e;
-  color: #fff;
+  position: absolute;
+  top: 14px;
+  right: 16px;
+
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+
+  background: transparent;
   border: none;
-  padding: 8px 20px;
-  border-radius: 20px;
+
   cursor: pointer;
-  font-family: inherit;
-  transition: background 0.3s ease;
+
+  color: transparent; /* 元の文字は消す */
+}
+
+.diary-content button::before {
+  content: "×";
+  color: #5a4632;
+  font-size: 28px;
+  font-weight: bold;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .diary-content button:hover {
-  background: #b28c62;
+  background: rgba(198,169,110,0.25);
+  transform: scale(1.1);
 }
+
+
+.diary-content {
+  position: relative;
+}
+
 
 @keyframes openBook {
   0% { transform: scale(0.8) rotateX(15deg); opacity: 0; }
