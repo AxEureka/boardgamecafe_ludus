@@ -107,7 +107,6 @@ async function showTodayGames() {
     card.innerHTML = `
       <a href="detail.html?title=${encodeURIComponent(game.title)}">
         <img src="${img}" alt="${game.title}">
-        <p class="game-title">${game.title}</p>
         <p class="game-desc">${game.desc}</p>
       </a>
     `;
@@ -247,10 +246,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }, duration);
   };
 
-  document.addEventListener('click', () => {
-    bubble.classList.remove('show');
-    bubble.setAttribute('aria-hidden', 'true');
-    clearTimeout(hideTimer);
+  document.addEventListener('DOMContentLoaded', () => {
+  const diaryModal = document.getElementById('diary-modal');
+  const closeDiary = document.getElementById('close-diary');
+  const chairModal = document.getElementById('chair-modal');
+  const closeChair = document.getElementById('close-chair');
+
+  // 日記モーダルの閉じる
+  closeDiary.addEventListener('click', () => {
+    diaryModal.style.display = 'none';
+  });
+
+  // このお店モーダルの閉じる
+  closeChair.addEventListener('click', () => {
+    chairModal.style.display = 'none';
+  });
+
+  // モーダル背景クリックでも閉じたい場合（任意）
+  diaryModal.addEventListener('click', e => {
+    if (e.target === diaryModal) diaryModal.style.display = 'none';
+  });
+  chairModal.addEventListener('click', e => {
+    if (e.target === chairModal) chairModal.style.display = 'none';
   });
 });
 
