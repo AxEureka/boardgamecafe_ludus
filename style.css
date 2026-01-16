@@ -265,3 +265,43 @@ h1 {
   display: block;
   flex-shrink: 0;
 }
+
+/* ===== 背景 ===== */
+.cafe-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;          /* 背景は最下層 */
+}
+
+/* ===== メインUI ===== */
+.main-ui {
+  position: relative;
+  z-index: 10;
+}
+
+/* ===== カードエリア ===== */
+#today-games {
+  position: relative;
+  z-index: 20;
+}
+
+/* ===== ホットスポット ===== */
+.hotspot {
+  position: absolute;
+  z-index: 30;
+}
+
+/* ===== 吹き出し・メッセージ ===== */
+#master-bubble,
+.master-message {
+  position: fixed;
+  z-index: 40;
+}
+
+/* ===== モーダル ===== */
+.diary-modal,
+#chair-modal {
+  position: fixed;
+  z-index: 100;
+}
+
