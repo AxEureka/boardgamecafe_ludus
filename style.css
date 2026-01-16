@@ -58,7 +58,7 @@ h1 {
   width: 100%;
   height: 100%;
   background: url("images/cafe.jpg") no-repeat center bottom;
-  background-size: min(100vw, 1536px) auto;
+  background-size: cover;
   overflow: hidden;
 }
 
@@ -164,14 +164,15 @@ h1 {
 }
 
 .game-card {
-  width: clamp(180px, 18vw, 240px);
-  aspect-ratio: 3 / 4;
+  width: clamp(160px, 14vw, 210px);
+  aspect-ratio: 4 / 5;
   background: #fff8e6;
   border-radius: 12px;
   box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
   padding: 12px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 
 .game-card:nth-child(odd)  { transform: rotate(-2deg); }
 .game-card:nth-child(even) { transform: rotate(2deg); }
@@ -226,5 +227,11 @@ h1 {
   #master-bubble {
     left: 50%;
     max-width: 80%;
+  }
+}
+
+@media (min-aspect-ratio: 16 / 9) {
+  #stage {
+    background-size: 110% auto;
   }
 }
