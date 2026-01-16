@@ -1,70 +1,53 @@
 /* ===============================
-   基準舞台：1536 × 1024
+   基本リセット
 ================================ */
-
 html, body {
-  margin: 0;
-  padding: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  margin: 0;
 }
 
-/* ===== 画面にフィットさせるスケーラー ===== */
-#viewport {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body {
+  font-family: "Georgia", serif;
+  color: #333;
+  text-align: center;
+
+  /* 背景を常に画面いっぱいに */
+  background: url("images/cafe.jpg") center top / cover no-repeat fixed;
 }
 
-/* ===== 基準ステージ ===== */
-#stage {
-  position: relative;
-  width: 1536px;
-  height: 1024px;
-  background: url("images/cafe.jpg") center top / cover no-repeat;
-  transform-origin: center center;
-}
-
-/* 背景だけスケール */
-#stage::before {
+/* 周辺減光（雰囲気用） */
+body::after {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
-  background: inherit;
-  transform-origin: center;
-  z-index: -1;
-}
-
-/* ===== 自動スケール ===== */
-@media (max-aspect-ratio: 1536/1024) {
-  #stage {
-    transform: scale(calc(100vw / 1536));
-  }
-}
-@media (min-aspect-ratio: 1536/1024) {
-  #stage {
-    transform: scale(calc(100vh / 1024));
-  }
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(0,0,0,0.25) 100%
+  );
+  pointer-events: none;
 }
 
 /* ===============================
-   共通
+   ステージ（拡大・縮小しない）
 ================================ */
-body {
-  font-family: "Georgia", serif;
-  font-size: 40px;
-  color: #333;
-  text-align: center;
+#stage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-/* 光 */
+/* 光演出 */
 .main-light {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 20%, rgba(255,255,200,0.25), transparent 70%);
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(255,255,200,0.25),
+    transparent 70%
+  );
   pointer-events: none;
 }
 
@@ -79,7 +62,7 @@ header {
 
 h1 {
   font-family: "Great Vibes", cursive;
-  font-size: 120px;
+  font-size: clamp(72px, 8vw, 120px);
   margin: 0;
 }
 
@@ -87,52 +70,86 @@ h1 {
    今日のおすすめ
 ================================ */
 .today-section {
-  margin-top: 80px;
+  margin-top: 160px; /* ← 下げたい時はここだけ触る */
 }
 
 .today-section h2 {
   font-family: "Schoolbell", cursive;
-  font-size: 64px;
+  font-size: clamp(48px, 5vw, 64px);
   background: rgba(30,45,30,0.85);
   color: #f7f5ef;
-  padding: 10px 30px;
+  padding: 12px 36px;
   display: inline-block;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
-/* カード */
+/* ===============================
+   カードエリア
+================================ */
 .game-cards {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-top: 60px;
+  align-items: flex-start;
+  gap: 48px;
+  margin-top: 80px;
+  flex-wrap: wrap; /* 狭い画面では折り返す */
 }
 
+/* ===============================
+   カード
+================================ */
 .game-card {
-  height: 520px;        /* ← 基準は縦 */
-  width: auto;
+  width: 460px;             /* ← 横を少し広く */
   aspect-ratio: 10 / 11;
-  max-width: 420px;
+  padding: 18px;
 
-  padding: 16px;
+  background:
+    linear-gradient(
+      135deg,
+      #fdf5e6,
+      #f5e6c4 25%,
+      #fdf5e6 50%,
+      #f5e6c4 75%,
+      #fdf5e6
+    ),
+    url("images/parchment_texture.jpg") center / cover no-repeat;
+  background-blend-mode: multiply;
+
+  border-radius: 14px;
+  border: 1px solid rgba(200,180,140,0.5);
+  box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
+
   font-size: 34px;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.game-card:nth-child(odd)  { transform: rotate(-2deg); }
+.game-card:nth-child(even) { transform: rotate(2deg); }
 
 .game-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-6px) rotate(0deg) scale(1.05);
+  box-shadow: 0 0 25px 10px rgba(173,216,230,0.6);
 }
 
-
+/* カード画像 */
 .game-card img {
-  height: 240px;        /* ← 明示 */
-  width: auto;
-  max-width: 100%;
+  width: 100%;
+  height: 260px;
   object-fit: contain;
-  margin: 0 auto 10px;
-  display: block;
+  border-radius: 14px;
+  margin-bottom: 12px;
 }
 
+/* タイトル非表示（必要ならON） */
+.game-card .game-title {
+  display: none;
+}
 
 /* ===============================
    ホットスポット
@@ -142,21 +159,12 @@ h1 {
   cursor: pointer;
 }
 
-.bookshelf { left: 20px; top: 260px; width: 300px; height: 420px; }
+.bookshelf { left: 20px;  top: 260px; width: 300px; height: 420px; }
 .painting  { right: 180px; top: 280px; width: 200px; height: 220px; }
 .cup       { right: 120px; bottom: 100px; width: 120px; height: 160px; }
 .chair     { left: 80px; bottom: 80px; width: 320px; height: 200px; }
 .baum      { left: 380px; top: 420px; width: 120px; height: 160px; }
 .master    { right: 300px; top: 420px; width: 200px; height: 260px; }
-
-/* ラベル */
-.label-paper {
-  font-size: 48px;
-  background: #fffdf5;
-  padding: 6px 20px;
-  border-radius: 10px;
-  pointer-events: none;
-}
 
 /* ===============================
    吹き出し
@@ -165,12 +173,12 @@ h1 {
   position: absolute;
   left: 900px;
   top: 280px;
-  font-size: 48px;
+  font-size: 42px;
   background: rgba(255,255,255,0.9);
   padding: 14px 24px;
   border-radius: 14px;
   opacity: 0;
-  transition: 0.3s;
+  transition: opacity 0.3s;
 }
 
 #master-bubble.show {
@@ -190,10 +198,10 @@ h1 {
 }
 
 .diary-content {
-  width: 900px;
-  height: 700px;
+  width: min(900px, 90vw);
+  height: min(700px, 90vh);
   background: #fff8e6;
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 50px;
-  font-size: 44px;
+  font-size: 40px;
 }
