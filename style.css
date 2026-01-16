@@ -28,6 +28,16 @@ html, body {
   transform-origin: center center;
 }
 
+/* 背景だけスケール */
+#stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  transform-origin: center;
+  z-index: -1;
+}
+
 /* ===== 自動スケール ===== */
 @media (max-aspect-ratio: 1536/1024) {
   #stage {
@@ -99,21 +109,30 @@ h1 {
 }
 
 .game-card {
-  width: 420px;
+  height: 520px;        /* ← 基準は縦 */
+  width: auto;
   aspect-ratio: 10 / 11;
-  background:
-    linear-gradient(135deg, #fdf5e6, #f5e6c4),
-    url("images/parchment_texture.jpg") center/cover;
-  border-radius: 14px;
+  max-width: 420px;
+
   padding: 16px;
   font-size: 34px;
-  box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-  transition: 0.3s;
 }
+
 
 .game-card:hover {
   transform: scale(1.05);
 }
+
+
+.game-card img {
+  height: 240px;        /* ← 明示 */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto 10px;
+  display: block;
+}
+
 
 /* ===============================
    ホットスポット
