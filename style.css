@@ -146,17 +146,32 @@ h1 {
 }
 
 .game-card {
+  position: relative;
   width: 460px;
   aspect-ratio: 10 / 11;
   padding: 18px;
+
   background:
-    linear-gradient(135deg,#fdf5e6,#f5e6c4 25%,#fdf5e6 50%,#f5e6c4 75%,#fdf5e6),
+    linear-gradient(
+      135deg,
+      #fdf5e6,
+      #f5e6c4 25%,
+      #fdf5e6 50%,
+      #f5e6c4 75%,
+      #fdf5e6
+    ),
     url("images/parchment_texture.jpg") center / cover no-repeat;
   background-blend-mode: multiply;
+
   border-radius: 14px;
   box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
   font-size: 34px;
-  transition: 0.3s;
+
+  overflow: hidden;
+  transform-origin: center center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .game-card:nth-child(odd)  { transform: rotate(-2deg); }
@@ -165,7 +180,6 @@ h1 {
 .game-card:hover {
   transform: translateY(-6px) rotate(0) scale(1.05);
 }
-
 /* ===============================
    モーダル
 ================================ */
@@ -202,4 +216,28 @@ h1 {
     width: 90vw;
     transform: none !important;
   }
+}
+
+/* === カード安定化パッチ === */
+.game-card {
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+.game-card a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.game-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
 }
