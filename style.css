@@ -27,6 +27,7 @@ body::after {
     rgba(0,0,0,0.25) 100%
   );
   pointer-events: none;
+  z-index: 0;   /* ← これを追加 */
 }
 
 /* ===============================
@@ -37,6 +38,7 @@ body::after {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
+  z-index: 1;   /* ← これを追加 */
 }
 
 /* 光演出 */
@@ -157,7 +159,15 @@ h1 {
 .hotspot {
   position: absolute;
   cursor: pointer;
+  z-index: 10;
 }
+
+.label-paper {
+  position: relative;
+  z-index: 11;
+}
+
+
 
 .bookshelf { left: 20px;  top: 260px; width: 300px; height: 420px; }
 .painting  { right: 180px; top: 280px; width: 200px; height: 220px; }
