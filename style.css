@@ -243,14 +243,14 @@ h1 {
 /* モーダルの右上閉じるボタン（diary-modal共通） */
 .diary-modal .close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
+  top: 15px;
+  right: 15px;
+  font-size: 32px;
   background: transparent;
   border: none;
   cursor: pointer;
   color: #333;
-  z-index: 10;
+  z-index: 200;      /* ここを上げる */
   line-height: 1;
 }
 
