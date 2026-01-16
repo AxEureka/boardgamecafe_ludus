@@ -184,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
     $('chair-text').innerHTML = json.text;
     $('chair-modal').style.display = 'flex';
   };
-
   $('close-chair').onclick = () => $('chair-modal').style.display = 'none';
 
   const bubble = $('master-bubble');
@@ -196,7 +195,79 @@ document.addEventListener('DOMContentLoaded', () => {
     bubble.classList.add('show');
     setTimeout(() => bubble.classList.remove('show'), 3000);
   };
+
+  /* =========================
+     バウムクリック（日記＆3回目でマスター）
+  ========================= */
+  const hsBaum = $('hs-baum');
+  const diaryModal = $('diary-modal');
+  const diaryText = $('diary-text');
+
+  const diaryTexts = [
+    "5月26日<br>重ためのボードゲームはルールが難しいけれど、付属品や世界観の細やかさは見てて飽きない。あの子は真剣な顔でルールブックを呼んでいる。口元に笑みを浮かべて、早く遊びたいみたい。",
+    "5月29日<br>静かな雨の日。地下室から出てきたあの子が古い指輪を見つけてきた。ずっと前に遊んだ時に落として、そのままになっていたらしい。薔薇の箱にしまっておく。これでまた遊べるね。",
+    "10月10日<br>ゲーム棚を整理していたら懐かしいゲームを見つけた。あの子と初めて遊んだボードゲーム。少しずれたセンスが独特で面白かったなぁ。今ならこの絵に、なんてタイトルを付けるだろう。",
+    "11月15日<br>あの子がこっそりコーヒー豆をかじっていた。お菓子だと思ったらしい。苦いのが苦手らしく涙目になっていたけれど、アフォガードは気に入ったみたい。また作ってあげよう。",
+    "1月14日<br>閉店後にみんなで映画のポスターや小説を作ったり、相談への回答を考えたり。とにかくいっぱい笑ったことは覚えている。自分の常識が通じないこともあったり。いろんな考え方を聞くのはやっぱり楽しいな。",
+    "2月2日<br>特に冷え込む日。新しいブレンドを試してみた。基本はまろやかに、酸味は抑えて、苦さは最後に軽く。味や香りに敏感なあの子が何も言わず目を細めていた。これは自信をもってお客様にも出せそうだ。",
+    "2月28日<br>信じられないことが起こった。あの子もびっくりして逃げようとしたけれど、なんとか落ち着いてもらえた。ナポリタンを食べて、デッキ構築ゲームで遊んで、とりあえず楽しんでもらえたみたいだけど、これからどうなるんだろう…？"
+  ];
+
+  let baumClickCount = 0;
+
+  hsBaum.addEventListener('click', e => {
+    e.stopPropagation();
+    baumClickCount++;
+
+    if (baumClickCount === 3) {
+      showMasterMessage("そこは……あまり見ないでください！");
+      baumClickCount = 0;
+      return;
+    }
+
+    const randomEntry = diaryTexts[Math.floor(Math.random() * diaryTexts.length)];
+    diaryText.innerHTML = randomEntry;
+    diaryModal.style.display = 'flex';
+    const content = diaryModal.querySelector('.diary-content');
+    content.style.animation = 'openBook 0.6s forwards';
+  });
+
+  /* --------------------
+     マスター吹き出し関係
+  -------------------- */
+  let hideTimer = null;
+  const showBubble = (html, duration = 3000) => {
+    bubble.innerHTML = html;
+    bubble.classList.add('show');
+    bubble.setAttribute('aria-hidden', 'false');
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => {
+      bubble.classList.remove('show');
+      bubble.setAttribute('aria-hidden', 'true');
+    }, duration);
+  };
+
+  document.addEventListener('click', () => {
+    bubble.classList.remove('show');
+    bubble.setAttribute('aria-hidden', 'true');
+    clearTimeout(hideTimer);
+  });
 });
+
+/* =========================
+   吹き出し風メッセージ
+========================= */
+function showMasterMessage(text) {
+  const msg = document.createElement('div');
+  msg.className = 'master-message';
+  msg.textContent = text;
+  document.body.appendChild(msg);
+  setTimeout(() => msg.classList.add('show'), 10);
+  setTimeout(() => {
+    msg.classList.remove('show');
+    setTimeout(() => msg.remove(), 500);
+  }, 2500);
+}
 </script>
 
 </body>
