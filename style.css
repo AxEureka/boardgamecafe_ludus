@@ -27,24 +27,22 @@ body {
 /* ===============================
    背景レイヤー（最重要）
 ================================ */
-#bg-layer {
-  position: absolute;
-  inset: 0;
-  background: url("images/cafe.jpg") center top / cover no-repeat;
-  pointer-events: none;
+#bg-wrap {
+  position: relative;
+  height: 100svh;
+  aspect-ratio: 1536 / 1024;
+  margin: 0 auto;
 }
 
-/* 減光 */
-#bg-layer::after {
-  content: "";
+
+#bg-image {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 60%,
-    rgba(0,0,0,0.35) 100%
-  );
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
+
 
 /* 光 */
 .main-light {
@@ -55,6 +53,31 @@ body {
     rgba(255,255,200,0.25),
     transparent 70%
   );
+}
+
+#bg-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(0,0,0,0.35) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.main-light {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(255,255,200,0.25),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* ===============================
@@ -68,21 +91,22 @@ body {
 
 .label-paper {
   position: absolute;
-  top: -36px;
+  top: -1.8em;
+  font-size: clamp(18px, 2vw, 28px);
   left: 0;
   background: #fffdf5;
   padding: 6px 18px;
   border-radius: 10px;
-  font-size: 32px;
 }
 
+
 /* 座標（1536×1024基準） */
-.bookshelf { left: 20px; top: 260px; width: 300px; height: 420px; }
-.painting  { right: 180px; top: 280px; width: 200px; height: 220px; }
-.cup       { right: 120px; bottom: 100px; width: 120px; height: 160px; }
-.chair     { left: 80px; bottom: 80px; width: 320px; height: 200px; }
-.baum      { left: 380px; top: 420px; width: 120px; height: 160px; }
-.master    { right: 300px; top: 420px; width: 200px; height: 260px; }
+.bookshelf {left: 1.3%; top: 25.4%; width: 19.5%; height: 41%; }
+.painting { right: 11.7%; top: 27.3%; width: 13%; height: 21.5%; }
+.cup { right: 7.8%; bottom: 9.8%; width: 7.8%; height: 15.6%; }
+.chair { left: 5.2%; bottom: 7.8%; width: 20.8%; height: 19.5%; }
+.baum { left: 24.7%; top: 41%; width: 7.8%; height: 15.6%; }
+.master { right: 19.5%; top: 41%; width: 13%; height: 25.4%; }
 
 /* 吹き出し */
 #master-bubble {
