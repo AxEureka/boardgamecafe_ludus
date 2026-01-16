@@ -1,6 +1,18 @@
+/* ============================================================
+   Café Ludus TOPページ style.css【安定版】
+   背景は1枚のcafe.jpgを「舞台」として固定
+   JS / HTML / ロジックは一切変更しない
+   ============================================================ */
+
 /* =========================
-   基本
+   リセット & 基本
 ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -11,36 +23,35 @@ html, body {
 body {
   font-family: "Georgia", serif;
   background: #000;
+  color: #333;
   text-align: center;
-  overflow-x: hidden;
+  overflow: hidden; /* TOPはスクロールさせない */
 }
 
 /* =========================
-   ヘッダー
+   ヘッダー（舞台の外）
 ========================= */
 header {
-  background: rgba(68,44,0,0.85);
+  background: rgba(68, 44, 0, 0.85);
   color: #fff;
   padding: 1em;
   text-shadow: 1px 1px 2px #000;
+  z-index: 100;
 }
 
-h1, h2 {
-  font-family: 'Dancing Script', cursive;
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
   color: #f8f0d8;
 }
 
-.top-description {
-  font-size: clamp(18px, 3vw, 36px);
-  margin: 10px 0;
-}
-
 /* =========================
-   ステージ
+   舞台（最重要）
 ========================= */
 #stage-wrapper {
-  width: min(96vw, 960px);
-  aspect-ratio: 3 / 2; /* 1536×1024 */
+  width: 100vw;
+  max-width: 1600px;
+  aspect-ratio: 3 / 2;
   margin: 0 auto;
   position: relative;
 }
@@ -50,33 +61,23 @@ h1, h2 {
   width: 100%;
   height: 100%;
   background: url("images/cafe.jpg") no-repeat center center;
-  background-size: contain;
-}
-
-/* 光 */
-.main-light {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 20%, rgba(255,255,200,0.25), transparent 70%);
-  pointer-events: none;
-  z-index: 1;
+  background-size: cover;
+  overflow: hidden;
 }
 
 /* =========================
-   今日のおすすめ
+   光エフェクト
 ========================= */
-.today-section {
-  position: relative;
-  z-index: 5;
-  margin-top: 8%;
-}
-
-.game-cards {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  flex-wrap: wrap;
-  margin-top: 30px;
+.main-light {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(255,255,200,0.25),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* =========================
@@ -88,46 +89,50 @@ h1, h2 {
   cursor: pointer;
 }
 
-.hotspot.bookshelf { top: 22%; left: 2%; width: 22%; height: 45%; }
-.hotspot.painting  { top: 24%; right: 11%; width: 11%; height: 22%; }
-.hotspot.master    { top: 42%; right: 23%; width: 14%; height: 18%; }
-.hotspot.baum      { top: 46%; left: 26%; width: 6%; height: 11%; }
-.hotspot.cup       { top: 78%; right: 7%; width: 6%; height: 10%; }
-.hotspot.chair     { top: 80%; left: 3%; width: 20%; height: 15%; }
+/* 位置はすべて％（絶対安定） */
+.hotspot.bookshelf { top: 25%; left: 2%;  width: 20%; height: 40%; }
+.hotspot.painting  { top: 27%; right: 10%; width: 10%; height: 20%; }
+.hotspot.baum      { top: 40%; left: 25%; width: 6%;  height: 10%; }
+.hotspot.master    { top: 42%; right: 22%; width: 12%; height: 18%; }
+.hotspot.cup       { top: 78%; right: 6%;  width: 6%;  height: 10%; }
+.hotspot.chair     { top: 80%; left: 3%;  width: 18%; height: 15%; }
 
 /* =========================
-   ラベル
+   ラベル（紙）
 ========================= */
 .label-paper {
   position: absolute;
   left: 50%;
-  top: -10%;
   transform: translateX(-50%);
   background: #fffdf5;
   border-radius: 8px;
   padding: 4px 14px;
-  font-size: clamp(16px, 2vw, 28px);
+  font-size: clamp(14px, 1.6vw, 24px);
   font-weight: bold;
   box-shadow: 2px 3px 6px rgba(0,0,0,0.25);
   pointer-events: none;
+  white-space: nowrap;
 }
+
+.label-paper.top    { top: -28px; }
+.label-paper.bottom { bottom: -30px; }
 
 /* =========================
    マスター吹き出し
 ========================= */
 #master-bubble {
   position: absolute;
+  top: 28%;
   left: 60%;
-  top: 30%;
   transform: translateX(-50%);
   max-width: 40%;
   padding: 10px 14px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.92);
   border-radius: 12px;
-  font-family: "Dancing Script", cursive;
+  font-family: 'Dancing Script', cursive;
   font-size: clamp(18px, 2.2vw, 32px);
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
   z-index: 20;
 }
 
@@ -136,20 +141,64 @@ h1, h2 {
 }
 
 /* =========================
-   モーダル
+   今日のおすすめ（舞台内）
+========================= */
+.today-section {
+  position: absolute;
+  bottom: 6%;              /* レジカウンター前 */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  margin: 0;
+}
+
+.today-section h2 {
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   カード
+========================= */
+.game-cards {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+}
+
+.game-card {
+  width: 280px;
+  aspect-ratio: 10 / 11;
+  background: #fff8e6;
+  border-radius: 12px;
+  box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
+  padding: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:nth-child(odd)  { transform: rotate(-2deg); }
+.game-card:nth-child(even) { transform: rotate(2deg); }
+
+.game-card:hover {
+  transform: translateY(-5px) rotate(0deg) scale(1.05);
+  box-shadow: 0 0 25px rgba(173,216,230,0.7);
+}
+
+/* =========================
+   Diary Modal（見た目のみ）
 ========================= */
 .diary-modal {
   position: fixed;
   inset: 0;
+  background: rgba(0,0,0,0.5);
   display: none;
   justify-content: center;
   align-items: center;
-  background: rgba(0,0,0,0.5);
   z-index: 9999;
 }
 
-.diary-modal.show,
-.diary-modal[style*="flex"] {
+.diary-modal.show {
   display: flex;
 }
 
@@ -163,39 +212,23 @@ h1, h2 {
 }
 
 /* =========================
-   スマホ
+   スマホ調整
 ========================= */
 @media (max-width: 768px) {
   #stage-wrapper {
     width: 100vw;
   }
 
+  .game-cards {
+    gap: 16px;
+  }
+
+  .game-card {
+    width: 200px;
+  }
+
   #master-bubble {
     left: 50%;
     max-width: 80%;
   }
-}
-
-/* ===== マスター慌て吹き出し（stage基準） ===== */
-.master-message {
-  position: absolute;
-  left: 50%;
-  top: 20%;
-  transform: translateX(-50%);
-  background: #fff8e6;
-  border: 2px solid #d0b37f;
-  border-radius: 10px;
-  padding: 10px 16px;
-  font-family: 'Dancing Script', cursive;
-  font-size: clamp(20px, 3vw, 40px);
-  color: #4b2e15;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  opacity: 0;
-  transition: opacity 0.3s, transform 0.3s;
-  z-index: 50;
-}
-
-.master-message.show {
-  opacity: 1;
-  transform: translate(-50%, 0);
 }
