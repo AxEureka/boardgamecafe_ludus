@@ -165,17 +165,17 @@ h1 {
 .game-cards {
   display: flex;
   justify-content: center;
-  gap: 2%; /* %で調整 */
-  margin-top: 3vh; /* 上に寄せる */
+  gap: 2%; /* %で安定 */
+  margin-top: 3vh;
   flex-wrap: wrap;
   max-height: 55vh; /* 背景の木〜マスター右手の高さに収める */
 }
 
 .game-card {
   position: relative;
-  width: clamp(280px, 28vw, 380px); /* 小さめで横並び3枚安定 */
+  width: clamp(260px, 24vw, 340px); /* 少し小さめに */
   aspect-ratio: 10 / 11;
-  padding: 2%;
+  padding: 1.5%; /* 内側余白も少し小さく */
   background:
     linear-gradient(
       135deg,
@@ -189,11 +189,19 @@ h1 {
   background-blend-mode: multiply;
   border-radius: 14px;
   box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-  font-size: clamp(18px, 1.8vw, 24px); /* 小さめ */
+  font-size: clamp(16px, 1.5vw, 22px); /* 文字も少し小さく */
   color: #000;
   overflow: hidden;
   transform-origin: center center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card img {
+  width: 100%;
+  height: 180px; /* 画像も少し小さめ */
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
 }
 
 .game-card:nth-child(odd)  { transform: rotate(-2deg); }
@@ -213,13 +221,6 @@ h1 {
   color: inherit;
 }
 
-.game-card img {
-  width: 100%;
-  height: 200px; /* 少し小さく */
-  object-fit: contain;
-  display: block;
-  flex-shrink: 0;
-}
 
 /* ===============================
    モーダル
@@ -289,3 +290,4 @@ h1 {
   max-width: 900px;
   color: #f5f2e8;
 }
+
