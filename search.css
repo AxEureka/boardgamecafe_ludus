@@ -264,6 +264,12 @@ main {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* カード内の文字は黒 */
+.game-card,
+.game-card * {
+  color: #000000;
+}
+
 .game-card:nth-child(odd)  { transform: rotate(-2deg); }
 .game-card:nth-child(even) { transform: rotate(2deg); }
 
@@ -357,6 +363,12 @@ body::after {
   opacity: 1;
   pointer-events: auto;
 }
+
+#result-overlay .overlay-content .game-card {
+  width: 380px;  /* 今の 320px → 380px */
+  height: 420px; /* 今の 360px → 420px */
+}
+
 
 /* =============================
    目録画面（本文）
