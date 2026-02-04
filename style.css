@@ -165,17 +165,18 @@ h1 {
 .game-cards {
   display: flex;
   justify-content: center;
-  gap: 2%; /* %で安定 */
-  margin-top: 3vh;
+  gap: 1.5%;       /* 余白を狭く */
+  margin-top: 2vh;  /* 少し上に */
   flex-wrap: wrap;
-  max-height: 55vh; /* 背景の木〜マスター右手の高さに収める */
+  max-height: 50vh; /* 背景の木〜テーブルの高さに収める */
 }
 
 .game-card {
   position: relative;
-  width: clamp(260px, 24vw, 340px); /* 少し小さめに */
+  width: clamp(240px, 22vw, 300px); /* 小さくして横3枚収める */
   aspect-ratio: 10 / 11;
-  padding: 1.5%; /* 内側余白も少し小さく */
+  padding: 0.8%;   /* 内側余白を狭める */
+
   background:
     linear-gradient(
       135deg,
@@ -187,10 +188,12 @@ h1 {
     ),
     url("images/parchment_texture.jpg") center / cover no-repeat;
   background-blend-mode: multiply;
+
   border-radius: 14px;
-  box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-  font-size: clamp(16px, 1.5vw, 22px); /* 文字も少し小さく */
+  box-shadow: 4px 6px 15px rgba(0,0,0,0.35);
+  font-size: clamp(14px, 1.2vw, 20px); /* 全体文字も小さめ */
   color: #000;
+
   overflow: hidden;
   transform-origin: center center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -198,7 +201,7 @@ h1 {
 
 .game-card img {
   width: 100%;
-  height: 180px; /* 画像も少し小さめ */
+  height: 160px;   /* 画像も少し小さく */
   object-fit: contain;
   display: block;
   flex-shrink: 0;
@@ -208,7 +211,7 @@ h1 {
 .game-card:nth-child(even) { transform: rotate(2deg); }
 
 .game-card:hover {
-  transform: translateY(-6px) rotate(0) scale(1.05);
+  transform: translateY(-4px) rotate(0) scale(1.03);
 }
 
 .game-card a {
@@ -220,7 +223,6 @@ h1 {
   text-decoration: none;
   color: inherit;
 }
-
 
 /* ===============================
    モーダル
@@ -290,4 +292,5 @@ h1 {
   max-width: 900px;
   color: #f5f2e8;
 }
+
 
