@@ -166,7 +166,7 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 3%; /* pxではなく%で安定 */
-  margin-top: 8vh;
+  margin-top: 6vh;
   flex-wrap: wrap;
 }
 
