@@ -358,21 +358,33 @@ body::after {
   pointer-events: auto;
 }
 
-.overlay-content {
-  position: relative; /* ← close-btn の基準にする */
-  
+/* =============================
+   目録画面（本文）
+============================= */
+#result-overlay .overlay-content {
+  position: relative; /* close-btn の基準 */
+
   width: 90%;
   max-width: 1500px;
   max-height: 80vh;
-  padding: 40px 30px 30px; /* 上だけ少し余白を増やす */
+  padding: 40px 30px 30px;
 
   overflow-y: auto;
   background: rgba(25,25,25,0.85);
   border-radius: 15px;
-  color: #fff;
+
+  color: #ffffff;
+  text-align: center;
 }
 
-/* ✕ボタン */
+/* 目録本文の中身だけ白にする */
+#result-overlay .overlay-content * {
+  color: #ffffff;
+}
+
+/* =============================
+   ✕ボタン
+============================= */
 .close-btn {
   position: absolute;
   top: 16px;
@@ -381,7 +393,7 @@ body::after {
   width: 48px;
   height: 48px;
 
-  font-size: 32px;      /* ← 大きく */
+  font-size: 32px;
   line-height: 1;
 
   display: flex;
@@ -392,7 +404,7 @@ body::after {
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 50%;
 
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
   transition: 0.25s;
 }
