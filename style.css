@@ -139,7 +139,7 @@ header {
 
 h1 {
   font-family: "Great Vibes", cursive;
-  font-size: clamp(72px, 5vw, 100px); /* 最大100pxで大画面対応 */
+  font-size: clamp(48px, 6vw, 96px); /* 最大100pxで大画面対応 */
   margin: 0;
   line-height: 1.1;
 }
@@ -178,7 +178,7 @@ h1 {
 .game-card {
   position: relative;
 
-  width: clamp(380px, 28vw, 460px);
+  width: clamp(320px, 25vw, 420px);
   aspect-ratio: 10 / 11;
   padding: 2%;
 
@@ -196,7 +196,7 @@ h1 {
 
   border-radius: 14px;
   box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-  font-size: clamp(28px, 2vw, 34px);
+  font-size: clamp(20px, 1.8vw, 28px);
   color: #000;
 
   overflow: hidden;
@@ -301,3 +301,4 @@ h1 {
   max-width: 900px;
   color: #f5f2e8;
 }
+
