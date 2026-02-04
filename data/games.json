@@ -60,7 +60,7 @@
     "images/games/DORASURE3.png"
   ],
     "desc": "仲間と一緒なら大丈夫！",
-    "vector": [5, 4, 2, 3, 3, 3],
+    "vector": [5, 1, 2, 3, 5, 3],
     "rules": [
       "役職を決めます。",
       "みんなで協力してクエストをクリアしましょう。",
@@ -79,6 +79,32 @@
   }
   }, 
   {
+    "title": "First Mission",
+    "images": [
+    "images/games/First Mission1.png",
+    "images/games/First Mission2.png",
+    "images/games/First Mission3.png"
+  ],
+    "desc": "超能力とプレゼンで任務遂行",
+    "vector": [2, 3, 5, 4, 2, 5],
+    "rules": [
+      "あなたは超能力をもつ新米エージェント",
+      "自分の能力を駆使してボスからの指令を達成しましょう",
+      "何をもっているかではない、どう使うかだ…"
+    ],
+    "players": [3, 6],
+    "time": [5, 30],
+    "mood": ["わいわい", "なるほど"],
+    "genre": ["カード", "大喜利","パーティー","ミッション"],
+    "theme": ["非日常","バトル"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
+  "surugaya": ""
+  }
+  },
+  {
     "title": "FLUXX",
     "images": [
     "images/games/FLUXX1.png",
@@ -95,8 +121,8 @@
     "players": [2, 6],
     "time": [5, 30],
     "mood": ["わいわい", "ドキドキ"],
-    "genre": ["カード", "運ゲー"],
-    "theme": ["脱落あり","ミッション","パーティー"],
+    "genre": ["カード", "運ゲー","脱落あり","ミッション","パーティー"],
+    "theme": ["日常","バトル"],
     "brand": ["ホビージャパン"],
     "links": {
   "amazon": "https://amzn.to/49lxX7X",
@@ -121,13 +147,39 @@
     "players": [2, 6],
     "time": [10, 40],
     "mood": ["わいわい", "ドキドキ"],
-    "genre": ["カード", "運ゲー"],
-    "theme": ["ホラー", "非日常", "神話", "脱落あり","ミッション"],
+    "genre": ["カード", "運ゲー","脱落あり","ミッション"],
+    "theme": ["ホラー", "非日常", "神話"],
     "brand": ["ホビージャパン"],
     "links": {
   "amazon": "https://amzn.to/4p4uhw8",
   "rakuten": "https://product.rakuten.co.jp/product/-/2f3d24d2405d0fce294b95c3027ab35b/",
   "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607500967"
+  }
+  },
+  {
+    "title": "HUMAN×AI RACERS",
+     "images": [
+    "images/games/HUMAN×AI RACERS1.png",
+    "images/games/HUMAN×AI RACERS2.png",
+    "images/games/HUMAN×AI RACERS3.png"
+  ],
+    "desc": "生き残るには、AIに成りすますことだ",
+    "vector": [4, 4, 1, 2, 1, 4],
+    "rules": [
+      "AI至上主義のスナイパーから逃げ切りましょう",
+      "AIはランダムでマシンを進めます",
+      "人間はAIっぽく振る舞い、スナイパーを欺きましょう"
+    ],
+    "players": [2, 4],
+    "time": [20, 40],
+    "mood": ["バチバチ", "没入"],
+    "genre": ["ボード", "小道具", "脱落あり"],
+    "theme": ["非日常", "バトル","数字"],
+    "brand": ["Glagla"],
+    "links": {
+  "amazon": "https://amzn.to/4qXPgTf",
+  "rakuten": "https://item.rakuten.co.jp/boardgame-album/041-0597/",
+  "surugaya": ""
   }
   },
   {
@@ -180,6 +232,32 @@
   "amazon": "https://amzn.to/4jeBE2Y",
   "rakuten": "https://product.rakuten.co.jp/product/-/b26b99225f554e32b1b0cd51de930bc6/",
   "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607651093"
+  }
+  },
+  {
+    "title": "The fridge",
+     "images": [
+    "images/games/The fridge1.png",
+    "images/games/The fridge2.png",
+    "images/games/The fridge3.png"
+  ],
+    "desc": "冷蔵庫、なになにあったっけ？",
+    "vector": [2, 1, 1, 5, 1, 4],
+    "rules": [
+      "お料理に必要な材料を集めましょう",
+      "冷蔵庫の中身を覚えて、足りない材料をゲットします",
+      "余らせないよう気を付けて"
+    ],
+    "players": [2, 4],
+    "time": [15, 20],
+    "mood": ["集中", "バチバチ"],
+    "genre": ["カード", "運ゲー"],
+    "theme": ["食べ物・飲み物", "動物","日常"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
+  "surugaya": ""
   }
   },
    {
@@ -1063,7 +1141,7 @@
     "mood": ["わいわい", "なるほど"],
     "genre": ["カード", "大喜利", "小道具"],
     "theme": ["恋愛", "日常", "鑑賞","文学"],
-    "brand": ["その他"],
+    "brand": ["Glagla"],
     "links": {
   "amazon": "https://amzn.to/3L6Ej1L",
   "rakuten": "https://product.rakuten.co.jp/product/-/b786931c729fdfcb704ff7ddb9823e5f/",
@@ -1274,7 +1352,7 @@
     "mood": ["わいわい", "なるほど"],
     "genre": ["カード", "小道具", "パーティー"],
     "theme": ["推理", "日常","数字"],
-    "brand": ["その他"],
+    "brand": ["Glagla"],
     "links": {
   "amazon": "https://amzn.to/4p5XUNs",
   "rakuten": "https://product.rakuten.co.jp/product/-/a76ca5485eb7d5935c9e003abc121784/",
