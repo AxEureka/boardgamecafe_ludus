@@ -144,21 +144,18 @@ h1 {
 }
 
 .today-section {
-  margin-top: 25vh; /* ← ここがポイント */
+  margin-top: 25vh;
   text-align: center;
 }
 
 .today-section h2 {
-  display: inline-block;   /* ← 横いっぱいをやめる */
+  display: inline-block;
   margin: 0 auto;
   padding: 14px 48px;
-
   font-family: "Schoolbell", cursive;
   font-size: clamp(48px, 5vw, 64px);
-
-  background: rgba(30,45,30,0.85); /* 黒板色 */
+  background: rgba(30,45,30,0.85);
   color: #f7f5ef;
-
   border-radius: 12px;
 }
 
@@ -168,16 +165,17 @@ h1 {
 .game-cards {
   display: flex;
   justify-content: center;
-  gap: 48px;
-  margin-top: 80px;
+  gap: 3%; /* pxではなく%で安定 */
+  margin-top: 8vh;
   flex-wrap: wrap;
 }
 
 .game-card {
   position: relative;
-  width: 460px;
+
+  width: clamp(380px, 28vw, 460px); /* ノートPC基準で少し大きく、最大460px */
   aspect-ratio: 10 / 11;
-  padding: 18px;
+  padding: 2%;
 
   background:
     linear-gradient(
@@ -193,7 +191,8 @@ h1 {
 
   border-radius: 14px;
   box-shadow: 4px 6px 15px rgba(0,0,0,0.4);
-  font-size: 34px;
+  font-size: clamp(28px, 2.2vw, 34px);
+  color: #000; /* カード内文字は黒 */
 
   overflow: hidden;
   transform-origin: center center;
@@ -240,7 +239,6 @@ h1 {
   z-index: 100;
 }
 
-/* モーダルの右上閉じるボタン（diary-modal共通） */
 .diary-modal .close-btn {
   position: absolute;
   top: 15px;
@@ -250,14 +248,13 @@ h1 {
   border: none;
   cursor: pointer;
   color: #333;
-  z-index: 200;      /* ここを上げる */
+  z-index: 200;
   line-height: 1;
 }
 
 .diary-modal .close-btn:hover {
   color: #900;
 }
-
 
 .diary-content {
   width: min(900px, 90vw);
