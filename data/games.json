@@ -85,7 +85,7 @@
     "images/games/First Mission2.png",
     "images/games/First Mission3.png"
   ],
-    "desc": "超能力とプレゼンで任務遂行",
+    "desc": "超能力とプレゼンで<br>任務遂行",
     "vector": [2, 3, 5, 4, 2, 5],
     "rules": [
       "あなたは超能力をもつ新米エージェント",
@@ -163,7 +163,7 @@
     "images/games/HUMAN×AI RACERS2.png",
     "images/games/HUMAN×AI RACERS3.png"
   ],
-    "desc": "生き残るには、AIに成りすますことだ",
+    "desc": "生き残るには、<br>AIに成りすますことだ",
     "vector": [4, 4, 1, 2, 1, 4],
     "rules": [
       "AI至上主義のスナイパーから逃げ切りましょう",
@@ -179,6 +179,32 @@
     "links": {
   "amazon": "https://amzn.to/4qXPgTf",
   "rakuten": "https://item.rakuten.co.jp/boardgame-album/041-0597/",
+  "surugaya": ""
+  }
+  },
+  {
+    "title": "INFERNO",
+     "images": [
+    "images/games/INFERNO1.png",
+    "images/games/INFERNO2.png",
+    "images/games/INFERNO3.png"
+  ],
+    "desc": "裏切ったヤツは地獄行き",
+    "vector": [3, 5, 2, 3, 3, 2],
+    "rules": [
+      "地獄からの生還を目指しましょう",
+      "協力、か裏切り、を選びましょう",
+      "自分だけが助かればいい、と思っていると…。"
+    ],
+    "players": [2, 6],
+    "time": [10, 15],
+    "mood": ["集中", "ドキドキ"],
+    "genre": ["カード", "協力", "心理戦"],
+    "theme": ["ホラー", "ファンタジー","非日常","交渉"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
   "surugaya": ""
   }
   },
@@ -241,7 +267,7 @@
     "images/games/The fridge2.png",
     "images/games/The fridge3.png"
   ],
-    "desc": "冷蔵庫、なになにあったっけ？",
+    "desc": "冷蔵庫、<br>なにがあったっけ？",
     "vector": [2, 1, 1, 5, 1, 4],
     "rules": [
       "お料理に必要な材料を集めましょう",
@@ -310,6 +336,32 @@
   "amazon": "https://amzn.to/4aoaBzG",
   "rakuten": "https://product.rakuten.co.jp/product/-/a001a29c9d33ac5c6516b273cc0746a6/",
   "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607619315"
+  }
+  },
+  {
+    "title": "インポスターパーティー",
+    "images": [
+    "images/games/インポスターパーティー1.png",
+    "images/games/インポスターパーティー2.png",
+    "images/games/インポスターパーティー3.png"
+  ],
+    "desc": "有能エージェントは<br>カオスにもなれる",
+    "vector": [2, 1, 4, 4, 1, 3],
+    "rules": [
+      "あなたはある組織のエージェント",
+      "ボスからの指令を1分間で遂行しましょう。",
+      "インポスターは混乱に乗じてうまく隠れきりましょう。"
+    ],
+    "players": [3, 8],
+    "time": [5, 10],
+    "mood": ["わいわい", "ドキドキ"],
+    "genre": ["カード", "小道具","大喜利", "役職", "正体隠匿","アクション", "パーティー"],
+    "theme": ["推理", "非日常"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "https://amzn.to/4aj6val",
+  "rakuten": "https://item.rakuten.co.jp/baton-store/sbga-08958/",
+  "surugaya": ""
   }
   },
   {
@@ -1330,6 +1382,32 @@
   "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607517832"
   }
   },
+   {
+    "title": "天使と悪魔",
+    "images": [
+    "images/games/天使と悪魔1.png",
+    "images/games/天使と悪魔2.png",
+    "images/games/天使と悪魔3.png"
+  ],
+    "desc": "天使がお好き？悪魔じゃダメ？",
+    "vector": [5, 2, 1, 4, 1, 3],
+    "rules": [
+      "天使を集め、悪魔を相手に押し付けましょう。",
+      "順番にカードを出し、天使カードの獲得を目指します。",
+      "悪魔を獲得するとライフが減少するので注意…"
+    ],
+    "players": [3, 4],
+    "time": [20, 30],
+    "mood": ["バチバチ", "集中"],
+    "genre": ["カード", "トリックテイキング"],
+    "theme": ["ファンタジー", "非日常","数字"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "https://amzn.to/4qgvIrK",
+  "rakuten": "https://item.rakuten.co.jp/yellowsubmarine/4595559351018/",
+  "surugaya": ""
+  }
+  },
   {
     "title": "どっちぼーい",
      "images": [
@@ -1461,6 +1539,32 @@
   "amazon": "https://amzn.to/44EYXwI",
   "rakuten": "https://product.rakuten.co.jp/product/-/fa8878e03852fdff639e379a3f2cbeec/",
   "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607652456"
+  }
+  },
+    {
+    "title": "名前がよくわからないモノ集めました。",
+     "images": [
+    "images/games/名前がよくわからないモノ集めました。1.png",
+    "images/games/名前がよくわからないモノ集めました。2.png",
+    "images/games/名前がよくわからないモノ集めました。3.png"
+  ],
+    "desc": "神経がすり減りる<br>神経衰弱",
+    "vector": [3, 1, 1, 5, 2, 4],
+    "rules": [
+      "見たことのあるあれ、の名前集めました。",
+      "イラストと名前を一致させる神経衰弱",
+      "かるたやジジ抜きも遊べます。"
+    ],
+    "players": [2, 5],
+    "time": [10, 20],
+    "mood": ["わいわい", "バチバチ"],
+    "genre": ["カード", "運ゲー"],
+    "theme": ["日常", "数字"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
+  "surugaya": ""
   }
   },
   {
