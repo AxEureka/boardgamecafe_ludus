@@ -186,8 +186,11 @@ h1 {
 .game-card {
   position: relative;
   width: clamp(280px, 28vw, 320px);
-  aspect-ratio: 10 / 11;   /* 比率固定 */
-  padding: 1%;
+  aspect-ratio: 10 / 11;   /* カード比率固定 */
+  padding: 2%;             /* 内側余白 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   background:
     linear-gradient(
@@ -211,13 +214,17 @@ h1 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* 画像調整 */
 .game-card img {
-  width: 100%;
-  height: auto;
+  width: 90%;             /* カード幅の90%に制限 */
+  height: auto;           /* 縦横比維持 */
+  max-height: 45%;        /* カードの高さの最大45%に抑える */
   object-fit: contain;
+  margin: 0 auto;         /* 中央配置 */
   display: block;
   flex-shrink: 0;
 }
+
 
 .game-card:nth-child(odd)  { transform: rotate(-2deg); }
 .game-card:nth-child(even) { transform: rotate(2deg); }
@@ -296,3 +303,4 @@ h1 {
     height: 180px;
   }
 }
+
