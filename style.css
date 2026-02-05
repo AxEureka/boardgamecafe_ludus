@@ -175,13 +175,24 @@ h1 {
 /* ===============================
    カード
 ================================ */
+/* カードを横並びにする親 */
+.game-cards {
+  display: flex;
+  justify-content: center;  /* 中央寄せ */
+  gap: 2%;
+  margin-top: 1vh;
+  flex-wrap: wrap;          /* 横に収まらない場合は折り返す */
+}
+
+/* 個々のカード */
 .game-card {
   position: relative;
   width: clamp(280px, 28vw, 320px);
-  aspect-ratio: 10 / 11;   /* カード比率固定 */
-  padding: 2%;             
+  aspect-ratio: 10 / 11;     /* 縦横比を維持 */
+  padding: 2%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column;    /* カード内で縦に積む */
+  align-items: center;       /* 水平方向中央 */
   justify-content: flex-start;
 
   background:
@@ -198,7 +209,7 @@ h1 {
 
   border-radius: 14px;
   box-shadow: 4px 6px 15px rgba(0,0,0,0.35);
-  font-size: clamp(18px, 1.8vw, 22px);  /* 文字をカードに合わせて大きめ */
+  font-size: clamp(18px, 1.8vw, 22px);
   color: #000;
 
   overflow: hidden;
@@ -206,17 +217,16 @@ h1 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 画像調整 */
+/* 画像をカード内で大きく表示 */
 .game-card img {
-  width: 95%;               /* カード幅に対して大きめ */
-  height: auto;             
-  max-height: 55%;          /* 高さの上限を少し上げる */
+  width: 95%;
+  height: auto;
+  max-height: 55%;
   object-fit: contain;
-  margin: 0 auto 1vh;       /* 下に少し余白 */
+  margin-bottom: 1vh;
   display: block;
   flex-shrink: 0;
 }
-
 /* 内部リンク */
 .game-card a {
   display: flex;
@@ -297,5 +307,6 @@ h1 {
     height: 180px;
   }
 }
+
 
 
