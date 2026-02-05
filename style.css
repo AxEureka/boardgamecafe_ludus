@@ -85,7 +85,7 @@ body {
   position: absolute;
   top: -1.8em;
   left: 0;
-  font-size: clamp(14px, 1.5vw, 22px); /* 全体的に小さめ */
+  font-size: clamp(14px, 1.5vw, 22px);
   background: #fffdf5;
   padding: 4px 12px;
   border-radius: 10px;
@@ -108,7 +108,7 @@ body {
   left: 60%;
   top: 25%;
   transform: translateX(-50%);
-  font-size: 28px; /* 小さく */
+  font-size: 28px;
   background: rgba(255,255,255,0.9);
   padding: 12px 20px;
   border-radius: 14px;
@@ -133,7 +133,7 @@ header,
 
 /* ヘッダー */
 header {
-  padding: 15px 30px; /* 少し高さを減らす */
+  padding: 15px 30px;
   background: rgba(68,44,0,0.75);
   color: #fff;
 }
@@ -141,23 +141,23 @@ header {
 /* タイトル */
 h1 {
   font-family: "Great Vibes", cursive;
-  font-size: clamp(40px, 5.5vw, 70px); /* 小さめに抑える */
+  font-size: clamp(50px, 6vw, 80px);
   margin: 0;
-  line-height: 1.1; /* 2行になりにくく */
+  line-height: 1.1;
 }
 
 /* 今日のおすすめセクション */
 .today-section {
-  margin-top: 16vh; /* 少し上に寄せる */
+  margin-top: 12vh; /* 上に寄せる */
   text-align: center;
 }
 
 .today-section h2 {
   display: inline-block;
   margin: 0 auto;
-  padding: 8px 24px; /* 横幅も少し小さめ */
+  padding: 8px 24px;
   font-family: "Schoolbell", cursive;
-  font-size: clamp(28px, 3.5vw, 40px); /* 小さく抑える */
+  font-size: clamp(28px, 4vw, 42px);
   background: rgba(30,45,30,0.85);
   color: #f7f5ef;
   border-radius: 12px;
@@ -165,13 +165,12 @@ h1 {
 
 /* 説明文 */
 .top-description {
-  font-size: clamp(16px, 1.8vw, 24px); /* 小さく */
+  font-size: clamp(18px, 2vw, 28px);
   line-height: 1.5;
   margin: 20px auto 0;
   max-width: 900px;
   color: #f5f2e8;
 }
-
 
 /* ===============================
    カード
@@ -179,17 +178,17 @@ h1 {
 .game-cards {
   display: flex;
   justify-content: center;
-  gap: 1.5%;       /* 余白を狭く */
-  margin-top: 2vh;  /* 少し上に */
+  gap: 2%;       
+  margin-top: 1vh;  
   flex-wrap: wrap;
-  max-height: 50vh; /* 背景の木〜テーブルの高さに収める */
+  height: 38vh; /* 木下〜マスター右手上の範囲 */
 }
 
 .game-card {
   position: relative;
-  width: clamp(240px, 22vw, 300px); /* 小さくして横3枚収める */
+  width: clamp(280px, 28vw, 320px); /* ノートPCで3枚並ぶサイズ */
   aspect-ratio: 10 / 11;
-  padding: 0.8%;   /* 内側余白を狭める */
+  padding: 1%;   
 
   background:
     linear-gradient(
@@ -205,7 +204,7 @@ h1 {
 
   border-radius: 14px;
   box-shadow: 4px 6px 15px rgba(0,0,0,0.35);
-  font-size: clamp(14px, 1.2vw, 20px); /* 全体文字も小さめ */
+  font-size: clamp(16px, 1.5vw, 20px); 
   color: #000;
 
   overflow: hidden;
@@ -215,7 +214,7 @@ h1 {
 
 .game-card img {
   width: 100%;
-  height: 160px;   /* 画像も少し小さく */
+  height: 180px;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
@@ -256,7 +255,7 @@ h1 {
   position: absolute;
   top: 15px;
   right: 15px;
-  font-size: 28px; /* 少し小さく */
+  font-size: 28px; 
   background: transparent;
   border: none;
   cursor: pointer;
@@ -275,7 +274,7 @@ h1 {
   background: #fff8e6;
   border-radius: 18px;
   padding: 40px;
-  font-size: 28px; /* 少し小さく */
+  font-size: 28px;
 }
 
 /* ===============================
@@ -298,14 +297,3 @@ h1 {
     height: 180px;
   }
 }
-
-.top-description {
-  font-size: clamp(18px, 2vw, 26px);
-  line-height: 1.4;
-  margin: 30px auto 0;
-  max-width: 900px;
-  color: #f5f2e8;
-}
-
-
-
