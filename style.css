@@ -175,19 +175,22 @@ h1 {
 /* ===============================
    カード
 ================================ */
+/* ===============================
+   カード
+================================ */
 .game-cards {
   display: flex;
   justify-content: center;
   gap: 2%;       
   margin-top: 1vh;  
   flex-wrap: wrap;
-  height: 38vh; /* 木下〜マスター右手上の範囲 */
+  /* height を削除 → カード比率を優先 */
 }
 
 .game-card {
   position: relative;
-  width: clamp(280px, 28vw, 320px); /* ノートPCで3枚並ぶサイズ */
-  aspect-ratio: 10 / 11;
+  width: clamp(280px, 28vw, 320px); /* 横幅で高さが決まる */
+  aspect-ratio: 10 / 11;           /* 縦横比を固定 */
   padding: 1%;   
 
   background:
@@ -297,3 +300,4 @@ h1 {
     height: 180px;
   }
 }
+
