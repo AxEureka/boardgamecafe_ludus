@@ -1,4 +1,11 @@
 /* ===============================
+   全体安定化（QuizX系の基礎）
+================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ===============================
    基本
 ================================ */
 html, body {
@@ -16,6 +23,19 @@ body {
 }
 
 /* ===============================
+   表示基準フレーム（追加・安定化）
+================================ */
+#viewport-frame {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* ===============================
    ステージ
 ================================ */
 #stage {
@@ -27,9 +47,9 @@ body {
    背景レイヤー（固定・基準1536×1024）
 ================================ */
 #bg-wrap {
-  position: fixed;
-  inset: 0;
-  height: 100svh;
+  position: relative;
+  width: min(100vw, calc(100svh * 1536 / 1024));
+  height: min(100svh, calc(100vw * 1024 / 1536));
   aspect-ratio: 1536 / 1024;
   margin: auto;
   z-index: 0;
@@ -115,6 +135,7 @@ body {
   opacity: 0;
   transition: opacity 0.3s;
   z-index: 40;
+  max-width: min(80vw, 600px);
 }
 
 #master-bubble.show {
@@ -175,24 +196,22 @@ h1 {
 /* ===============================
    カード
 ================================ */
-/* カードを横並びにする親 */
 .game-cards {
   display: flex;
-  justify-content: center;  /* 中央寄せ */
+  justify-content: center;
   gap: 2%;
   margin-top: 1vh;
-  flex-wrap: wrap;          /* 横に収まらない場合は折り返す */
+  flex-wrap: wrap;
 }
 
-/* 個々のカード */
 .game-card {
   position: relative;
   width: clamp(280px, 28vw, 320px);
-  aspect-ratio: 10 / 11;     /* 縦横比を維持 */
+  aspect-ratio: 10 / 11;
   padding: 2%;
   display: flex;
-  flex-direction: column;    /* カード内で縦に積む */
-  align-items: center;       /* 水平方向中央 */
+  flex-direction: column;
+  align-items: center;
   justify-content: flex-start;
 
   background:
@@ -217,7 +236,6 @@ h1 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 画像をカード内で大きく表示 */
 .game-card img {
   width: 95%;
   height: auto;
@@ -227,7 +245,7 @@ h1 {
   display: block;
   flex-shrink: 0;
 }
-/* 内部リンク */
+
 .game-card a {
   display: flex;
   flex-direction: column;
@@ -238,14 +256,12 @@ h1 {
   color: inherit;
 }
 
-
 .game-card:nth-child(odd)  { transform: rotate(-2deg); }
 .game-card:nth-child(even) { transform: rotate(2deg); }
 
 .game-card:hover {
   transform: translateY(-4px) rotate(0) scale(1.03);
 }
-
 
 /* ===============================
    モーダル
@@ -265,7 +281,7 @@ h1 {
   position: absolute;
   top: 15px;
   right: 15px;
-  font-size: 28px; 
+  font-size: 28px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -307,6 +323,3 @@ h1 {
     height: 180px;
   }
 }
-
-
-
