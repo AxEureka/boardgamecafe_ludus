@@ -309,22 +309,32 @@ h1 {
    スマホ
 ================================ */
 @media (max-width: 768px) {
-  .hotspot,
-  .label-paper,
-  #master-bubble {
-    display: none;
+
+  header,
+  .today-section,
+  .game-cards {
+    position: relative;   /* absolute を完全解除 */
+    top: auto;
+    left: auto;
+    transform: none;
+
+    width: 100%;
+    margin: 0 auto;
   }
 
-  .game-card {
-    width: 90vw;
-    transform: none !important;
-    font-size: 20px;
+  header {
+    padding: 16px;
   }
 
-  .game-card img {
-    height: 180px;
+  .today-section {
+    margin-top: 30px;
+  }
+
+  .game-cards {
+    margin-top: 20px;
   }
 }
+
 
 /* ===============================
    PC：背景にUIを重ねる配置
@@ -356,4 +366,5 @@ h1 {
     top: 52%;
   }
 }
+
 
