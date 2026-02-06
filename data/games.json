@@ -318,7 +318,7 @@
     "images/games/TRiNity2.png",
     "images/games/TRiNity3.png"
   ],
-    "desc": "",
+    "desc": "数字3つを当てる心理戦",
     "vector": [3, 4, 1, 5, 1, 4],
     "rules": [
       "相手のカード3枚を当てることを目指します。",
@@ -1466,7 +1466,7 @@
     "images/games/天使と悪魔2.png",
     "images/games/天使と悪魔3.png"
   ],
-    "desc": "天使がお好き？悪魔じゃダメ？",
+    "desc": "天使がお好き？<br>悪魔じゃダメ？",
     "vector": [5, 2, 1, 4, 1, 3],
     "rules": [
       "天使を集め、悪魔を相手に押し付けましょう。",
@@ -2040,9 +2040,9 @@
   {
     "title": "マダミス/ストプレで泣かせたいGMのゲーム",
     "images": [
-    "images/games/マダミス/ストプレで泣かせたいGMのゲーム1.png",
-    "images/games/マダミス/ストプレで泣かせたいGMのゲーム2.png",
-    "images/games/マダミス/ストプレで泣かせたいGMのゲーム3.png"
+    "images/games/マダミスストプレで泣かせたいGMのゲーム1.png",
+    "images/games/マダミスストプレで泣かせたいGMのゲーム2.png",
+    "images/games/マダミスストプレで泣かせたいGMのゲーム3.png"
   ],
     "desc": "エモシナリオでPLを泣かせよう",
     "vector": [2, 3, 5, 4, 2, 3],
