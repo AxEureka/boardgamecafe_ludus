@@ -1,5 +1,30 @@
 [
- 
+   {
+    "title": "BACHI×BACHI!",
+    "images": [
+    "images/games/BACHI×BACHI!1.png",
+    "images/games/BACHI×BACHI!2.png",
+    "images/games/BACHI×BACHI!3.png"
+  ],
+    "desc": "蜂たちの命がけの攻防",
+    "vector": [5, 2, 1, 5, 1, 2],
+    "rules": [
+      "ミツバチ陣営とスズメバチ陣営に分かれます",
+      "食料のミツ、またはミツバチを巣まで持ち帰りましょう",
+      "熱殺蜂球vs.警戒フェロモン、勝つのは…？"
+    ],
+    "players": [2, 2],
+    "time": [45, 60],
+    "mood": ["没入", "バチバチ"],
+    "genre": ["ボード", "小道具", "役職"],
+    "theme": ["バトル", "動物","植物"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
+  "surugaya": ""
+  }
+  },
   {
     "title": "Coup",
     "images": [
@@ -279,6 +304,32 @@
     "mood": ["集中", "バチバチ"],
     "genre": ["カード", "運ゲー"],
     "theme": ["食べ物・飲み物", "動物","日常"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
+  "surugaya": ""
+  }
+  },
+  {
+    "title": "TRiNity",
+     "images": [
+    "images/games/TRiNity1.png",
+    "images/games/TRiNity2.png",
+    "images/games/TRiNity3.png"
+  ],
+    "desc": "",
+    "vector": [3, 4, 1, 5, 1, 4],
+    "rules": [
+      "相手のカード3枚を当てることを目指します。",
+      "登場人物の能力を活用しながら推理、時には直観に頼りましょう。",
+      "それぞれが抱える物語にも注目して……"
+    ],
+    "players": [2, 3],
+    "time": [10, 20],
+    "mood": ["集中", "ドキドキ"],
+    "genre": ["カード", "小道具", "脱落あり", "心理戦"],
+    "theme": ["推理", "バトル","文学", "数字"],
     "brand": ["その他"],
     "links": {
   "amazon": "",
@@ -1987,6 +2038,32 @@
   }
   },
   {
+    "title": "マダミス/ストプレで泣かせたいGMのゲーム",
+    "images": [
+    "images/games/マダミス/ストプレで泣かせたいGMのゲーム1.png",
+    "images/games/マダミス/ストプレで泣かせたいGMのゲーム2.png",
+    "images/games/マダミス/ストプレで泣かせたいGMのゲーム3.png"
+  ],
+    "desc": "エモシナリオでPLを泣かせよう",
+    "vector": [2, 3, 5, 4, 2, 3],
+    "rules": [
+      "GMであるあなたの喜びは、PLたちの感動の涙",
+      "手札を使ってオリジナルのエモシナリオをインストしましょう",
+      "※マーダーミステリー、ストーリープレイの経験があるとより楽しめます。"
+    ],
+    "players": [3, 6],
+    "time": [20, 30],
+    "mood": ["没入","なるほど"],
+    "genre": ["カード","役職","大喜利"],
+    "theme": ["文学", "日常", "鑑賞"],
+    "brand": ["Group SNE"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
+  "surugaya": ""
+  }
+  },
+  {
     "title": "みんなで本をもちよって",
     "images": [
     "images/games/みんなで本をもちよって1.png",
@@ -2192,6 +2269,32 @@
   "amazon": "https://amzn.to/3LacjKK",
   "rakuten": "https://product.rakuten.co.jp/product/-/296f648c5bc43da8cfc7960dab48a7ba/",
   "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607651157"
+  }
+  },
+   {
+    "title": "ロボファクトリー",
+     "images": [
+    "images/games/ロボファクトリー1.png",
+    "images/games/ロボファクトリー2.png",
+    "images/games/ロボファクトリー3.png"
+  ],
+    "desc": "この部品、取る？取らない？",
+    "vector": [3, 5, 1, 5, 2, 4],
+    "rules": [
+      "手番では1枚引いて、1枚を場に流します。",
+      "流れてきたカードを取るか取らないか判断しましょう。",
+      "爆弾を取らないように気を付けて"
+    ],
+    "players": [2, 4],
+    "time": [15, 30],
+    "mood": ["バチバチ", "ドキドキ"],
+    "genre": ["ボード","カード", "小道具","隠匿", "脱落あり", "心理戦", "会話"],
+    "theme": ["推理", "バトル", "数字"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "https://amzn.to/4bDdTzN",
+  "rakuten": "https://item.rakuten.co.jp/ciel-sora/vphpfa4wvhi4aywnvgpz5mtm74/",
+  "surugaya": ""
   }
   },
   {
