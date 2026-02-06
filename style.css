@@ -310,31 +310,46 @@ h1 {
 ================================ */
 @media (max-width: 768px) {
 
+  /* 舞台を解除 */
+  #viewport-frame {
+    position: relative;
+    height: auto;
+  }
+
+  #stage {
+    position: relative;
+  }
+
+  /* 背景を1画面分にする */
+  #bg-wrap {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1536 / 1024;
+  }
+
+  /* UIは完全に通常フローへ */
   header,
   .today-section,
   .game-cards {
-    position: relative;   /* absolute を完全解除 */
+    position: relative;
     top: auto;
     left: auto;
     transform: none;
-
     width: 100%;
-    margin: 0 auto;
   }
 
   header {
-    padding: 16px;
+    margin-top: 0;
   }
 
   .today-section {
-    margin-top: 30px;
+    margin-top: 24px;
   }
 
   .game-cards {
-    margin-top: 20px;
+    margin-top: 16px;
   }
 }
-
 
 /* ===============================
    PC：背景にUIを重ねる配置
@@ -366,5 +381,6 @@ h1 {
     top: 52%;
   }
 }
+
 
 
