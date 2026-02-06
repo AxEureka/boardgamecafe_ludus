@@ -39,8 +39,10 @@ body {
    ステージ
 ================================ */
 #stage {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* ===============================
@@ -323,3 +325,35 @@ h1 {
     height: 180px;
   }
 }
+
+/* ===============================
+   PC：背景にUIを重ねる配置
+================================ */
+@media (min-width: 769px) {
+
+  header,
+  .today-section,
+  .game-cards {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1200px, 90vw);
+    z-index: 20;
+  }
+
+  /* タイトル帯：電気あたり */
+  header {
+    top: 12%;
+  }
+
+  /* 「本日のおすすめ」：木の絵と同じ高さ */
+  .today-section {
+    top: 38%;
+  }
+
+  /* カード：木の絵の下〜マスター右手 */
+  .game-cards {
+    top: 52%;
+  }
+}
+
