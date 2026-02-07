@@ -23,7 +23,7 @@ body {
 }
 
 /* ===============================
-   表示基準フレーム（追加・安定化）
+   表示基準フレーム
 ================================ */
 #viewport-frame {
   position: fixed;
@@ -46,7 +46,7 @@ body {
 }
 
 /* ===============================
-   背景レイヤー（固定・基準1536×1024）
+   背景レイヤー（1536×1024基準）
 ================================ */
 #bg-wrap {
   position: relative;
@@ -55,7 +55,7 @@ body {
   aspect-ratio: 1536 / 1024;
   margin: auto;
   z-index: 0;
-  pointer-events: none;
+  pointer-events: none; /* ← 重要 */
 }
 
 #bg-image {
@@ -107,14 +107,14 @@ body {
   position: absolute;
   top: -1.8em;
   left: 0;
-  font-size: clamp(14px, 1.5vw, 22px);
+  font-size: 18px;
   background: #fffdf5;
   padding: 4px 12px;
   border-radius: 10px;
   white-space: nowrap;
 }
 
-/* 座標（1536×1024基準 → %変換済） */
+/* 座標 */
 .bookshelf { left: 1.3%; top: 25.4%; width: 19.5%; height: 41%; }
 .painting  { right: 11.7%; top: 27.3%; width: 13%; height: 21.5%; }
 .cup       { right: 7.8%; bottom: 9.8%; width: 7.8%; height: 15.6%; }
@@ -130,13 +130,13 @@ body {
   left: 60%;
   top: 25%;
   transform: translateX(-50%);
-  font-size: clamp(28px, 2vw, 36px);
+  font-size: 32px;
   background: rgba(255,255,255,0.9);
   padding: 14px 24px;
   border-radius: 14px;
   opacity: 0;
   transition: opacity 0.3s;
-  z-index: 40;
+  z-index: 80;
   max-width: min(80vw, 600px);
 }
 
@@ -145,33 +145,36 @@ body {
 }
 
 /* ===============================
-   UIレイヤー
+   UIレイヤー（最前面固定）
 ================================ */
 header,
 .today-section,
 .game-cards {
   position: relative;
-  z-index: 10;
+  z-index: 60;
+  pointer-events: auto;
 }
 
-/* ヘッダー */
+/* ===============================
+   ヘッダー
+================================ */
 header {
   padding: 20px 30px;
   background: rgba(68,44,0,0.75);
   color: #fff;
 }
 
-/* タイトル */
 h1 {
   font-family: "Great Vibes", cursive;
-  font-size: clamp(60px, 6vw, 80px);
+  font-size: 72px;
   margin: 0;
   line-height: 1.1;
 }
 
-/* 今日のおすすめセクション */
+/* ===============================
+   今日のおすすめ
+================================ */
 .today-section {
-  margin-top: clamp(14vh, 16vh, 20vh);
   text-align: center;
 }
 
@@ -180,15 +183,14 @@ h1 {
   margin: 0 auto;
   padding: 10px 28px;
   font-family: "Schoolbell", cursive;
-  font-size: clamp(32px, 4vw, 42px);
+  font-size: 38px;
   background: rgba(30,45,30,0.85);
   color: #f7f5ef;
   border-radius: 12px;
 }
 
-/* 説明文 */
 .top-description {
-  font-size: clamp(20px, 2.5vw, 28px);
+  font-size: 22px;
   line-height: 1.5;
   margin: 25px auto 0;
   max-width: 900px;
@@ -196,25 +198,34 @@ h1 {
 }
 
 /* ===============================
-   カード
+   カード配置（完全安定）
 ================================ */
 .game-cards {
   display: flex;
   justify-content: center;
-  gap: 2%;
-  margin-top: 1vh;
+  align-items: stretch;
+  gap: 32px;
   flex-wrap: wrap;
+
+  max-width: 1100px;
+  margin: 24px auto 0;
 }
 
+/* ===============================
+   カード
+================================ */
 .game-card {
   position: relative;
-  width: clamp(280px, 28vw, 320px);
+
+  flex: 0 0 320px;
+  max-width: 320px;
+
   aspect-ratio: 10 / 11;
-  padding: 2%;
+  padding: 16px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
 
   background:
     linear-gradient(
@@ -230,30 +241,31 @@ h1 {
 
   border-radius: 14px;
   box-shadow: 4px 6px 15px rgba(0,0,0,0.35);
-  font-size: clamp(18px, 1.8vw, 22px);
+
+  font-size: 20px;
   color: #000;
 
-  overflow: hidden;
-  transform-origin: center center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .game-card img {
-  width: 95%;
-  height: auto;
+  width: 100%;
   max-height: 55%;
   object-fit: contain;
-  margin-bottom: 1vh;
-  display: block;
-  flex-shrink: 0;
+  margin-bottom: 12px;
 }
 
 .game-card a {
+  position: relative;
+  z-index: 1;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   width: 100%;
   height: 100%;
+
   text-decoration: none;
   color: inherit;
 }
@@ -262,7 +274,7 @@ h1 {
 .game-card:nth-child(even) { transform: rotate(2deg); }
 
 .game-card:hover {
-  transform: translateY(-4px) rotate(0) scale(1.03);
+  transform: translateY(-4px) rotate(0deg) scale(1.03);
 }
 
 /* ===============================
@@ -276,24 +288,7 @@ h1 {
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 100;
-}
-
-.diary-modal .close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 28px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: #333;
-  z-index: 200;
-  line-height: 1;
-}
-
-.diary-modal .close-btn:hover {
-  color: #900;
+  z-index: 120;
 }
 
 .diary-content {
@@ -306,53 +301,7 @@ h1 {
 }
 
 /* ===============================
-   スマホ
-================================ */
-@media (max-width: 768px) {
-
-  /* 舞台を解除 */
-  #viewport-frame {
-    position: relative;
-    height: auto;
-  }
-
-  #stage {
-    position: relative;
-  }
-
-  /* 背景を1画面分にする */
-  #bg-wrap {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1536 / 1024;
-  }
-
-  /* UIは完全に通常フローへ */
-  header,
-  .today-section,
-  .game-cards {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    width: 100%;
-  }
-
-  header {
-    margin-top: 0;
-  }
-
-  .today-section {
-    margin-top: 24px;
-  }
-
-  .game-cards {
-    margin-top: 16px;
-  }
-}
-
-/* ===============================
-   PC：背景にUIを重ねる配置
+   PC配置（背景に重ねる）
 ================================ */
 @media (min-width: 769px) {
 
@@ -362,27 +311,53 @@ h1 {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 78%;        /* 絵の中での横幅 */
-    z-index: 20;
+    width: 1100px;
+    max-width: 92vw;
   }
 
-  /* 電灯あたり（1536×1024基準） */
   header {
     top: 12%;
   }
 
-  /* 木の絵あたり */
   .today-section {
     top: 38%;
   }
 
-  /* 木の下〜マスター右手 */
   .game-cards {
     top: 52%;
   }
 }
 
+/* ===============================
+   スマホ
+================================ */
+@media (max-width: 768px) {
 
+  #viewport-frame {
+    position: relative;
+    height: auto;
+  }
 
+  #stage {
+    position: relative;
+  }
 
+  #bg-wrap {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1536 / 1024;
+  }
 
+  header,
+  .today-section,
+  .game-cards {
+    position: relative;
+    transform: none;
+    width: 100%;
+  }
+
+  .game-card {
+    flex: 0 0 90%;
+    max-width: 360px;
+  }
+}
