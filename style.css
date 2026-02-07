@@ -362,25 +362,27 @@ h1 {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: min(1200px, 90vw);
+    width: 78%;        /* 絵の中での横幅 */
     z-index: 20;
   }
 
-  /* タイトル帯：電気あたり */
+  /* 電灯あたり（1536×1024基準） */
   header {
     top: 12%;
   }
 
-  /* 「本日のおすすめ」：木の絵と同じ高さ */
+  /* 木の絵あたり */
   .today-section {
     top: 38%;
   }
 
-  /* カード：木の絵の下〜マスター右手 */
+  /* 木の下〜マスター右手 */
   .game-cards {
     top: 52%;
   }
 }
+
+
 
 
 
