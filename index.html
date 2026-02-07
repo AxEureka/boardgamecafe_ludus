@@ -3,11 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>ボードゲーム診断 ボードゲーム紹介 ボードゲーム検索 ボドゲ喫茶Ludus</title>
-  <meta name="description" content="プレイスタイルを分析、ボードゲーム診断！おすすめボードゲーム紹介、目的や気分に応じたボードゲーム検索など。">
+  <meta
+    name="description"
+    content="プレイスタイルを分析、ボードゲーム診断！おすすめボードゲーム紹介、目的や気分に応じたボードゲーム検索など。"
+  />
 
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Schoolbell&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Schoolbell&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
     /* モーダル右上閉じるボタン */
     .diary-modal .close-btn {
@@ -22,39 +30,49 @@
       z-index: 10;
       line-height: 1;
     }
-    .diary-modal .close-btn:hover { color:#900; }
+
+    .diary-modal .close-btn:hover {
+      color: #900;
+    }
 
     /* カードタイトル非表示 */
-    .game-card .game-title { display: none; }
+    .game-card .game-title {
+      display: none;
+    }
   </style>
 </head>
+
 <body class="top-page">
+  <div id="stage">
 
-<div id="stage">
+    <!-- 背景＋ホットスポット -->
+    <div id="bg-wrap">
+      <img src="images/cafe.jpg" id="bg-image" alt="カフェ背景">
 
-  <div id="bg-wrap">
-    <img src="images/cafe.jpg" id="bg-image" alt="カフェ背景">
+      <div id="hs-bookshelf" class="clickable hotspot bookshelf">
+        <div class="label-paper">検索する</div>
+      </div>
 
-    <!-- ホットスポット -->
-    <div id="hs-bookshelf" class="clickable hotspot bookshelf">
-      <div class="label-paper">検索する</div>
+      <div id="hs-painting" class="clickable hotspot painting">
+        <div class="label-paper">診断する</div>
+      </div>
+
+      <div id="hs-cup" class="clickable hotspot cup">
+        <div class="label-paper">注文する</div>
+      </div>
+
+      <div id="hs-chair" class="clickable hotspot chair">
+        <div class="label-paper">このお店って？</div>
+      </div>
+
+      <div id="hs-baum" class="clickable hotspot baum"></div>
+      <div id="hs-master" class="clickable hotspot master"></div>
+
+      <div id="master-bubble" class="speech-bubble" aria-hidden="true"></div>
+      <div class="main-light"></div>
     </div>
-    <div id="hs-painting" class="clickable hotspot painting">
-      <div class="label-paper">診断する</div>
-    </div>
-    <div id="hs-cup" class="clickable hotspot cup">
-      <div class="label-paper">注文する</div>
-    </div>
-    <div id="hs-chair" class="clickable hotspot chair">
-      <div class="label-paper">このお店って？</div>
-    </div>
-    <div id="hs-baum" class="clickable hotspot baum"></div>
-    <div id="hs-master" class="clickable hotspot master"></div>
 
-    <div id="master-bubble" class="speech-bubble" aria-hidden="true"></div>
-    <div class="main-light"></div>
-
-    <!-- 👇 ここにUIを移動する -->
+    <!-- UI -->
     <header>
       <h1>ボドゲ喫茶 Ludus へようこそ</h1>
       <p class="top-description">
@@ -62,177 +80,230 @@
       </p>
     </header>
 
-    <section class="today-section">
-      <h2>本日のおすすめ</h2>
-      <div id="today-games" class="game-cards"></div>
-    </section>
-
+    <main>
+      <section class="today-section">
+        <h2>本日のおすすめ</h2>
+        <div id="today-games" class="game-cards"></div>
+      </section>
+    </main>
   </div>
-</div>
 
-
-<!-- モーダル -->
-<div id="diary-modal" class="diary-modal">
-  <div class="diary-content">
-    <button id="close-diary" class="close-btn">&times;</button>
-    <h3>マスターの日記</h3>
-    <p id="diary-text"></p>
+  <!-- モーダル -->
+  <div id="diary-modal" class="diary-modal">
+    <div class="diary-content">
+      <button id="close-diary" class="close-btn">&times;</button>
+      <h3>マスターの日記</h3>
+      <p id="diary-text"></p>
+    </div>
   </div>
-</div>
 
-<div id="chair-modal" class="diary-modal">
-  <div class="diary-content">
-    <button id="close-chair" class="close-btn">&times;</button>
-    <h3>このお店について</h3>
-    <p id="chair-text"></p>
+  <div id="chair-modal" class="diary-modal">
+    <div class="diary-content">
+      <button id="close-chair" class="close-btn">&times;</button>
+      <h3>このお店について</h3>
+      <p id="chair-text"></p>
+    </div>
   </div>
-</div>
 
-<!-- マスター台詞 -->
-<ul id="master-lines" style="display:none;">
-  <li>いらっしゃいませ。<br>ゆっくりしていってくださいね。</li>
-  <li>棚からもゲームをお探しになれますよ。</li>
-  <li>いつか、オリジナルのゲームを<br>開発できたらいいですね。</li>
-  <li>こらこら、熱いから離れていてね。</li>
-  <li>お砂糖を取ってくれるかい？<br>ありがとう。</li>
-  <li>光が飛んでいた？<br>ふふ、遊びたいのかもしれませんね。</li>
-  <li>なにか召し上がりますか？<br>メニューは手前のテーブルにあります。</li>
-  <li>こちら、一戦やってみますか？<br>お相手しますよ。</li>
-  <li>今日のブレンドは、自信作なんです。</li>
-  <li>花の絵に訊くと、<br>おすすめを教えてくれますよ。</li>
-</ul>
+  <!-- マスター台詞 -->
+  <ul id="master-lines" style="display:none;">
+    <li>いらっしゃいませ。<br>ゆっくりしていってくださいね。</li>
+    <li>棚からもゲームをお探しになれますよ。</li>
+    <li>いつか、オリジナルのゲームを<br>開発できたらいいですね。</li>
+    <li>こらこら、熱いから離れていてね。</li>
+    <li>お砂糖を取ってくれるかい？<br>ありがとう。</li>
+    <li>光が飛んでいた？<br>ふふ、遊びたいのかもしれませんね。</li>
+    <li>なにか召し上がりますか？<br>メニューは手前のテーブルにあります。</li>
+    <li>こちら、一戦やってみますか？<br>お相手しますよ。</li>
+    <li>今日のブレンドは、自信作なんです。</li>
+    <li>花の絵に訊くと、<br>おすすめを教えてくれますよ。</li>
+  </ul>
 
-<script>
-document.addEventListener('DOMContentLoaded',()=>{
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const $ = id => document.getElementById(id);
 
-  const $=id=>document.getElementById(id);
+      /* =========================
+         今日のおすすめカード
+      ========================== */
+      async function showTodayGames() {
+        const res = await fetch('data/games.json');
+        const games = await res.json();
 
-  /* =========================
-     今日のおすすめカード
-  ========================== */
-  async function showTodayGames(){
-    const res=await fetch('data/games.json');
-    const games=await res.json();
-    const shuffled=games.sort(()=>Math.random()-0.5).slice(0,3);
-    const container=$('today-games'); container.innerHTML='';
-    shuffled.forEach(game=>{
-      const img=Array.isArray(game.images)?game.images[0]:game.image;
-      const card=document.createElement('div'); card.className='game-card';
-      card.innerHTML=`
-        <a href="detail.html?title=${encodeURIComponent(game.title)}">
-          <img src="${img}" alt="${game.title}">
-          <p class="game-desc">${game.desc}</p>
-        </a>`;
-      container.appendChild(card);
+        const shuffled = games
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 3);
+
+        const container = $('today-games');
+        container.innerHTML = '';
+
+        shuffled.forEach(game => {
+          const img = Array.isArray(game.images)
+            ? game.images[0]
+            : game.image;
+
+          const card = document.createElement('div');
+          card.className = 'game-card';
+          card.innerHTML = `
+            <a href="detail.html?title=${encodeURIComponent(game.title)}">
+              <img src="${img}" alt="${game.title}">
+              <p class="game-desc">${game.desc}</p>
+            </a>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      showTodayGames();
+
+      /* =========================
+         妖精
+      ========================== */
+      const fairyColors = [
+        'red', 'blue', 'purple', 'yellow',
+        'green', 'orange', 'white'
+      ];
+
+      const fairyTypes = {
+        red:    ['戦心','戦大','戦経','戦協','戦運'],
+        blue:   ['戦心','心大','心経','心協','心運'],
+        purple: ['戦大','心大','大経','大協','大運'],
+        yellow: ['戦経','心経','大経','経協','経運'],
+        green:  ['戦協','心協','大協','経協','協運'],
+        orange: ['戦運','心運','大運','経運','協運'],
+        white:  ['バランスタイプ']
+      };
+
+      function spawnFairy() {
+        const fairy = document.createElement('div');
+        fairy.className = 'fairy';
+
+        const size = 10 + Math.random() * 10;
+        fairy.style.width = fairy.style.height = size + 'px';
+
+        const color = fairyColors[Math.floor(Math.random() * fairyColors.length)];
+        fairy.style.background = color;
+        fairy.style.boxShadow = `0 0 10px 5px ${color}`;
+
+        fairy.style.left = Math.random() * window.innerWidth + 'px';
+        fairy.style.top  = Math.random() * window.innerHeight + 'px';
+
+        document.body.appendChild(fairy);
+
+        setTimeout(() => {
+          fairy.style.transform = `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`;
+          fairy.style.opacity = 0;
+        }, 50);
+
+        fairy.onclick = () => {
+          const type = fairyTypes[color][Math.floor(Math.random() * fairyTypes[color].length)];
+          location.href = `fairy.html?type=${encodeURIComponent(type)}`;
+        };
+
+        setTimeout(() => fairy.remove(), 5000);
+      }
+
+      function startFairies() {
+        setTimeout(function loop() {
+          spawnFairy();
+          setTimeout(loop, 20000 + Math.random() * 50000);
+        }, 10000);
+      }
+
+      startFairies();
+
+      /* =========================
+         ホットスポット
+      ========================== */
+      $('hs-bookshelf').onclick = () => location.href = 'search.html';
+      $('hs-painting').onclick  = () => location.href = 'door.html';
+      $('hs-cup').onclick       = () => location.href = 'order.html';
+
+      $('hs-chair').onclick = async e => {
+        e.stopPropagation();
+        const res = await fetch('data/cafe.json');
+        const json = await res.json();
+        $('chair-text').innerHTML = json.text;
+        $('chair-modal').style.display = 'flex';
+      };
+
+      /* =========================
+         バウムクリック
+      ========================== */
+      const diaryTexts = [
+        "5月26日<br>重ためのボードゲームはルールが難しいけれど、付属品や世界観の細やかさは見てて飽きない。あの子は真剣な顔でルールブックを呼んでいる。口元に笑みを浮かべて、早く遊びたいみたい。",
+        "5月29日<br>静かな雨の日。地下室から出てきたあの子が古い指輪を見つけてきた。ずっと前に遊んだ時に落として、そのままになっていたらしい。薔薇の箱にしまっておく。これでまた遊べるね。",
+        "10月10日<br>ゲーム棚を整理していたら懐かしいゲームを見つけた。あの子と初めて遊んだボードゲーム。少しずれたセンスが独特で面白かったなぁ。今ならこの絵に、なんてタイトルを付けるだろう。",
+        "11月15日<br>あの子がこっそりコーヒー豆をかじっていた。お菓子だと思ったらしい。苦いのが苦手らしく涙目になっていたけれど、アフォガードは気に入ったみたい。また作ってあげよう。",
+        "1月14日<br>閉店後にみんなで映画のポスターや小説を作ったり、相談への回答を考えたり。とにかくいっぱい笑ったことは覚えている。",
+        "2月2日<br>特に冷え込む日。新しいブレンドを試してみた。",
+        "2月28日<br>信じられないことが起こった。これからどうなるんだろう…？"
+      ];
+
+      let baumClickCount = 0;
+
+      $('hs-baum').addEventListener('click', e => {
+        e.stopPropagation();
+        baumClickCount++;
+
+        if (baumClickCount === 3) {
+          showMasterMessage("そこは……あまり見ないでください！");
+          baumClickCount = 0;
+          return;
+        }
+
+        const randomEntry = diaryTexts[Math.floor(Math.random() * diaryTexts.length)];
+        $('diary-text').innerHTML = randomEntry;
+        $('diary-modal').style.display = 'flex';
+      });
+
+      /* =========================
+         マスター吹き出し
+      ========================== */
+      const bubble = $('master-bubble');
+      const lines = [...$('master-lines').querySelectorAll('li')].map(li => li.innerHTML);
+
+      $('hs-master').onclick = e => {
+        e.stopPropagation();
+        bubble.innerHTML = lines[Math.floor(Math.random() * lines.length)];
+        bubble.classList.add('show');
+        setTimeout(() => bubble.classList.remove('show'), 3000);
+      };
+
+      /* =========================
+         モーダル閉じる
+      ========================== */
+      const diaryModal = $('diary-modal');
+      const chairModal = $('chair-modal');
+
+      $('close-diary').onclick = () => diaryModal.style.display = 'none';
+      $('close-chair').onclick = () => chairModal.style.display = 'none';
+
+      diaryModal.onclick = e => {
+        if (e.target === diaryModal) diaryModal.style.display = 'none';
+      };
+
+      chairModal.onclick = e => {
+        if (e.target === chairModal) chairModal.style.display = 'none';
+      };
+
+      /* =========================
+         吹き出し風メッセージ
+      ========================== */
+      function showMasterMessage(text) {
+        const msg = document.createElement('div');
+        msg.className = 'master-message';
+        msg.textContent = text;
+
+        document.body.appendChild(msg);
+
+        setTimeout(() => msg.classList.add('show'), 10);
+        setTimeout(() => {
+          msg.classList.remove('show');
+          setTimeout(() => msg.remove(), 500);
+        }, 2500);
+      }
     });
-  }
-  showTodayGames();
-
-  /* =========================
-     妖精
-  ========================== */
-  const fairyColors=['red','blue','purple','yellow','green','orange','white'];
-  const fairyTypes={
-    red:["戦心","戦大","戦経","戦協","戦運"],
-    blue:["戦心","心大","心経","心協","心運"],
-    purple:["戦大","心大","大経","大協","大運"],
-    yellow:["戦経","心経","大経","経協","経運"],
-    green:["戦協","心協","大協","経協","協運"],
-    orange:["戦運","心運","大運","経運","協運"],
-    white:["バランスタイプ"]
-  };
-  function spawnFairy(){
-    const fairy=document.createElement('div');
-    fairy.className='fairy';
-    const size=10+Math.random()*10; fairy.style.width=fairy.style.height=size+'px';
-    const color=fairyColors[Math.floor(Math.random()*fairyColors.length)];
-    fairy.style.background=color;
-    fairy.style.boxShadow=`0 0 10px 5px ${color}`;
-    fairy.style.left=Math.random()*window.innerWidth+'px';
-    fairy.style.top=Math.random()*window.innerHeight+'px';
-    document.body.appendChild(fairy);
-    setTimeout(()=>{ fairy.style.transform=`translate(${Math.random()*200-100}px,${Math.random()*200-100}px)`; fairy.style.opacity=0; },50);
-    fairy.onclick=()=>{ const type=fairyTypes[color][Math.floor(Math.random()*fairyTypes[color].length)]; location.href=`fairy.html?type=${encodeURIComponent(type)}`; }
-    setTimeout(()=>fairy.remove(),5000);
-  }
-  function startFairies(){ setTimeout(function loop(){ spawnFairy(); setTimeout(loop,20000+Math.random()*50000); },10000); }
-  startFairies();
-
-  /* =========================
-     ホットスポット
-  ========================== */
-  $('hs-bookshelf').onclick=()=>location.href='search.html';
-  $('hs-painting').onclick=()=>location.href='door.html';
-  $('hs-cup').onclick=()=>location.href='order.html';
-
-  $('hs-chair').onclick=async e=>{
-    e.stopPropagation();
-    const res=await fetch('data/cafe.json');
-    const json=await res.json();
-    $('chair-text').innerHTML=json.text;
-    $('chair-modal').style.display='flex';
-  };
-
-  /* =========================
-     バウムクリック（日記＆3回目でマスター）
-  ========================== */
-  const diaryTexts=[
-    "5月26日<br>重ためのボードゲームはルールが難しいけれど、付属品や世界観の細やかさは見てて飽きない。あの子は真剣な顔でルールブックを呼んでいる。口元に笑みを浮かべて、早く遊びたいみたい。",
-    "5月29日<br>静かな雨の日。地下室から出てきたあの子が古い指輪を見つけてきた。ずっと前に遊んだ時に落として、そのままになっていたらしい。薔薇の箱にしまっておく。これでまた遊べるね。",
-    "10月10日<br>ゲーム棚を整理していたら懐かしいゲームを見つけた。あの子と初めて遊んだボードゲーム。少しずれたセンスが独特で面白かったなぁ。今ならこの絵に、なんてタイトルを付けるだろう。",
-    "11月15日<br>あの子がこっそりコーヒー豆をかじっていた。お菓子だと思ったらしい。苦いのが苦手らしく涙目になっていたけれど、アフォガードは気に入ったみたい。また作ってあげよう。",
-    "1月14日<br>閉店後にみんなで映画のポスターや小説を作ったり、相談への回答を考えたり。とにかくいっぱい笑ったことは覚えている。自分の常識が通じないこともあったり。いろんな考え方を聞くのはやっぱり楽しいな。",
-    "2月2日<br>特に冷え込む日。新しいブレンドを試してみた。基本はまろやかに、酸味は抑えて、苦さは最後に軽く。味や香りに敏感なあの子が何も言わず目を細めていた。これは自信をもってお客様にも出せそうだ。",
-    "2月28日<br>信じられないことが起こった。あの子もびっくりして逃げようとしたけれど、なんとか落ち着いてもらえた。ナポリタンを食べて、デッキ構築ゲームで遊んで、とりあえず楽しんでもらえたみたいだけど、これからどうなるんだろう…？"
-  ];
-
-  let baumClickCount=0;
-  $('hs-baum').addEventListener('click',e=>{
-    e.stopPropagation(); baumClickCount++;
-    if(baumClickCount===3){ showMasterMessage("そこは……あまり見ないでください！"); baumClickCount=0; return; }
-    const randomEntry=diaryTexts[Math.floor(Math.random()*diaryTexts.length)];
-    $('diary-text').innerHTML=randomEntry;
-    $('diary-modal').style.display='flex';
-  });
-
-  /* =========================
-     マスター吹き出し
-  ========================== */
-  const bubble=$('master-bubble');
-  const lines=[...$('master-lines').querySelectorAll('li')].map(li=>li.innerHTML);
-  $('hs-master').onclick=e=>{
-    e.stopPropagation();
-    bubble.innerHTML=lines[Math.floor(Math.random()*lines.length)];
-    bubble.classList.add('show');
-    setTimeout(()=>bubble.classList.remove('show'),3000);
-  };
-
-  /* =========================
-     モーダル閉じる
-  ========================== */
-  const diaryModal=$('diary-modal'); const closeDiary=$('close-diary');
-  const chairModal=$('chair-modal'); const closeChair=$('close-chair');
-
-  closeDiary.addEventListener('click',()=>diaryModal.style.display='none');
-  closeChair.addEventListener('click',()=>chairModal.style.display='none');
-
-  diaryModal.addEventListener('click',e=>{ if(e.target===diaryModal) diaryModal.style.display='none'; });
-  chairModal.addEventListener('click',e=>{ if(e.target===chairModal) chairModal.style.display='none'; });
-
-  /* =========================
-     吹き出し風メッセージ
-  ========================== */
-  function showMasterMessage(text){
-    const msg=document.createElement('div');
-    msg.className='master-message';
-    msg.textContent=text;
-    document.body.appendChild(msg);
-    setTimeout(()=>msg.classList.add('show'),10);
-    setTimeout(()=>{ msg.classList.remove('show'); setTimeout(()=>msg.remove(),500); },2500);
-  }
-
-});
-</script>
+  </script>
 </body>
 </html>
-
