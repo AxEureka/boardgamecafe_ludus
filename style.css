@@ -1,13 +1,10 @@
 /* ===============================
-   全体安定化（QuizX系の基礎）
+   全体リセット
 ================================ */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* ===============================
-   基本
-================================ */
 html, body {
   margin: 0;
   width: 100%;
@@ -18,12 +15,11 @@ body {
   font-family: "Georgia", serif;
   background: #000;
   color: #333;
-  text-align: center;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* ===============================
-   表示基準フレーム
+   ビューポート基準フレーム
 ================================ */
 #viewport-frame {
   position: fixed;
@@ -32,35 +28,41 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  z-index: 0;
 }
 
 /* ===============================
-   ステージ
+   ステージ（1536×1024基準）
 ================================ */
 #stage {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  width: 1536px;
+  height: 1024px;
+  transform-origin: center center;
+}
+
+/* 画面に収めるためのスケール */
+@media (min-aspect-ratio: 1536 / 1024) {
+  #stage {
+    transform: scale(calc(100vh / 1024));
+  }
+}
+
+@media (max-aspect-ratio: 1536 / 1024) {
+  #stage {
+    transform: scale(calc(100vw / 1536));
+  }
 }
 
 /* ===============================
-   背景レイヤー（1536×1024基準）
+   背景
 ================================ */
 #bg-wrap {
-  position: relative;
-  width: min(100vw, calc(100svh * 1536 / 1024));
-  height: min(100svh, calc(100vw * 1024 / 1536));
-  aspect-ratio: 1536 / 1024;
-  margin: auto;
-  z-index: 0;
-  pointer-events: none; /* ← 重要 */
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
 #bg-image {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -77,7 +79,6 @@ body {
     rgba(0,0,0,0.35) 100%
   );
   pointer-events: none;
-  z-index: 1;
 }
 
 /* 光 */
@@ -90,7 +91,6 @@ body {
     transparent 70%
   );
   pointer-events: none;
-  z-index: 2;
 }
 
 /* ===============================
@@ -98,23 +98,23 @@ body {
 ================================ */
 .hotspot {
   position: absolute;
-  z-index: 30;
+  z-index: 20;
   cursor: pointer;
   pointer-events: auto;
 }
 
 .label-paper {
   position: absolute;
-  top: -1.8em;
+  top: -32px;
   left: 0;
-  font-size: 18px;
+  font-size: 20px;
   background: #fffdf5;
   padding: 4px 12px;
   border-radius: 10px;
   white-space: nowrap;
 }
 
-/* 座標 */
+/* 座標（1536×1024基準） */
 .bookshelf { left: 1.3%; top: 25.4%; width: 19.5%; height: 41%; }
 .painting  { right: 11.7%; top: 27.3%; width: 13%; height: 21.5%; }
 .cup       { right: 7.8%; bottom: 9.8%; width: 7.8%; height: 15.6%; }
@@ -123,42 +123,22 @@ body {
 .master    { right: 19.5%; top: 41%; width: 13%; height: 25.4%; }
 
 /* ===============================
-   マスター吹き出し
-================================ */
-#master-bubble {
-  position: fixed;
-  left: 60%;
-  top: 25%;
-  transform: translateX(-50%);
-  font-size: 32px;
-  background: rgba(255,255,255,0.9);
-  padding: 14px 24px;
-  border-radius: 14px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 80;
-  max-width: min(80vw, 600px);
-}
-
-#master-bubble.show {
-  opacity: 1;
-}
-
-/* ===============================
-   UIレイヤー（最前面固定）
+   UI（背景と同スケール）
 ================================ */
 header,
 .today-section,
 .game-cards {
-  position: relative;
-  z-index: 60;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
   pointer-events: auto;
 }
 
-/* ===============================
-   ヘッダー
-================================ */
+/* ヘッダー */
 header {
+  top: 120px;
+  width: 1100px;
   padding: 20px 30px;
   background: rgba(68,44,0,0.75);
   color: #fff;
@@ -168,64 +148,46 @@ h1 {
   font-family: "Great Vibes", cursive;
   font-size: 72px;
   margin: 0;
-  line-height: 1.1;
+}
+
+.top-description {
+  font-size: 24px;
+  margin-top: 16px;
 }
 
 /* ===============================
    今日のおすすめ
 ================================ */
 .today-section {
+  top: 380px;
+  width: 1100px;
   text-align: center;
 }
 
 .today-section h2 {
-  display: inline-block;
-  margin: 0 auto;
-  padding: 10px 28px;
   font-family: "Schoolbell", cursive;
-  font-size: 38px;
+  font-size: 40px;
+  padding: 10px 28px;
   background: rgba(30,45,30,0.85);
   color: #f7f5ef;
   border-radius: 12px;
 }
 
-.top-description {
-  font-size: 22px;
-  line-height: 1.5;
-  margin: 25px auto 0;
-  max-width: 900px;
-  color: #f5f2e8;
-}
-
-/* ===============================
-   カード配置（完全安定）
-================================ */
-.game-cards {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 32px;
-  flex-wrap: wrap;
-
-  max-width: 1100px;
-  margin: 24px auto 0;
-}
-
 /* ===============================
    カード
 ================================ */
-.game-card {
-  position: relative;
-
-  flex: 0 0 320px;
-  max-width: 320px;
-
-  aspect-ratio: 10 / 11;
-  padding: 16px;
+.game-cards {
+  top: 520px;
+  width: 1100px;
 
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+}
+
+.game-card {
+  width: 320px;
+  aspect-ratio: 10 / 11;
+  padding: 16px;
 
   background:
     linear-gradient(
@@ -237,15 +199,18 @@ h1 {
       #fdf5e6
     ),
     url("images/parchment_texture.jpg") center / cover no-repeat;
-  background-blend-mode: multiply;
 
   border-radius: 14px;
   box-shadow: 4px 6px 15px rgba(0,0,0,0.35);
-
   font-size: 20px;
-  color: #000;
+}
 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.game-card a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
 }
 
 .game-card img {
@@ -253,111 +218,4 @@ h1 {
   max-height: 55%;
   object-fit: contain;
   margin-bottom: 12px;
-}
-
-.game-card a {
-  position: relative;
-  z-index: 1;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  width: 100%;
-  height: 100%;
-
-  text-decoration: none;
-  color: inherit;
-}
-
-.game-card:nth-child(odd)  { transform: rotate(-2deg); }
-.game-card:nth-child(even) { transform: rotate(2deg); }
-
-.game-card:hover {
-  transform: translateY(-4px) rotate(0deg) scale(1.03);
-}
-
-/* ===============================
-   モーダル
-================================ */
-.diary-modal,
-#chair-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 120;
-}
-
-.diary-content {
-  width: min(900px, 90vw);
-  height: min(700px, 90vh);
-  background: #fff8e6;
-  border-radius: 18px;
-  padding: 40px;
-  font-size: 28px;
-}
-
-/* ===============================
-   PC配置（背景に重ねる）
-================================ */
-@media (min-width: 769px) {
-
-  header,
-  .today-section,
-  .game-cards {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1100px;
-    max-width: 92vw;
-  }
-
-  header {
-    top: 12%;
-  }
-
-  .today-section {
-    top: 38%;
-  }
-
-  .game-cards {
-    top: 52%;
-  }
-}
-
-/* ===============================
-   スマホ
-================================ */
-@media (max-width: 768px) {
-
-  #viewport-frame {
-    position: relative;
-    height: auto;
-  }
-
-  #stage {
-    position: relative;
-  }
-
-  #bg-wrap {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1536 / 1024;
-  }
-
-  header,
-  .today-section,
-  .game-cards {
-    position: relative;
-    transform: none;
-    width: 100%;
-  }
-
-  .game-card {
-    flex: 0 0 90%;
-    max-width: 360px;
-  }
 }
