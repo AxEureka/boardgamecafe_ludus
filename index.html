@@ -32,10 +32,10 @@
 
 <div id="stage">
 
-  <!-- 背景＋ホットスポット -->
   <div id="bg-wrap">
     <img src="images/cafe.jpg" id="bg-image" alt="カフェ背景">
 
+    <!-- ホットスポット -->
     <div id="hs-bookshelf" class="clickable hotspot bookshelf">
       <div class="label-paper">検索する</div>
     </div>
@@ -53,24 +53,23 @@
 
     <div id="master-bubble" class="speech-bubble" aria-hidden="true"></div>
     <div class="main-light"></div>
-  </div>
 
-  <!-- UI -->
-  <header>
-    <h1>ボドゲ喫茶 Ludus へようこそ</h1>
-    <p class="top-description">
-      「ボードゲーム診断」や「ボードゲーム検索」から、あなたが好きそうなボードゲームを提案します。
-    </p>
-  </header>
+    <!-- 👇 ここにUIを移動する -->
+    <header>
+      <h1>ボドゲ喫茶 Ludus へようこそ</h1>
+      <p class="top-description">
+        「ボードゲーム診断」や「ボードゲーム検索」から、あなたが好きそうなボードゲームを提案します。
+      </p>
+    </header>
 
-  <main>
     <section class="today-section">
       <h2>本日のおすすめ</h2>
       <div id="today-games" class="game-cards"></div>
     </section>
-  </main>
 
+  </div>
 </div>
+
 
 <!-- モーダル -->
 <div id="diary-modal" class="diary-modal">
@@ -236,3 +235,4 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 </body>
 </html>
+
