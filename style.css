@@ -39,18 +39,20 @@ body {
   transform-origin: center center;
 }
 
-/* 画面に必ず収める */
+/* 横長画面（モニター・ノート） */
 @media (min-aspect-ratio: 1536 / 1024) {
-  #stage-scale {
+  #stage {
     transform: scale(calc(100vh / 1024));
   }
 }
 
+/* 縦長・狭い画面 */
 @media (max-aspect-ratio: 1536 / 1024) {
-  #stage-scale {
+  #stage {
     transform: scale(calc(100vw / 1536));
   }
 }
+
 
 /* ===============================
    世界ステージ（基準座標）
@@ -264,5 +266,6 @@ h1 {
     overflow-y: auto;
   }
 }
+
 
 
