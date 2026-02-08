@@ -191,8 +191,9 @@ h1 {
   width: clamp(260px, 18vw, 300px);
   aspect-ratio: 10 / 11;
   padding: 14px;
+  outline: 3px solid rgba(255, 255, 255, 0.9);
+  outline-offset: -3px;
 }
-
 
   background:
     linear-gradient(
@@ -247,5 +248,6 @@ h1 {
     overflow-y: auto;
   }
 }
+
 
 
