@@ -28,30 +28,37 @@ body {
   justify-content: center;
   align-items: center;
   background: #000;
-  overflow: hidden;
 }
 
 /* ===============================
-   世界ステージ（1536×1024固定）
+   スケール用ラッパー
 ================================ */
-#stage {
-  position: relative;
+#stage-scale {
   width: 1536px;
   height: 1024px;
   transform-origin: center center;
 }
 
-/* 画面に収めるスケール */
+/* 画面に必ず収める */
 @media (min-aspect-ratio: 1536 / 1024) {
-  #stage {
+  #stage-scale {
     transform: scale(calc(100vh / 1024));
   }
 }
 
 @media (max-aspect-ratio: 1536 / 1024) {
-  #stage {
+  #stage-scale {
     transform: scale(calc(100vw / 1536));
   }
+}
+
+/* ===============================
+   世界ステージ（基準座標）
+================================ */
+#stage {
+  position: relative;
+  width: 1536px;
+  height: 1024px;
 }
 
 /* ===============================
@@ -60,8 +67,8 @@ body {
 #bg-wrap {
   position: absolute;
   inset: 0;
-  pointer-events: none;
   z-index: 0;
+  pointer-events: none;
 }
 
 #bg-image {
@@ -82,27 +89,13 @@ body {
   );
 }
 
-/* 光 */
-.main-light {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 50% 20%,
-    rgba(255,255,200,0.25),
-    transparent 70%
-  );
-}
-
 /* ===============================
    ホットスポット
 ================================ */
 .hotspot {
   position: absolute;
-  z-index: 50;
+  z-index: 30;
   cursor: pointer;
-  pointer-events: auto;
-}
-
 }
 
 .label-paper {
@@ -116,7 +109,7 @@ body {
   white-space: nowrap;
 }
 
-/* 座標 */
+/* 座標（1536基準） */
 .bookshelf { left: 1.3%; top: 25.4%; width: 19.5%; height: 41%; }
 .painting  { right: 11.7%; top: 27.3%; width: 13%; height: 21.5%; }
 .cup       { right: 7.8%; bottom: 9.8%; width: 7.8%; height: 15.6%; }
@@ -138,10 +131,9 @@ header,
 
 /* ヘッダー */
 header {
-  top: 10%;
-  width: 65%;
-  max-width: 900px;     /* ← モニターで巨大化しない */
-  min-width: 520px;     /* ← ノートで小さくなりすぎない */
+  top: 12%;
+  width: 72%;
+  max-width: 1100px;
   padding: 20px 32px;
   background: rgba(68,44,0,0.75);
   color: #fff;
@@ -149,7 +141,7 @@ header {
 
 h1 {
   font-family: "Great Vibes", cursive;
-  font-size: clamp(42px, 4.2vw, 64px);
+  font-size: clamp(48px, 5vw, 72px);
   margin: 0;
 }
 
@@ -157,10 +149,8 @@ h1 {
    今日のおすすめ
 ================================ */
 .today-section {
-  top: 36%;
-  width: 65%;
-  max-width: 900px;
-  min-width: 520px;
+  top: 38%;
+  width: 1100px;
   text-align: center;
 }
 
@@ -178,13 +168,11 @@ h1 {
    カード
 ================================ */
 .game-cards {
-  top: 50%;
-  width: 65%;
-  max-width: 900px;
-  min-width: 520px;
+  top: 52%;
+  width: 1100px;
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 32px;
 }
 
 .game-card {
@@ -208,7 +196,7 @@ h1 {
   box-shadow: 4px 6px 15px rgba(0,0,0,0.35);
 }
 
-/* ← これが「紙の縁」 */
+/* 紙の内枠 */
 .game-card::before {
   content: "";
   position: absolute;
@@ -217,7 +205,6 @@ h1 {
   border: 2px solid rgba(255,255,255,0.75);
   pointer-events: none;
 }
-
 
 .game-card a {
   display: flex;
@@ -233,13 +220,18 @@ h1 {
   object-fit: contain;
 }
 
+/* ===============================
+   スマホ
+================================ */
 @media (max-width: 768px) {
   #viewport-frame {
-    align-items: flex-start;
+    position: static;
+    display: block;
   }
 
-  #stage {
+  #stage-scale {
     transform: scale(calc(100vw / 1536));
+    transform-origin: top center;
   }
 
   header,
@@ -248,8 +240,6 @@ h1 {
     position: static;
     transform: none;
     width: 100%;
-    max-width: none;
-    min-width: 0;
     margin: 16px auto;
   }
 
@@ -257,7 +247,3 @@ h1 {
     overflow-y: auto;
   }
 }
-
-
-
-
