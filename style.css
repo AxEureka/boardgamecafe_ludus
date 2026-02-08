@@ -135,17 +135,18 @@ header,
 
 /* ヘッダー */
 header {
-  top: 12%;
-  width: 72%;
-  max-width: 1100px;
-  padding: clamp(16px, 2vh, 28px) clamp(20px, 3vw, 36px);
+  top: 10%;
+  width: 65%;
+  max-width: 900px;     /* ← モニターで巨大化しない */
+  min-width: 520px;     /* ← ノートで小さくなりすぎない */
+  padding: 20px 32px;
   background: rgba(68,44,0,0.75);
   color: #fff;
 }
 
 h1 {
   font-family: "Great Vibes", cursive;
-  font-size: clamp(48px, 5vw, 72px);
+  font-size: clamp(42px, 4.2vw, 64px);
   margin: 0;
 }
 
@@ -153,8 +154,10 @@ h1 {
    今日のおすすめ
 ================================ */
 .today-section {
-  top: 38%;
-  width: 1100px;
+  top: 36%;
+  width: 65%;
+  max-width: 900px;
+  min-width: 520px;
   text-align: center;
 }
 
@@ -172,17 +175,21 @@ h1 {
    カード
 ================================ */
 .game-cards {
-  top: 52%;
-  width: 1100px;
+  top: 50%;
+  width: 65%;
+  max-width: 900px;
+  min-width: 520px;
   display: flex;
   justify-content: center;
-  gap: 32px;
+  gap: 24px;
 }
 
 .game-card {
-  width: 320px;
+  width: clamp(260px, 18vw, 300px);
   aspect-ratio: 10 / 11;
-  padding: 16px;
+  padding: 14px;
+}
+
 
   background:
     linear-gradient(
@@ -212,3 +219,4 @@ h1 {
   max-height: 55%;
   object-fit: contain;
 }
+
