@@ -32,12 +32,14 @@ button,
    ビューポート額縁
 ================================ */
 #viewport-frame {
-  min-height: 100vh;
+  position: fixed;
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #000;
 }
+
 
 
 /* ===============================
@@ -239,4 +241,5 @@ h1 {
     margin: 16px auto;
   }
 }
+
 
