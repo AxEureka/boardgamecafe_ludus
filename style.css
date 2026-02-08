@@ -98,8 +98,11 @@ body {
 ================================ */
 .hotspot {
   position: absolute;
-  z-index: 20;
+  z-index: 50;
   cursor: pointer;
+  pointer-events: auto;
+}
+
 }
 
 .label-paper {
@@ -219,4 +222,30 @@ h1 {
   max-height: 55%;
   object-fit: contain;
 }
+
+@media (max-width: 768px) {
+  #viewport-frame {
+    align-items: flex-start;
+  }
+
+  #stage {
+    transform: scale(calc(100vw / 1536));
+  }
+
+  header,
+  .today-section,
+  .game-cards {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 16px auto;
+  }
+
+  body {
+    overflow-y: auto;
+  }
+}
+
 
