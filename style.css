@@ -1,5 +1,5 @@
 /* ===============================
-   全体リセット
+   リセット
 ================================ */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -19,17 +19,7 @@ body {
 }
 
 /* ===============================
-   余計な×ボタン完全抹殺（保険）
-================================ */
-button,
-.close,
-.modal,
-[aria-label="close"] {
-  display: none !important;
-}
-
-/* ===============================
-   ビューポート額縁
+   ビューポート額縁（中央寄せ）
 ================================ */
 #viewport-frame {
   position: fixed;
@@ -40,15 +30,10 @@ button,
   background: #000;
 }
 
-
-
 /* ===============================
-   世界ステージ（唯一のスケール）
+   スケール専用ラッパー
 ================================ */
-#stage {
-  position: relative;
-  width: 1536px;
-  height: 1024px;
+#stage-scale {
   transform-origin: center center;
   transform: scale(
     min(
@@ -56,6 +41,15 @@ button,
       calc(100vh / 1024)
     )
   );
+}
+
+/* ===============================
+   世界ステージ（1536×1024）
+================================ */
+#stage {
+  position: relative;
+  width: 1536px;
+  height: 1024px;
 }
 
 /* ===============================
@@ -74,7 +68,6 @@ button,
   object-fit: contain;
 }
 
-/* 減光 */
 #bg-wrap::after {
   content: "";
   position: absolute;
@@ -93,7 +86,6 @@ button,
   position: absolute;
   z-index: 30;
   cursor: pointer;
-  pointer-events: auto;
 }
 
 /* ラベル */
@@ -104,17 +96,13 @@ button,
   font-size: 18px;
   padding: 6px 14px;
   background: #fffdf5;
-  color: #222;
   border-radius: 10px;
-  border: 2px solid rgba(120, 90, 40, 0.6);
-  box-shadow:
-    0 2px 6px rgba(0,0,0,0.35),
-    inset 0 0 0 1px rgba(255,255,255,0.6);
+  border: 2px solid rgba(120,90,40,0.6);
   white-space: nowrap;
   pointer-events: none;
 }
 
-/* 座標（1536基準） */
+/* 座標 */
 .bookshelf { left: 1.3%; top: 25.4%; width: 19.5%; height: 41%; }
 .painting  { right: 11.7%; top: 27.3%; width: 13%; height: 21.5%; }
 .cup       { right: 7.8%; bottom: 9.8%; width: 7.8%; height: 15.6%; }
@@ -123,7 +111,7 @@ button,
 .master    { right: 19.5%; top: 41%; width: 13%; height: 25.4%; }
 
 /* ===============================
-   UI（世界に固定）
+   UI
 ================================ */
 header,
 .today-section,
@@ -134,7 +122,6 @@ header,
   z-index: 40;
 }
 
-/* ヘッダー */
 header {
   top: 12%;
   width: 72%;
@@ -144,74 +131,18 @@ header {
   color: #fff;
 }
 
-h1 {
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(48px, 5vw, 72px);
-  margin: 0;
-}
-
-/* ===============================
-   今日のおすすめ
-================================ */
 .today-section {
   top: 38%;
   width: 1100px;
   text-align: center;
 }
 
-.today-section h2 {
-  display: inline-block;
-  font-family: "Schoolbell", cursive;
-  font-size: 40px;
-  padding: 10px 28px;
-  background: rgba(30,45,30,0.85);
-  color: #f7f5ef;
-  border-radius: 12px;
-}
-
-/* ===============================
-   カード
-================================ */
 .game-cards {
   top: 52%;
   width: 1100px;
   display: flex;
   justify-content: center;
   gap: 32px;
-}
-
-.game-card {
-  position: relative;
-  width: 320px;
-  aspect-ratio: 10 / 11;
-  padding: 16px;
-  background:
-    linear-gradient(
-      135deg,
-      #fdf5e6,
-      #f5e6c4 25%,
-      #fdf5e6 50%,
-      #f5e6c4 75%,
-      #fdf5e6
-    );
-  border-radius: 14px;
-  box-shadow: 4px 6px 15px rgba(0,0,0,0.35);
-}
-
-/* 内枠 */
-.game-card::before {
-  content: "";
-  position: absolute;
-  inset: 6px;
-  border-radius: 10px;
-  border: 2px solid rgba(255,255,255,0.75);
-  pointer-events: none;
-}
-
-.game-card img {
-  width: 100%;
-  max-height: 55%;
-  object-fit: contain;
 }
 
 /* ===============================
@@ -227,7 +158,7 @@ h1 {
     display: block;
   }
 
-  #stage {
+  #stage-scale {
     transform: scale(calc(100vw / 1536));
     transform-origin: top center;
   }
@@ -241,5 +172,3 @@ h1 {
     margin: 16px auto;
   }
 }
-
-
