@@ -412,7 +412,33 @@
     "links": {
   "amazon": "https://amzn.to/4aj6val",
   "rakuten": "https://item.rakuten.co.jp/baton-store/sbga-08958/",
-  "surugaya": ""
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607667078"
+  }
+  },
+   {
+    "title": "ウナギかヘビか",
+    "images": [
+    "images/games/ウナギかヘビか1.png",
+    "images/games/ウナギかヘビか2.png",
+    "images/games/ウナギかヘビか3.png"
+  ],
+    "desc": "勇気でウナギを掴み取れ！",
+    "vector": [2, 4, 1, 3, 1, 4],
+    "rules": [
+      "手を突っ込んでウナギを大量ゲット",
+      "大量にウナギを持ち帰れば称えられること間違いなし",
+      "穴にいるのは、ウナギだけじゃないかも…"
+    ],
+    "players": [2, 8],
+    "time": [15, 20],
+    "mood": ["わいわい", "ドキドキ"],
+    "genre": ["小道具","心理戦", "アクション", "パーティー", "運ゲー"],
+    "theme": ["推理", "動物"],
+    "brand": ["オインクゲームズ"],
+    "links": {
+  "amazon": "https://amzn.to/4sq4zEO",
+  "rakuten": "https://product.rakuten.co.jp/product/-/5794f8a0ab6d005c57a6c0cf8d3a0eb7/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607662308"
   }
   },
   {
@@ -576,7 +602,8 @@
     "images": [
     "images/games/カルカソンヌ1.png",
     "images/games/カルカソンヌ2.png",
-    "images/games/カルカソンヌ3.png"
+    "images/games/カルカソンヌ3.png",
+    "images/games/カルカソンヌ4.png"
   ],
     "desc": "道をつくり、街を築け",
     "vector": [5, 2, 1, 5, 2, 3],
@@ -702,6 +729,32 @@
   }
   },
   {
+    "title": "刑法ポーカー",
+    "images": [
+    "images/games/刑法ポーカー1.png",
+    "images/games/刑法ポーカー2.png",
+    "images/games/刑法ポーカー3.png"
+  ],
+    "desc": "犯罪の重さが点数の高さ",
+    "vector": [4, 4, 1, 5, 1, 3],
+    "rules": [
+      "犯罪の重さが点数になるポーカーです。",
+      "5枚の手札で最も重い犯罪を作りましょう。",
+      "法律にも詳しくなれちゃう"
+    ],
+    "players": [2, 5],
+    "time": [5, 10],
+    "mood": ["バチバチ", "集中"],
+    "genre": ["カード", "心理戦", "運ゲー"],
+    "theme": ["日常"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "https://amzn.to/4bKBugm",
+  "rakuten": "https://item.rakuten.co.jp/yellowsubmarine/4582547160042/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607654368%3Ftenpo_cd%3D400464"
+  }
+  },
+  {
     "title": "恋文",
      "images": [
     "images/games/恋文1.png",
@@ -727,6 +780,33 @@
   "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607535919"
   }
   },
+  {
+    "title": "コードネーム",
+     "images": [
+    "images/games/コードネーム1.png",
+    "images/games/コードネーム2.png",
+    "images/games/コードネーム3.png"
+  ],
+    "desc": "指令を基に仲間を見つけろ！",
+    "vector": [4, 3, 5, 4, 4, 3],
+    "rules": [
+      "スパイマスターからの指令は仲間を見つけること",
+      "ヒントを頼りに、エージェントのコードネームを推理しましょう",
+      "暗殺者には気を付けて"
+    ],
+    "players": [2, 8],
+    "time": [15, 20],
+    "mood": ["わいわい", "バチバチ"],
+    "genre": ["カード", "役職", "チーム戦","運ゲー","パーティー"],
+    "theme": ["推理", "非日常", "文学", "数字"],
+    "brand": ["ホビージャパン"],
+    "links": {
+  "amazon": "https://amzn.to/3PtfIWW",
+  "rakuten": "https://product.rakuten.co.jp/product/-/735b7737302518eb7db66e4cb304473d/",
+  "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607518194"
+  }
+  },
+ 
   {
     "title": "ごきぶりポーカー",
      "images": [
