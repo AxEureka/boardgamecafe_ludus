@@ -337,6 +337,58 @@
   "surugaya": ""
   }
   },
+  {
+    "title": "愛してるよゲーム",
+    "images": [
+    "images/games/愛してるよゲーム1.png",
+    "images/games/愛してるよゲーム2.png",
+    "images/games/愛してるよゲーム3.png"
+  ],
+    "desc": "ねぇねぇ、ずっと一緒だよ？",
+    "vector": [2, 4, 1, 5, 1, 4],
+    "rules": [
+      "2人専用の恋愛シミュレーションゲーム",
+      "彼女の気持ちを読みとって、カードを選びましょう。",
+      "ねぇ、なんで合わせてくれないの…？"
+    ],
+    "players": [2, 2],
+    "time": [15, 20],
+    "mood": ["バチバチ", "ドキドキ"],
+    "genre": ["カード", "会話", "役職", "心理戦"],
+    "theme": ["恋愛", "日常"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
+  "surugaya": ""
+  }
+  },
+  {
+    "title": "跫",
+    "images": [
+    "images/games/跫1.png",
+    "images/games/跫2.png",
+    "images/games/跫3.png"
+  ],
+    "desc": "怪異の森から逃げ延びろ！",
+    "vector": [4, 5, 1, 3, 1, 3],
+    "rules": [
+      "仲間たちと迷い込んだのは怪異の潜む森の中",
+      "場の数字と被らなければ、逃げることができます",
+      "要は、仲間よりも遠くへ逃げればいいんです…"
+    ],
+    "players": [3, 4],
+    "time": [5, 10],
+    "mood": ["バチバチ", "没入"],
+    "genre": ["ボード", "小道具","心理戦","運ゲー"],
+    "theme": ["ホラー", "日常","バトル"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
+  "surugaya": ""
+  }
+  },
    {
     "title": "アンコンシャス・マインド",
     "images": [
@@ -674,6 +726,32 @@
   "amazon": "",
   "rakuten": "https://product.rakuten.co.jp/product/-/b6d5b57792def897112bdd5de16635af/",
   "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607504921"
+  }
+  },
+  {
+    "title": "キャトル",
+    "images": [
+    "images/games/キャトル1.png",
+    "images/games/キャトル2.png",
+    "images/games/キャトル3.png"
+  ],
+    "desc": "オーブを集めて<br>生き残れ！",
+    "vector": [2, 1, 1, 3, 1, 5],
+    "rules": [
+      "UFO墜落現場からオーブをゲットしましょう。",
+      "動物たちの協力も得ながら森で生き残れ！",
+      "UFOにキャトられないよう気を付けて…"
+    ],
+    "players": [2, 5],
+    "time": [10, 20],
+    "mood": ["わいわい", "ドキドキ"],
+    "genre": ["カード", "運ゲー"],
+    "theme": ["非日常","宇宙", "動物"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
+  "surugaya": ""
   }
   },
   {
@@ -1355,6 +1433,32 @@
   "amazon": "https://amzn.to/3L6Ej1L",
   "rakuten": "https://product.rakuten.co.jp/product/-/b786931c729fdfcb704ff7ddb9823e5f/",
   "surugaya": "https://affiliate.suruga-ya.jp/modules/af/af_jump.php?user_id=5210&goods_url=https%3A%2F%2Fwww.suruga-ya.jp%2Fproduct%2Fdetail%2F607506210"
+  }
+  },
+  {
+    "title": "たった15マスのすごろく。邪",
+     "images": [
+    "images/games/たった15マスのすごろく。邪1.png",
+    "images/games/たった15マスのすごろく。邪2.png",
+    "images/games/たった15マスのすごろく。邪3.png"
+  ],
+    "desc": "15マスなら余裕っしょ",
+    "vector": [5, 2, 2, 5, 1, 4],
+    "rules": [
+      "15マスであがれちゃうすごろくです。",
+      "あと一歩が、なぜかあがれない……",
+      "デッキ効果を駆使して15マスを制覇しよう！"
+    ],
+    "players": [2, 4],
+    "time": [15, 30],
+    "mood": ["バチバチ", "集中"],
+    "genre": ["ボード","カード","小道具", "運ゲー"],
+    "theme": ["バトル", "ファンタジー","日常","非日常","数字"],
+    "brand": ["その他"],
+    "links": {
+  "amazon": "",
+  "rakuten": "",
+  "surugaya": ""
   }
   },
   {
