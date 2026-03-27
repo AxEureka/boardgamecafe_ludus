@@ -11,7 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Schoolbell&display=swap" rel="stylesheet">
 
 <style>
-/* 閉じるボタン制御（既存仕様維持） */
 .diary-modal .close-btn {
   position: absolute;
   top: 10px;
@@ -23,7 +22,6 @@
   color: #333;
   z-index: 10;
 }
-
 .game-card .game-title {
   display: none;
 }
@@ -32,11 +30,13 @@
 
 <body class="top-page">
 
-<div class="page-container">
+<div id="viewport-frame">
+<div id="stage-scale">
+<div id="stage">
 
-  <!-- 背景エリア -->
+  <!-- 背景 -->
   <div id="bg-wrap">
-    <img src="images/cafe.jpg" id="bg-image" alt="カフェ背景">
+    <img src="images/cafe.jpg" id="bg-image">
 
     <div id="hs-bookshelf" class="clickable hotspot bookshelf">
       <div class="label-paper">検索する</div>
@@ -57,7 +57,7 @@
     <div id="hs-baum" class="clickable hotspot baum"></div>
     <div id="hs-master" class="clickable hotspot master"></div>
 
-    <div id="master-bubble" class="speech-bubble" aria-hidden="true"></div>
+    <div id="master-bubble" class="speech-bubble"></div>
     <div class="main-light"></div>
   </div>
 
@@ -95,8 +95,141 @@
   </div>
 </div>
 
-<!-- JSはそのまま（変更なし） -->
-<script src="index.js"></script>
+<!-- マスター台詞 -->
+<ul id="master-lines" style="display:none;">
+<li>いらっしゃいませ。<br>ゆっくりしていってくださいね。</li>
+<li>棚からもゲームをお探しになれますよ。</li>
+<li>いつか、オリジナルのゲームを<br>開発できたらいいですね。</li>
+<li>こらこら、熱いから離れていてね。</li>
+<li>お砂糖を取ってくれるかい？<br>ありがとう。</li>
+<li>光が飛んでいた？<br>ふふ、遊びたいのかもしれませんね。</li>
+<li>なにか召し上がりますか？<br>メニューは手前のテーブルにあります。</li>
+<li>こちら、一戦やってみますか？<br>お相手しますよ。</li>
+<li>今日のブレンドは、自信作なんです。</li>
+<li>花の絵に訊くと、<br>おすすめを教えてくれますよ。</li>
+</ul>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+const $ = id => document.getElementById(id);
+
+/* =========================
+  今日のおすすめカード
+========================= */
+async function showTodayGames() {
+  const res = await fetch('data/games.json');
+  const games = await res.json();
+
+  const shuffled = games.sort(() => Math.random() - 0.5).slice(0, 3);
+  const container = $('today-games');
+
+  container.innerHTML = '';
+
+  shuffled.forEach(game => {
+    const img = Array.isArray(game.images) ? game.images[0] : game.image;
+
+    const card = document.createElement('div');
+    card.className = 'game-card';
+
+    card.innerHTML = `
+      <a href="detail.html?title=${encodeURIComponent(game.title)}">
+        <img src="${img}">
+        <p class="game-desc">${game.desc}</p>
+      </a>
+    `;
+
+    container.appendChild(card);
+  });
+}
+showTodayGames();
+
+/* =========================
+  妖精
+========================= */
+const fairyColors = ['red','blue','purple','yellow','green','orange','white'];
+
+function spawnFairy() {
+  const fairy = document.createElement('div');
+  fairy.className = 'fairy';
+
+  const size = 10 + Math.random() * 10;
+  fairy.style.width = fairy.style.height = size + 'px';
+
+  const color = fairyColors[Math.floor(Math.random()*fairyColors.length)];
+  fairy.style.background = color;
+  fairy.style.boxShadow = `0 0 10px 5px ${color}`;
+
+  fairy.style.left = Math.random()*window.innerWidth + 'px';
+  fairy.style.top = Math.random()*window.innerHeight + 'px';
+
+  document.body.appendChild(fairy);
+
+  setTimeout(()=>{
+    fairy.style.transform = `translate(${Math.random()*200-100}px,${Math.random()*200-100}px)`;
+    fairy.style.opacity = 0;
+  },50);
+
+  setTimeout(()=>fairy.remove(),5000);
+}
+setInterval(spawnFairy, 30000);
+
+/* =========================
+  ホットスポット
+========================= */
+$('hs-bookshelf').onclick = () => location.href='search.html';
+$('hs-painting').onclick = () => location.href='door.html';
+$('hs-cup').onclick = () => location.href='order.html';
+
+$('hs-chair').onclick = async e => {
+  e.stopPropagation();
+  const res = await fetch('data/cafe.json');
+  const json = await res.json();
+  $('chair-text').innerHTML = json.text;
+  $('chair-modal').style.display='flex';
+};
+
+/* =========================
+  バウム（日記）
+========================= */
+const diaryTexts = [
+"5月26日<br>重ためのボードゲームは...",
+"5月29日<br>静かな雨の日...",
+"10月10日<br>ゲーム棚を整理していたら...",
+"11月15日<br>あの子がこっそり...",
+"1月14日<br>閉店後にみんなで...",
+"2月2日<br>特に冷え込む日...",
+"2月28日<br>信じられないことが..."
+];
+
+$('hs-baum').onclick = e=>{
+  e.stopPropagation();
+  const text = diaryTexts[Math.floor(Math.random()*diaryTexts.length)];
+  $('diary-text').innerHTML = text;
+  $('diary-modal').style.display='flex';
+};
+
+/* =========================
+  マスター吹き出し
+========================= */
+const bubble = $('master-bubble');
+const lines = [...$('master-lines').children].map(li=>li.innerHTML);
+
+$('hs-master').onclick = e=>{
+  e.stopPropagation();
+  bubble.innerHTML = lines[Math.floor(Math.random()*lines.length)];
+  bubble.classList.add('show');
+  setTimeout(()=>bubble.classList.remove('show'),3000);
+};
+
+/* =========================
+  モーダル閉じる
+========================= */
+$('close-diary').onclick = ()=>$('diary-modal').style.display='none';
+$('close-chair').onclick = ()=>$('chair-modal').style.display='none';
+
+});
+</script>
 
 </body>
 </html>
