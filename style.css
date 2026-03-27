@@ -55,7 +55,7 @@ body {
    背景
 =============================== */
 #bg-wrap {
-  position: absolute;
+  position: static;
   inset: 0;
   z-index: 0;
   /* 🔥 ここ直した */
@@ -63,9 +63,12 @@ body {
 }
 
 #bg-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* ← ここ変更 */
+  position: fixed;   /* ←追加 */
+  inset: 0;          /* ←追加 */
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;       /* ←背面へ */
 }
 
 #bg-wrap::after {
