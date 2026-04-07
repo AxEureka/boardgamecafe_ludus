@@ -177,7 +177,7 @@ h1 {
   width: clamp(500px, 40vw, 900px); /* ← 少し大きく */
   height: 100%;
   padding: clamp(12px, 1.2vw, 20px);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -196,7 +196,7 @@ h1 {
 /* ★ここ重要（文字） */
 .game-desc {
   padding: 1em;
-  font-size: clamp(16px, 1.3vw, 20px);/* ← 明確に大きく */
+  font-size: clamp(32px, 2.6vw, 40px);* ← 明確に大きく */
   line-height: 1.6;
 }
 
