@@ -16,12 +16,8 @@ body {
   background: #000;
   color: #333;
   overflow: hidden;
+  font-size: clamp(14px, 1.1vw, 20px);
 }
-
-/* ❌ 削除：モーダル殺してたやつ */
-/* button, .close, .modal, [aria-label="close"] {
-  display: none !important;
-} */
 
 /* ===============================
    ビューポート額縁
@@ -53,17 +49,16 @@ body {
   position: absolute;
   inset: 0;
   z-index: 0;
-  /* 🔥 ここ直した */
   pointer-events: auto;
 }
 
 #bg-image {
-  position: fixed;   /* ←追加 */
-  inset: 0;          /* ←追加 */
+  position: fixed;
+  inset: 0;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  z-index: -1;       /* ←背面へ */
+  z-index: -1;
 }
 
 #bg-wrap::after {
@@ -75,8 +70,8 @@ body {
     transparent 60%,
     rgba(0,0,0,0.35) 100%
   );
-  pointer-events: none; /* ← 必須 */
-  z-index: 1;           /* ← 下げる */
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* ===============================
@@ -93,18 +88,18 @@ body {
   position: absolute;
   top: -1.8em;
   left: 0;
-  font-size: 18px;
-  padding: 6px 14px;
+  font-size: clamp(12px, 1.17vw, 18px); /* ← ここ */ /* 18px */
+  padding: 0.39vw 0.91vw; /* 6px 14px */
   background: #fffdf5;
   color: #222;
-  border-radius: 10px;
-  border: 2px solid rgba(120, 90, 40, 0.6);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  border-radius: 0.65vw;
+  border: 0.13vw solid rgba(120, 90, 40, 0.6);
+  box-shadow: 0 0.13vw 0.39vw rgba(0,0,0,0.35);
   white-space: nowrap;
   pointer-events: none;
 }
 
-/* 座標 */
+/* 座標（そのままでOK） */
 .bookshelf { left: 1.3%; top: 25.4%; width: 19.5%; height: 41%; }
 .painting  { right: 11.7%; top: 27.3%; width: 13%; height: 21.5%; }
 .cup       { right: 7.8%; bottom: 9.8%; width: 7.8%; height: 15.6%; }
@@ -125,15 +120,15 @@ header, .today-section, .game-cards {
 header {
   top: 12%;
   width: 72%;
-  max-width: 1100px;
-  padding: 20px 32px;
+  max-width: 71.6vw; /* 1100px */
+  padding: 1.3vw 2.08vw; /* 20px 32px */
   background: rgba(68,44,0,0.75);
   color: #fff;
 }
 
 h1 {
   font-family: "Great Vibes", cursive;
-  font-size: clamp(48px, 5vw, 72px);
+  font-size: clamp(2.5rem, 5vw, 4.7rem);
   margin: 0;
 }
 
@@ -142,18 +137,18 @@ h1 {
 =============================== */
 .today-section {
   top: 38%;
-  width: 1100px;
+  width: 71.6vw; /* 1100px */
   text-align: center;
 }
 
 .today-section h2 {
   display: inline-block;
   font-family: "Schoolbell", cursive;
-  font-size: 40px;
-  padding: 10px 28px;
+  font-size: clamp(18px, 2.5vw, 40px);
+  padding: 0.65vw 1.82vw;
   background: rgba(30,45,30,0.85);
   color: #f7f5ef;
-  border-radius: 12px;
+  border-radius: 0.78vw;
 }
 
 /* ===============================
@@ -161,18 +156,19 @@ h1 {
 =============================== */
 .game-cards {
   top: 52%;
-  width: 1100px;
+  width: 71.6vw;
   display: flex;
   justify-content: center;
-  gap: 32px;
+  gap: clamp(16px, 2.08vw, 40px); /* 32px */
 }
 
 .game-card {
-  width: 320px;
-  padding: 16px;
+  width: 20.8vw; /* 320px */
+  padding: 1.04vw; /* 16px */
+  aspect-ratio: 3 / 4;
   background: #fdf5e6;
-  border-radius: 14px;
-  box-shadow: 4px 6px 15px rgba(0,0,0,0.35);
+  border-radius: 0.91vw;
+  box-shadow: 0.26vw 0.39vw 0.98vw rgba(0,0,0,0.35);
 }
 
 .game-card img {
@@ -187,10 +183,10 @@ h1 {
   right: 20%;
   top: 25%;
   background: #fff;
-  padding: 12px 16px;
-  border-radius: 10px;
+  padding: 0.78vw 1.04vw;
+  border-radius: 0.65vw;
   display: none;
-  z-index: 9999; /* ← これ */
+  z-index: 9999;
 }
 
 .speech-bubble.show {
@@ -207,14 +203,14 @@ h1 {
   justify-content: center;
   align-items: center;
   background: rgba(0,0,0,0.6);
-  z-index: 9999; /* ← 超重要 */
+  z-index: 9999;
 }
 
 .diary-content {
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 500px;
+  padding: 1.3vw;
+  border-radius: 0.65vw;
+  max-width: 32.5vw; /* 500px */
 }
 
 /* ===============================
@@ -240,8 +236,8 @@ h1 {
   }
 
   #stage {
-    transform: scale(calc(100vw / 1536));
-    transform-origin: top center;
+    width: 100vw;
+    height: auto;
   }
 
   header, .today-section, .game-cards {
