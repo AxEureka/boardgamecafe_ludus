@@ -167,14 +167,14 @@ h1 {
 =============================== */
 .game-cards {
   top: 65%;
-  width: 85vw;
+  width: 95vw;
   display: flex;
   justify-content: center;
   gap: clamp(24px, 3vw, 64px); /* ← 間広げた */
 }
 
 .game-card a {
-  width: clamp(320px, 28vw, 520px); /* ← 少し大きく */
+  width: clamp(500px, 40vw, 900px); /* ← 少し大きく */
   height: 100%;
   padding: clamp(12px, 1.2vw, 20px);
   aspect-ratio: 4 / 3;
