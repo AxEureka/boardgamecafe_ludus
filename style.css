@@ -128,7 +128,7 @@ header {
 
 h1 {
   font-family: "Great Vibes", cursive;
-  font-size: clamp(2.5rem, 5vw, 4.7rem);
+  font-size: clamp(36px, 4vw, 64px); 
   margin: 0;
 }
 
@@ -144,7 +144,7 @@ h1 {
 .today-section h2 {
   display: inline-block;
   font-family: "Schoolbell", cursive;
-  font-size: clamp(18px, 2.5vw, 40px);
+  font-size: clamp(20px, 2.2vw, 36px);
   padding: 0.65vw 1.82vw;
   background: rgba(30,45,30,0.85);
   color: #f7f5ef;
@@ -159,12 +159,12 @@ h1 {
   width: 71.6vw;
   display: flex;
   justify-content: center;
-  gap: clamp(16px, 2.08vw, 40px); /* 32px */
+  gap: clamp(12px, 2vw, 28px);/* 32px */
 }
 
 .game-card {
-  width: 20.8vw; /* 320px */
-  padding: 1.04vw; /* 16px */
+  width: clamp(220px, 20.8vw, 300px); /* 320px */
+  padding: clamp(10px, 1.04vw, 16px); /* 16px */
   aspect-ratio: 3 / 4;
   background: #fdf5e6;
   border-radius: 0.91vw;
@@ -173,6 +173,11 @@ h1 {
 
 .game-card img {
   width: 100%;
+}
+
+.game-desc {
+  font-size: clamp(14px, 1.1vw, 18px);  /* ← 追加 */
+  line-height: 1.5;
 }
 
 /* ===============================
