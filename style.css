@@ -163,7 +163,7 @@ h1 {
 }
 
 .game-card {
-  width: clamp(220px, 20.8vw, 300px); /* 320px */
+  width: clamp(260px, 22vw, 420px);  /* 320px */
   padding: clamp(10px, 1.04vw, 16px); /* 16px */
   aspect-ratio: 3 / 4;
   background: #fdf5e6;
