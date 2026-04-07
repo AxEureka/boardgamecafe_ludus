@@ -176,7 +176,7 @@ h1 {
 .game-card {
   width: clamp(260px, 22vw, 420px);  /* 320px */
   padding: clamp(10px, 1.04vw, 16px); /* 16px */
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 3;
   background: #fdf5e6;
   border-radius: 0.91vw;
   box-shadow: 0.26vw 0.39vw 0.98vw rgba(0,0,0,0.35);
