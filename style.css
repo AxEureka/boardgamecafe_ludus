@@ -173,10 +173,12 @@ h1 {
   gap: clamp(24px, 3vw, 64px); /* ← 間広げた */
 }
 
-.game-card {
+.game-card a {
   width: clamp(320px, 28vw, 520px); /* ← 少し大きく */
+  height: 100%;
   padding: clamp(12px, 1.2vw, 20px);
   aspect-ratio: 4 / 3;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   background: #fdf5e6;
@@ -187,15 +189,14 @@ h1 {
 /* ★ここ重要（画像） */
 .game-card img {
   width: 100%;
-  height: auto;              /* ← 高さ固定やめる */
-  object-fit: contain;       /* ← 切らない */
-  border-radius: 0.9vw;
+  height: 65%;          /* ← 比率で制御 */
+  object-fit: contain;  /* ← 切らない */
 }
 
 /* ★ここ重要（文字） */
 .game-desc {
   padding: 1em;
-  font-size: clamp(16px, 1.4vw, 22px); /* ← 明確に大きく */
+  font-size: clamp(16px, 1.3vw, 20px);/* ← 明確に大きく */
   line-height: 1.6;
 }
 
