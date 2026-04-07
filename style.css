@@ -174,16 +174,20 @@ h1 {
 }
 
 .game-card {
-  width: clamp(260px, 22vw, 420px);  /* 320px */
+  width: clamp(280px, 26vw, 460px);  /* 320px */
   padding: clamp(10px, 1.04vw, 16px); /* 16px */
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16/ 10;
+  display: flex;           /* ← 中身を並べる */
+  flex-direction: column;
   background: #fdf5e6;
   border-radius: 0.91vw;
   box-shadow: 0.26vw 0.39vw 0.98vw rgba(0,0,0,0.35);
 }
 
-.game-card img {
-  width: 100%;
+.game-desc {
+  padding: 0.8em;
+  font-size: 1.1em;       /* ← カード基準で大きく */
+  flex: 1;                /* ← 残りを使う */
 }
 
 .game-desc {
