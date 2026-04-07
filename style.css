@@ -40,22 +40,17 @@ body {
 =============================== */
 #stage {
   position: relative;
-  width: 1536px;
-  height: 1024px;
-  transform-origin: center center;
-  transform: scale(
-    min(
-      calc(100vw / 1536),
-      calc(100vh / 1024)
-    )
-  );
+  aspect-ratio: 1536 / 1024;
+  width: 100vw;
+  height: auto;
+  max-height: 100vh;
 }
 
 /* ===============================
    背景
 =============================== */
 #bg-wrap {
-  position: static;
+  position: absolute;
   inset: 0;
   z-index: 0;
   /* 🔥 ここ直した */
